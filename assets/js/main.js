@@ -9,7 +9,7 @@ botones.forEach(boton => {
 
         if(confirm){
             // solicitud AJAX
-            httpRequest("http://192.168.1.37/VolBa/consulta/eliminarPersonal/" + matricula, function(){
+            httpRequest("http://localhost/VolBa/consulta/eliminarPersonal/" + matricula, function(){
                 //console.log(this.responseText);
                 document.querySelector("#respuesta").innerHTML = this.responseText;
 

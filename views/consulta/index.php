@@ -33,6 +33,7 @@
                     <td><?php echo $personal->completo; ?></td>
                     <td><?php echo $personal->estatus; ?></td>
                     
+                    <td><a href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>  </td>
                     <td><a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>  </td>
                     <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->
                     <td><button class="bEliminar" data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button></td>

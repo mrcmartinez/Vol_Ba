@@ -25,6 +25,16 @@ class Consulta extends Controller{
         $this->view->mensaje = "";
         $this->view->render('consulta/detalle');
     }
+    function verInformacion($param = null){
+        $idPersonal = $param[0];
+        $personal = $this->model->getById($idPersonal);
+
+        // session_start();
+        // $_SESSION['id_verPersonal'] = $personal->id_personal;
+        $this->view->personal = $personal;
+        $this->view->mensaje = "";
+        $this->view->render('consulta/informacion');
+    }
 
     function actualizarPersonal(){
         session_start();
