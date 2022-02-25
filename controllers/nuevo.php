@@ -32,12 +32,14 @@ class Nuevo extends Controller{
 
         $mensaje = "";
 
-        if($this->model->insert(['nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
-                                 'apellido_materno' => $apellido_materno,'calle' => $calle,
-                                 'colonia' => $colonia,'numero_exterior' => $numero_exterior,
-                                 'edad' => $edad,'fecha_nacimiento' => $fecha_nacimiento,
-                                 'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
-                                 'escolaridad' => $escolaridad,'estatus' => $estatus])){
+        $consulta = $this->model->insert(['nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
+        'apellido_materno' => $apellido_materno,'calle' => $calle,
+        'colonia' => $colonia,'numero_exterior' => $numero_exterior,
+        'edad' => $edad,'fecha_nacimiento' => $fecha_nacimiento,
+        'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
+        'escolaridad' => $escolaridad,'estatus' => $estatus]);
+
+        if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";
         }else{
             $mensaje = "Voluntario ya existe";

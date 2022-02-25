@@ -21,11 +21,14 @@ class NuevoModel extends Model{
                             'edad' => $datos['edad'],'fecha_nacimiento' => $datos['fecha_nacimiento'],
                             'estado_civil' => $datos['estado_civil'],'numero_hijos' => $datos['numero_hijos'],
                             'escolaridad' => $datos['escolaridad'],'estatus' => $datos['estatus']]);
-            return true;
+            $id = $this->db->connect()->lastInsertId();
+            echo 'El id de la última fila insertada fue: ' . $id;
+            // return true;
+            return array(true, $id);
         }catch(PDOException $e){
             //echo $e->getMessage();
             //echo "Ya existe esa matrícula";
-            return false;
+            return array(false, $id);
         }
         
     }
