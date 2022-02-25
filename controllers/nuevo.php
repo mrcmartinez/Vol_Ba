@@ -39,12 +39,12 @@ class Nuevo extends Controller{
                                  'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
                                  'escolaridad' => $escolaridad,'estatus' => $estatus])){
             $mensaje = "Nuevo voluntariado creado";
-            $this->view->render('inicio/index');
         }else{
             $mensaje = "Voluntario ya existe";
         }
 
         $this->view->mensaje = $mensaje;
+        $this->view->render('nuevoTelefono/index');
         // $this->render();
     }
 
