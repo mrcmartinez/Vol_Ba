@@ -26,7 +26,8 @@ class NuevoTelefono extends Controller{
         }
 
         $this->view->mensaje = $mensaje;
-        $this->render();
+        $this->view->render('inicio/index');
+        // $this->render();
     }
 }
 

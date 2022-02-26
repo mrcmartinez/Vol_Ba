@@ -29,7 +29,7 @@ class NuevoModel extends Model{
         }catch(PDOException $e){
             //echo $e->getMessage();
             //echo "Ya existe esa matrícula";
-            return array(false, $id);
+            return array(false);
         }
         
     }

@@ -10,15 +10,15 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Nuevo</h1>
+        <h1 class="center">Agregar telefono</h1>
 
         <div class="center"><?php echo $this->mensaje; ?></div>
-
+        <?php $idU=intval($this->ultimoId);?>
         <form action="<?php echo constant('URL'); ?>nuevoTelefono/registrarTelefono" method="POST">
 
             <p>
                 <label for="id_personal">ID</label><br>
-                <input type="text" name="id_personal" id="" required>
+                <input type="number" name="id_personal" readonly value=<?php echo $idU?>>
             </p>
             <p>
                 <label for="lada">Lada</label><br>
