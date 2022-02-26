@@ -9,7 +9,8 @@ class NuevoModel extends Model{
     public function insert($datos){
         // insertar datos en la BD
         try{
-            $query = $this->db->connect()->prepare('INSERT INTO PERSONAL (NOMBRE, APELLIDO_PATERNO,
+            $conn=$this->db->connect();
+            $query = $conn->prepare('INSERT INTO PERSONAL (NOMBRE, APELLIDO_PATERNO,
                                                      APELLIDO_MATERNO,CALLE,COLONIA,NUMERO_EXTERIOR,
                                                      EDAD,FECHA_NACIMIENTO,ESTADO_CIVIL,NUMERO_HIJOS,ESCOLARIDAD,ESTATUS) VALUES(:nombre,
                                                       :apellido_paterno,:apellido_materno,:calle,:colonia,
@@ -21,7 +22,7 @@ class NuevoModel extends Model{
                             'edad' => $datos['edad'],'fecha_nacimiento' => $datos['fecha_nacimiento'],
                             'estado_civil' => $datos['estado_civil'],'numero_hijos' => $datos['numero_hijos'],
                             'escolaridad' => $datos['escolaridad'],'estatus' => $datos['estatus']]);
-            $id = $this->db->connect()->lastInsertId();
+            $id = $conn->lastInsertId();
             echo 'El id de la última fila insertada fue: ' . $id;
             // return true;
             return array(true, $id);
