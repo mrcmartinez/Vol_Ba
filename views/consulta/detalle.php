@@ -18,7 +18,7 @@
 
             <p>
                 <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" disabled value="<?php echo $this->personal->id_personal; ?>" required>
+                <input type="number" name="id_personal" readonly value="<?php echo $this->personal->id_personal; ?>" required>
             </p>
             <p>
                 <label for="nombre">Nombre</label><br>

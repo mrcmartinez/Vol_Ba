@@ -37,8 +37,8 @@ class Consulta extends Controller{
     }
 
     function actualizarPersonal(){
-        session_start();
-        $id_personal = $_SESSION['id_verPersonal'];
+        // session_start();
+        $id_personal = $_POST['id_personal'];
         $nombre    = $_POST['nombre'];
         $estatus  = $_POST['estatus'];
         $apellido_paterno = $_POST['apellido_paterno'];
@@ -54,7 +54,7 @@ class Consulta extends Controller{
         $numero_hijos = $_POST['numero_hijos'];
         $escolaridad = $_POST['escolaridad'];
 
-        unset($_SESSION['id_verPersonal']);
+        // unset($_SESSION['id_verPersonal']);
 
         if($this->model->update(['id_personal' => $id_personal, 'nombre' => $nombre, 'estatus' => $estatus,
          'apellido_paterno' => $apellido_paterno,
@@ -91,6 +91,7 @@ class Consulta extends Controller{
             // mensaje de error
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
         }
+        // $this->view->idUpdate = $id_personal;;
         $this->view->render('consulta/detalle');
     }
 

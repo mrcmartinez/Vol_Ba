@@ -22,11 +22,12 @@ class NuevoTelefono extends Controller{
         if($this->model->insert(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero])){
             $mensaje = "Nuevo telefono creado";
         }else{
-            $mensaje = "ID ya existe";
+            $mensaje = "Telefono ya existe";
         }
 
         $this->view->mensaje = $mensaje;
-        $this->view->render('inicio/index');
+        $this->view->ultimoId = $id_personal;
+        $this->view->render('nuevoTelefono/index');
         // $this->render();
     }
 }
