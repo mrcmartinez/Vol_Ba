@@ -46,7 +46,7 @@
             </p>
             <p>
                 <label for="edad">Edad</label><br>
-                <input type="number" name="edad" id="" required>
+                <input type="number" name="edad" min="18" max="45" required>
             </p>
             <p>
                 <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
@@ -54,7 +54,14 @@
             </p>
             <p>
                 <label for="estado_civil">Estado Civil</label><br>
-                <input type="text" name="estado_civil" id="" required>
+                <select id="estado_civil" name="estado_civil">
+                    <option value="casada">Casada</option>
+                    <option value="soltera">soltera</option>
+                    <option value="viuda">Viuda</option>
+                    <option value="concubinato">Concubinato</option>
+                    <option value="union libre">Union Libre</option>
+                </select>
+                <!-- <input type="text" name="estado_civil" id="" required> -->
             </p>
 
             <p>
@@ -67,7 +74,11 @@
             </p>
             <p>
                 <label for="estatus">Estatus</label><br>
-                <input type="text" name="estatus" id="" required>
+                <select id="estatus" name="estatus">
+                    <option value="Activo">Activo</option>
+                    <option value="Candidato">Candidato</option>
+                </select>
+                <!-- <input type="text" name="estatus" id="" required> -->
             </p>
             <!-- pantalla siguiente "----------------------------------------------------------";
             <p>
