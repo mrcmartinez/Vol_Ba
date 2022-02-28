@@ -5,3 +5,5 @@ commit array
 commit lastid
 commit readonly
 commit readonlyUpdate
+commit input
+commit telefonDescripcion

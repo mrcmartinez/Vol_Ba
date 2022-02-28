@@ -28,7 +28,14 @@
                 <label for="numero">Numero</label><br>
                 <input type="number" name="numero" id="" required>
             </p>
-
+            <p>
+                <label for="tipo">Tipo</label><br>
+                <input type="text" name="tipo" id="" required>
+            </p>
+            <p>
+                <label for="descripcion">Descripcion</label><br>
+                <input type="text" name="descripcion" id="" required>
+            </p>
             <p>
             <input type="submit" value="Registrar nuevo Telefono">
             </p>
