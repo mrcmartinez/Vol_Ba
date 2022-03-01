@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
 </head>
 <body>
     <?php require 'views/header.php'; ?>
 
-    <div id="main">
+    <div class="container-fluid">
         <h1 class="center">Sección de Consulta</h1>
         <div id="respuesta" class="center"></div>
 
-        <table width="100%">
+        <table class="table table-dark table-striped" >
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>ESTATUS</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody id="tbody-personal">
@@ -33,10 +36,10 @@
                     <td><?php echo $personal->completo; ?></td>
                     <td><?php echo $personal->estatus; ?></td>
                     
-                    <td><a href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>  </td>
-                    <td><a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>  </td>
+                    <td><a href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>
+                    <a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
                     <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->
-                    <td><button class="bEliminar" data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button></td>
+                    <button class="bEliminar" data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button></td>
                 </tr>
 
                 <?php } ?>
