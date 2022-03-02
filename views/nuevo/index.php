@@ -22,10 +22,10 @@
             </p> -->
             <p>
                 <label for="nombre">Nombre</label><br>
-                <input type="text" name="nombre" id="" required>
+                <input type="text" name="nombre" id="" required autofocus>
             </p>
             <p>
-                <label for="apellido_paterno">Apellido Peterno</label><br>
+                <label for="apellido_paterno">Apellido Paterno</label><br>
                 <input type="text" name="apellido_paterno" id="" required>
             </p>
             <p>
@@ -42,7 +42,7 @@
             </p>
             <p>
                 <label for="numero_exterior">Numero exterior</label><br>
-                <input type="number" name="numero_exterior" id="" required>
+                <input type="tel" name="numero_exterior" id="" required >
             </p>
             <p>
                 <label for="edad">Edad</label><br>

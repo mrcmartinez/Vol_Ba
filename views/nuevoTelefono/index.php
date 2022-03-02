@@ -43,53 +43,53 @@
             <!--  -->
             <p>
                 <label for="lada_1">Lada</label><br>
-                <input type="number" name="lada_1" id="">
+                <input type="tel" name="lada_1" id="" pattern="[0-9]{3}">
             </p>
             <p>
                 <label for="numero_1">Numero</label><br>
-                <input type="number" name="numero_1" id="">
+                <input type="tel" name="numero_1" id="" pattern="[0-9]{7}">
             </p>
             <p>
                 <label for="tipo_1">Tipo</label><br>
-                <input type="text" name="tipo_1" value="Telefono casa">
+                <input type="text" name="tipo_1" value="Telefono celular" readonly>
             </p>
             <p>
                 <label for="descripcion_1">Descripcion</label><br>
-                <input type="text" name="descripcion_1" id="">
+                <input type="text" name="descripcion_1" id="" value="Propietario">
             </p>
             <!--  -->
             <p>
                 <label for="lada_2">Lada</label><br>
-                <input type="number" name="lada_2" id="">
+                <input type="tel" name="lada_2" id="" pattern="[0-9]{3}">
             </p>
             <p>
                 <label for="numero_2">Numero</label><br>
-                <input type="number" name="numero_2" id="">
+                <input type="tel" name="numero_2" id="" pattern="[0-9]{7}">
             </p>
             <p>
                 <label for="tipo_2">Tipo</label><br>
-                <input type="text" name="tipo_2" value="Telefono casa">
+                <input type="text" name="tipo_2" value="Telefono casa" readonly>
             </p>
             <p>
                 <label for="descripcion_2">Descripcion</label><br>
-                <input type="text" name="descripcion_2" id="">
+                <input type="text" name="descripcion_2" id=""value="Propietario">
             </p>
             <!--casa  -->
             <!-- emergencia -->
             <p>
                 <label for="lada_3">Lada</label><br>
-                <input type="number" name="lada_3" id="">
+                <input type="tel" name="lada_3" id="" pattern="[0-9]{3}">
             </p>
             <p>
                 <label for="numero_3">Numero</label><br>
-                <input type="number" name="numero_3" id="">
+                <input type="tel" name="numero_3" id="" pattern="[0-9]{7}">
             </p>
             <p>
                 <label for="tipo_3">Tipo</label><br>
-                <input type="text" name="tipo_3" value="Emergencia">
+                <input type="text" name="tipo_3" value="Emergencia" readonly>
             </p>
             <p>
-                <label for="descripcion_3">Descripcion</label><br>
+                <label for="descripcion_3">Comunicarse con:</label><br>
                 <input type="text" name="descripcion_3" id="">
             </p>
             <!-- emergencia -->
