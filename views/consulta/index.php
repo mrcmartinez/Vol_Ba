@@ -15,7 +15,7 @@
         <h1 class="center">Sección de Consulta</h1>
         <div id="respuesta" class="center"></div>
 
-        <table class="table table-dark table-striped" >
+        <table class="table" >
             <thead>
                 <tr>
                     <th>ID</th>

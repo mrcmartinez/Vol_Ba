@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <?php require 'views/header.php'; ?>
 
@@ -20,24 +22,79 @@
                 <label for="id_personal">ID</label><br>
                 <input type="number" name="id_personal" readonly value=<?php echo $idU?>>
             </p>
-            <p>
-                <label for="lada">Lada</label><br>
-                <input type="number" name="lada" id="" required>
+            <!--  -->
+            <!-- <p>
+                <label for="lada_1">Lada</label><br>
+                <input type="number" name="lada_1" id="">
             </p>
             <p>
-                <label for="numero">Numero</label><br>
-                <input type="number" name="numero" id="" required>
+                <label for="numero_1">Numero</label><br>
+                <input type="number" name="numero_1" id="">
             </p>
             <p>
-                <label for="tipo">Tipo</label><br>
-                <input type="text" name="tipo" id="" required>
+                <label for="tipo_1">Tipo</label><br>
+                <input type="text" name="tipo_1" value="Telefono casa">
             </p>
             <p>
-                <label for="descripcion">Descripcion</label><br>
-                <input type="text" name="descripcion" id="" required>
+                <label for="descripcion_1">Descripcion</label><br>
+                <input type="text" name="descripcion_1" id="">
+            </p> -->
+            <!--  -->
+            <!--  -->
+            <p>
+                <label for="lada_1">Lada</label><br>
+                <input type="number" name="lada_1" id="">
             </p>
             <p>
-            <input type="submit" value="Registrar nuevo Telefono">
+                <label for="numero_1">Numero</label><br>
+                <input type="number" name="numero_1" id="">
+            </p>
+            <p>
+                <label for="tipo_1">Tipo</label><br>
+                <input type="text" name="tipo_1" value="Telefono casa">
+            </p>
+            <p>
+                <label for="descripcion_1">Descripcion</label><br>
+                <input type="text" name="descripcion_1" id="">
+            </p>
+            <!--  -->
+            <p>
+                <label for="lada_2">Lada</label><br>
+                <input type="number" name="lada_2" id="">
+            </p>
+            <p>
+                <label for="numero_2">Numero</label><br>
+                <input type="number" name="numero_2" id="">
+            </p>
+            <p>
+                <label for="tipo_2">Tipo</label><br>
+                <input type="text" name="tipo_2" value="Telefono casa">
+            </p>
+            <p>
+                <label for="descripcion_2">Descripcion</label><br>
+                <input type="text" name="descripcion_2" id="">
+            </p>
+            <!--casa  -->
+            <!-- emergencia -->
+            <p>
+                <label for="lada_3">Lada</label><br>
+                <input type="number" name="lada_3" id="">
+            </p>
+            <p>
+                <label for="numero_3">Numero</label><br>
+                <input type="number" name="numero_3" id="">
+            </p>
+            <p>
+                <label for="tipo_3">Tipo</label><br>
+                <input type="text" name="tipo_3" value="Emergencia">
+            </p>
+            <p>
+                <label for="descripcion_3">Descripcion</label><br>
+                <input type="text" name="descripcion_3" id="">
+            </p>
+            <!-- emergencia -->
+            <p>
+                <input type="submit" value="Registrar nuevo Telefono">
             </p>
 
         </form>
@@ -45,4 +102,5 @@
 
     <?php require 'views/footer.php'; ?>
 </body>
+
 </html>
