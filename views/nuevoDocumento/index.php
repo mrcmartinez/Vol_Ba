@@ -20,43 +20,43 @@
 
             <p>
                 <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" readonly value=<?php echo $idU?>>
+                <input type="number" name="id_personal" value=<?php echo $idU?>>
             </p>
             <p>
-                <label for="nombre">Documento</label><br>
-                <input type="text" name="nombre" value="IFE" readonly>
+                <label for="nombre_1">Documento</label><br>
+                <input type="text" name="nombre_1" value="IFE" readonly>
                 <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
-                <input type="file" name="descripcion" >
+                <input type="file" name="descripcion_1" >
             </p></br>
             <p>
                 <input type="text" name="nombre_2" value="CURP" readonly>
-                <input type="file" name="url_2" >
+                <input type="file" name="descripcion_2" >
             </p> 
             
             
             <p></br>
                 <input type="text" name="nombre_3" value="Comprobante" readonly>
-                <input type="file" name="url_3" >
+                <input type="file" name="descripcion_3" >
             </p> </br>
             <p>
                 <input type="text" name="nombre_4" value="Carta Compromiso" readonly>
-                <input type="file" name="url_4" >
+                <input type="file" name="descripcion_4" >
             </p> </br>
             <p>
                 <input type="text" name="nombre_5" value="Examen medico" readonly>
-                <input type="file" name="url_5" >
+                <input type="file" name="descripcion_5" >
             </p>
             <p></br>
                 <input type="text" name="nombre_6" value="Estudio Socioeconomico" readonly>
-                <input type="file" name="url_6" >
+                <input type="file" name="descripcion_6" >
             </p>
             <p></br>
                 <input type="text" name="nombre_7" value="Solicitud" readonly>
-                <input type="file" name="url_7" >
+                <input type="file" name="descripcion_7" >
             </p>
             <p></br>
                 <input type="text" name="nombre_8" value="Acta Nacimiento" readonly>
-                <input type="file" name="url_8" >
+                <input type="file" name="descripcion_8" >
             </p> </br>
             </br>
             <p>
