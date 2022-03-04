@@ -45,6 +45,7 @@ class NuevoTelefono extends Controller{
                 $mensaje = "Telefono creado".$i;
             }else{
                 $mensaje = "Telefono ya existe".$i;
+                
             }
     
             // $this->view->mensaje = $mensaje;
@@ -56,8 +57,8 @@ class NuevoTelefono extends Controller{
         $this->view->mensaje = $mensaje;
         // $id_personal = $_POST['id_personal'];
         $this->view->ultimoId = $id_personal;
-        // $this->view->render('nuevoTelefono/index');
-        $this->render();
+         $this->view->render('nuevoDocumento/index');
+        // $this->render();
 
         // $mensaje = "No ha ingresado ningun telefono";
         // $this->render();

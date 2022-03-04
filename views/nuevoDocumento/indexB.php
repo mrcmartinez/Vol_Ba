@@ -13,14 +13,13 @@
 
     <div id="main">
         <h1 class="center">Agregar Documento</h1>
-
         <div class="center"><?php echo $this->mensaje; ?></div>
-        <?php $idU=intval($this->ultimoId);?>
+        
         <form action="<?php echo constant('URL'); ?>nuevoDocumento/registrarDocumento" method="POST" enctype="multipart/form-data">
 
             <p>
                 <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" readonly value=<?php echo $idU?>>
+                <input type="number" name="id_personal" >
             </p>
             <p>
                 <label for="nombre">Documento</label><br>
@@ -64,7 +63,6 @@
             </p>
 
         </form>
-
     </div>
 
     <?php require 'views/footer.php'; ?>

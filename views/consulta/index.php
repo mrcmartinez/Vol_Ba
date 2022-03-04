@@ -13,6 +13,7 @@
 
     <div class="container-fluid">
         <h1 class="center">Sección de Consulta</h1>
+        <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
 
         <table class="table" >

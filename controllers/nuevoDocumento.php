@@ -28,12 +28,13 @@ class NuevoDocumento extends Controller{
         if($this->model->insert(['id_personal' => $id_personal,'nombre' => $nombre,
                                  'descripcion' => $descripcion, 'estatus' => $estatus])){
             $mensaje = "Nuevo documento creado";
+            
             // $this->view->mensaje2 = $matricula;
             // $this->view->render('consulta/index');
         }else{
             $mensaje = "Documento ya existe";
         }
-
+        $this->view->ultimoId = $id_personal;
         $this->view->mensaje = $mensaje;
         $this->render();
     }
