@@ -20,7 +20,7 @@
 
             <p>
                 <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" value=<?php echo $idU?>>
+                <input type="number" name="id_personal" value=<?php echo $idU?> readonly >
             </p>
             <p>
                 <label for="nombre_1">Documento</label><br>
@@ -57,7 +57,12 @@
             <p></br>
                 <input type="text" name="nombre_8" value="Acta Nacimiento" readonly>
                 <input type="file" name="descripcion_8" >
-            </p> </br>
+            </p>
+            </br>
+            <p>
+                <input type="text" name="nombre_9">
+                <input type="file" name="descripcion_9" >
+            </p>
             </br>
             <p>
                 <input type="submit" value="Subir">

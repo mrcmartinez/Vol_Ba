@@ -9,13 +9,15 @@ class NuevoDocumento extends Controller{
     }
 
     function render(){
+        // $this->view->mensaje = $mensaje;
         $this->view->render('nuevoDocumento/index');
     }
 
     function registrarDocumento(){
-        $mensaje = "Favor de ingresar Telefono";
+        // $mensaje = "Favor de ingresar Telefono";
         $id_personal = $_POST['id_personal'];
-        for ($i=1; $i <9 ; $i++) { 
+        $mensaje = "";
+        for ($i=1; $i <10 ; $i++) { 
             if (
                 isset($_POST['nombre_'.$i])&& 
                 isset($_FILES['descripcion_'.$i]['name'])&&($_FILES['descripcion_'.$i]['name']!=null)
@@ -31,12 +33,12 @@ class NuevoDocumento extends Controller{
                 move_uploaded_file($file_tmp,$route);
                 if($this->model->insert(['id_personal' => $id_personal,'nombre' => $nombre,
                     'descripcion' => $descripcion, 'estatus' => $estatus])){
-                    $mensaje = "Nuevo documento creado".$i;
+                    $mensaje = $mensaje."Se entrego: ".$nombre."\n";
 
                 // $this->view->mensaje2 = $matricula;
                 // $this->view->render('consulta/index');
                 }else{
-                    $mensaje = "Documento ya existe".$i;
+                    $mensaje =$mensaje."Ya existe".$nombre."\n";
                 }
             }
         }
