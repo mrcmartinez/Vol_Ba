@@ -13,9 +13,9 @@
 
     <div id="main">
         <h1 class="center">Agregar Documento</h1>
-
+        <div class="center"><?php echo $this->mensaje; ?></div>
         
-        <form action="<?php echo constant('URL'); ?>nuevoDocumento/registrarDocumento" method="POST">
+        <form action="<?php echo constant('URL'); ?>nuevoDocumento/registrarDocumento" method="POST" enctype="multipart/form-data">
 
             <p>
                 <label for="id_personal">ID</label><br>
@@ -24,7 +24,7 @@
             <p>
                 <label for="nombre">Documento</label><br>
                 <input type="text" name="nombre" value="IFE" readonly>
-                <input type="text" name="estatus" value="Entregado" readonly>
+                <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
                 <input type="file" name="descripcion" >
             </p></br>
             <p>

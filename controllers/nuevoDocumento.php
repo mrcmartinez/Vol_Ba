@@ -15,9 +15,15 @@ class NuevoDocumento extends Controller{
     function registrarDocumento(){
         $id_personal = $_POST['id_personal'];
         $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $estatus  = $_POST['estatus'];
+        $estatus  = "Entregado";
         $mensaje = "";
+
+        $file_name = $_FILES['descripcion']['name'];
+        $file_tmp = $_FILES['descripcion']['tmp_name'];
+        $route="assets/img/".$file_name;
+        $descripcion=$file_name;
+
+        move_uploaded_file($file_tmp,$route);
 
         if($this->model->insert(['id_personal' => $id_personal,'nombre' => $nombre,
                                  'descripcion' => $descripcion, 'estatus' => $estatus])){
