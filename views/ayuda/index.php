@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){
+  header('location: http://localhost/VolBa/inicio');
+}else{
+  if($_SESSION['rol']!="supervisor"){
+    header('location: http://localhost/VolBa/inicio');
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +19,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
 </head>
 <body>
+  <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
 <?php require 'views/header.php'; ?>
 
 <nav>

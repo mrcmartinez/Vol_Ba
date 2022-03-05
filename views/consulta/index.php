@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){
+  header('location: http://localhost/VolBa/inicio');
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,9 @@
     <div class="container-fluid">
         <h1 class="center">Sección de Consulta</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
+        
         <div id="respuesta" class="center"></div>
-
+        <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
         <table class="table" >
             <thead>
                 <tr>
@@ -38,9 +44,12 @@
                     <td><?php echo $personal->estatus; ?></td>
                     
                     <td><a href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>
-                    <a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
+                    
                     <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->
-                    <button class="bEliminar" data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button></td>
+                    <?php if ( $_SESSION['rol']!="supervisor" ) { ?>
+                        <a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
+                        <button class="bEliminar" data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button></td>
+                    <?php } ?>
                 </tr>
 
                 <?php } ?>
