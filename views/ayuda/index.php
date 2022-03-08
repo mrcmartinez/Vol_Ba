@@ -1,13 +1,4 @@
-<?php
-session_start();
-if(!isset($_SESSION['rol'])){
-  header('location: http://localhost/VolBa/inicio');
-}else{
-  if($_SESSION['rol']!="supervisor"){
-    header('location: http://localhost/VolBa/inicio');
-  }
-}
-?>
+<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

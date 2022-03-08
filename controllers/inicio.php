@@ -23,7 +23,7 @@ class Inicio extends Controller{
     function iniciarSesion(){
         session_start();
 
-        if (isset($_GET['http://localhost/VolBa/nuevo/cerrar_sesion'])) {
+        if (isset($_GET['http://192.168.1.37/VOLBA/nuevo/cerrar_sesion'])) {
             session_unset();
             session_destroy();
             echo "sesion cerrada";
@@ -31,12 +31,12 @@ class Inicio extends Controller{
         if (isset($_SESSION['rol'])) {
             switch($_SESSION['rol']){
                 case "admin":
-                    header('location: http://localhost/VolBa/nuevo');
+                    header('location: http://192.168.1.37/VOLBA/nuevo');
                     // $this->view->render('nuevo/index');
                     // header('location: ayuda/index.php');
                     break;
                 case "supervisor":
-                    header('location: http://localhost/VolBa/ayuda');
+                    header('location: http://192.168.1.37/VOLBA/ayuda');
                     break;
                     default;
             }
@@ -54,12 +54,12 @@ class Inicio extends Controller{
                     case "admin":
                         // $this->view->mensaje="";
                         // $this->view->render('nuevo/index');
-                        header('location: http://localhost/VolBa/nuevo');
+                        header('location: http://192.168.1.37/VOLBA/nuevo');
                         break;
                     case "supervisor":
                         // $this->view->mensaje="";
                         // $this->view->render('ayuda/index');
-                        header('location: http://localhost/VolBa/ayuda');
+                        header('location: http://192.168.1.37/VOLBA/ayuda');
                         break;
                         default;
                 }

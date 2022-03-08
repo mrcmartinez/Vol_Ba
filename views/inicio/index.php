@@ -17,7 +17,7 @@
 
         <form action="<?php echo constant('URL'); ?>inicio/iniciarSesion" method="POST">
             Username: <br /><input type="text" name="username"><br />
-            Password: <br /><input type="text" name="password"><br />
+            Password: <br /><input type="password" name="password"><br />
             <input type="submit" value="Iniciar sesion">
         </form>
     </div>

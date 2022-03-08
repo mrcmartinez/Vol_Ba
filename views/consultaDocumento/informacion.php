@@ -41,47 +41,6 @@
             </p>
 <!--  -->
 
-            <p>
-                <label for="apellido_paterno">Apellido Paterno</label><br>
-                <input type="text" name="apellido_paterno" value="<?php echo $this->personal->apellido_paterno; ?>" disabled>
-            </p>
-            <p>
-                <label for="apellido_materno">Apellido Materno</label><br>
-                <input type="text" name="apellido_materno" value="<?php echo $this->personal->apellido_materno; ?>" disabled>
-            </p>
-            <p>
-                <label for="calle">Calle</label><br>
-                <input type="text" name="calle" value="<?php echo $this->personal->calle; ?>" disabled>
-            </p>
-            <p>
-                <label for="colonia">Colonia</label><br>
-                <input type="text" name="colonia" value="<?php echo $this->personal->colonia; ?>" disabled>
-            </p>
-            <p>
-                <label for="numero_exterior">Numero exterior</label><br>
-                <input type="number" name="numero_exterior" value="<?php echo $this->personal->numero_exterior; ?>" disabled>
-            </p>
-            <p>
-                <label for="edad">Edad</label><br>
-                <input type="number" name="edad" value="<?php echo $this->personal->edad; ?>" disabled>
-            </p>
-            <p>
-                <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
-                <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>" disabled>
-            </p>
-            <p>
-                <label for="estado_civil">Estado Civil</label><br>
-                <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>" disabled>
-            </p>
-
-            <p>
-                <label for="numero_hijos">Numero de hijos</label><br>
-                <input type="number" name="numero_hijos" value="<?php echo $this->personal->numero_hijos; ?>" disabled>
-            </p>
-            <p>
-                <label for="escolaridad">Escolaridad</label><br>
-                <input type="text" name="escolaridad" value="<?php echo $this->personal->escolaridad; ?>" disabled>
-            </p>
 
 <!--  -->
             <p>
