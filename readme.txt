@@ -17,3 +17,4 @@ commit tarde
 commit secciones por secciones
 commit header
 commit helpers
+commit jueves

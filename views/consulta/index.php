@@ -40,7 +40,7 @@
                     <td><?php echo $personal->estatus; ?></td>
                     
                     <td><a href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>
-                    <td><a href="<?php echo constant('URL') . 'consultaDocumento/verInformacion/' . $personal->id_personal; ?>">VerDocumento</a>
+                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/vertelefonoid/'. $personal->id_personal;?>">Telefonos</a>
                     <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->
                     <?php if ( $_SESSION['rol']!="supervisor" ) { ?>
                         <a href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
