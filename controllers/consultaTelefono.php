@@ -29,6 +29,8 @@ class ConsultaTelefono extends Controller{
 
         session_start();
         $_SESSION['id_verPersonal'] = $telefono->id_personal;
+        $_SESSION['id_lada'] = $telefono->lada;
+        $_SESSION['id_numero'] = $telefono->numero;
         $this->view->telefono = $telefono;
         $this->view->mensaje = "";
         $this->view->render('consultaTelefono/detalle');
@@ -45,7 +47,7 @@ class ConsultaTelefono extends Controller{
 
         if($this->model->update(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
          'tipo' => $tipo,
-         'descripcion' => $descripcion] )){
+         'descripcion' => $descripcion,'lada' => $descripcion,] )){
             // actualizar telefono exito
             $telefono = new Telefono();
             $telefono->id_personal = $id_personal;
