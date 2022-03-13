@@ -20,3 +20,4 @@ commit helpers
 commit jueves
 commit actualizar telefonos
 commit tellefonos completo
+commit verasistencias
