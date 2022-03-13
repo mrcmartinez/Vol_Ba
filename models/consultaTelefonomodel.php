@@ -46,12 +46,12 @@ class ConsultaTelefonoModel extends Model{
         }
     }
 
-    public function getById($id){
+    public function getById($id,$lada,$numero){
         $item = new Telefono();
 
-        $query = $this->db->connect()->prepare("SELECT * FROM telefono WHERE id_personal = :id_personal");
+        $query = $this->db->connect()->prepare("SELECT * FROM telefono WHERE id_personal = :id_personal AND lada = :lada AND numero = :numero");
         try{
-            $query->execute(['id_personal' => $id]);
+            $query->execute(['id_personal' => $id,'lada' => $lada,'numero' => $numero]);
 
             while($row = $query->fetch()){
                 $item->id_personal = $row['id_personal'];
@@ -67,9 +67,16 @@ class ConsultaTelefonoModel extends Model{
         }
     }
 
+
     public function update($item){
+        // echo "item es :".print_r($item);
+        // echo " ITEM anterior_lada es este: ".$item['id_personal'];
+        // echo "session";
+        $ant_lada=$_SESSION['verLada'];
+        $ant_numero=$_SESSION['verNumero'];
+        echo "ant_ladasssssssss: ".$ant_lada;
         $query = $this->db->connect()->prepare("UPDATE telefono SET lada = :lada, numero = :numero, 
-        tipo = :tipo,descripcion = :descripcion WHERE id_personal = :id_personal AND lada = :lada AND numero = :numero");
+        tipo = :tipo,descripcion = :descripcion WHERE id_personal = :id_personal AND lada = $ant_lada AND numero = $ant_numero");
         try{
             $query->execute([
                 'id_personal'=> $item['id_personal'],
@@ -78,11 +85,13 @@ class ConsultaTelefonoModel extends Model{
                 'tipo'=> $item['tipo'],
                 'descripcion'=> $item['descripcion']
             ]);
+            // echo "comienza ueryy: ".print_r($query);
             return true;
         }catch(PDOException $e){
             return false;
         }
     }
+
 
     public function delete($id){
         $query = $this->db->connect()->prepare("DELETE FROM telefono WHERE id_personal = :id_personal");

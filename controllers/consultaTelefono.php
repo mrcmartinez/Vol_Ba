@@ -5,12 +5,13 @@ class ConsultaTelefono extends Controller{
     function __construct(){
         parent::__construct();
         $this->view->telefono = [];
+        $this->view->mensaje = "";
         
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
     function render(){
-        $telefono = $this->model->get();
+        $telefono = $this->model->get(1);
         $this->view->telefono = $telefono;
         $this->view->render('consultaTelefono/index');
     }
@@ -25,17 +26,24 @@ class ConsultaTelefono extends Controller{
 
     function vertelefono($param = null){
         $idPersonal = $param[0];
-        $telefono = $this->model->getById($idPersonal);
+        $lada = $param[1];
+        $numero = $param[2];
+        $telefono = $this->model->getById($idPersonal,$lada,$numero);
 
         session_start();
         $_SESSION['id_verPersonal'] = $telefono->id_personal;
+        $_SESSION['verLada'] = $telefono->lada;
+        $_SESSION['verNumero'] = $telefono->numero;
         $this->view->telefono = $telefono;
         $this->view->mensaje = "";
         $this->view->render('consultaTelefono/detalle');
     }
 
+
     function actualizartelefono(){
         session_start();
+        $ant_lada=$_SESSION['verLada'];
+        $ant_numero=$_SESSION['verNumero'];
         $id_personal = $_POST['id_personal'];
         $lada    = $_POST['lada'];
         $numero  = $_POST['numero'];
@@ -61,7 +69,10 @@ class ConsultaTelefono extends Controller{
             // mensaje de error
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
         }
-        $this->view->render('consultaTelefono/detalle');
+        // $this->render();
+        $telefono = $this->model->get($id_personal);
+        $this->view->telefono = $telefono;
+        $this->view->render('consultaTelefono/index');
     }
 
     function eliminartelefono($param = null){

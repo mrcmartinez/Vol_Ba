@@ -11,6 +11,7 @@
 
     <div id="main">
         <h1 class="center">Sección de Consulta</h1>
+        <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
 
         <table width="100%">
@@ -19,6 +20,8 @@
                     <th>ID</th>
                     <th>lada</th>
                     <th>numero</th>
+                    <th>Tipo</th>
+                    <th>Propietario: </th>
                 </tr>
             </thead>
             <tbody id="tbody-telefono">
@@ -32,8 +35,10 @@
                     <td><?php echo $telefono->id_personal; ?></td>
                     <td><?php echo $telefono->lada; ?></td>
                     <td><?php echo $telefono->numero; ?></td>
+                    <td><?php echo $telefono->tipo; ?></td>
+                    <td><?php echo $telefono->descripcion; ?></td>
                     
-                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal; ?>">Editar</a>  </td>
+                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>  </td>
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaTelefono/eliminartelefono/' . $telefono->id_personal; ?>">Eliminar</a> </td>-->
                     <td><button class="bEliminar" data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td>
                 </tr>
