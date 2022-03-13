@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://192.168.1.37/VOLBA/');
+define('URL', 'http://localhost/VoLBa/');
 
 define('HOST', 'localhost');
 define('DB', 'volba');

@@ -53,7 +53,7 @@ class ConsultaTelefono extends Controller{
 
         if($this->model->update(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
          'tipo' => $tipo,
-         'descripcion' => $descripcion,'lada' => $descripcion,] )){
+         'descripcion' => $descripcion] )){
             // actualizar telefono exito
             $telefono = new Telefono();
             $telefono->id_personal = $id_personal;
