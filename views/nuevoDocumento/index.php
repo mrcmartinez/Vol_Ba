@@ -69,7 +69,9 @@
             </p>
 
         </form>
-
+        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+            <input type="submit" value="Omitir">
+        </form>
     </div>
 
     <?php require 'views/footer.php'; ?>

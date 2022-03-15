@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <?php require 'views/header.php'; ?>
 
@@ -37,16 +39,19 @@
                     <td><?php echo $telefono->numero; ?></td>
                     <td><?php echo $telefono->tipo; ?></td>
                     <td><?php echo $telefono->descripcion; ?></td>
-                    
-                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>  </td>
+
+                    <td><a
+                            href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>
+                    </td>
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaTelefono/eliminartelefono/' . $telefono->id_personal; ?>">Eliminar</a> </td>-->
-                    <td><button class="bEliminar" data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td>
+                    <td><button class="bEliminar"
+                            data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td>
                 </tr>
 
                 <?php } ?>
             </tbody>
         </table>
-        <a href="<?php echo constant('URL') . 'nuevoTelefono/nuevoTelefono/' . $telefono->id_personal; ?>">Nuevo</a>
+            <a href="<?php echo constant('URL') . 'nuevoTelefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
         <form action="<?php echo constant('URL'); ?>consulta" method="POST">
             <input type="submit" value="Regresar">
         </form>
@@ -57,4 +62,5 @@
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
 
 </body>
+
 </html>

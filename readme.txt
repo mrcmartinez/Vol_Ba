@@ -22,3 +22,4 @@ commit actualizar telefonos
 commit tellefonos completo
 commit verasistencias
 commit nuevo telefonos
+commit idTelefonos

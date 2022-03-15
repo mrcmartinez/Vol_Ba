@@ -20,6 +20,7 @@ class ConsultaTelefono extends Controller{
         echo "entro verTelefonoID";
         $idPersonal = $param[0];
         $telefono = $this->model->get($idPersonal);
+        $this->view->id = $idPersonal;
         $this->view->telefono = $telefono;
         $this->view->render('consultaTelefono/index');
     }

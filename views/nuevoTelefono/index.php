@@ -78,7 +78,7 @@
             <!-- emergencia -->
             <p>
                 <label for="lada_3">Lada</label><br>
-                <input type="tel" name="lada_3" id="" pattern="[0-9]{3}">
+                <input type="tel" name="lada_3" id="" pattern="[0-9]{3}" >
             </p>
             <p>
                 <label for="numero_3">Numero</label><br>
@@ -94,7 +94,7 @@
             </p>
             <!-- emergencia -->
             <p>
-                <input type="submit" value="Registrar nuevo Telefono">
+                <input type="submit" value="Siguiente">
             </p>
 
         </form>
