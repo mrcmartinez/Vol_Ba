@@ -10,7 +10,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Consulta</h1>
+        <h1 class="center">Sección de Consulta telefonos</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
 
@@ -46,7 +46,10 @@
                 <?php } ?>
             </tbody>
         </table>
-        
+        <a href="<?php echo constant('URL') . 'nuevoTelefono/nuevoTelefono/' . $telefono->id_personal; ?>">Nuevo</a>
+        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+            <input type="submit" value="Regresar">
+        </form>
     </div>
 
     <?php require 'views/footer.php'; ?>

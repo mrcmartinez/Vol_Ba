@@ -98,9 +98,12 @@
                 <input type="text" name="telefono_cel" id="" required placeholder="avisar a:">
             </p>-->
             <p>
-            <input type="submit" value="Registrar nuevo voluntariado">
+            <input type="submit" value="Registrar">
             </p>
 
+        </form>
+        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+            <input type="submit" value="Cancelar">
         </form>
     </div>
 

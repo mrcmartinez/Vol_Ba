@@ -12,6 +12,44 @@ class NuevoTelefono extends Controller{
         $this->view->render('nuevoTelefono/index');
     }
 
+    function nuevoTelefono($param = null){
+        $id_personal = $param[0];
+        $this->view->ultimoId = $id_personal;
+        $this->view->mensaje = "";
+        $this->view->render('nuevoTelefono/nuevoRegistro');
+    }
+    function registrarNuevo(){
+        $mensaje = "Favor de ingresar Telefono";
+        $id_personal = $_POST['id_personal'];
+        $lada    = $_POST['lada'];
+            // echo "lada es: ".$_POST['lada_'.$i]." ";
+        $numero  = $_POST['numero'];
+            // echo "numero es: ".$_POST['numero_'.$i]." ";
+        $tipo  = $_POST['tipo'];
+            // echo "tipo es: ".$_POST['tipo_'.$i]." ";
+        $descripcion  = $_POST['descripcion'];
+            // echo "descripcion es: ".$_POST['descripcion_'.$i]." ";
+    
+        if($this->model->insert(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
+            'tipo' => $tipo, 'descripcion' => $descripcion])){
+            $mensaje = "Telefono creado";
+        }else{
+            $mensaje = "Telefono ya existe";    
+            }
+    
+            // $this->view->mensaje = $mensaje;
+            // $this->view->ultimoId = $id_personal;
+            // // $this->view->render('nuevoTelefono/index');
+            // $this->render();
+        $this->view->mensaje = $mensaje;
+        // $id_personal = $_POST['id_personal'];
+        $this->view->ultimoId = $id_personal;
+        $this->view->render('nuevoTelefono/nuevoRegistro');
+        // $this->render();
+
+        // $mensaje = "No ha ingresado ningun telefono";
+        // $this->render();
+    }
     function registrarTelefono(){
         $mensaje = "Favor de ingresar Telefono";
         $id_personal = $_POST['id_personal'];
