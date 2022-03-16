@@ -43,9 +43,9 @@
                     <td><a
                             href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>
                     </td>
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaTelefono/eliminartelefono/' . $telefono->id_personal; ?>">Eliminar</a> </td>-->
-                    <td><button class="bEliminar"
-                            data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td>
+                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Eliminar</a> </td>
+                    <!-- <td><button class="bEliminar"
+                            data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td> -->
                 </tr>
 
                 <?php } ?>

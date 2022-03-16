@@ -10,7 +10,7 @@
 <body>
     <?php require 'views/header.php'; ?>
     <div id="main">
-        <h1 class="center">Detalle de <?php echo $this->personal->id_personal; ?> </h1>
+        <h1 class="center">Detalle de <?php echo $this->completo; ?> </h1>
         
 
         <div class="center"><?php echo $this->mensaje; ?></div>

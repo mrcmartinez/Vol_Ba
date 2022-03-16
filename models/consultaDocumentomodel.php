@@ -44,6 +44,18 @@ class ConsultaDocumentoModel extends Model{
             return [];
         }
     }
+    public function delete($id,$nombre){
+        $query = $this->db->connect()->prepare("DELETE FROM documentacion WHERE id_personal = :id_personal AND nombre = :nombre");
+        try{
+            $query->execute([
+                'id_personal'=> $id,
+                'nombre'=> $nombre
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 }
 
 ?>

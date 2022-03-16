@@ -33,6 +33,7 @@
                     <td><?php echo $documento->id_personal; ?></td>
                     <td><?php echo $documento->nombre; ?></td>
                     <td><?php echo $documento->estatus; ?></td>
+                    <td><a href="<?php echo constant('URL') . 'consultaDocumento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td>
                 
                 </tr>
 

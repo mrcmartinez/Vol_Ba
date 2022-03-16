@@ -93,11 +93,13 @@ class ConsultaTelefonoModel extends Model{
     }
 
 
-    public function delete($id){
-        $query = $this->db->connect()->prepare("DELETE FROM telefono WHERE id_personal = :id_personal");
+    public function delete($id,$lada,$numero){
+        $query = $this->db->connect()->prepare("DELETE FROM telefono WHERE id_personal = :id_personal AND lada = :lada AND numero = :numero");
         try{
             $query->execute([
                 'id_personal'=> $id,
+                'lada'=> $lada,
+                'numero'=> $numero
             ]);
             return true;
         }catch(PDOException $e){

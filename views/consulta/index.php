@@ -47,7 +47,7 @@
                     <td><a
                             href="<?php echo constant('URL') . 'consultaTelefono/vertelefonoid/'. $personal->id_personal;?>">☏</a>
                         <a
-                            href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal; ?>">Ver</a>
+                            href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaDocumento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->

@@ -43,15 +43,20 @@
             <!--  -->
             <p>
                 <label for="lada">Lada</label><br>
-                <input type="tel" name="lada" id="" pattern="[0-9]{3}">
+                <input type="tel" name="lada" id="" pattern="[0-9]{3}" required>
             </p>
             <p>
                 <label for="numero">Numero</label><br>
-                <input type="tel" name="numero" id="" pattern="[0-9]{7}">
+                <input type="tel" name="numero" id="" pattern="[0-9]{7}"required>
             </p>
             <p>
                 <label for="tipo">Tipo</label><br>
-                <input type="text" name="tipo" value="Telefono celular" readonly>
+                <select id="tipo" name="tipo">
+                    <option value="Celular">Celular</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Emergencia">Emergencia</option>
+                </select>
+
             </p>
             <p>
                 <label for="descripcion">Descripcion</label><br>

@@ -40,6 +40,26 @@ class ConsultaDocumento extends Controller{
     //     $this->view->mensaje = "";
     //     $this->view->render('consultaDocumento/detalle');
     // }
+    function eliminardocumento($param = null){
+        $id_personal = $param[0];
+        $nombre = $param[1];
+
+        if($this->model->delete($id_personal,$nombre)){
+            //$this->view->mensaje = "telefono eliminado correctamente";
+            $mensaje = "Documento eliminado correctamente";
+        }else{
+            // mensaje de error
+            //$this->view->mensaje = "No se pudo eliminar el telefono";
+            $mensaje = "No se pudo eliminar el documento";
+        }
+        //$this->render();
+        
+        // echo $mensaje;
+        $this->view->mensaje = $mensaje;
+        $documento = $this->model->get($id_personal);
+        $this->view->documento = $documento;
+        $this->view->render('consulta/consultaDocumento');
+    }
 }
 
 ?>

@@ -28,12 +28,14 @@ class Consulta extends Controller{
     }
     function verInformacion($param = null){
         $idPersonal = $param[0];
+        $completo = $param[1];
         $personal = $this->model->getById($idPersonal);
 
         // session_start();
         // $_SESSION['id_verPersonal'] = $personal->id_personal;
         $this->view->personal = $personal;
         $this->view->mensaje = "";
+        $this->view->completo=$completo;
         $this->view->render('consulta/informacion');
     }
 

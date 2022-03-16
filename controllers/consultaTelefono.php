@@ -78,8 +78,10 @@ class ConsultaTelefono extends Controller{
 
     function eliminartelefono($param = null){
         $id_personal = $param[0];
+        $lada = $param[1];
+        $numero = $param[2];
 
-        if($this->model->delete($id_personal)){
+        if($this->model->delete($id_personal,$lada,$numero)){
             //$this->view->mensaje = "telefono eliminado correctamente";
             $mensaje = "telefono eliminado correctamente";
         }else{
@@ -89,7 +91,11 @@ class ConsultaTelefono extends Controller{
         }
         //$this->render();
         
-        echo $mensaje;
+        // echo $mensaje;
+        $this->view->mensaje = $mensaje;
+        $telefono = $this->model->get($id_personal);
+        $this->view->telefono = $telefono;
+        $this->view->render('consultaTelefono/index');
     }
 }
 

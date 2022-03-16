@@ -24,3 +24,4 @@ commit verasistencias
 commit nuevo telefonos
 commit idTelefonos
 commit documentosNuevo
+commit documento y Telefono delete
