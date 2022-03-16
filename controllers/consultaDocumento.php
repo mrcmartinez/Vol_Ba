@@ -20,6 +20,7 @@ class ConsultaDocumento extends Controller{
         echo "entro verDocumentoID";
         $idPersonal = $param[0];
         $documento = $this->model->get($idPersonal);
+        $this->view->id = $idPersonal;
         // print_r($documento);
         $this->view->documento = $documento;
         $this->view->render('consulta/consultaDocumento');

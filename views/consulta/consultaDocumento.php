@@ -39,7 +39,10 @@
                 <?php } ?>
             </tbody>
         </table>
-        
+        <a href="<?php echo constant('URL') . 'nuevoDocumento/nuevoDocumento/' . $this->id; ?>">Nuevo</a>
+        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+            <input type="submit" value="Regresar">
+        </form>
     </div>
 
     <?php require 'views/footer.php'; ?>
