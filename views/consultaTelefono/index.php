@@ -52,7 +52,7 @@
             </tbody>
         </table>
             <a href="<?php echo constant('URL') . 'nuevoTelefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
-        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+        <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
             <input type="submit" value="Regresar">
         </form>
     </div>

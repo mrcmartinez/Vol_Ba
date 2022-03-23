@@ -14,7 +14,7 @@
         
 
         <div class="center"><?php echo $this->mensaje; ?></div>
-        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+        <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
             <input type="submit" value="Regresar">
         </form>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/ <?php echo $this->personal->id_personal ?>" method="POST">

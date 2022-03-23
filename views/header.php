@@ -13,7 +13,7 @@
         <ul>
             <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li>
             <li><a href="<?php echo constant('URL'); ?>nuevo">Nuevo</a></li>
-            <li><a href="<?php echo constant('URL'); ?>consulta">Consulta</a></li>
+            <li><a href="<?php echo constant('URL'); ?>consulta/listar">Consulta</a></li>
             <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li>
             <li><a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">cerrar sesion</a></li>
         </ul>

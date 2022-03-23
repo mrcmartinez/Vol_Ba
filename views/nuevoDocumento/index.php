@@ -69,7 +69,7 @@
             </p>
 
         </form>
-        <form action="<?php echo constant('URL'); ?>consulta" method="POST">
+        <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
             <input type="submit" value="Omitir">
         </form>
     </div>

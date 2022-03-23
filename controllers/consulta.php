@@ -4,18 +4,18 @@ class Consulta extends Controller{
 
     function __construct(){
         parent::__construct();
-        $this->view->personal = [];
+        // $this->view->personal = [];
         $this->view->mensaje = "";
         
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
-    function render(){
-        $personal = $this->model->get();
-        $this->view->personal = $personal;
-        $this->view->render('consulta/index');
-    }
-    function saludo(){
+    // function render(){
+    //     $personal = $this->model->get();
+    //     $this->view->personal = $personal;
+    //     $this->view->render('consulta/index');
+    // }
+    function listar(){
         // echo "hola";
         $consulta  = "";
         if (isset($_POST['caja_busqueda'])) {

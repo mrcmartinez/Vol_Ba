@@ -20,7 +20,7 @@
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center">
             <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
-            <form action="<?php echo constant('URL'); ?>consulta/saludo" method="POST">
+            <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
                 <input type="text" name="caja_busqueda" id="caja_busqueda">
                 <input type="submit" value="Buscar">
             </form>
