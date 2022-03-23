@@ -15,7 +15,17 @@ class Consulta extends Controller{
         $this->view->personal = $personal;
         $this->view->render('consulta/index');
     }
-
+    function saludo(){
+        // echo "hola";
+        $consulta  = "";
+        if (isset($_POST['caja_busqueda'])) {
+            $consulta  = $_POST['caja_busqueda'];    
+        }
+        // echo "consulta es: ".$consulta;
+        $personal = $this->model->getBusqueda($consulta);
+        $this->view->personal = $personal;
+        $this->view->render('consulta/index');
+    }
     function verPersonal($param = null){
         $idPersonal = $param[0];
         $personal = $this->model->getById($idPersonal);

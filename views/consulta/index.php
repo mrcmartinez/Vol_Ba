@@ -18,11 +18,17 @@
         <h1 class="center">Voluntariado</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div class="center"><?php echo $this->mensaje; ?></div>
-        <div id="respuesta" class="center"></div>
-        <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
+        <div id="respuesta" class="center">
+            <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
+            <form action="<?php echo constant('URL'); ?>consulta/saludo" method="POST">
+                <input type="text" name="caja_busqueda" id="caja_busqueda">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
         <form action="<?php echo constant('URL'); ?>nuevo" method="POST">
             <input type="submit" value="Nuevo">
         </form>
+
         <table class="table">
             <thead>
                 <tr>

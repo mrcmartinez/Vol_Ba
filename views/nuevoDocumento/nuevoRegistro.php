@@ -26,14 +26,14 @@
                 <label for="nombre">Documento</label><br>
                 <!-- <input type="text" name="nombre"> -->
                 <select id="nombre" name="nombre">
-                    <option value="IFE">Solicitud</option>
-                    <option value="IFE">Carta compromiso</option>
-                    <option value="IFE">Acta nacimiento</option>
-                    <option value="IFE">CURP</option>
+                    <option value="Solicitud">Solicitud</option>
+                    <option value="Carta compromiso">Carta compromiso</option>
+                    <option value="Acta nacimiento">Acta nacimiento</option>
+                    <option value="CURP">CURP</option>
                     <option value="IFE">IFE</option>
-                    <option value="IFE">Comprobante domicilio</option>
-                    <option value="CURP">Estudio socioeconomico</option>
-                    <option value="CURP">Examen medico</option>
+                    <option value="Comprobante domicilio">Comprobante domicilio</option>
+                    <option value="Estudio socioeconomico">Estudio socioeconomico</option>
+                    <option value="Examen medico">Examen medico</option>
                 </select>
 
                 <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
