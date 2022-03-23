@@ -16,14 +16,18 @@ class Consulta extends Controller{
     //     $this->view->render('consulta/index');
     // }
     function listar(){
+        // echo "radio es: ".$_POST['radio_busqueda'];
         // echo "hola";
         $consulta  = "";
+        $filtro="Activo";
         if (isset($_POST['caja_busqueda'])) {
-            $consulta  = $_POST['caja_busqueda'];    
+            $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
         }
         // echo "consulta es: ".$consulta;
-        $personal = $this->model->getBusqueda($consulta);
+        $personal = $this->model->getBusqueda($consulta,$filtro);
         $this->view->personal = $personal;
+        $this->view->radio = $filtro;
         $this->view->render('consulta/index');
     }
     function verPersonal($param = null){

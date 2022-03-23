@@ -21,8 +21,27 @@
         <div id="respuesta" class="center">
             <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
             <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
+                <?php switch($this->radio){
+                    case "Activo":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja">Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato">Candidato';
+                        break;
+                    case "Baja":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja"checked>Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato">Candidato';
+                        break;
+                    case "Candidato":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja">Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked>Candidato';
+                        break;
+                }?>
+                <p>
                 <input type="text" name="caja_busqueda" id="caja_busqueda">
                 <input type="submit" value="Buscar">
+                </p>
             </form>
         </div>
         <form action="<?php echo constant('URL'); ?>nuevo" method="POST">

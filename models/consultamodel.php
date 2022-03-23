@@ -41,16 +41,16 @@ class ConsultaModel extends Model{
             return [];
         }
     }
-    public function getBusqueda($c){
+    public function getBusqueda($c,$f){
          echo "hola getBus";
          echo $c;
+         echo $f;
          $items = [];
 
          try{
  
              $query = $this->db->connect()->query("SELECT concat_ws(' ', apellido_paterno, apellido_materno,
-                                                                     nombre) as nombreConcat,id_personal,estatus FROM personal WHERE id_personal like '%".$c."%' OR nombre like '%".$c."%'
-                                                                     OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%'");
+                                                                     nombre) as nombreConcat,id_personal,estatus FROM personal WHERE estatus like '%".$f."%' and nombre like '%".$c."%'");
  
              while($row = $query->fetch()){
                  $item = new Personal();
