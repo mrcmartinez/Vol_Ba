@@ -39,11 +39,12 @@
                         break;
                 }?>
                 <p>
-                <input type="text" name="caja_busqueda" id="caja_busqueda">
+                <input type="text" name="caja_busqueda" id="caja_busqueda"autofocus>
                 <input type="submit" value="Buscar">
                 </p>
             </form>
         </div>
+        <div class="center"><?php echo $this->consulta; ?></div>
         <form action="<?php echo constant('URL'); ?>nuevo" method="POST">
             <input type="submit" value="Nuevo">
         </form>

@@ -27,3 +27,4 @@ commit documentosNuevo
 commit documento y Telefono delete
 commit searchpersonal
 commit listar
+commit consultas

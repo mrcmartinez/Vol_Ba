@@ -6,7 +6,7 @@ class Consulta extends Controller{
         parent::__construct();
         // $this->view->personal = [];
         $this->view->mensaje = "";
-        
+        $this->view->consulta= "";
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
@@ -27,6 +27,7 @@ class Consulta extends Controller{
         // echo "consulta es: ".$consulta;
         $personal = $this->model->getBusqueda($consulta,$filtro);
         $this->view->personal = $personal;
+        $this->view->consulta = "Usted busco:". $consulta;
         $this->view->radio = $filtro;
         $this->view->render('consulta/index');
     }
