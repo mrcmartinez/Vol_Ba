@@ -46,6 +46,7 @@
                     <td><?php echo $curso->fecha; ?></td>
                     <td><?php echo $curso->hora; ?></td>
                     <td><?php echo $curso->estatus; ?></td>
+                    <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>">Ver</a></td>
                     <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>">Actualizar</a></td>
                     <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id; ?>">Eliminar</a></td>
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $curso->id; ?>">Eliminar</button></td>  -->

@@ -20,6 +20,7 @@
             <li><a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">cerrar sesion</a></li>
             <li><a href="<?php echo constant('URL'); ?>curso">Consulta Curso</a></li>
             <li><a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a></li>
+            <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li>
         </ul>
     </div>
 </body>

@@ -17,9 +17,9 @@
         <table width="100%">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>lada</th>
-                    <th>numero</th>
+                    <th>Id Personal</th>
+                    <th>fecha</th>
+                    <th>eststus</th>
                 </tr>
             </thead>
             <tbody id="tbody-asistencia">
@@ -34,9 +34,9 @@
                     <td><?php echo $asistencia->fecha; ?></td>
                     <td><?php echo $asistencia->estatus; ?></td>
                 
-                    <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td>
+                    <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
-                    <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td>
+                    <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
                 </tr>
 
                 <?php } ?>
