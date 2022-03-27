@@ -134,11 +134,16 @@ class ConsultaModel extends Model{
         }
     }
 
-    public function delete($id){
-        $query = $this->db->connect()->prepare("DELETE FROM personal WHERE id_personal = :id_personal");
+    public function delete($id,$estatus){
+        echo "estatus model".$estatus;
+        if ($estatus=="Activo") {
+            $query = $this->db->connect()->prepare("UPDATE personal SET estatus = 'Baja' WHERE id_personal = :id_personal");
+        }else {
+            $query = $this->db->connect()->prepare("UPDATE personal SET estatus = 'Activo' WHERE id_personal = :id_personal");
+        }
         try{
             $query->execute([
-                'id_personal'=> $id,
+                'id_personal'=> $id
             ]);
             return true;
         }catch(PDOException $e){

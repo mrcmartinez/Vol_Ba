@@ -7,6 +7,7 @@ class Consulta extends Controller{
         // $this->view->personal = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
+        
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
@@ -115,8 +116,9 @@ class Consulta extends Controller{
 
     function eliminarPersonal($param = null){
         $id_personal = $param[0];
-
-        if($this->model->delete($id_personal)){
+        $estatus = $param[1];
+        echo "estatus".$estatus;
+        if($this->model->delete($id_personal,$estatus)){
             //$this->view->mensaje = "Personal eliminado correctamente";
             $mensaje = "Personal eliminado correctamente";
         }else{
@@ -124,9 +126,8 @@ class Consulta extends Controller{
             //$this->view->mensaje = "No se pudo eliminar el Personal";
             $mensaje = "No se pudo eliminar el personal";
         }
-        //$this->render();
-        
-        echo $mensaje;
+        $this->listar();
+        // echo $mensaje;
     }
 }
 

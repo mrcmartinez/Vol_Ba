@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <h1 class="center">Voluntariado</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
-        <div class="center"><?php echo $this->mensaje; ?></div>
+
         <div id="respuesta" class="center">
             <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
             <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
@@ -39,8 +39,8 @@
                         break;
                 }?>
                 <p>
-                <input type="text" name="caja_busqueda" id="caja_busqueda"autofocus>
-                <input type="submit" value="Buscar">
+                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="submit" value="Buscar">
                 </p>
             </form>
         </div>
@@ -76,12 +76,19 @@
                             href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaDocumento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
-                        <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal; ?>">Eliminar</a> </td>-->
+                        <a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><?php if ($this->radio=="Activo") { 
+                            ?>Baja<?php
+                            }else{
+                                ?>Alta<?php
+                            } ?></a>
+
+
                         <?php if ( $_SESSION['rol']!="supervisor" ) { ?>
+
                         <a
                             href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
-                        <button class="bEliminar"
-                            data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button>
+                        <!-- <button class="bEliminar"
+                            data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button> -->
                     </td>
                     <?php } ?>
                 </tr>
