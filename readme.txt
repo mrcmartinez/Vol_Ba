@@ -28,3 +28,4 @@ commit documento y Telefono delete
 commit searchpersonal
 commit listar
 commit consultas
+commit cursos add,update,delete

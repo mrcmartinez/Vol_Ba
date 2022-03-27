@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <title></title>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/default.css">
 </head>
+
 <body>
-    
+
     <div id="header">
         <ul>
             <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li>
@@ -16,7 +18,10 @@
             <li><a href="<?php echo constant('URL'); ?>consulta/listar">Consulta</a></li>
             <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li>
             <li><a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">cerrar sesion</a></li>
+            <li><a href="<?php echo constant('URL'); ?>curso">Consulta Curso</a></li>
+            <li><a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a></li>
         </ul>
     </div>
 </body>
+
 </html>
