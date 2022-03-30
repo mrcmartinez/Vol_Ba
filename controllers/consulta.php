@@ -1,10 +1,11 @@
+<?php require 'libraries/session.php';?>
 <?php
 
 class Consulta extends Controller{
 
     function __construct(){
         parent::__construct();
-        // $this->view->personal = [];
+        $this->view->personal = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
         
@@ -16,9 +17,7 @@ class Consulta extends Controller{
     //     $this->view->personal = $personal;
     //     $this->view->render('consulta/index');
     // }
-    function listar(){
-        // echo "radio es: ".$_POST['radio_busqueda'];
-        // echo "hola";
+    function listar($param = null){
         $consulta  = "";
         $filtro="Activo";
         if (isset($_POST['caja_busqueda'])) {
@@ -30,8 +29,15 @@ class Consulta extends Controller{
         $this->view->personal = $personal;
         $this->view->consulta = "Usted busco:". $consulta;
         $this->view->radio = $filtro;
-        $this->view->render('consulta/index');
+        if (isset($param[0])) {
+            $this->view->idCurso = $param[0];
+            $this->view->render('consulta/asignar');
+        }else{
+            $this->view->render('consulta/index');
+        }
+        
     }
+
     function verPersonal($param = null){
         $idPersonal = $param[0];
         $personal = $this->model->getById($idPersonal);

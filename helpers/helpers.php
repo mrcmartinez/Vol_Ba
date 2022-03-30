@@ -1,4 +1,5 @@
 <?php
+    define('CONTROLADOR', true);
     function base_url(){
         return URL;
     }

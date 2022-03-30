@@ -31,3 +31,4 @@ commit consultas
 commit cursos add,update,delete
 commit baja,activar
 commit capacitacion
+commit vista asignar

@@ -1,4 +1,3 @@
-<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
