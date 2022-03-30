@@ -38,14 +38,15 @@
             </form>
         </div>
         <div class="center"><?php echo $this->consulta; ?></div>
-        <form action="">
+        <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
+        <!-- <form method="POST"> -->
             <table class="table">
                 <thead>
                     <tr>
-                        <th>SELECCIONAR</th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Estatus</th>
+                        <th>SELECCIONAR</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-personal">
@@ -56,17 +57,16 @@
                         $personal = $row; 
                 ?>
                     <tr id="fila-<?php echo $personal->id_personal; ?>">
-                        <td><input type="checkbox" name="seleccionar" value="<?php echo $personal->id_personal; ?>">
-                        </td>
                         <td><?php echo $personal->id_personal; ?></td>
                         <td><?php echo $personal->completo; ?></td>
                         <td><?php echo $personal->estatus; ?></td>
+                        <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="eliminar" onclick="reload()"></td>
                     </tr>
 
                     <?php } ?>
                 </tbody>
             </table>
-            <input type="submit" name="seleccionar" value="Asignar" onclick="reload()" />
+            <input type="submit" name="borrar"value="ok" />
         </form>
     </div>
 
