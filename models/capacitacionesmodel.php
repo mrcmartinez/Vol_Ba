@@ -41,6 +41,22 @@ class CapacitacionesModel extends Model{
             return [];
         }
     }
+    public function insert($datos){
+        // insertar
+        $query = $this->db->connect()->prepare('INSERT INTO CAPACITACION (ID_CURSO, ID_PERSONAL, ESTATUS) VALUES(:id_curso, :id_personal, :estatus)');
+        try{
+            $query->execute([
+                'id_curso' => $datos['id_curso'],
+                'id_personal' => $datos['id_personal'],
+                'estatus' => $datos['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+        
+        
+    }
     // public function getById($id_curso){
     //     echo "entro a model";
     //     echo "echo id_cursoMoldell es: ".$id_curso;

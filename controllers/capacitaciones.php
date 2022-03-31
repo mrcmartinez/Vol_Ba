@@ -13,19 +13,25 @@ class Capacitaciones extends Controller{
         $this->view->capacitacion = $capacitacion;
         $this->view->render('capacitaciones/consulta');
     }
-    function saludo(){
-        if (empty($_POST['eliminar'])) {
+    function asignarCapacitacion(){
+        // $idC = $param[0];
+        // echo "idC es: ".$idC;
+        $id_curso=2;
+        $estatus="Pendiente";
+        if (empty($_POST['personal'])) {
             echo "no se ha seleccionadao nada";
         }else{
-            $seleccion= $_POST['eliminar'];
-        echo "seleccion: ".$seleccion;
-        }
+        foreach ($_POST['personal'] as $id_personal) {
+            echo "$id_personal <br>";
+            $this->model->insert(['id_curso' => $id_curso, 'id_personal' => $id_personal,
+                                  'estatus' => $estatus]);
         
-    //  if (isset($_POST['borrar'])) {
-    //     if (empty($_POST['eliminar'])) {
-    //         echo "no se ha seleccionado ningun registro";
-    //     }
-    // }
+          }
+        $this->view->mensaje = "se asigno correctamente personal";
+        //   $this->view->render('curso/consulta');
+        $this->render();
+        }
+
     }
     function verCapacitacionId($param = null){
         echo "entro verCapacitacionesID";

@@ -15,6 +15,7 @@
 
     <div class="container-fluid">
         <h1 class="center">Asignar Voluntariado</h1>
+        <div class="center"><?php echo $this->idCurso; ?></div>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -38,7 +39,7 @@
             </form>
         </div>
         <div class="center"><?php echo $this->consulta; ?></div>
-        <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
+        <form action="<?php echo constant('URL'); ?>capacitaciones/asignarCapacitacion" method="POST">
         <!-- <form method="POST"> -->
             <table class="table">
                 <thead>
@@ -60,13 +61,14 @@
                         <td><?php echo $personal->id_personal; ?></td>
                         <td><?php echo $personal->completo; ?></td>
                         <td><?php echo $personal->estatus; ?></td>
-                        <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="eliminar" onclick="reload()"></td>
+                        <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="personal[]" onclick="reload()"></td>
                     </tr>
 
                     <?php } ?>
                 </tbody>
             </table>
-            <input type="submit" name="borrar"value="ok" />
+
+            <input type="submit" name="seleccion"value="ok" />
         </form>
     </div>
 
