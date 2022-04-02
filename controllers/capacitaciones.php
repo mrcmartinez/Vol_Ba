@@ -6,6 +6,7 @@ class Capacitaciones extends Controller{
     function __construct(){
         parent::__construct();
         $this->view->mensaje = "";
+        
     }
 
     // function render(){

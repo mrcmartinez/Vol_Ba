@@ -6,12 +6,40 @@ class Curso extends Controller{
     function __construct(){
         parent::__construct();
         $this->view->mensaje = "";
+        $this->view->consulta= "";
     }
 
-    function render(){
-        $cursos = $this->view->datos = $this->model->get();
+    // function render(){
+    //     $consulta  = "";
+    //     $filtro="Activo";
+    //     $cursos = $this->view->datos = $this->model->get();
+    //     // $this->view->$filtro;
+    //     $this->view->radio = $filtro;
+    //     $this->view->cursos = $cursos;
+    //     $this->view->render('curso/consulta');
+    // }
+    function listar($param = null){
+        
+        $consulta  = "";
+        $filtro="Activo";
+        $fecha="";
+        if (isset($_POST['caja_busqueda'])) {
+            $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
+            $fecha  = $_POST['caja_fecha'];
+        }
+        // echo "consulta es: ".$consulta;
+        $cursos = $this->view->datos = $this->model->getBusqueda($consulta,$filtro,$fecha);
         $this->view->cursos = $cursos;
-        $this->view->render('curso/consulta');
+        $this->view->consulta = "Usted busco:". $consulta;
+        $this->view->radio = $filtro;
+        if (isset($param[0])) {
+            $this->view->idCurso = $param[0];
+            $this->view->render('curso/consulta');
+        }else{
+            $this->view->render('curso/consulta');
+        }
+        
     }
     function nuevo(){
         $this->view->render('curso/nuevo');

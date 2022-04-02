@@ -35,3 +35,4 @@ commit vista asignar
 commit asignar
 commit verasignar idcurso
 commit pase de lista curso
+commit filtro fecha curso
