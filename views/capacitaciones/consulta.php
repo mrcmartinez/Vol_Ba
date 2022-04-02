@@ -13,7 +13,7 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Sección de consulta capacitacion</h1>
+        <h1 class="center">Sección de consulta capacitacion todo</h1>
 
         <table width="100%" id="tabla">
             <thead>

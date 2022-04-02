@@ -18,6 +18,7 @@ class Consulta extends Controller{
     //     $this->view->render('consulta/index');
     // }
     function listar($param = null){
+        
         $consulta  = "";
         $filtro="Activo";
         if (isset($_POST['caja_busqueda'])) {

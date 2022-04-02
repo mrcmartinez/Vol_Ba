@@ -8,15 +8,17 @@ class Capacitaciones extends Controller{
         $this->view->mensaje = "";
     }
 
-    function render(){
-        $capacitacion = $this->view->datos = $this->model->get();
-        $this->view->capacitacion = $capacitacion;
-        $this->view->render('capacitaciones/consulta');
-    }
+    // function render(){
+    //     $capacitacion = $this->view->datos = $this->model->get();
+    //     $this->view->capacitacion = $capacitacion;
+    //     $this->view->render('capacitaciones/consulta');
+    // }
     function asignarCapacitacion(){
+
         // $idC = $param[0];
         // echo "idC es: ".$idC;
-        $id_curso=2;
+        $id_curso=$_POST['id'];
+        echo "id_curso esssssssssss: ".$id_curso;
         $estatus="Pendiente";
         if (empty($_POST['personal'])) {
             echo "no se ha seleccionadao nada";
@@ -29,7 +31,11 @@ class Capacitaciones extends Controller{
           }
         $this->view->mensaje = "se asigno correctamente personal";
         //   $this->view->render('curso/consulta');
-        $this->render();
+        // $this->render();
+        $capacitacion = $this->view->datos = $this->model->getById($id_curso);
+        $this->view->capacitacion = $capacitacion;
+        $this->view->render('capacitaciones/consulta');
+
         }
 
     }

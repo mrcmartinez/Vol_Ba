@@ -67,7 +67,7 @@
                     <?php } ?>
                 </tbody>
             </table>
-
+            <input type="hidden" name="id" value="<?php echo $this->idCurso; ?>">
             <input type="submit" name="seleccion"value="ok" />
         </form>
     </div>

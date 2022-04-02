@@ -33,3 +33,4 @@ commit baja,activar
 commit capacitacion
 commit vista asignar
 commit asignar
+commit verasignar idcurso

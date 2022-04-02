@@ -28,8 +28,8 @@
             <input type="date" name="fecha" id=""><br>
             <label for="">Hora</label><br>
             <input type="time" name="hora" id=""><br>
-            <label for="">Estatus</label><br>
-            <input type="text" name="estatus" id=""><br>
+            <!-- <label for="">Estatus</label><br> -->
+            <input type="hidden" value ="Activo" name="estatus" id=""><br>
             <input type="submit" value="Crear nuevo curso">
         </form>
     </div>
