@@ -126,9 +126,17 @@ class CursoModel extends Model{
         }
     }
 
-    public function delete($id){
-        echo "id model es: ".$id;
-        $query = $this->db->connect()->prepare('DELETE FROM curso WHERE id = :id');
+    public function delete($id,$estatus){
+        echo " id model es: ".$id;
+        echo " estatus model es: ".$estatus;
+
+        if ($estatus=="Activo") {
+            echo "es para activo";
+            $query = $this->db->connect()->prepare("UPDATE curso SET estatus = 'Terminado' WHERE id = :id");
+        }else{
+            echo "es para terminado";
+            $query = $this->db->connect()->prepare("UPDATE curso SET estatus = 'Activo' WHERE id = :id");
+        }
         try{
             $query->execute([
                 'id' => $id

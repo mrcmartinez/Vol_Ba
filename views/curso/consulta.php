@@ -9,7 +9,6 @@
 
     <title>Document</title>
 </head>
-
 <body>
 
     <?php require 'views/header.php'; ?>
@@ -69,7 +68,13 @@
                             href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>">Ver</a>
                     </td>
                     <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>">Actualizar</a></td>
-                    <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id; ?>">Eliminar</a></td>
+                    <!-- <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id; ?>">Eliminar</a></td> -->
+                    <td> <a
+                            href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
+                            ?>Cerrar</button><?php
+                            }else{
+                                ?>Activar</button><?php
+                            } ?></a></td>
                     <td><a href="<?php echo constant('URL') . 'consulta/listar/'. $curso->id;?>">Asignar</a></td>
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $curso->id; ?>">Eliminar</button></td>  -->
                 </tr>
@@ -79,7 +84,7 @@
     </div>
 
     <?php require 'views/footer.php'; ?>
-    <script src="<?php echo constant('URL'); ?>/public/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
 </body>
 
 </html>

@@ -101,10 +101,12 @@ class Curso extends Controller{
     }
 
     function eliminarCurso($param = null){
+        echo " entro eliminar curso";
         $id = $param[0];
+        $estatus = $param[1];
         echo "el id a eliminar es: ".$id;
-
-        if($this->model->delete($id)){
+        echo "el estatus es: ".$estatus;
+        if($this->model->delete($id,$estatus)){
             $mensaje ="Curso eliminado correctamente";
             //$this->view->mensaje = "Curso eliminado correctamente";
         }else{
@@ -112,9 +114,9 @@ class Curso extends Controller{
             //$this->view->mensaje = "No se pudo eliminar al curso";
         }
 
-        $this->render();
+        $this->listar();
 
-        echo $mensaje;
+        // echo $mensaje;
     }
 
     

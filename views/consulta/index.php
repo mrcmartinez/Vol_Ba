@@ -75,10 +75,11 @@
                             href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaDocumento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
-                        <a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><?php if ($this->radio=="Activo") { 
-                            ?>Baja<?php
+                        <a
+                            href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
+                            ?>Baja</button><?php
                             }else{
-                                ?>Alta<?php
+                                ?>Alta</button><?php
                             } ?></a>
 
 
@@ -90,6 +91,7 @@
                             data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button> -->
                     </td>
                     <?php } ?>
+                    <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"></a><button onclick="return confirmBaja()">Alerta</button></td> -->
                 </tr>
 
                 <?php } ?>
@@ -100,7 +102,7 @@
 
     <?php require 'views/footer.php'; ?>
 
-    <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
 
 </body>
 
