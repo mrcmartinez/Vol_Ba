@@ -57,6 +57,20 @@ class CapacitacionesModel extends Model{
         
         
     }
+    public function update($item){
+        print_r($item);
+        $query = $this->db->connect()->prepare('UPDATE CAPACITACION SET estatus = :estatus WHERE (id_curso = :id_curso AND id_personal = :id_personal)');
+        try{
+            $query->execute([
+                'id_curso' => $item['id_curso'],
+                'id_personal' => $item['id_personal'],
+                'estatus' => $item['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     // public function getById($id_curso){
     //     echo "entro a model";
     //     echo "echo id_cursoMoldell es: ".$id_curso;

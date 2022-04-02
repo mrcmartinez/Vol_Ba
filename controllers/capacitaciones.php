@@ -13,6 +13,26 @@ class Capacitaciones extends Controller{
     //     $this->view->capacitacion = $capacitacion;
     //     $this->view->render('capacitaciones/consulta');
     // }
+    function saludo(){
+        $id_curso=$_POST['id'];
+        // echo "id_curso esssssssssss: ".$id_curso;
+        $estatus="Completo";
+        if (empty($_POST['personal'])) {
+            echo "no se ha seleccionadao nada";
+        }else{
+        foreach ($_POST['personal'] as $id_personal) {
+            // echo "$id_personal <br>";
+            $this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
+          }
+        $this->view->mensaje = "correcto pase de toma";
+        //   $this->view->render('curso/consulta');
+        // $this->render();
+        $capacitacion = $this->view->datos = $this->model->getById($id_curso);
+        $this->view->capacitacion = $capacitacion;
+        $this->view->render('capacitaciones/consulta');
+
+        }
+    }
     function asignarCapacitacion(){
 
         // $idC = $param[0];
