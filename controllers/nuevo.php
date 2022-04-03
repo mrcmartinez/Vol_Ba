@@ -28,6 +28,9 @@ class Nuevo extends Controller{
 
         $numero_hijos  = $_POST['numero_hijos'];
         $escolaridad  = $_POST['escolaridad'];
+        $turno  = $_POST['turno'];
+        $actividad  = $_POST['actividad'];
+
         $estatus  = $_POST['estatus'];
 
         $mensaje = "";
@@ -37,7 +40,7 @@ class Nuevo extends Controller{
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
         'edad' => $edad,'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
-        'escolaridad' => $escolaridad,'estatus' => $estatus]);
+        'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'estatus' => $estatus]);
 
         if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";

@@ -80,6 +80,9 @@ class Consulta extends Controller{
         $numero_hijos = $_POST['numero_hijos'];
         $escolaridad = $_POST['escolaridad'];
 
+        $turno = $_POST['turno'];
+        $actividad = $_POST['actividad'];
+
         // unset($_SESSION['id_verPersonal']);
 
         if($this->model->update(['id_personal' => $id_personal, 'nombre' => $nombre, 'estatus' => $estatus,
@@ -92,7 +95,9 @@ class Consulta extends Controller{
          'fecha_nacimiento' => $fecha_nacimiento,
          'estado_civil' => $estado_civil,
          'numero_hijos' => $numero_hijos,
-         'escolaridad' => $escolaridad] )){
+         'escolaridad' => $escolaridad,
+         'turno' => $turno,
+         'actividad' => $actividad] )){
             // actualizar Personal exito
             $personal = new Personal();
             $personal->id_personal = $id_personal;
@@ -111,6 +116,9 @@ class Consulta extends Controller{
             $personal->escolaridad = $escolaridad;
             // mostrar los que se actualizaron
             
+            $personal->turno = $turno;
+            $personal->actividad = $actividad;
+
             $this->view->personal = $personal;
             $this->view->mensaje = "Personal actualizado correctamente";
         }else{

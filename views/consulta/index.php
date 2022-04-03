@@ -53,6 +53,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Turno</th>
+                    <th>Actividad</th>
                     <th>Estatus</th>
                     <th>Acciones</th>
                 </tr>
@@ -67,6 +69,8 @@
                 <tr id="fila-<?php echo $personal->id_personal; ?>">
                     <td><?php echo $personal->id_personal; ?></td>
                     <td><?php echo $personal->completo; ?></td>
+                    <td><?php echo $personal->turno; ?></td>
+                    <td><?php echo $personal->actividad; ?></td>
                     <td><?php echo $personal->estatus; ?></td>
 
                     <td><a

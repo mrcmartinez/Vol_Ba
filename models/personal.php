@@ -13,6 +13,8 @@ class Personal{
     public $estado_civil;
     public $numero_hijos;
     public $escolaridad;
+    public $turno;
+    public $actividad;
     public $estatus;
     public $completo;
 }

@@ -37,3 +37,4 @@ commit verasignar idcurso
 commit pase de lista curso
 commit filtro fecha curso
 commit alert
+commit turno actividad

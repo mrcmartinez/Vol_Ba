@@ -73,6 +73,14 @@
                 <input type="text" name="escolaridad" id="" required>
             </p>
             <p>
+                <label for="turno">Turno</label><br>
+                <input type="text" name="turno" id="">
+            </p>
+            <p>
+                <label for="actividad">Actividad</label><br>
+                <input type="text" name="actividad" id="">
+            </p>
+            <p>
                 <label for="estatus">Estatus</label><br>
                 <select id="estatus" name="estatus">
                     <option value="Activo">Activo</option>
