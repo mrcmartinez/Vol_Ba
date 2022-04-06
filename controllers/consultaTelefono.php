@@ -13,7 +13,7 @@ class ConsultaTelefono extends Controller{
     function render(){
         $telefono = $this->model->get(1);
         $this->view->telefono = $telefono;
-        $this->view->render('consultaTelefono/index');
+        $this->view->render('telefono/index');
     }
     
     function vertelefonoid($param = null){
@@ -22,7 +22,7 @@ class ConsultaTelefono extends Controller{
         $telefono = $this->model->get($idPersonal);
         $this->view->id = $idPersonal;
         $this->view->telefono = $telefono;
-        $this->view->render('consultaTelefono/index');
+        $this->view->render('telefono/index');
     }
 
     function vertelefono($param = null){
@@ -37,7 +37,7 @@ class ConsultaTelefono extends Controller{
         $_SESSION['verNumero'] = $telefono->numero;
         $this->view->telefono = $telefono;
         $this->view->mensaje = "";
-        $this->view->render('consultaTelefono/detalle');
+        $this->view->render('telefono/detalle');
     }
 
 
@@ -73,7 +73,7 @@ class ConsultaTelefono extends Controller{
         // $this->render();
         $telefono = $this->model->get($id_personal);
         $this->view->telefono = $telefono;
-        $this->view->render('consultaTelefono/index');
+        $this->view->render('telefono/index');
     }
 
     function eliminartelefono($param = null){
@@ -95,7 +95,7 @@ class ConsultaTelefono extends Controller{
         $this->view->mensaje = $mensaje;
         $telefono = $this->model->get($id_personal);
         $this->view->telefono = $telefono;
-        $this->view->render('consultaTelefono/index');
+        $this->view->render('telefono/index');
     }
 }
 

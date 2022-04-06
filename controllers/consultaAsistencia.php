@@ -13,7 +13,7 @@ class ConsultaAsistencia extends Controller{
     function render(){
         $asistencia = $this->model->get(1);
         $this->view->asistencia = $asistencia;
-        $this->view->render('consultaAsistencia/index');
+        $this->view->render('asistencia/index');
     }
     
     function verasistenciaid($param = null){
@@ -22,7 +22,7 @@ class ConsultaAsistencia extends Controller{
         $asistencia = $this->model->get($idPersonal);
         // print_r($asistencia);
         $this->view->asistencia = $asistencia;
-        $this->view->render('consultaAsistencia/index');
+        $this->view->render('asistencia/index');
     }
 
     // function verasistencia($param = null){
@@ -37,7 +37,7 @@ class ConsultaAsistencia extends Controller{
     //     $_SESSION['verNumero'] = $asistencia->numero;
     //     $this->view->asistencia = $asistencia;
     //     $this->view->mensaje = "";
-    //     $this->view->render('consultaAsistencia/detalle');
+    //     $this->view->render('asistencia/detalle');
     // }
 }
 

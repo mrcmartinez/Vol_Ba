@@ -46,7 +46,7 @@ class Nuevo extends Controller{
             $mensaje = "Nuevo voluntariado creado";
             $this->view->mensaje = $mensaje;
             $this->view->ultimoId = $consulta[1];
-            $this->view->render('consultaTelefono/nuevo');
+            $this->view->render('telefono/nuevo');
         }else{
             $mensaje = "Voluntario ya existe";
             $this->view->mensaje = $mensaje;

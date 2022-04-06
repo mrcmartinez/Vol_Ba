@@ -13,7 +13,7 @@ class ConsultaDocumento extends Controller{
     function render(){
         $documento = $this->model->get(1);
         $this->view->documento = $documento;
-        $this->view->render('nuevoDocumento/consultaDocumento');
+        $this->view->render('documentacion/consultaDocumento');
     }
     
     function verdocumentoid($param = null){
@@ -23,7 +23,7 @@ class ConsultaDocumento extends Controller{
         $this->view->id = $idPersonal;
         // print_r($documento);
         $this->view->documento = $documento;
-        $this->view->render('nuevoDocumento/consultaDocumento');
+        $this->view->render('documentacion/consultaDocumento');
     }
 
     // function verdocumento($param = null){
@@ -58,7 +58,7 @@ class ConsultaDocumento extends Controller{
         $this->view->mensaje = $mensaje;
         $documento = $this->model->get($id_personal);
         $this->view->documento = $documento;
-        $this->view->render('nuevoDocumento/consultaDocumento');
+        $this->view->render('documentacion/consultaDocumento');
     }
 }
 

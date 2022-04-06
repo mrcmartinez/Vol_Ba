@@ -10,13 +10,13 @@ class NuevoDocumento extends Controller{
 
     function render(){
         // $this->view->mensaje = $mensaje;
-        $this->view->render('nuevoDocumento/index');
+        $this->view->render('documentacion/index');
     }
     function nuevoDocumento($param = null){
         $id_personal = $param[0];
         $this->view->ultimoId = $id_personal;
         $this->view->mensaje = "";
-        $this->view->render('nuevoDocumento/nuevoRegistro');
+        $this->view->render('documentacion/nuevoRegistro');
     }
     function registrarNuevo(){
         // $mensaje = "Favor de ingresar Telefono";
@@ -41,7 +41,7 @@ class NuevoDocumento extends Controller{
         $this->view->ultimoId = $id_personal;
         $this->view->mensaje = $mensaje;
         // $this->render();
-        $this->view->render('nuevoDocumento/nuevoRegistro');
+        $this->view->render('documentacion/nuevoRegistro');
 
     }
     function registrarDocumento(){
