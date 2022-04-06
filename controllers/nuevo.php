@@ -9,7 +9,7 @@ class Nuevo extends Controller{
     }
 
     function render(){
-        $this->view->render('nuevo/index');
+        $this->view->render('consulta/nuevo');
     }
 
 
@@ -46,7 +46,7 @@ class Nuevo extends Controller{
             $mensaje = "Nuevo voluntariado creado";
             $this->view->mensaje = $mensaje;
             $this->view->ultimoId = $consulta[1];
-            $this->view->render('nuevoTelefono/index');
+            $this->view->render('consultaTelefono/nuevo');
         }else{
             $mensaje = "Voluntario ya existe";
             $this->view->mensaje = $mensaje;

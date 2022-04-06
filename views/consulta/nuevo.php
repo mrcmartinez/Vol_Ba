@@ -10,7 +10,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Nuevo</h1>
+        <h1 class="center">Sección de Nuevo en vista consulta</h1>
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 

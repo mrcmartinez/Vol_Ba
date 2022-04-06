@@ -9,14 +9,14 @@ class NuevoTelefono extends Controller{
     }
 
     function render(){
-        $this->view->render('nuevoTelefono/index');
+        $this->view->render('consultaTelefono/nuevo');
     }
 
     function nuevoTelefono($param = null){
         $id_personal = $param[0];
         $this->view->ultimoId = $id_personal;
         $this->view->mensaje = "";
-        $this->view->render('nuevoTelefono/nuevoRegistro');
+        $this->view->render('consultaTelefono/nuevoRegistro');
     }
     function registrarNuevo(){
         $mensaje = "Favor de ingresar Telefono";
@@ -44,7 +44,7 @@ class NuevoTelefono extends Controller{
         $this->view->mensaje = $mensaje;
         // $id_personal = $_POST['id_personal'];
         $this->view->ultimoId = $id_personal;
-        $this->view->render('nuevoTelefono/nuevoRegistro');
+        $this->view->render('consultaTelefono/nuevoRegistro');
         // $this->render();
 
         // $mensaje = "No ha ingresado ningun telefono";
