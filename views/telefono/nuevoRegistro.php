@@ -68,7 +68,7 @@
             </p>
 
         </form>
-        <form action="<?php echo constant('URL'); ?>consultaTelefono/vertelefonoid/ <?php echo $idU?>" method="POST">
+        <form action="<?php echo constant('URL'); ?>telefono/vertelefonoid/ <?php echo $idU?>" method="POST">
             <input type="submit" value="Volver">
         </form>
     </div>

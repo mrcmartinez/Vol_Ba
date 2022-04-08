@@ -74,7 +74,7 @@
                     <td><?php echo $personal->estatus; ?></td>
 
                     <td><a
-                            href="<?php echo constant('URL') . 'consultaTelefono/vertelefonoid/'. $personal->id_personal;?>">☏</a>
+                            href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a>
                         <a
                             href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->

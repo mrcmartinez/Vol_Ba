@@ -14,7 +14,7 @@
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 
-        <form action="<?php echo constant('URL'); ?>consultaTelefono/actualizartelefono" method="POST">
+        <form action="<?php echo constant('URL'); ?>telefono/actualizartelefono" method="POST">
 
             <p>
                 <label for="id_personal">ID</label><br>

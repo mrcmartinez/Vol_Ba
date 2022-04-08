@@ -16,7 +16,7 @@
 
         <div class="center"><?php echo $this->mensaje; ?></div>
         <?php $idU=intval($this->ultimoId);?>
-        <form action="<?php echo constant('URL'); ?>nuevoTelefono/registrarTelefono" method="POST">
+        <form action="<?php echo constant('URL'); ?>telefono/registrarTelefono" method="POST">
 
             <p>
                 <label for="id_personal">ID</label><br>

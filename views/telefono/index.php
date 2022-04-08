@@ -41,9 +41,9 @@
                     <td><?php echo $telefono->descripcion; ?></td>
 
                     <td><a
-                            href="<?php echo constant('URL') . 'consultaTelefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>
+                            href="<?php echo constant('URL') . 'telefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>
                     </td>
-                    <td><a href="<?php echo constant('URL') . 'consultaTelefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Eliminar</a> </td>
+                    <td><a href="<?php echo constant('URL') . 'telefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Eliminar</a> </td>
                     <!-- <td><button class="bEliminar"
                             data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td> -->
                 </tr>
@@ -51,7 +51,7 @@
                 <?php } ?>
             </tbody>
         </table>
-            <a href="<?php echo constant('URL') . 'nuevoTelefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
+            <a href="<?php echo constant('URL') . 'telefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
         <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
             <input type="submit" value="Regresar">
         </form>
