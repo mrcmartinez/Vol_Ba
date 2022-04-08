@@ -56,7 +56,7 @@ class ConsultaTelefono extends Controller{
          'tipo' => $tipo,
          'descripcion' => $descripcion] )){
             // actualizar telefono exito
-            $telefono = new Telefono();
+            $telefono = new Telefonos();
             $telefono->id_personal = $id_personal;
             $telefono->lada = $lada;
             $telefono->numero = $numero;

@@ -1,6 +1,6 @@
 <?php
 
-class Telefono{
+class Telefonos{
 
     public $id_personal;
     public $lada;

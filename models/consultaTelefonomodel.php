@@ -1,6 +1,6 @@
 <?php
 
-include_once 'models/telefono.php';
+include_once 'models/telefonos.php';
 
 class ConsultaTelefonoModel extends Model{
 
@@ -18,7 +18,7 @@ class ConsultaTelefonoModel extends Model{
             try{
             $query->execute(['id_personal' => $id]);
             while($row = $query->fetch()){
-                $item = new Telefono();
+                $item = new Telefonos();
                 $item->id_personal = $row['id_personal'];
                 // $item->nombre = $row['nombre'];
                 // $item->apellido_paterno = $row['apellido_paterno'];
@@ -47,7 +47,7 @@ class ConsultaTelefonoModel extends Model{
     }
 
     public function getById($id,$lada,$numero){
-        $item = new Telefono();
+        $item = new Telefonos();
 
         $query = $this->db->connect()->prepare("SELECT * FROM telefono WHERE id_personal = :id_personal AND lada = :lada AND numero = :numero");
         try{

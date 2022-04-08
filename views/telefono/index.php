@@ -28,9 +28,9 @@
             </thead>
             <tbody id="tbody-telefono">
                 <?php
-                    include_once 'models/telefono.php';
+                    include_once 'models/telefonos.php';
                     foreach($this->telefono as $row){
-                        $telefono = new Telefono();
+                        $telefono = new Telefonos();
                         $telefono = $row; 
                 ?>
                 <tr id="fila-<?php echo $telefono->id_personal; ?>">
