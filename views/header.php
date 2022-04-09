@@ -21,6 +21,8 @@
             <li><a href="<?php echo constant('URL'); ?>curso/listar">Consulta Curso</a></li>
             <li><a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a></li>
             <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li>
+            <!-- <li><a href="<?php echo constant('URL'); ?>documento">Documentacio</a></li> -->
+            <!-- <li><a href="<?php echo constant('URL'); ?>documento">nuevo Documentacio</a></li> -->
         </ul>
     </div>
 </body>

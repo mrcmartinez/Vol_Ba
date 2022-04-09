@@ -78,7 +78,7 @@
                         <a
                             href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
-                        <!-- <td><a href="<?php echo constant('URL') . 'consultaDocumento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
+                        <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <a
                             href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Baja</button><?php

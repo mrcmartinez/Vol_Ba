@@ -1,6 +1,6 @@
 <?php
 
-class Documento{
+class Documentos{
 
     public $id_personal;
     public $nombre;

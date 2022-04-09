@@ -15,7 +15,7 @@
         <h1 class="center">Agregar Documento</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         
-        <form action="<?php echo constant('URL'); ?>nuevoDocumento/registrarDocumento" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo constant('URL'); ?>documento/registrarDocumento" method="POST" enctype="multipart/form-data">
 
             <p>
                 <label for="id_personal">ID</label><br>

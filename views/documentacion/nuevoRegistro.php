@@ -16,7 +16,7 @@
 
         <div class="center"><?php echo $this->mensaje; ?></div>
         <?php $idU=intval($this->ultimoId);?>
-        <form action="<?php echo constant('URL'); ?>nuevoDocumento/registrarNuevo" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo constant('URL'); ?>documento/registrarNuevo" method="POST" enctype="multipart/form-data">
 
             <p>
                 <label for="id_personal">ID</label><br>

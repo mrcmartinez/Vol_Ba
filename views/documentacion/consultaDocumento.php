@@ -24,23 +24,23 @@
             </thead>
             <tbody id="tbody-documento">
                 <?php
-                    include_once 'models/documento.php';
+                    include_once 'models/documentos.php';
                     foreach($this->documento as $row){
-                        $documento = new Documento();
+                        $documento = new Documentos();
                         $documento = $row; 
                 ?>
                 <tr id="fila-<?php echo $documento->id_personal; ?>">
                     <td><?php echo $documento->id_personal; ?></td>
                     <td><?php echo $documento->nombre; ?></td>
                     <td><?php echo $documento->estatus; ?></td>
-                    <td><a href="<?php echo constant('URL') . 'consultaDocumento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td>
+                    <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td>
                 
                 </tr>
 
                 <?php } ?>
             </tbody>
         </table>
-        <a href="<?php echo constant('URL') . 'nuevoDocumento/nuevoDocumento/' . $this->id; ?>">Nuevo</a>
+        <a href="<?php echo constant('URL') . 'documento/nuevoDocumento/' . $this->id; ?>">Nuevo</a>
         <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
             <input type="submit" value="Regresar">
         </form>

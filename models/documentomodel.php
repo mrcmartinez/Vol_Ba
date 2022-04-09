@@ -1,13 +1,25 @@
 <?php
-
-include_once 'models/documento.php';
-
-class ConsultaDocumentoModel extends Model{
+include_once 'models/documentos.php';
+class DocumentoModel extends Model{
 
     public function __construct(){
         parent::__construct();
     }
 
+    public function insert($datos){
+        print_r($datos);
+        // insertar datos en la BD
+        try{
+            $query = $this->db->connect()->prepare('INSERT INTO documentacion (id_personal, nombre, descripcion, estatus) VALUES(:id_personal, :nombre, :descripcion, :estatus)');
+            $query->execute(['id_personal' => $datos['id_personal'], 'nombre' => $datos['nombre'], 'descripcion' => $datos['descripcion'], 'estatus' => $datos['estatus']]);
+            return true;
+        }catch(PDOException $e){
+            //echo $e->getMessage();
+            //echo "Ya existe esa matrícula";
+            return false;
+        }
+        
+    }
     public function get($id){
         // echo "entro get";
         $items = [];
@@ -18,7 +30,7 @@ class ConsultaDocumentoModel extends Model{
             try{
             $query->execute(['id_personal' => $id]);
             while($row = $query->fetch()){
-                $item = new Documento();
+                $item = new Documentos();
                 $item->id_personal = $row['id_personal'];
                 // $item->nombre = $row['nombre'];
                 // $item->apellido_paterno = $row['apellido_paterno'];

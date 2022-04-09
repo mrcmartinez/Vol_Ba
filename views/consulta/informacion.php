@@ -25,7 +25,7 @@
             <input type="submit" value="Asistencias">
         </form>
         <form
-            action="<?php echo constant('URL'); ?>consultaDocumento/verdocumentoid/ <?php echo $this->personal->id_personal ?>"
+            action="<?php echo constant('URL'); ?>documento/verdocumentoid/ <?php echo $this->personal->id_personal ?>"
             method="POST">
             <input type="submit" value="Documentacion">
         </form>
