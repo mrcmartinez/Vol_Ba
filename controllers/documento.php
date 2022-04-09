@@ -35,7 +35,7 @@ class Documento extends Controller{
                     $mensaje = $mensaje."Se entrego: ".$nombre."\n";
 
                 // $this->view->mensaje2 = $matricula;
-                // $this->view->render('consulta/index');
+                // $this->view->render('personal/index');
                 }else{
                     $mensaje =$mensaje."Ya existe".$nombre."\n";
                 }
@@ -68,7 +68,7 @@ class Documento extends Controller{
                     $mensaje = $mensaje."Se entrego: ".$nombre."\n";
 
                 // $this->view->mensaje2 = $matricula;
-                // $this->view->render('consulta/index');
+                // $this->view->render('personal/index');
                 }else{
                     $mensaje =$mensaje."Ya existe".$nombre."\n";
                 }

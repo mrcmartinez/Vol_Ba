@@ -15,7 +15,7 @@ class Consulta extends Controller{
     // function render(){
     //     $personal = $this->model->get();
     //     $this->view->personal = $personal;
-    //     $this->view->render('consulta/index');
+    //     $this->view->render('personal/index');
     // }
     function listar($param = null){
         
@@ -32,9 +32,9 @@ class Consulta extends Controller{
         $this->view->radio = $filtro;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];
-            $this->view->render('consulta/asignar');
+            $this->view->render('personal/asignar');
         }else{
-            $this->view->render('consulta/index');
+            $this->view->render('personal/index');
         }
         
     }
@@ -47,7 +47,7 @@ class Consulta extends Controller{
         $_SESSION['id_verPersonal'] = $personal->id_personal;
         $this->view->personal = $personal;
         $this->view->mensaje = "";
-        $this->view->render('consulta/detalle');
+        $this->view->render('personal/detalle');
     }
     function verInformacion($param = null){
         $idPersonal = $param[0];
@@ -59,7 +59,7 @@ class Consulta extends Controller{
         $this->view->personal = $personal;
         $this->view->mensaje = "";
         $this->view->completo=$completo;
-        $this->view->render('consulta/informacion');
+        $this->view->render('personal/informacion');
     }
 
     function actualizarPersonal(){
@@ -126,7 +126,7 @@ class Consulta extends Controller{
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
         }
         // $this->view->idUpdate = $id_personal;;
-        $this->view->render('consulta/detalle');
+        $this->view->render('personal/detalle');
     }
 
     function eliminarPersonal($param = null){

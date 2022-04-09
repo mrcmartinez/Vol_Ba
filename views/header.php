@@ -13,16 +13,16 @@
 
     <div id="header">
         <ul>
-            <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li>
-            <li><a href="<?php echo constant('URL'); ?>nuevo">Nuevo</a></li>
-            <li><a href="<?php echo constant('URL'); ?>consulta/listar">Consulta</a></li>
-            <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li>
-            <li><a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">cerrar sesion</a></li>
-            <li><a href="<?php echo constant('URL'); ?>curso/listar">Consulta Curso</a></li>
+            <!-- <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li> -->
+            <!-- <li><a href="<?php echo constant('URL'); ?>nuevo">Nuevo</a></li> -->
+            <li><a href="<?php echo constant('URL'); ?>consulta/listar">Voluntariado</a></li>
+            <!-- <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li> -->
+            <li><a href="<?php echo constant('URL'); ?>curso/listar">Curso</a></li>
             <li><a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a></li>
-            <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li>
+            <!-- <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li> -->
             <!-- <li><a href="<?php echo constant('URL'); ?>documento">Documentacio</a></li> -->
             <!-- <li><a href="<?php echo constant('URL'); ?>documento">nuevo Documentacio</a></li> -->
+            <li><a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">cerrar sesion</a></li>
         </ul>
     </div>
 </body>

@@ -73,7 +73,7 @@ class Inicio extends Controller{
             // echo "rol controlador es: ".$rol;
                 // $mensaje = $mensaje."Se entrego: ".$nombre."\n";
             // $this->view->mensaje2 = $matricula;
-            // $this->view->render('consulta/index');
+            // $this->view->render('personal/index');
                 
         }
         // 

@@ -9,7 +9,7 @@ class Nuevo extends Controller{
     }
 
     function render(){
-        $this->view->render('consulta/nuevo');
+        $this->view->render('personal/nuevo');
     }
 
 
