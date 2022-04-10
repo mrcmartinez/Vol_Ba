@@ -19,7 +19,7 @@
 
         <div id="respuesta" class="center">
             <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
-            <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
+            <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
                 <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo
@@ -44,7 +44,7 @@
             </form>
         </div>
         <div class="center"><?php echo $this->consulta; ?></div>
-        <form action="<?php echo constant('URL'); ?>nuevo" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal" method="POST">
             <input type="submit" value="Nuevo">
         </form>
 
@@ -76,11 +76,11 @@
                     <td><a
                             href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a>
                         <a
-                            href="<?php echo constant('URL') . 'consulta/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
+                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <a
-                            href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
+                            href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Baja</button><?php
                             }else{
                                 ?>Alta</button><?php
@@ -90,12 +90,12 @@
                         <?php if ( $_SESSION['rol']!="supervisor" ) { ?>
 
                         <a
-                            href="<?php echo constant('URL') . 'consulta/verPersonal/' . $personal->id_personal; ?>">Editar</a>
+                            href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>">Editar</a>
                         <!-- <button class="bEliminar"
                             data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button> -->
                     </td>
                     <?php } ?>
-                    <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"></a><button onclick="return confirmBaja()">Alerta</button></td> -->
+                    <!-- <td><a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"></a><button onclick="return confirmBaja()">Alerta</button></td> -->
                 </tr>
 
                 <?php } ?>

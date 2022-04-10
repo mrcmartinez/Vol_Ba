@@ -23,7 +23,7 @@ class Inicio extends Controller{
     function iniciarSesion(){
         session_start();
 
-        if (isset($_GET[base_url().'/nuevo/cerrar_sesion'])) {
+        if (isset($_GET[base_url().'/personal/cerrar_sesion'])) {
             session_unset();
             session_destroy();
             echo "sesion cerrada";
@@ -31,8 +31,8 @@ class Inicio extends Controller{
         if (isset($_SESSION['rol'])) {
             switch($_SESSION['rol']){
                 case "admin":
-                    header('location:'. base_url().'/nuevo');
-                    // $this->view->render('nuevo/index');
+                    header('location:'. base_url().'/personal');
+                    // $this->view->render('personal/index');
                     // header('location: ayuda/index.php');
                     break;
                 case "supervisor":
@@ -53,8 +53,8 @@ class Inicio extends Controller{
                 switch($_SESSION['rol']){
                     case "admin":
                         // $this->view->mensaje="";
-                        // $this->view->render('nuevo/index');
-                        header('location:'. base_url().'/nuevo');
+                        // $this->view->render('personal/index');
+                        header('location:'. base_url().'/personal');
                         break;
                     case "supervisor":
                         // $this->view->mensaje="";

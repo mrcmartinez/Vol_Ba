@@ -42,7 +42,7 @@
                 <?php } ?>
             </tbody>
         </table>
-        <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
             <input type="submit" value="Regresar">
         </form>
     </div>

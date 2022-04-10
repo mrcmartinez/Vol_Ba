@@ -75,7 +75,7 @@
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
-                    <td><a href="<?php echo constant('URL') . 'consulta/listar/'. $curso->id;?>">Asignar</a></td>
+                    <td><a href="<?php echo constant('URL') . 'personal/listar/'. $curso->id;?>">Asignar</a></td>
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $curso->id; ?>">Eliminar</button></td>  -->
                 </tr>
                 <?php } ?>

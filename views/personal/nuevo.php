@@ -14,7 +14,7 @@
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 
-        <form action="<?php echo constant('URL'); ?>nuevo/registrarPersonal" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
 
             <!-- <p>
                 <label for="id_personal">ID</label><br>
@@ -110,7 +110,7 @@
             </p>
 
         </form>
-        <form action="<?php echo constant('URL'); ?>consulta/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
             <input type="submit" value="Cancelar">
         </form>
     </div>

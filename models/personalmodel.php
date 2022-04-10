@@ -1,4 +1,6 @@
+
 <?php
+include_once 'models/personalBanco.php';
 
 class PersonalModel extends Model{
 

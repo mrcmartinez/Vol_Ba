@@ -16,7 +16,7 @@
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 
-        <form action="<?php echo constant('URL'); ?>consulta/actualizarPersonal" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/actualizarPersonal" method="POST">
 
             <p>
                 <label for="id_personal">ID</label><br>

@@ -14,8 +14,8 @@
     <div id="header">
         <ul>
             <!-- <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li> -->
-            <!-- <li><a href="<?php echo constant('URL'); ?>nuevo">Nuevo</a></li> -->
-            <li><a href="<?php echo constant('URL'); ?>consulta/listar">Voluntariado</a></li>
+            <!-- <li><a href="<?php echo constant('URL'); ?>personal">Nuevo</a></li> -->
+            <li><a href="<?php echo constant('URL'); ?>personal/listar">Voluntariado</a></li>
             <!-- <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li> -->
             <li><a href="<?php echo constant('URL'); ?>curso/listar">Curso</a></li>
             <li><a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a></li>
