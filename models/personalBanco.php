@@ -1,6 +1,6 @@
 <?php
 
-class Personal{
+class PersonalBanco{
     public $id_personal;
     public $nombre;
     public $apellido_paterno;

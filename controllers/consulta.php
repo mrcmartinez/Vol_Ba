@@ -99,7 +99,7 @@ class Consulta extends Controller{
          'turno' => $turno,
          'actividad' => $actividad] )){
             // actualizar Personal exito
-            $personal = new Personal();
+            $personal = new PersonalBanco();
             $personal->id_personal = $id_personal;
             $personal->nombre = $nombre;
             $personal->estatus = $estatus;

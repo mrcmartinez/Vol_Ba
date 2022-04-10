@@ -42,3 +42,4 @@ commit vistaReduccion
 commit preController reduccion
 commit telefono modelControllervista
 commit Documento mvc
+commit personal vm

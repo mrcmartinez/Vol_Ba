@@ -52,9 +52,9 @@
                 </thead>
                 <tbody id="tbody-personal">
                     <?php
-                    include_once 'models/personal.php';
+                    include_once 'models/personalBanco.php';
                     foreach($this->personal as $row){
-                        $personal = new Personal();
+                        $personal = new PersonalBanco();
                         $personal = $row; 
                 ?>
                     <tr id="fila-<?php echo $personal->id_personal; ?>">
