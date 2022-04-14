@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
+    
 </head>
 
 <body>

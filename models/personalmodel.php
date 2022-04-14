@@ -71,9 +71,9 @@ class PersonalModel extends Model{
         }
     }
     public function getBusqueda($c,$f){
-         echo "hola getBus";
-         echo $c;
-         echo $f;
+        //  echo "hola getBus";
+        //  echo $c;
+        //  echo $f;
          $items = [];
 
          try{
