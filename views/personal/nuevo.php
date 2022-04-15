@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <?php require 'views/header.php'; ?>
 
@@ -42,7 +44,7 @@
             </p>
             <p>
                 <label for="numero_exterior">Numero exterior</label><br>
-                <input type="tel" name="numero_exterior" id="" required >
+                <input type="tel" name="numero_exterior" id="" required>
             </p>
             <p>
                 <label for="edad">Edad</label><br>
@@ -105,8 +107,13 @@
                 <input type="text" name="telefono_cel" id="" required placeholder="numero">
                 <input type="text" name="telefono_cel" id="" required placeholder="avisar a:">
             </p>-->
+            <!-- <p> -->
+                <!-- <label for="file">Downloading progress:</label> -->
+                <!-- <progress id="file" value="0" max="100"> 32% </progress> -->
+            <!-- </p> -->
             <p>
-            <input type="submit" value="Registrar">
+                <input type="submit" value="Registrar">
+                <progress id="file" value="0" max="100"> 32% </progress>
             </p>
 
         </form>
@@ -117,4 +124,5 @@
 
     <?php require 'views/footer.php'; ?>
 </body>
+
 </html>

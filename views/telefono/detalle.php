@@ -20,6 +20,16 @@
                 <label for="id_personal">ID</label><br>
                 <input type="number" name="id_personal" readonly value="<?php echo $this->telefono->id_personal; ?>" required>
             </p>
+            <!--  -->
+            <!-- <p> -->
+                <!-- <label for="lada">lada</label><br> -->
+                <input type="hidden" name="ant_lada" value="<?php echo $this->telefono->lada; ?>">
+            <!-- </p> -->
+            <!-- <p> -->
+                <!-- <label for="numero">numero</label><br> -->
+                <input type="hidden" name="ant_numero" value="<?php echo $this->telefono->numero; ?>">
+            <!-- </p> -->
+            <!--  -->
             <p>
                 <label for="lada">lada</label><br>
                 <input type="text" name="lada" value="<?php echo $this->telefono->lada; ?>" required>

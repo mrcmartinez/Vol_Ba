@@ -92,9 +92,14 @@
                 <label for="descripcion_3">Comunicarse con:</label><br>
                 <input type="text" name="descripcion_3" id="">
             </p>
+            <!-- <p> -->
+                <!-- <label for="file">Downloading progress:</label> -->
+                <!-- <progress id="file" value="33" max="100"></progress> -->
+            <!-- </p> -->
             <!-- emergencia -->
             <p>
                 <input type="submit" value="Siguiente">
+                <progress id="file" value="33" max="100"></progress>
             </p>
 
         </form>

@@ -86,8 +86,8 @@ class Personal extends Controller{
         $idPersonal = $param[0];
         $personal = $this->model->getById($idPersonal);
 
-        session_start();
-        $_SESSION['id_verPersonal'] = $personal->id_personal;
+        // session_start();
+        // $_SESSION['id_verPersonal'] = $personal->id_personal;
         $this->view->personal = $personal;
         $this->view->mensaje = "";
         $this->view->render('personal/detalle');

@@ -45,3 +45,4 @@ commit Documento mvc
 commit personal vm
 commit personal mvc
 commit nav-bar/lateral
+commit update sin session

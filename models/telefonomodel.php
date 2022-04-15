@@ -80,18 +80,20 @@ class TelefonoModel extends Model{
         echo "item es :".print_r($item);
         // echo " ITEM anterior_lada es este: ".$item['id_personal'];
         // echo "session";
-        $ant_lada=$_SESSION['verLada'];
-        $ant_numero=$_SESSION['verNumero'];
-        echo "ant_ladasssssssss: ".$ant_lada;
+        // $ant_lada=$_SESSION['verLada'];
+        // $ant_numero=$_SESSION['verNumero'];
+        // echo "ant_ladasssssssss: ".$ant_lada;
         $query = $this->db->connect()->prepare("UPDATE telefono SET lada = :lada, numero = :numero, 
-        tipo = :tipo,descripcion = :descripcion WHERE id_personal = :id_personal AND lada = $ant_lada AND numero = $ant_numero");
+        tipo = :tipo,descripcion = :descripcion WHERE id_personal = :id_personal AND lada = :ant_lada AND numero = :ant_numero");
         try{
             $query->execute([
                 'id_personal'=> $item['id_personal'],
                 'lada'=> $item['lada'],
                 'numero'=> $item['numero'],
                 'tipo'=> $item['tipo'],
-                'descripcion'=> $item['descripcion']
+                'descripcion'=> $item['descripcion'],
+                'ant_lada'=> $item['ant_lada'],
+                'ant_numero'=> $item['ant_numero']
             ]);
             // echo "comienza ueryy: ".print_r($query);
             return true;

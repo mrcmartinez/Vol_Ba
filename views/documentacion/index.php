@@ -64,8 +64,13 @@
                 <input type="file" name="descripcion_9" >
             </p>
             </br>
+            <!-- <p> -->
+                <!-- <label for="file">Downloading progress:</label> -->
+                <!-- <progress id="file" value="66" max="100"></progress> -->
+            <!-- </p> -->
             <p>
                 <input type="submit" value="Subir">
+                <progress id="file" value="66" max="100"></progress>
             </p>
 
         </form>

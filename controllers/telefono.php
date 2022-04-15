@@ -123,10 +123,10 @@ class Telefono extends Controller{
         $numero = $param[2];
         $telefono = $this->model->getById($idPersonal,$lada,$numero);
 
-        session_start();
-        $_SESSION['id_verPersonal'] = $telefono->id_personal;
-        $_SESSION['verLada'] = $telefono->lada;
-        $_SESSION['verNumero'] = $telefono->numero;
+        // session_start();
+        // $_SESSION['id_verPersonal'] = $telefono->id_personal;
+        // $_SESSION['verLada'] = $telefono->lada;
+        // $_SESSION['verNumero'] = $telefono->numero;
         $this->view->telefono = $telefono;
         $this->view->mensaje = "";
         $this->view->render('telefono/detalle');
@@ -134,19 +134,19 @@ class Telefono extends Controller{
 
 
     function actualizartelefono(){
-        session_start();
-        $ant_lada=$_SESSION['verLada'];
-        $ant_numero=$_SESSION['verNumero'];
+        // session_start();
+        $ant_lada=$_POST['ant_lada'];
+        $ant_numero=$_POST['ant_numero'];
         $id_personal = $_POST['id_personal'];
         $lada    = $_POST['lada'];
         $numero  = $_POST['numero'];
         $tipo = $_POST['tipo'];
         $descripcion = $_POST['descripcion'];
-        unset($_SESSION['id_verPersonal']);
+        // unset($_SESSION['id_verPersonal']);
 
         if($this->model->update(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
          'tipo' => $tipo,
-         'descripcion' => $descripcion] )){
+         'descripcion' => $descripcion, 'ant_lada' => $ant_lada, 'ant_numero' => $ant_numero] )){
             // actualizar telefono exito
             $telefono = new Telefonos();
             $telefono->id_personal = $id_personal;
