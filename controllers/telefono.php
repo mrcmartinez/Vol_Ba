@@ -109,7 +109,7 @@ class Telefono extends Controller{
         // $this->render();
     }
     function vertelefonoid($param = null){
-        echo "entro verTelefonoID";
+        // echo "entro verTelefonoID";
         $idPersonal = $param[0];
         $telefono = $this->model->get($idPersonal);
         $this->view->id = $idPersonal;

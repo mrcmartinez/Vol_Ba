@@ -7,7 +7,7 @@ class DocumentoModel extends Model{
     }
 
     public function insert($datos){
-        print_r($datos);
+        // print_r($datos);
         // insertar datos en la BD
         try{
             $query = $this->db->connect()->prepare('INSERT INTO documentacion (id_personal, nombre, descripcion, estatus) VALUES(:id_personal, :nombre, :descripcion, :estatus)');

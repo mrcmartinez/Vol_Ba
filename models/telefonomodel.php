@@ -77,7 +77,7 @@ class TelefonoModel extends Model{
 
 
     public function update($item){
-        echo "item es :".print_r($item);
+        // echo "item es :".print_r($item);
         // echo " ITEM anterior_lada es este: ".$item['id_personal'];
         // echo "session";
         // $ant_lada=$_SESSION['verLada'];

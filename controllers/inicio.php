@@ -30,33 +30,33 @@ class Inicio extends Controller{
         }
         if (isset($_SESSION['rol'])) {
             switch($_SESSION['rol']){
-                case "admin":
+                case "Administrador":
                     header('location:'. base_url().'/personal');
                     // $this->view->render('personal/index');
                     // header('location: ayuda/index.php');
                     break;
-                case "supervisor":
+                case "Supervisor":
                     header('location: ../ayuda');
                     break;
                     default;
             }
         }
-        if (isset($_POST['username'])&&isset($_POST['password'])) {
-            $username=$_POST['username'];
+        if (isset($_POST['nombre_usuario'])&&isset($_POST['password'])) {
+            $nombre_usuario=$_POST['nombre_usuario'];
             $password=$_POST['password'];
-            $row=$this->model->select(['username' => $username,'password' => $password]);
+            $row=$this->model->select(['nombre_usuario' => $nombre_usuario,'password' => $password]);
 
             if ($row == true) {
                 echo "el usuario o contraseña son correctos";
                 $rol=$row[3];
                 $_SESSION['rol']=$rol;
                 switch($_SESSION['rol']){
-                    case "admin":
+                    case "Administrador":
                         // $this->view->mensaje="";
                         // $this->view->render('personal/index');
                         header('location:'. base_url().'/personal');
                         break;
-                    case "supervisor":
+                    case "Supervisor":
                         // $this->view->mensaje="";
                         // $this->view->render('ayuda/index');
                         header('location:'. base_url().'/ayuda');
@@ -64,6 +64,7 @@ class Inicio extends Controller{
                         default;
                 }
             }else{
+                 header('location:'. base_url().'/inicio');
                  echo "el usuario o contraseña son incorrectos";
             }
             // $id = $conn->lastInsertId();

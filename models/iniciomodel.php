@@ -6,15 +6,15 @@ class inicioModel extends Model{
         parent::__construct();
     }
     public function select($datos){
-        echo "entro a modeloInicio";
+        // echo "entro a modeloInicio";
         $row=false;
         // print_r($datos);
         // insertar datos en la BD
         try{
             $conn=$this->db->connect();
-            $query = $conn->prepare('SELECT* FROM usuario WHERE username = :username AND password = :password');
+            $query = $conn->prepare('SELECT* FROM usuario WHERE nombre_usuario = :nombre_usuario AND password = :password');
 
-            $query->execute(['username' => $datos['username'], 'password' => $datos['password']]);
+            $query->execute(['nombre_usuario' => $datos['nombre_usuario'], 'password' => $datos['password']]);
             
             $row = $query->fetch(PDO::FETCH_NUM);
             

@@ -71,7 +71,7 @@ class Personal extends Controller{
         // echo "consulta es: ".$consulta;
         $personal = $this->model->getBusqueda($consulta,$filtro);
         $this->view->personal = $personal;
-        $this->view->consulta = "Usted busco:". $consulta;
+        $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];
@@ -186,6 +186,51 @@ class Personal extends Controller{
         }
         $this->listar();
         // echo $mensaje;
+    }
+    function generarReporte(){
+        // $consulta  = "";
+        // $filtro="Activo";
+        // if (isset($_POST['caja_busqueda'])) {
+            $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
+            //nombre del archivo
+            // header('Content-Type:text/csv; charset-latin1');
+            // header("Content-type: application/vnd.ms-excel");
+            // header("Content-Disposition: attachment; filename=usuarios.xls");
+            //salida del archivo
+            // $salidas=fopen('php://output','w');
+            //encabezados
+            // fputcsv($salidas,array('Id'));
+            // $reporteCsv=$this->model->getBusqueda($consulta,$filtro);
+            // $personal = $this->model->getReporte($consulta,$filtro);
+            // $this->view->personal = $personal;
+            // $this->view->consulta = $consulta;
+            // $this->view->radio = $filtro;
+            // while($filaR=$reporteCsv->fetch_assoc())
+            // fputcsv($salidas,array($filaR['id_personal']));
+            
+            // foreach($reporteCsv as $r){
+            //     $personal = new PersonalBanco();
+            //     $personal = $r; 
+            //     $salida .= "<tr> <td>".$personal->id_personal."</td> <td>";
+            //     fputcsv($salida);
+            // }
+            
+        // }   
+        // echo "filtro es: ".$filtro;
+        // echo "consulta es: ".$consulta;
+        $salida = "";
+        $salida .= "<table>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th></thead>";
+        foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
+        }
+        $salida .= "</table>";
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=usuarios_".time().".xls");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        echo $salida;
     }
 
 }

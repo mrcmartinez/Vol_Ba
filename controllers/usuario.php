@@ -2,7 +2,7 @@
 
 
 
-class Curso extends Controller{
+class Usuario extends Controller{
     function __construct(){
         parent::__construct();
         $this->view->mensaje = "";
@@ -42,23 +42,20 @@ class Curso extends Controller{
         
     }
     function nuevo(){
-        $this->view->render('curso/nuevo');
+        $this->view->render('usuario/nuevo');
     }
     function crear(){
         // echo "entro a crear";
         // $id = $_POST['id'];
-        $nombre    = $_POST['nombre'];
-        $descripcion  = $_POST['descripcion'];
-        $responsable  = $_POST['responsable'];
-        $fecha  = $_POST['fecha'];
-        $hora  = $_POST['hora'];
-        $estatus  = $_POST['estatus'];
+        $nombre_usuario    = $_POST['nombre_usuario'];
+        $password  = $_POST['password'];
+        $rol  = $_POST['rol'];
 
-        if($this->model->insert(['nombre' => $nombre, 'descripcion' => $descripcion,
-                                 'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
+        if($this->model->insert(['nombre_usuario' => $nombre_usuario, 'password' => $password,
+                                 'rol' => $rol])){
             //header('location: '.constant('URL').'nuevo/cursoCreado');
-            $this->view->mensaje = "Curso creado correctamente";
-            $this->view->render('curso/nuevo');
+            $this->view->mensaje = "Usuario creado correctamente";
+            $this->view->render('usuario/nuevo');
         }else{
             $this->view->mensaje = "ID ya está registrada";
             $this->view->render('curso/nuevo');

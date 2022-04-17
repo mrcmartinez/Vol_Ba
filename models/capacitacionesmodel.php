@@ -58,7 +58,7 @@ class CapacitacionesModel extends Model{
         
     }
     public function update($item){
-        print_r($item);
+        // print_r($item);
         $query = $this->db->connect()->prepare('UPDATE CAPACITACION SET estatus = :estatus WHERE (id_curso = :id_curso AND id_personal = :id_personal)');
         try{
             $query->execute([

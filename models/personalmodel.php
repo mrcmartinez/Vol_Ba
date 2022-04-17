@@ -79,14 +79,14 @@ class PersonalModel extends Model{
          try{
  
              $query = $this->db->connect()->query("SELECT concat_ws(' ', apellido_paterno, apellido_materno,
-                                                                     nombre) as nombreConcat,id_personal,turno,actividad,estatus FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%') AND estatus like '%".$f."%'");
+                                                                     nombre) as nombreConcat,id_personal,nombre,apellido_paterno,apellido_materno,turno,actividad,estatus FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%') AND estatus like '%".$f."%'");
  
              while($row = $query->fetch()){
                  $item = new PersonalBanco();
                  $item->id_personal = $row['id_personal'];
-                 // $item->nombre = $row['nombre'];
-                 // $item->apellido_paterno = $row['apellido_paterno'];
-                 // $item->apellido_materno = $row['apellido_materno'];
+                 $item->nombre = $row['nombre'];
+                 $item->apellido_paterno = $row['apellido_paterno'];
+                 $item->apellido_materno = $row['apellido_materno'];
                  // $item->calle = $row['calle'];
                  // $item->colonia = $row['colonia'];
                  // $item->numero_exterior = $row['numero_exterior'];
@@ -173,7 +173,7 @@ class PersonalModel extends Model{
     }
 
     public function delete($id,$estatus){
-        echo "estatus model".$estatus;
+        // echo "estatus model".$estatus;
         if ($estatus=="Activo") {
             $query = $this->db->connect()->prepare("UPDATE personal SET estatus = 'Baja' WHERE id_personal = :id_personal");
         }else {
@@ -188,6 +188,45 @@ class PersonalModel extends Model{
             return false;
         }
     }
+    public function getReporte($c,$f){
+        // echo "hola getReporte";
+        //  echo $c;
+        //  echo $f;
+        //  $items = [];
+
+        //  try{
+ 
+             $reporte = $this->db->connect()->query("SELECT*from personal");
+ 
+            //  while($row = $query->fetch()){
+                //   $item = new PersonalBanco;
+            //      $item->id_personal = $row'id_personal';
+            //      // $item->nombre = $row['nombre'];
+            //      // $item->apellido_paterno = $row['apellido_paterno'];
+            //      // $item->apellido_materno = $row['apellido_materno'];
+            //      // $item->calle = $row['calle'];
+            //      // $item->colonia = $row['colonia'];
+            //      // $item->numero_exterior = $row['numero_exterior'];
+            //      // $item->edad = $row['edad'];
+            //      // $item->fecha_nacimiento = $row['fecha_nacimiento'];
+            //      // $item->estado_civil = $row['estado_civil'];
+            //      // $item->numero_hijos = $row['numero_hijos'];
+            //      // $item->escolaridad = $row['escolaridad'];
+            //      $item->turno = $row['turno'];
+            //      $item->actividad = $row['actividad'];
+            //      $item->estatus = $row['estatus'];
+            //      $item->completo = $row['nombreConcat'];
+            //      array_push($items, $item);
+            //      //         
+            //  }
+             //  $this->view->$completo;
+            //  return $query;
+        //  }catch(PDOException $e){
+            // print($query);
+            // print_r($query);
+             return $reporte;
+        //  }
+     }
 }
 
 ?>

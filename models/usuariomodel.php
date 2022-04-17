@@ -1,28 +1,23 @@
 <?php
-require 'models/cursos.php';
-class CursoModel extends Model{
+require 'models/usuarios.php';
+class UsuarioModel extends Model{
 
     public function __construct(){
         parent::__construct();
     }
     public function insert($datos){
         // insertar
-        $query = $this->db->connect()->prepare('INSERT INTO CURSO (NOMBRE, DESCRIPCION, RESPONSABLE, FECHA, HORA, ESTATUS) VALUES(:nombre, :descripcion, :responsable, :fecha, :hora, :estatus)');
+        $query = $this->db->connect()->prepare('INSERT INTO USUARIO (NOMBRE_USUARIO, PASSWORD, ROL) VALUES(:nombre_usuario, :password, :rol)');
         try{
             $query->execute([
-                'nombre' => $datos['nombre'],
-                'descripcion' => $datos['descripcion'],
-                'responsable' => $datos['responsable'],
-                'fecha' => $datos['fecha'],
-                'hora' => $datos['hora'],
-                'estatus' => $datos['estatus']
+                'nombre_usuario' => $datos['nombre_usuario'],
+                'password' => $datos['password'],
+                'rol' => $datos['rol']
             ]);
             return true;
         }catch(PDOException $e){
             return false;
         }
-        
-        
     }
     public function get(){
         $items = [];

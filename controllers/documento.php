@@ -80,7 +80,7 @@ class Documento extends Controller{
         $this->view->render('documentacion/index');
     }
     function verdocumentoid($param = null){
-        echo "entro verDocumentoID";
+        // echo "entro verDocumentoID";
         $idPersonal = $param[0];
         $documento = $this->model->get($idPersonal);
         $this->view->id = $idPersonal;
