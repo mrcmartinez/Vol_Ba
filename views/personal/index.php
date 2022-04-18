@@ -49,10 +49,17 @@
             <input type="submit" value="Nuevo">
         </form>
         <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
-                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
-            </form>
+            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+        </form>
+
+        <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
+            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+        </form>
+
         <table class="table">
             <thead>
                 <tr>

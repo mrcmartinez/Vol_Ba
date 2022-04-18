@@ -232,7 +232,50 @@ class Personal extends Controller{
         header("Expires: 0");
         echo $salida;
     }
+    function generarReportePDF(){
+    require 'libraries/fpdf/fpdf.php';
+    $consulta  = $_POST['caja_busqueda'];
+    $filtro  = $_POST['radio_busqueda'];
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->Image('assets/img/logo (3).png',10,8,33);
+    $pdf->SetFont('Arial','B',24);
+     // Movernos a la derecha
+    $pdf->Cell(80);
+     // Título
+    $pdf->SetTextColor(250,150,100);
+    // $pdf->SetFillColor(200,220,255);
+    $pdf->Cell(30,10,'Personal Voluntariado',0,0,'C');
+    $pdf->SetTextColor(0);
+    $pdf->Ln(30);
+    $pdf->SetFont('Arial','B',12);
 
+            // Colores, ancho de línea y fuente en negrita
+            // $pdf->SetFillColor(255,0,0);
+            // $pdf->SetDrawColor(128,0,0);
+    $pdf->SetFillColor(250,150,100);
+    $pdf->Cell(10,10,'ID',1,0,'c',1);
+    $pdf->Cell(40,10,'NOMBRE',1,0,'c',1);
+    $pdf->Cell(30,10,'PATERNO',1,0,'c',1);
+    $pdf->Cell(30,10,'MATERNO',1,0,'c',1);
+    $pdf->Cell(30,10,'ACTIVIDAD',1,0,'c',1);
+    $pdf->Cell(30,10,'TURNO',1,0,'c',1);
+    $pdf->Cell(22,10,'ESTATUS',1,1,'c',1);
+    $pdf->SetFont('Arial','',12);
+    foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
+        // $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
+        $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
+        $pdf->Cell(40,10,$r->nombre,1,0,'c',0);
+        $pdf->Cell(30,10,$r->apellido_paterno,1,0,'c',0);
+        $pdf->Cell(30,10,$r->apellido_materno,1,0,'c',0);
+        $pdf->Cell(30,10,$r->turno,1,0,'c',0);
+        $pdf->Cell(30,10,$r->actividad,1,0,'c',0);
+        $pdf->Cell(22,10,$r->estatus,1,1,'c',0);
+    }
+    // $pdf->Output();
+    $pdf->Output("Voluntariado.pdf", "D");
+    // $archivo->Output("test.pdf", "D");
+    }
 }
 
 ?>
