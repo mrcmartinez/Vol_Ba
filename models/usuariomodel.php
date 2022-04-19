@@ -39,21 +39,18 @@ class UsuarioModel extends Model{
     }
 
     public function getById($id){
-        $item = new Cursos();
+        $item = new Usuarios();
         try{
-            $query = $this->db->connect()->prepare('SELECT * FROM curso WHERE id = :id');
+            $query = $this->db->connect()->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id_usuario');
 
-            $query->execute(['id' => $id]);
+            $query->execute(['id_usuario' => $id]);
             
             while($row = $query->fetch()){
                 
-                $item->id = $row['id'];
-                $item->nombre    = $row['nombre'];
-                $item->descripcion  = $row['descripcion'];
-                $item->responsable  = $row['responsable'];
-                $item->fecha  = $row['fecha'];
-                $item->hora  = $row['hora'];
-                $item->estatus  = $row['estatus'];
+                $item->id_usuario = $row['id_usuario'];
+                $item->nombre_usuario = $row['nombre_usuario'];
+                $item->password  = $row['password'];
+                $item->rol  = $row['rol'];
             }
             return $item;
         }catch(PDOException $e){
@@ -101,16 +98,13 @@ class UsuarioModel extends Model{
         }
     }
     public function update($item){
-        $query = $this->db->connect()->prepare('UPDATE curso SET nombre = :nombre, descripcion = :descripcion, responsable = :responsable, fecha = :fecha, hora = :hora, estatus = :estatus WHERE id = :id');
+        $query = $this->db->connect()->prepare('UPDATE USUARIO SET nombre_usuario = :nombre_usuario, password = :password, rol = :rol WHERE id_usuario = :id_usuario');
         try{
             $query->execute([
-                'id' => $item['id'],
-                'nombre' => $item['nombre'],
-                'descripcion' => $item['descripcion'],
-                'responsable' => $item['responsable'],
-                'fecha' => $item['fecha'],
-                'hora' => $item['hora'],
-                'estatus' => $item['estatus']
+                'id_usuario' => $item['id_usuario'],
+                'nombre_usuario' => $item['nombre_usuario'],
+                'password' => $item['password'],
+                'rol' => $item['rol']
             ]);
             return true;
         }catch(PDOException $e){
@@ -124,10 +118,10 @@ class UsuarioModel extends Model{
 
         if ($estatus=="Activo") {
             // echo "es para activo";
-            $query = $this->db->connect()->prepare("UPDATE curso SET estatus = 'Terminado' WHERE id = :id");
+            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Terminado' WHERE id = :id");
         }else{
             // echo "es para terminado";
-            $query = $this->db->connect()->prepare("UPDATE curso SET estatus = 'Activo' WHERE id = :id");
+            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Activo' WHERE id = :id");
         }
         try{
             $query->execute([

@@ -5,46 +5,25 @@
 class Usuario extends Controller{
     function __construct(){
         parent::__construct();
+        $this->view->usuario = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
     }
 
-    // function render(){
-    //     $consulta  = "";
-    //     $filtro="Activo";
-    //     $cursos = $this->view->datos = $this->model->get();
-    //     // $this->view->$filtro;
-    //     $this->view->radio = $filtro;
-    //     $this->view->cursos = $cursos;
-    //     $this->view->render('curso/consulta');
-    // }
     function listar(){
-        // echo "consulta es: ".$consulta;
         $usuario = $this->view->datos = $this->model->get();
         $this->view->usuario = $usuario;
-        // $this->view->consulta = "Usted busco:". $consulta;
-        // $this->view->radio = $filtro;
-        // if (isset($param[0])) {
-            // $this->view->idCurso = $param[0];
             $this->view->render('usuario/index');
-        // }else{
-            // $this->view->render('curso/consulta');
-        // }
-        
     }
     function nuevo(){
         $this->view->render('usuario/nuevo');
     }
     function crear(){
-        // echo "entro a crear";
-        // $id = $_POST['id'];
-        $nombre_usuario    = $_POST['nombre_usuario'];
+        $nombre_usuario = $_POST['nombre_usuario'];
         $password  = $_POST['password'];
         $rol  = $_POST['rol'];
-
         if($this->model->insert(['nombre_usuario' => $nombre_usuario, 'password' => $password,
                                  'rol' => $rol])){
-            //header('location: '.constant('URL').'nuevo/cursoCreado');
             $this->view->mensaje = "Usuario creado correctamente";
             $this->view->render('usuario/nuevo');
         }else{
@@ -52,43 +31,31 @@ class Usuario extends Controller{
             $this->view->render('curso/nuevo');
         }
     }
-    function verCurso($param = null){
-        $idCurso = $param[0];
-        $curso = $this->model->getById($idCurso);
-
-        $this->view->curso = $curso;
-        $this->view->render('curso/detalle');
+    function verUsuario($param = null){
+        $idUsuario = $param[0];
+        $usuario = $this->model->getById($idUsuario);
+        $this->view->usuario = $usuario;
+        $this->view->render('usuario/detalle');
     }
 
-    function actualizarCurso($param = null){
-        $id = $_POST['id'];
-        $nombre    = $_POST['nombre'];
-        $descripcion  = $_POST['descripcion'];
-        $responsable  = $_POST['responsable'];
-        $fecha  = $_POST['fecha'];
-        $hora  = $_POST['hora'];
-        $estatus  = $_POST['estatus'];
+    function actualizarUsuario($param = null){
+        $id_usuario = $_POST['id_usuario'];
+        $nombre_usuario    = $_POST['nombre_usuario'];
+        $password  = $_POST['password'];
+        $rol  = $_POST['rol'];
 
-        if($this->model->update(['id' => $id, 'nombre' => $nombre, 'descripcion' => $descripcion,
-                                'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
-            $curso = new Curso();
-            $curso->id = $id;
-            $curso->nombre = $nombre;
-            $curso->descripcion = $descripcion;
-            $curso->responsable = $responsable;
-            $curso->fecha = $fecha;
-            $curso->hora = $hora;
-            $curso->estatus = $estatus;
-
-            $this->view->curso = $curso;
-            $this->view->mensaje = "Curso actualizado correctamente";
+        if($this->model->update(['id_usuario' => $id_usuario,'nombre_usuario' => $nombre_usuario, 'password' => $password,
+                                'rol' => $rol])){
+            $this->view->mensaje = "usuario actualizado correctamente";
+            $this->listar();
         }else{
-            $this->view->mensaje = "No se pudo actualizar al curso";
+            $this->view->mensaje = "No se pudo actualizar el usuario";
+            $this->view->render('usuario/detalle');
         }
-        $this->view->render('curso/detalle');
+        
     }
 
-    function eliminarCurso($param = null){
+    function eliminarUsuario($param = null){
         // echo " entro eliminar curso";
         $id = $param[0];
         $estatus = $param[1];

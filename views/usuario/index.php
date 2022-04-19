@@ -36,8 +36,8 @@
                     <td><?php echo $usuario->password; ?></td>
                     <td><?php echo $usuario->rol; ?></td>
                 
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaUsuario/verusuario/' . $usuario->id_usuario; ?>">Editar</a>  </td> -->
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaUsuario/eliminarusuario/' . $usuario->id_usuario; ?>">Eliminar</a> </td>-->
+                    <td><a href="<?php echo constant('URL') . 'usuario/verUsuario/' . $usuario->id_usuario; ?>">Editar</a>  </td>
+                    <!-- <td><a href="<?php echo constant('URL') . 'usuario/eliminarUsuario/' . $usuario->id_usuario; ?>">Eliminar</a> </td>-->
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $usuario->id_usuario; ?>">Eliminar</button></td> -->
                 </tr>
 
