@@ -22,17 +22,14 @@ class UsuarioModel extends Model{
     public function get(){
         $items = [];
         try{
-            $query = $this->db->connect()->query('SELECT * FROM curso');
+            $query = $this->db->connect()->query('SELECT * FROM USUARIO');
             
             while($row = $query->fetch()){
-                $item = new Cursos();
-                $item->id = $row['id'];
-                $item->nombre    = $row['nombre'];
-                $item->descripcion  = $row['descripcion'];
-                $item->responsable  = $row['responsable'];
-                $item->fecha  = $row['fecha'];
-                $item->hora  = $row['hora'];
-                $item->estatus  = $row['estatus'];
+                $item = new USUARIOS();
+                $item->id_usuario = $row['id_usuario'];
+                $item->nombre_usuario    = $row['nombre_usuario'];
+                $item->password  = $row['password'];
+                $item->rol  = $row['rol'];
                 array_push($items, $item);
             }
             return $items;

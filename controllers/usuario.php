@@ -18,27 +18,18 @@ class Usuario extends Controller{
     //     $this->view->cursos = $cursos;
     //     $this->view->render('curso/consulta');
     // }
-    function listar($param = null){
-        
-        $consulta  = "";
-        $filtro="Activo";
-        $fecha="";
-        if (isset($_POST['caja_busqueda'])) {
-            $consulta  = $_POST['caja_busqueda'];
-            $filtro  = $_POST['radio_busqueda'];
-            $fecha  = $_POST['caja_fecha'];
-        }
+    function listar(){
         // echo "consulta es: ".$consulta;
-        $cursos = $this->view->datos = $this->model->getBusqueda($consulta,$filtro,$fecha);
-        $this->view->cursos = $cursos;
-        $this->view->consulta = "Usted busco:". $consulta;
-        $this->view->radio = $filtro;
-        if (isset($param[0])) {
-            $this->view->idCurso = $param[0];
-            $this->view->render('curso/consulta');
-        }else{
-            $this->view->render('curso/consulta');
-        }
+        $usuario = $this->view->datos = $this->model->get();
+        $this->view->usuario = $usuario;
+        // $this->view->consulta = "Usted busco:". $consulta;
+        // $this->view->radio = $filtro;
+        // if (isset($param[0])) {
+            // $this->view->idCurso = $param[0];
+            $this->view->render('usuario/index');
+        // }else{
+            // $this->view->render('curso/consulta');
+        // }
         
     }
     function nuevo(){

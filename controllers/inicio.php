@@ -23,7 +23,7 @@ class Inicio extends Controller{
     function iniciarSesion(){
         session_start();
 
-        if (isset($_GET[base_url().'/personal/cerrar_sesion'])) {
+        if (isset($_GET[base_url().'personal/cerrar_sesion'])) {
             session_unset();
             session_destroy();
             echo "sesion cerrada";
@@ -31,7 +31,7 @@ class Inicio extends Controller{
         if (isset($_SESSION['rol'])) {
             switch($_SESSION['rol']){
                 case "Administrador":
-                    header('location:'. base_url().'/personal');
+                    header('location:'. base_url().'personal');
                     // $this->view->render('personal/index');
                     // header('location: ayuda/index.php');
                     break;
@@ -54,17 +54,17 @@ class Inicio extends Controller{
                     case "Administrador":
                         // $this->view->mensaje="";
                         // $this->view->render('personal/index');
-                        header('location:'. base_url().'/personal');
+                        header('location:'. base_url().'personal');
                         break;
                     case "Supervisor":
                         // $this->view->mensaje="";
                         // $this->view->render('ayuda/index');
-                        header('location:'. base_url().'/ayuda');
+                        header('location:'. base_url().'ayuda');
                         break;
                         default;
                 }
             }else{
-                 header('location:'. base_url().'/inicio');
+                 header('location:'. base_url().'inicio');
                  echo "el usuario o contraseña son incorrectos";
             }
             // $id = $conn->lastInsertId();

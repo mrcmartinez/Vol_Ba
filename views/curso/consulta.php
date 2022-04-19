@@ -69,13 +69,14 @@
                     </td>
                     <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>">Actualizar</a></td>
                     <!-- <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id; ?>">Eliminar</a></td> -->
+                    <td><a href="<?php echo constant('URL') . 'personal/listar/'. $curso->id;?>">Asignar</a></td>
                     <td> <a
                             href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Cerrar</button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
-                    <td><a href="<?php echo constant('URL') . 'personal/listar/'. $curso->id;?>">Asignar</a></td>
+                    
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $curso->id; ?>">Eliminar</button></td>  -->
                 </tr>
                 <?php } ?>

@@ -40,15 +40,26 @@
                         <td><?php echo $capacitacion->id_curso; ?></td>
                         <td><?php echo $capacitacion->id_personal; ?></td>
                         <td><?php echo $capacitacion->estatus; ?></td>
+
+                        <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
+
                         <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name="personal[]"
-                                onclick="reload()"></td>
+                                onclick=""></td>
+
+                        <?php }else{
+                             ?>
+                        <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name="" checked disabled
+                                onclick=""></td>
+                        <?php
+                        } ?>
+
                         <!-- <td><button class="bEliminar" data-matricula="<?php echo $capacitacion->id; ?>">Eliminar</button></td>  -->
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
             <input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>">
-            <input type="submit" name="seleccion"value="ok" />
+            <input type="submit" name="seleccion" value="ok" />
         </form>
     </div>
 
