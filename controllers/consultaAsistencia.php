@@ -11,17 +11,18 @@ class ConsultaAsistencia extends Controller{
     }
 
     function render(){
-        $asistencia = $this->model->get(1);
+        $asistencia = $this->model->getAll();
         $this->view->asistencia = $asistencia;
-        $this->view->render('asistencia/index');
+        $this->view->render('asistencia/reporte');
     }
     
     function verasistenciaid($param = null){
-        echo "entro verAsistenciaID";
+        // echo "entro verAsistenciaID";
         $idPersonal = $param[0];
         $asistencia = $this->model->get($idPersonal);
         // print_r($asistencia);
         $this->view->asistencia = $asistencia;
+        $this->view->id = $idPersonal;
         $this->view->render('asistencia/index');
     }
 

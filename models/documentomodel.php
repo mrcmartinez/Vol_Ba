@@ -56,6 +56,24 @@ class DocumentoModel extends Model{
             return [];
         }
     }
+    public function getAll(){
+        $items = [];
+        try{
+            $query = $this->db->connect()->query('SELECT * FROM documentacion');
+            
+            while($row = $query->fetch()){
+                $item = new Documentos();
+                $item->id_personal = $row['id_personal'];
+                $item->nombre = $row['nombre'];
+                $item->descripcion = $row['descripcion'];
+                $item->estatus = $row['estatus'];
+                array_push($items, $item);
+            }
+            return $items;
+        }catch(PDOException $e){
+            return [];
+        }
+    }
     public function delete($id,$nombre){
         $query = $this->db->connect()->prepare("DELETE FROM documentacion WHERE id_personal = :id_personal AND nombre = :nombre");
         try{

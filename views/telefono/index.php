@@ -14,6 +14,24 @@
     <div id="main">
         <h1 class="center">Sección de Consulta telefonos</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
+        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+            <input type="submit" value="Regresar">
+        </form>
+        <form
+            action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->id?>"
+            method="POST">
+            <input type="submit" value="Asistencias">
+        </form>
+        <form
+            action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->id?>"
+            method="POST">
+            <input type="submit" value="Documentacion">
+        </form>
+        <form
+            action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->id?>"
+            method="POST">
+            <input type="submit" value="Telefonos">
+        </form>
         <div id="respuesta" class="center"></div>
 
         <table width="100%">
@@ -52,9 +70,9 @@
             </tbody>
         </table>
             <a href="<?php echo constant('URL') . 'telefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
-        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+        <!-- <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
             <input type="submit" value="Regresar">
-        </form>
+        </form> -->
     </div>
 
     <?php require 'views/footer.php'; ?>

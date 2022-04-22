@@ -20,17 +20,17 @@
             <input type="submit" value="Regresar">
         </form>
         <form
-            action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/ <?php echo $this->personal->id_personal ?>"
+            action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->personal->id_personal ?>"
             method="POST">
             <input type="submit" value="Asistencias">
         </form>
         <form
-            action="<?php echo constant('URL'); ?>documento/verdocumentoid/ <?php echo $this->personal->id_personal ?>"
+            action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->personal->id_personal ?>"
             method="POST">
             <input type="submit" value="Documentacion">
         </form>
         <form
-            action="<?php echo constant('URL'); ?>telefono/vertelefonoid/ <?php echo $this->personal->id_personal ?>"
+            action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->personal->id_personal ?>"
             method="POST">
             <input type="submit" value="Telefonos">
         </form>

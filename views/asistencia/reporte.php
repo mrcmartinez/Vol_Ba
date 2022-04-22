@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Consulta asistencia id</h1>
-        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
-            <input type="submit" value="Regresar">
-        </form>
-        <form
-            action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->id?>"
-            method="POST">
-            <input type="submit" value="Asistencias">
-        </form>
-        <form
-            action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->id?>"
-            method="POST">
+        <form action="<?php echo constant('URL'); ?>documento" method="POST">
             <input type="submit" value="Documentacion">
         </form>
-        <form
-            action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->id?>"
-            method="POST">
-            <input type="submit" value="Telefonos">
+        <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+            <input type="submit" value="Asistencias">
         </form>
-        <div class="center"><?php echo $this->mensaje; ?></div>
+        <h1 class="center">Sección de Asistencia Reporte</h1>
+        <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
         <div id="respuesta" class="center"></div>
 
         <table width="100%">
@@ -37,7 +27,7 @@
                 <tr>
                     <th>Id Personal</th>
                     <th>fecha</th>
-                    <th>estatus</th>
+                    <th>eststus</th>
                 </tr>
             </thead>
             <tbody id="tbody-asistencia">
@@ -51,7 +41,7 @@
                     <td><?php echo $asistencia->id_personal; ?></td>
                     <td><?php echo $asistencia->fecha; ?></td>
                     <td><?php echo $asistencia->estatus; ?></td>
-                
+
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
                     <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
@@ -70,4 +60,5 @@
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
 
 </body>
+
 </html>

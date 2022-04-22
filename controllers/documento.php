@@ -9,10 +9,12 @@ class Documento extends Controller{
         //echo "<p>Nuevo controlador Main</p>";
     }
 
-    // function render(){
-    //     // $this->view->mensaje = $mensaje;
-    //     $this->view->render('documentacion/index');
-    // }
+    function render(){
+        // $this->view->mensaje = $mensaje;
+        $documento = $this->model->getAll();
+        $this->view->documento = $documento;
+        $this->view->render('documentacion/reporte');
+    }
     function nuevoDocumento($param = null){
         $id_personal = $param[0];
         $this->view->ultimoId = $id_personal;
