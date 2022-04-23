@@ -21,6 +21,22 @@
         <h1 class="center">Sección de Asistencia Reporte</h1>
         <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
         <div id="respuesta" class="center"></div>
+        <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+                <?php switch($this->radio){
+                    case "Asistencia":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked>Asistencia
+                        <input type="radio" id="" name="radio_busqueda" value="Falta">Falta';
+                        break;
+                    case "Falta":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia">Asistencia
+                        <input type="radio" id="" name="radio_busqueda" value="Falta"checked>Falta';
+                        break;
+                }?>
+                <p>
+                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="submit" value="Buscar">
+                </p>
+            </form>
 
         <table width="100%">
             <thead>

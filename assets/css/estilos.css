@@ -9,7 +9,7 @@ ul a{
 header{
     display: flex;
     min-height: 70px;
-    background-color: rgba(4, 90, 133, 0.75);
+    background:#000000;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -117,6 +117,18 @@ nav a{
 	.line{
 		display: inline;
 		background-color: red;
+	}
+	a img{
+		height: 25px;
+		width: 25px;
+	}
+	a:hover img{
+		background-color: rgb(237, 253, 6);
+		/* padding: 1px; */
+	}
+	a button {
+		background-color: transparent;
+		border: none;
 	}
 
 @media (max-width:700px){

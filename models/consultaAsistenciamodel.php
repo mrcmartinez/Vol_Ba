@@ -60,6 +60,25 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
+    public function getBusqueda($c,$f){
+        $items = [];
+        try{
+            $query = $this->db->connect()->query("SELECT * FROM asistencia WHERE (id_personal like '%".$c."%') AND estatus like '%".$f."%'");
+
+            while($row = $query->fetch()){
+                $item = new Asistencia();
+                $item->id_personal = $row['id_personal'];
+                $item->fecha = $row['fecha'];
+                $item->estatus = $row['estatus'];
+                array_push($items, $item);
+                //         
+            }
+            //  $this->view->$completo;
+            return $items;
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }
 
 ?>

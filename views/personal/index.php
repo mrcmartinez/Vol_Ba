@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
 </head>
 
 <body>
@@ -59,9 +60,9 @@
             <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
         </form>
-
+        <!-- <div class="table-responsive"> -->
         <table class="table">
-            <thead>
+            <thead class="table-info">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -85,25 +86,25 @@
                     <td><?php echo $personal->actividad; ?></td>
                     <td><?php echo $personal->estatus; ?></td>
 
-                    <td><a
-                            href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a>
+                    <td>
+                        <!-- <a
+                            href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a> -->
                         <a
-                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>">Ver</a>
+                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
+                        <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                            <a
+                            href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
                         <a
                             href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
-                            ?>Baja</button><?php
+                            ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></button><?php
                             }else{
                                 ?>Alta</button><?php
                             } ?></a>
 
-
-                        <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-
-                        <a
-                            href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>">Editar</a>
+                        
                         <!-- <button class="bEliminar"
                             data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button> -->
                     </td>
@@ -114,7 +115,7 @@
                 <?php } ?>
             </tbody>
         </table>
-
+        <!-- </div> -->
     </div>
 
     <?php require 'views/footer.php'; ?>

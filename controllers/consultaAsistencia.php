@@ -6,13 +6,23 @@ class ConsultaAsistencia extends Controller{
         parent::__construct();
         $this->view->asistencia = [];
         $this->view->mensaje = "";
+        $this->view->consulta= "";
         
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
     function render(){
-        $asistencia = $this->model->getAll();
+        $consulta  = "";
+        $filtro="Falta";
+        if (isset($_POST['caja_busqueda'])) {
+            $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
+        }
+        $asistencia = $this->model->getBusqueda($consulta,$filtro);
         $this->view->asistencia = $asistencia;
+        $this->view->consulta = $consulta;
+        $this->view->radio = $filtro;
+        
         $this->view->render('asistencia/reporte');
     }
     

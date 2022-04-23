@@ -18,7 +18,7 @@
                     <h2>☰</h2>
                 </label>
             </div>
-            <img src="<?php echo constant('URL'); ?>assets/img/logo (5).png" alt="Logo Bamex">
+            <img src="<?php echo constant('URL'); ?>assets/img/logoNuevo4.0.png" alt="Logo Bamex">
             <!-- <h2 class="logo-nombre">Bamex</h2> -->
         </div>
         <div class="cont-lateral">
