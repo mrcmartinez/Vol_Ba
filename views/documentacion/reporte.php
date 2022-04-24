@@ -22,6 +22,21 @@
         <h1 class="center">Sección de Reporte Documentacion</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
+        <form action="<?php echo constant('URL'); ?>documento" method="POST">
+                <p>
+                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="submit" value="Buscar">
+                </p>
+            </form>
+        <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
+        <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+        </form>
+
+        <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
+        <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+        </form>
 
         <table width="100%">
             <thead>

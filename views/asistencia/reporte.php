@@ -24,12 +24,12 @@
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
             <?php switch($this->radio){
                     case "Asistencia":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked>Asistencia
-                        <input type="radio" id="" name="radio_busqueda" value="Falta">Falta';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked>Asistencias
+                        <input type="radio" id="" name="radio_busqueda" value="Falta">Faltas';
                         break;
                     case "Falta":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia">Asistencia
-                        <input type="radio" id="" name="radio_busqueda" value="Falta"checked>Falta';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia">Asistencias
+                        <input type="radio" id="" name="radio_busqueda" value="Falta"checked>Faltas';
                         break;
                 }?>
 
@@ -40,6 +40,24 @@
                 <input type="submit" value="Buscar">
             </p>
         </form>
+        <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReporte" method="POST">
+            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+        </form>
+
+        <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
+            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+        </form>
+        <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
+        <input type="submit" value="enviar">
+        </form> -->
 
         <table width="100%">
             <thead>

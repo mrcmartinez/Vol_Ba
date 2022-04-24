@@ -59,7 +59,7 @@ class DocumentoModel extends Model{
     public function getAll(){
         $items = [];
         try{
-            $query = $this->db->connect()->query('SELECT * FROM documentacion');
+            $query = $this->db->connect()->query('SELECT * FROM documentacion WHERE id_personal IN (SELECT id_personal FROM personal WHERE estatus="Activo")');
             
             while($row = $query->fetch()){
                 $item = new Documentos();
@@ -84,6 +84,26 @@ class DocumentoModel extends Model{
             return true;
         }catch(PDOException $e){
             return false;
+        }
+    }
+    public function getBusqueda($c){
+        $items = [];
+        try{
+            $query = $this->db->connect()->query("SELECT * FROM documentacion WHERE (id_personal like '%".$c."%' OR nombre like '%".$c."%')");
+
+            while($row = $query->fetch()){
+                $item = new Documentos();
+                $item->id_personal = $row['id_personal'];
+                $item->nombre = $row['nombre'];
+                $item->descripcion = $row['descripcion'];
+                $item->estatus = $row['estatus'];
+                array_push($items, $item);
+                //         
+            }
+            //  $this->view->$completo;
+            return $items;
+        }catch(PDOException $e){
+            return [];
         }
     }
 }
