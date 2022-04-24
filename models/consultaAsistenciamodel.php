@@ -60,10 +60,10 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
-    public function getBusqueda($c,$f){
+    public function getBusqueda($c,$f,$fInicio,$fTermino){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT * FROM asistencia WHERE (id_personal like '%".$c."%') AND estatus like '%".$f."%'");
+            $query = $this->db->connect()->query("SELECT * FROM asistencia WHERE (id_personal like '%".$c."%') AND estatus like '%".$f."%' AND fecha BETWEEN '$fInicio' AND '$fTermino'");
 
             while($row = $query->fetch()){
                 $item = new Asistencia();

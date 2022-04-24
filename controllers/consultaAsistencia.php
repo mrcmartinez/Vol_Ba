@@ -7,22 +7,33 @@ class ConsultaAsistencia extends Controller{
         $this->view->asistencia = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
-        
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
     function render(){
         $consulta  = "";
         $filtro="Falta";
+        $f_inicio=date('Y-m-01');
+        $f_termino=date('Y-m-d');
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
+        }if(isset($_POST['fecha_inicio'])){
+            $f_inicio  = $_POST['fecha_inicio'];
+            $f_termino  = $_POST['fecha_termino'];
         }
-        $asistencia = $this->model->getBusqueda($consulta,$filtro);
-        $this->view->asistencia = $asistencia;
+        // echo "fecha_inicio: ".$f_inicio;
+        // echo "fecha_termino: ".$f_termino;
+        // echo "consulta: ".$consulta;
+        // echo "filtro: ".$filtro;
+
+        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino);
+        // print_r($asistencia);
+        $this->view->inicio = $f_inicio;
+        $this->view->termino = $f_termino;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
-        
+        $this->view->asistencia = $asistencia;
         $this->view->render('asistencia/reporte');
     }
     
