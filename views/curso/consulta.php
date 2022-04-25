@@ -34,7 +34,7 @@
                 <input type="submit" value="Buscar">
             </p>
         </form>
-        <form action="<?php echo constant('URL'); ?>curso/nuevo" method="POST">
+        <form action="<?php echo constant('URL'); ?>curso" method="POST">
             <input type="submit" value="Nuevo">
         </form>
         <table width="100%" id="tabla">

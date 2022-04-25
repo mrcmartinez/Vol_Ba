@@ -43,7 +43,6 @@ class Usuario extends Controller{
         $nombre_usuario    = $_POST['nombre_usuario'];
         $password  = $_POST['password'];
         $rol  = $_POST['rol'];
-
         if($this->model->update(['id_usuario' => $id_usuario,'nombre_usuario' => $nombre_usuario, 'password' => $password,
                                 'rol' => $rol])){
             $this->view->mensaje = "usuario actualizado correctamente";
@@ -52,29 +51,17 @@ class Usuario extends Controller{
             $this->view->mensaje = "No se pudo actualizar el usuario";
             $this->view->render('usuario/detalle');
         }
-        
     }
 
     function eliminarUsuario($param = null){
-        // echo " entro eliminar curso";
         $id = $param[0];
         $estatus = $param[1];
-        // echo "el id a eliminar es: ".$id;
-        // echo "el estatus es: ".$estatus;
         if($this->model->delete($id,$estatus)){
             $mensaje ="Curso eliminado correctamente";
-            //$this->view->mensaje = "Curso eliminado correctamente";
         }else{
             $mensaje = "No se pudo eliminar al curso";
-            //$this->view->mensaje = "No se pudo eliminar al curso";
         }
-
         $this->listar();
-
-        // echo $mensaje;
-    }
-
-    
+    }   
 }
-
 ?>

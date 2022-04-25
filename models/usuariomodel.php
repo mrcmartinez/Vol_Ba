@@ -6,7 +6,6 @@ class UsuarioModel extends Model{
         parent::__construct();
     }
     public function insert($datos){
-        // insertar
         $query = $this->db->connect()->prepare('INSERT INTO USUARIO (NOMBRE_USUARIO, PASSWORD, ROL) VALUES(:nombre_usuario, :password, :rol)');
         try{
             $query->execute([
@@ -23,7 +22,6 @@ class UsuarioModel extends Model{
         $items = [];
         try{
             $query = $this->db->connect()->query('SELECT * FROM USUARIO');
-            
             while($row = $query->fetch()){
                 $item = new USUARIOS();
                 $item->id_usuario = $row['id_usuario'];
@@ -42,11 +40,8 @@ class UsuarioModel extends Model{
         $item = new Usuarios();
         try{
             $query = $this->db->connect()->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id_usuario');
-
             $query->execute(['id_usuario' => $id]);
-            
             while($row = $query->fetch()){
-                
                 $item->id_usuario = $row['id_usuario'];
                 $item->nombre_usuario = $row['nombre_usuario'];
                 $item->password  = $row['password'];
@@ -58,16 +53,9 @@ class UsuarioModel extends Model{
         }
     }
     public function getBusqueda($c,$f,$d){
-        // echo "hola getBus";
-        // echo $c;
-        // echo $f;
-        // echo $d;
         $items = [];
-
         try{
-
             $query = $this->db->connect()->query("SELECT * FROM curso WHERE nombre like '%".$c."%' AND fecha like '%".$d."%' AND estatus like '%".$f."%'");
-
             while($row = $query->fetch()){
                 $item = new Cursos();
                 $item->id = $row['id']; 
@@ -76,22 +64,9 @@ class UsuarioModel extends Model{
                 $item->responsable = $row['responsable'];
                 $item->fecha = $row['fecha'];
                 $item->hora = $row['hora'];
-                // $item->apellido_paterno = $row['apellido_paterno'];
-                // $item->apellido_materno = $row['apellido_materno'];
-                // $item->calle = $row['calle'];
-                // $item->colonia = $row['colonia'];
-                // $item->numero_exterior = $row['numero_exterior'];
-                // $item->edad = $row['edad'];
-                // $item->fecha_nacimiento = $row['fecha_nacimiento'];
-                // $item->estado_civil = $row['estado_civil'];
-                // $item->numero_hijos = $row['numero_hijos'];
-                // $item->escolaridad = $row['escolaridad'];
                 $item->estatus = $row['estatus'];
-                // $item->completo = $row['nombreConcat'];
                 array_push($items, $item);
-                //         
             }
-            //  $this->view->$completo;
             return $items;
         }catch(PDOException $e){
             return [];
@@ -113,14 +88,9 @@ class UsuarioModel extends Model{
     }
 
     public function delete($id,$estatus){
-        // echo " id model es: ".$id;
-        // echo " estatus model es: ".$estatus;
-
         if ($estatus=="Activo") {
-            // echo "es para activo";
             $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Terminado' WHERE id = :id");
         }else{
-            // echo "es para terminado";
             $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Activo' WHERE id = :id");
         }
         try{

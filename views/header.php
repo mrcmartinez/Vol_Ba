@@ -29,7 +29,7 @@
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
                     <!-- <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li> -->
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
-                    <!-- <a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a> -->
+                    <!-- <a href="<?php echo constant('URL'); ?>curso">nuevo Curso</a> -->
                     <a href="<?php echo constant('URL'); ?>documento">Reportes</a>
                     <!-- <a href="<?php echo constant('URL'); ?>usuario/nuevo">nuevo Usuario</a> -->
                     <!-- <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li> -->

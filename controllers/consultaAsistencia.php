@@ -7,7 +7,6 @@ class ConsultaAsistencia extends Controller{
         $this->view->asistencia = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
-        //echo "<p>Nuevo controlador Inicio</p>";
     }
 
     function render(){
@@ -22,13 +21,7 @@ class ConsultaAsistencia extends Controller{
             $f_inicio  = $_POST['fecha_inicio'];
             $f_termino  = $_POST['fecha_termino'];
         }
-        // echo "fecha_inicio: ".$f_inicio;
-        // echo "fecha_termino: ".$f_termino;
-        // echo "consulta: ".$consulta;
-        // echo "filtro: ".$filtro;
-
         $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino);
-        // print_r($asistencia);
         $this->view->inicio = $f_inicio;
         $this->view->termino = $f_termino;
         $this->view->consulta = $consulta;
@@ -38,10 +31,8 @@ class ConsultaAsistencia extends Controller{
     }
     
     function verasistenciaid($param = null){
-        // echo "entro verAsistenciaID";
         $idPersonal = $param[0];
         $asistencia = $this->model->get($idPersonal);
-        // print_r($asistencia);
         $this->view->asistencia = $asistencia;
         $this->view->id = $idPersonal;
         $this->view->render('asistencia/index');
@@ -89,7 +80,6 @@ class ConsultaAsistencia extends Controller{
         $pdf->Cell(50,10,'ESTATUS',1,1,'c',1);
         $pdf->SetFont('Arial','',14);
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
-            // $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->estatus,1,1,'c',0);

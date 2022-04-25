@@ -10,7 +10,6 @@ class CapacitacionesModel extends Model{
         $items = [];
         try{
             $query = $this->db->connect()->query('SELECT * FROM capacitacion');
-            
             while($row = $query->fetch()){
                 $item = new Capacitacion();
                 $item->id_personal = $row['id_personal'];
@@ -24,7 +23,6 @@ class CapacitacionesModel extends Model{
         }
     }
     public function getById($id){
-        // echo "entro get";
         $items = [];
             $query = $this->db->connect()->prepare("SELECT*FROM capacitacion WHERE id_curso = :id_curso");
             try{
@@ -42,7 +40,6 @@ class CapacitacionesModel extends Model{
         }
     }
     public function insert($datos){
-        // insertar
         $query = $this->db->connect()->prepare('INSERT INTO CAPACITACION (ID_CURSO, ID_PERSONAL, ESTATUS) VALUES(:id_curso, :id_personal, :estatus)');
         try{
             $query->execute([
@@ -54,11 +51,8 @@ class CapacitacionesModel extends Model{
         }catch(PDOException $e){
             return false;
         }
-        
-        
     }
     public function update($item){
-        // print_r($item);
         $query = $this->db->connect()->prepare('UPDATE CAPACITACION SET estatus = :estatus WHERE (id_curso = :id_curso AND id_personal = :id_personal)');
         try{
             $query->execute([
@@ -71,26 +65,5 @@ class CapacitacionesModel extends Model{
             return false;
         }
     }
-    // public function getById($id_curso){
-    //     echo "entro a model";
-    //     echo "echo id_cursoMoldell es: ".$id_curso;
-    //     $item = new Capacitacion();
-    //     try{
-    //         $query = $this->db->connect()->prepare('SELECT * FROM capacitacion WHERE id_curso = :id_curso');
-
-    //         $query->execute(['id_curso' => $id_curso]);
-            
-    //         while($row = $query->fetch()){
-                
-    //             $item->id_curso = $row['id_curso'];
-    //             $item->id_personal    = $row['id_personal'];
-    //             $item->estatus  = $row['estatus'];
-    //         }
-    //         return $item;
-    //     }catch(PDOException $e){
-    //         return null;
-    //     }
-    // }
-
 }
 ?>

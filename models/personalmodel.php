@@ -9,7 +9,6 @@ class PersonalModel extends Model{
     }
 
     public function insert($datos){
-        // insertar datos en la BD
         try{
             $conn=$this->db->connect();
             $query = $conn->prepare('INSERT INTO PERSONAL (NOMBRE, APELLIDO_PATERNO,
@@ -25,12 +24,8 @@ class PersonalModel extends Model{
                             'estado_civil' => $datos['estado_civil'],'numero_hijos' => $datos['numero_hijos'],
                             'escolaridad' => $datos['escolaridad'],'turno' => $datos['turno'],'actividad' => $datos['actividad'],'estatus' => $datos['estatus']]);
             $id = $conn->lastInsertId();
-            echo 'El id de la última fila insertada fue: ' . $id;
-            // return true;
             return array(true, $id);
         }catch(PDOException $e){
-            //echo $e->getMessage();
-            //echo "Ya existe esa matrícula";
             return array(false);
         }   
     }
