@@ -32,8 +32,7 @@ class PersonalModel extends Model{
     public function getBusqueda($c,$f){
          $items = [];
          try{
-             $query = $this->db->connect()->query("SELECT concat_ws(' ', apellido_paterno, apellido_materno,
-                                                                     nombre) as nombreConcat,id_personal,nombre,apellido_paterno,apellido_materno,turno,actividad,estatus FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%') AND estatus like '%".$f."%'");
+             $query = $this->db->connect()->query("SELECT * FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%') AND estatus like '%".$f."%'");
  
              while($row = $query->fetch()){
                  $item = new PersonalBanco();
@@ -52,7 +51,6 @@ class PersonalModel extends Model{
                  $item->turno = $row['turno'];
                  $item->actividad = $row['actividad'];
                  $item->estatus = $row['estatus'];
-                 $item->completo = $row['nombreConcat'];
                  array_push($items, $item);         
              }
              return $items;

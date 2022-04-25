@@ -77,11 +77,9 @@ class Personal extends Controller{
     }
     function verInformacion($param = null){
         $idPersonal = $param[0];
-        $completo = $param[1];
         $personal = $this->model->getById($idPersonal);
         $this->view->personal = $personal;
         $this->view->mensaje = "";
-        $this->view->completo=$completo;
         $this->view->render('personal/informacion');
     }
 

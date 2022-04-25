@@ -59,7 +59,7 @@
                 ?>
                     <tr id="fila-<?php echo $personal->id_personal; ?>">
                         <td><?php echo $personal->id_personal; ?></td>
-                        <td><?php echo $personal->completo; ?></td>
+                        <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
                         <td><?php echo $personal->estatus; ?></td>
                         <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="personal[]" onclick="reload()"></td>
                     </tr>

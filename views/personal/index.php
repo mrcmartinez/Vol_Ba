@@ -81,7 +81,7 @@
                 ?>
                 <tr id="fila-<?php echo $personal->id_personal; ?>">
                     <td><?php echo $personal->id_personal; ?></td>
-                    <td><?php echo $personal->completo; ?></td>
+                    <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
                     <td><?php echo $personal->turno; ?></td>
                     <td><?php echo $personal->actividad; ?></td>
                     <td><?php echo $personal->estatus; ?></td>
@@ -90,7 +90,7 @@
                         <!-- <a
                             href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a> -->
                         <a
-                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal.'/'.$personal->completo; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
+                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>

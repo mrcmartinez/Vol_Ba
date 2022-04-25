@@ -16,7 +16,6 @@ class PersonalBanco{
     public $turno;
     public $actividad;
     public $estatus;
-    public $completo;
 }
 
 ?>
