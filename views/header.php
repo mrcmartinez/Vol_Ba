@@ -26,7 +26,7 @@
                 <ul>
                     <!-- <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li> -->
                     <!-- <li><a href="<?php echo constant('URL'); ?>personal">Nuevo</a></li> -->
-                    <a href="<?php echo constant('URL'); ?>personal/listar">Voluntariado</a>
+                    <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
                     <!-- <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li> -->
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
                     <!-- <a href="<?php echo constant('URL'); ?>curso/nuevo">nuevo Curso</a> -->

@@ -14,7 +14,7 @@
     <div id="main">
         <h1 class="center">Sección de Consulta telefonos</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
-        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
         <form

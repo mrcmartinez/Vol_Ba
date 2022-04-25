@@ -21,7 +21,7 @@
         <div id="respuesta" class="center">
             <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
 
-            <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+            <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                 <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo

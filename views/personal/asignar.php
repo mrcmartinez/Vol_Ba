@@ -20,7 +20,7 @@
 
         <div id="respuesta" class="center">
             <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
-            <form action="<?php echo constant('URL'); ?>personal/listar/ <?php echo $this->idCurso ?>" method="POST">
+            <form action="<?php echo constant('URL'); ?>personal/listarPersonal/ <?php echo $this->idCurso ?>" method="POST">
 
                 <?php switch($this->radio){
                     case "Activo":

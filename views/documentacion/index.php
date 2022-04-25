@@ -74,7 +74,7 @@
             </p>
 
         </form>
-        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Omitir">
         </form>
     </div>

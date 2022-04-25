@@ -11,7 +11,7 @@
 
     <div id="main">
         <h1 class="center">Sección de Consulta asistencia id</h1>
-        <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
         <form
@@ -60,7 +60,7 @@
                 <?php } ?>
             </tbody>
         </table>
-        <!-- <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
+        <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form> -->
     </div>
