@@ -89,11 +89,12 @@
                     <td>
                         <!-- <a
                             href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a> -->
-                        <a
-                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
+                        
                         <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
                         <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                            <a
+                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
                             <a
                             href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
                         <a

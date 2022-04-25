@@ -32,7 +32,7 @@ class PersonalModel extends Model{
     public function getBusqueda($c,$f){
          $items = [];
          try{
-             $query = $this->db->connect()->query("SELECT * FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%') AND estatus like '%".$f."%'");
+             $query = $this->db->connect()->query("SELECT * FROM personal WHERE (nombre like '%".$c."%' OR apellido_paterno like '%".$c."%' OR apellido_materno like '%".$c."%' OR turno like '%".$c."%' OR actividad like '%".$c."%') AND estatus like '%".$f."%'");
  
              while($row = $query->fetch()){
                  $item = new PersonalBanco();
@@ -40,14 +40,6 @@ class PersonalModel extends Model{
                  $item->nombre = $row['nombre'];
                  $item->apellido_paterno = $row['apellido_paterno'];
                  $item->apellido_materno = $row['apellido_materno'];
-                 // $item->calle = $row['calle'];
-                 // $item->colonia = $row['colonia'];
-                 // $item->numero_exterior = $row['numero_exterior'];
-                 // $item->edad = $row['edad'];
-                 // $item->fecha_nacimiento = $row['fecha_nacimiento'];
-                 // $item->estado_civil = $row['estado_civil'];
-                 // $item->numero_hijos = $row['numero_hijos'];
-                 // $item->escolaridad = $row['escolaridad'];
                  $item->turno = $row['turno'];
                  $item->actividad = $row['actividad'];
                  $item->estatus = $row['estatus'];

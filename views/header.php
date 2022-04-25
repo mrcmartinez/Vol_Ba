@@ -19,23 +19,13 @@
                 </label>
             </div>
             <img src="<?php echo constant('URL'); ?>assets/img/logoNuevo4.0.png" alt="Logo Bamex">
-            <!-- <h2 class="logo-nombre">Bamex</h2> -->
         </div>
         <div class="cont-lateral">
             <nav>
                 <ul>
-                    <!-- <li><a href="<?php echo constant('URL'); ?>inicio">Cursos</a></li> -->
-                    <!-- <li><a href="<?php echo constant('URL'); ?>personal">Nuevo</a></li> -->
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
-                    <!-- <li><a href="<?php echo constant('URL'); ?>consulta">telefonos</a></li> -->
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
-                    <!-- <a href="<?php echo constant('URL'); ?>curso">nuevo Curso</a> -->
                     <a href="<?php echo constant('URL'); ?>documento">Reportes</a>
-                    <!-- <a href="<?php echo constant('URL'); ?>usuario/nuevo">nuevo Usuario</a> -->
-                    <!-- <li><a href="<?php echo constant('URL'); ?>capacitaciones">Capacitacion Curso</a></li> -->
-                    <!-- <li><a href="<?php echo constant('URL'); ?>documento">Documentacio</a></li> -->
-                    <!-- <li><a href="<?php echo constant('URL'); ?>documento">nuevo Documentacio</a></li> -->
-
                 </ul>
             </nav>
         </div>

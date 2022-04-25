@@ -12,16 +12,11 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Nuevo en vista consulta</h1>
+        <h1 class="center">Agregar Personal Voluntariado</h1>
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <form action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
-
-            <!-- <p>
-                <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" id="">
-            </p> -->
             <p>
                 <label for="nombre">Nombre</label><br>
                 <input type="text" name="nombre" id="" required autofocus>
@@ -63,7 +58,6 @@
                     <option value="concubinato">Concubinato</option>
                     <option value="union libre">Union Libre</option>
                 </select>
-                <!-- <input type="text" name="estado_civil" id="" required> -->
             </p>
 
             <p>
@@ -88,29 +82,7 @@
                     <option value="Activo">Activo</option>
                     <option value="Candidato">Candidato</option>
                 </select>
-                <!-- <input type="text" name="estatus" id="" required> -->
             </p>
-            <!-- pantalla siguiente "----------------------------------------------------------";
-            <p>
-                <label for="estatus">Telefono celular</label><br>
-                <input type="text " name="telefono_cel" id="" required placeholder="lada">
-                <input type="text" name="telefono_cel" id="" required placeholder="numero">
-            </p>
-            <p>
-                <label for="estatus">Telefono de casa</label><br>
-                <input type="text" name="telefono_casa" id="" required placeholder="lada">
-                <input type="text" name="telefono_cel" id="" required placeholder="numero"> 
-            </p>
-            <p>
-                <label for="estatus">Telefono de emergencia</label><br>
-                <input type="text" name="telefono_emer" id="" required placeholder="lada">
-                <input type="text" name="telefono_cel" id="" required placeholder="numero">
-                <input type="text" name="telefono_cel" id="" required placeholder="avisar a:">
-            </p>-->
-            <!-- <p> -->
-                <!-- <label for="file">Downloading progress:</label> -->
-                <!-- <progress id="file" value="0" max="100"> 32% </progress> -->
-            <!-- </p> -->
             <p>
                 <input type="submit" value="Registrar">
                 <progress id="file" value="0" max="100"> 32% </progress>
@@ -121,7 +93,6 @@
             <input type="submit" value="Cancelar">
         </form>
     </div>
-
     <?php require 'views/footer.php'; ?>
 </body>
 

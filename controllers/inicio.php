@@ -36,7 +36,7 @@ class Inicio extends Controller{
                     // header('location: ayuda/index.php');
                     break;
                 case "Supervisor":
-                    header('location: ../ayuda');
+                    header('location:'. base_url().'personal');
                     break;
                     default;
             }
@@ -59,7 +59,7 @@ class Inicio extends Controller{
                     case "Supervisor":
                         // $this->view->mensaje="";
                         // $this->view->render('ayuda/index');
-                        header('location:'. base_url().'ayuda');
+                        header('location:'. base_url().'documento');
                         break;
                         default;
                 }
