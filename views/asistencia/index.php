@@ -10,7 +10,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Consulta asistencia id</h1>
+        <h1 class="center">Asistencia</h1>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
@@ -51,18 +51,10 @@
                     <td><?php echo $asistencia->id_personal; ?></td>
                     <td><?php echo $asistencia->fecha; ?></td>
                     <td><?php echo $asistencia->estatus; ?></td>
-                
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
-                    <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
                 </tr>
-
                 <?php } ?>
             </tbody>
         </table>
-        <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-            <input type="submit" value="Regresar">
-        </form> -->
     </div>
 
     <?php require 'views/footer.php'; ?>

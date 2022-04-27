@@ -84,45 +84,36 @@
                     <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
                     <td><?php echo $personal->turno; ?></td>
                     <td><?php echo $personal->actividad; ?></td>
-                    <td><?php echo $personal->estatus; ?></td>
-
+                    <?php switch($personal->estatus){
+                    case "Activo":
+                        echo '<td class="td-activo">';echo $personal->estatus;'</td>';
+                        break;
+                    case "Baja":
+                        echo '<td class="td-baja">';echo $personal->estatus;'</td>';
+                        break;
+                    case "Candidato":
+                        echo '<td class="td-candidato">';echo $personal->estatus;'</td>';
+                        break;
+                }?>
+                    
                     <td>
-                        <!-- <a
-                            href="<?php echo constant('URL') . 'telefono/vertelefonoid/'. $personal->id_personal;?>">☏</a> -->
-                        
-                        <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistenciaid/'. $personal->id_personal;?>">Asistencias</a> -->
-                        <!-- <td><a href="<?php echo constant('URL') . 'documento/verdocumentoid/'. $personal->id_personal;?>">Documentos</a> -->
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                            <a
-                            href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
-                            <a
-                            href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
-                        <a
-                            href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
+                            <a href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
+                            <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
+                            <a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></button><?php
                             }else{
                                 ?>Alta</button><?php
                             } ?></a>
-
-                        
-                        <!-- <button class="bEliminar"
-                            data-matricula="<?php echo $personal->id_personal; ?>">Eliminar</button> -->
                     </td>
                     <?php } ?>
-                    <!-- <td><a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"></a><button onclick="return confirmBaja()">Alerta</button></td> -->
                 </tr>
-
                 <?php } ?>
             </tbody>
         </table>
-        <!-- </div> -->
     </div>
-
     <?php require 'views/footer.php'; ?>
-
     <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
-
 </body>
-
 </html>

@@ -42,10 +42,6 @@
                 <input type="tel" name="numero_exterior" id="" required>
             </p>
             <p>
-                <label for="edad">Edad</label><br>
-                <input type="number" name="edad" min="18" max="45" required>
-            </p>
-            <p>
                 <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
                 <input type="date" name="fecha_nacimiento" id="" required>
             </p>

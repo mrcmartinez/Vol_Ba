@@ -8,7 +8,6 @@ class Personal extends Controller{
         $this->view->personal = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
-        //echo "<p>Nuevo controlador inicio</p>";
     }
 
     function render(){
@@ -22,7 +21,6 @@ class Personal extends Controller{
         $calle  = $_POST['calle'];
         $colonia  = $_POST['colonia'];
         $numero_exterior  = $_POST['numero_exterior'];
-        $edad  = $_POST['edad'];
         $fecha_nacimiento  = $_POST['fecha_nacimiento'];
         $estado_civil  = $_POST['estado_civil'];
         $numero_hijos  = $_POST['numero_hijos'];
@@ -34,7 +32,7 @@ class Personal extends Controller{
         $consulta = $this->model->insert(['nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
         'apellido_materno' => $apellido_materno,'calle' => $calle,
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
-        'edad' => $edad,'fecha_nacimiento' => $fecha_nacimiento,
+        'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
         'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'estatus' => $estatus]);
 
@@ -72,6 +70,9 @@ class Personal extends Controller{
         $idPersonal = $param[0];
         $personal = $this->model->getById($idPersonal);
         $this->view->personal = $personal;
+        $edad_diff = date_diff(date_create($personal->fecha_nacimiento), date_create(date("Y-m-d")));
+        $edadCalculada = $edad_diff->format('%y');
+        $this->view->edadCalculada = $edadCalculada;
         $this->view->mensaje = "";
         $this->view->render('personal/detalle');
     }
@@ -79,6 +80,9 @@ class Personal extends Controller{
         $idPersonal = $param[0];
         $personal = $this->model->getById($idPersonal);
         $this->view->personal = $personal;
+        $edad_diff = date_diff(date_create($personal->fecha_nacimiento), date_create(date("Y-m-d")));
+        $edadCalculada = $edad_diff->format('%y');
+        $this->view->edadCalculada = $edadCalculada;
         $this->view->mensaje = "";
         $this->view->render('personal/informacion');
     }
@@ -92,7 +96,6 @@ class Personal extends Controller{
         $calle = $_POST['calle'];
         $colonia = $_POST['colonia'];
         $numero_exterior = $_POST['numero_exterior'];
-        $edad = $_POST['edad'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $estado_civil = $_POST['estado_civil'];
         $numero_hijos = $_POST['numero_hijos'];
@@ -105,7 +108,6 @@ class Personal extends Controller{
          'calle' => $calle,
          'colonia' => $colonia,
          'numero_exterior' => $numero_exterior,
-         'edad' => $edad,
          'fecha_nacimiento' => $fecha_nacimiento,
          'estado_civil' => $estado_civil,
          'numero_hijos' => $numero_hijos,
@@ -122,7 +124,6 @@ class Personal extends Controller{
     function eliminarPersonal($param = null){
         $id_personal = $param[0];
         $estatus = $param[1];
-        echo "estatus".$estatus;
         if($this->model->delete($id_personal,$estatus)){
             $mensaje = "Personal eliminado correctamente";
         }else{

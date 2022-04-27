@@ -130,7 +130,21 @@ nav a{
 		background-color: transparent;
 		border: none;
 	}
-
+	th{
+		text-align: left;
+	}
+	.td-activo {
+		background-color:rgba(10, 243, 22,0.2)!important;
+		
+	}
+	.td-baja {
+		background-color:rgba(255, 0, 0, 0.2)!important;
+		
+	}
+	.td-candidato {
+		background-color:rgba(237, 253, 6,0.3)!important;
+		
+	}
 @media (max-width:700px){
     header{
         flex-direction: column;

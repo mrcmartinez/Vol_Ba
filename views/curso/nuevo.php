@@ -13,11 +13,9 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Sección de Nuevo curso</h1>
+        <h1 class="center">Registrar Nuevo curso</h1>
 
         <form action="<?php echo constant('URL'); ?>curso/crear" method="POST">
-            <!-- <label for="">ID</label><br>
-            <input type="text" name="id" id=""><br> -->
             <label for="">Nombre</label><br>
             <input type="text" name="nombre" id=""><br>
             <label for="">Descripcion</label><br>
@@ -28,7 +26,6 @@
             <input type="date" name="fecha" id=""><br>
             <label for="">Hora</label><br>
             <input type="time" name="hora" id=""><br>
-            <!-- <label for="">Estatus</label><br> -->
             <input type="hidden" value ="Activo" name="estatus" id=""><br>
             <input type="submit" value="Crear nuevo curso">
         </form>

@@ -68,13 +68,13 @@
                 disabled>
         </p>
         <p>
-            <label for="edad">Edad</label><br>
-            <input type="number" name="edad" value="<?php echo $this->personal->edad; ?>" disabled>
-        </p>
-        <p>
             <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
             <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>"
                 disabled>
+        </p>
+        <p>
+            <label for="edad">Edad</label><br>
+            <input type="number" name="edad" value="<?php echo $this->edadCalculada; ?>" disabled>
         </p>
         <p>
             <label for="estado_civil">Estado Civil</label><br>

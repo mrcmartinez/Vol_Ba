@@ -13,14 +13,14 @@ class PersonalModel extends Model{
             $conn=$this->db->connect();
             $query = $conn->prepare('INSERT INTO PERSONAL (NOMBRE, APELLIDO_PATERNO,
                                                      APELLIDO_MATERNO,CALLE,COLONIA,NUMERO_EXTERIOR,
-                                                     EDAD,FECHA_NACIMIENTO,ESTADO_CIVIL,NUMERO_HIJOS,ESCOLARIDAD,TURNO,ACTIVIDAD,ESTATUS) VALUES(:nombre,
+                                                     FECHA_NACIMIENTO,ESTADO_CIVIL,NUMERO_HIJOS,ESCOLARIDAD,TURNO,ACTIVIDAD,ESTATUS) VALUES(:nombre,
                                                       :apellido_paterno,:apellido_materno,:calle,:colonia,
-                                                      :numero_exterior,:edad,:fecha_nacimiento,:estado_civil,
+                                                      :numero_exterior,:fecha_nacimiento,:estado_civil,
                                                       :numero_hijos,:escolaridad,:turno,:actividad,:estatus)');
             $query->execute(['nombre' => $datos['nombre'], 'apellido_paterno' => $datos['apellido_paterno'],
                             'apellido_materno' => $datos['apellido_materno'],'calle' => $datos['calle'],
                             'colonia' => $datos['colonia'],'numero_exterior' => $datos['numero_exterior'],
-                            'edad' => $datos['edad'],'fecha_nacimiento' => $datos['fecha_nacimiento'],
+                            'fecha_nacimiento' => $datos['fecha_nacimiento'],
                             'estado_civil' => $datos['estado_civil'],'numero_hijos' => $datos['numero_hijos'],
                             'escolaridad' => $datos['escolaridad'],'turno' => $datos['turno'],'actividad' => $datos['actividad'],'estatus' => $datos['estatus']]);
             $id = $conn->lastInsertId();
@@ -64,7 +64,6 @@ class PersonalModel extends Model{
                 $item->calle = $row['calle'];
                 $item->colonia = $row['colonia'];
                 $item->numero_exterior = $row['numero_exterior'];
-                $item->edad = $row['edad'];
                 $item->fecha_nacimiento = $row['fecha_nacimiento'];
                 $item->estado_civil = $row['estado_civil'];
                 $item->numero_hijos = $row['numero_hijos'];
@@ -81,7 +80,7 @@ class PersonalModel extends Model{
     public function update($item){
         $query = $this->db->connect()->prepare("UPDATE personal SET nombre = :nombre, estatus = :estatus, 
         apellido_paterno = :apellido_paterno,apellido_materno = :apellido_materno, calle = :calle, colonia = :colonia,
-        numero_exterior = :numero_exterior, edad = :edad, fecha_nacimiento = :fecha_nacimiento, estado_civil = :estado_civil,
+        numero_exterior = :numero_exterior, fecha_nacimiento = :fecha_nacimiento, estado_civil = :estado_civil,
         numero_hijos = :numero_hijos, escolaridad = :escolaridad, turno = :turno, actividad = :actividad WHERE id_personal = :id_personal");
         try{
             $query->execute([
@@ -93,7 +92,6 @@ class PersonalModel extends Model{
                 'calle'=> $item['calle'],
                 'colonia'=> $item['colonia'],
                 'numero_exterior'=> $item['numero_exterior'],
-                'edad'=> $item['edad'],
                 'fecha_nacimiento'=> $item['fecha_nacimiento'],
                 'estado_civil'=> $item['estado_civil'],
                 'numero_hijos'=> $item['numero_hijos'],

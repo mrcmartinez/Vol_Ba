@@ -64,10 +64,6 @@
                 <?php } ?>
             </tbody>
         </table>
-        <!-- <a href="<?php/* echo constant('URL') . 'documento/nuevoDocumento/' . $this->id; */?>">Nuevo</a> -->
-        <!-- <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
-            <input type="submit" value="Regresar">
-        </form> -->
     </div>
 
     <?php require 'views/footer.php'; ?>
