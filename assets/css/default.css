@@ -39,6 +39,11 @@ body{
 .center{
     text-align: center
 }
+.center small{
+    color: #c7c7c7;
+    
+}
+
 form{
     display: inline;
     align-items:center;

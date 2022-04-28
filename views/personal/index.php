@@ -15,7 +15,7 @@
     <?php require 'views/header.php'; ?>
 
     <div class="container-fluid">
-        <h1 class="center">Voluntariado</h1>
+        <h1 class="center"><small>Personal </small>Voluntariado</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -40,25 +40,25 @@
                         break;
                 }?>
                 <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" value="Buscar">
+                    <input type="search" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="submit" value="🔍︎Buscar">
                 </p>
             </form>
         </div>
         <div class="center"><?php echo $this->consulta; ?></div>
         <form action="<?php echo constant('URL'); ?>personal" method="POST">
-            <input type="submit" value="Nuevo">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
         </form>
         <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
             <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
             <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
         </form>
 
         <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
             <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
             <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
         <!-- <div class="table-responsive"> -->
         <table class="table">

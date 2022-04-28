@@ -132,6 +132,8 @@ nav a{
 	}
 	th{
 		text-align: left;
+		background-color: #16995c!important;
+		color: #fff;
 	}
 	.td-activo {
 		background-color:rgba(10, 243, 22,0.2)!important;
@@ -145,6 +147,7 @@ nav a{
 		background-color:rgba(237, 253, 6,0.3)!important;
 		
 	}
+
 @media (max-width:700px){
     header{
         flex-direction: column;
