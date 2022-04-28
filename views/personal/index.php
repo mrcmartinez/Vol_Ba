@@ -99,7 +99,7 @@
                     <td>
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                             <a href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
-                            <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
+                            <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/edit.png"/></a>
                             <a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></button><?php
