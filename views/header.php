@@ -25,6 +25,8 @@
                 <ul>
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
+                    <!-- <a href="<?php echo constant('URL'); ?>peticion">Peticiones</a> -->
+                    <a href="<?php echo constant('URL'); ?>peticion/listar">Peticiones</a>
                     <a href="<?php echo constant('URL'); ?>documento">Reportes</a>
                 </ul>
             </nav>
