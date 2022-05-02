@@ -24,9 +24,29 @@
         </form>
 
         <h1 class="center">Sección de Reporte bajas</h1>
+
+        <form action="<?php echo constant('URL'); ?>baja" method="POST">
+            <p>
+                De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+                a:<input type="Date" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+                <input type="submit" value="Buscar">
+            </p>
+        </form>
+
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
 
+        <form action="<?php echo constant('URL'); ?>baja/generarReporte" method="POST">
+            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+        </form>
+
+        <form action="<?php echo constant('URL'); ?>baja/generarReportePDF" method="post">
+            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+        </form>
 
         <table width="100%">
             <thead>
