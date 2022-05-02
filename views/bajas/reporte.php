@@ -19,45 +19,34 @@
             <input type="submit" value="Asistencias">
         </form>
 
-        <h1 class="center">Sección de Reporte Documentacion</h1>
-        <div class="center"><?php echo $this->mensaje; ?></div>
-        <div id="respuesta" class="center"></div>
-        <form action="<?php echo constant('URL'); ?>documento" method="POST">
-                <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" value="Buscar">
-                </p>
-            </form>
-        <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
-        <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+        <form action="<?php echo constant('URL'); ?>baja" method="POST">
+            <input type="submit" value="Bajas">
         </form>
 
-        <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
-        <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
-        </form>
+        <h1 class="center">Sección de Reporte bajas</h1>
+        <div class="center"><?php echo $this->mensaje; ?></div>
+        <div id="respuesta" class="center"></div>
+
 
         <table width="100%">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Tipo</th>
-                    <th>Estatus</th>
+                    <th>ID_PERSONAL</th>
+                    <th>FECHA</th>
+                    <th>MOTIVO</th>
                 </tr>
             </thead>
-            <tbody id="tbody-documento">
+            <tbody id="tbody-baja">
                 <?php
-                    include_once 'models/documentos.php';
-                    foreach($this->documento as $row){
-                        $documento = new Documentos();
-                        $documento = $row; 
+                    include_once 'models/bajas.php';
+                    foreach($this->baja as $row){
+                        $baja = new Bajas();
+                        $baja = $row; 
                 ?>
-                <tr id="fila-<?php echo $documento->id_personal; ?>">
-                    <td><?php echo $documento->id_personal; ?></td>
-                    <td><?php echo $documento->nombre; ?></td>
-                    <td><?php echo $documento->estatus; ?></td>
-                    <!-- <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td> -->
+                <tr id="fila-<?php echo $baja->id_personal; ?>">
+                    <td><?php echo $baja->id_personal; ?></td>
+                    <td><?php echo $baja->fecha; ?></td>
+                    <td><?php echo $baja->motivo; ?></td>
 
                 </tr>
 

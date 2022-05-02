@@ -18,8 +18,8 @@
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
             <input type="submit" value="Asistencias">
         </form>
-        <form action="<?php echo constant('URL'); ?>bajas" method="POST">
-            <input type="submit" value="Documentacion">
+        <form action="<?php echo constant('URL'); ?>baja" method="POST">
+            <input type="submit" value="Bajas">
         </form>
         <h1 class="center">Sección de Asistencia Reporte</h1>
         <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
