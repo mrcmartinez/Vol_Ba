@@ -120,6 +120,19 @@ class PersonalModel extends Model{
             return false;
         }
     }
+    public function insertBaja($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO bajas (ID_PERSONAL, FECHA, MOTIVO) VALUES(:id_personal, :fecha, :motivo)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha' => $datos['fecha'],
+                'motivo' => $datos['motivo']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
 }
 
 ?>

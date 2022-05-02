@@ -124,8 +124,11 @@ class Personal extends Controller{
     function eliminarPersonal($param = null){
         $id_personal = $param[0];
         $estatus = $param[1];
+        $fecha=date("Y-m-d");
+        $motivo="Baja definitiva";
         if($this->model->delete($id_personal,$estatus)){
             $mensaje = "Personal eliminado correctamente";
+            $this->model->insertBaja(['id_personal' => $id_personal,'fecha' => $fecha,'motivo' => $motivo]);
         }else{
             $mensaje = "No se pudo eliminar el personal";
         }
