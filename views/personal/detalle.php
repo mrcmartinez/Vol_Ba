@@ -75,10 +75,8 @@
                 <input type="text" name="escolaridad" value="<?php echo $this->personal->escolaridad; ?>" required>
             </p>
 
-            <!--  -->
             <p>
-                <label for="turno">Turno</label><br>
-                <input type="text" name="turno" value="<?php echo $this->personal->turno; ?>">
+                <input type="hidden" name="turno" value="<?php echo $this->personal->turno; ?>">
             </p>
             <p>
                 <label for="actividad">Actividad</label><br>

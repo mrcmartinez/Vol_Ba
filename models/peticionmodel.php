@@ -62,19 +62,20 @@ class PeticionModel extends Model{
             return null;
         }
     }
-    public function getBusqueda($c,$f,$d){
+    public function getBusqueda($f){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT * FROM curso WHERE nombre like '%".$c."%' AND fecha like '%".$d."%' AND estatus like '%".$f."%'");
+            $query = $this->db->connect()->query("SELECT * FROM peticion WHERE estatus like '%".$f."%'");
             while($row = $query->fetch()){
-                $item = new Cursos();
-                $item->id = $row['id']; 
-                $item->nombre = $row['nombre'];
-                $item->descripcion = $row['descripcion'];
-                $item->responsable = $row['responsable'];
-                $item->fecha = $row['fecha'];
-                $item->hora = $row['hora'];
-                $item->estatus = $row['estatus'];
+                $item = new Peticiones();
+                $item->folio = $row['folio'];
+                $item->id_personal    = $row['id_personal'];
+                $item->fecha_apertura  = $row['fecha_apertura'];
+                $item->tipo  = $row['tipo'];
+                $item->descripcion  = $row['descripcion'];
+                $item->fecha_solicitada  = $row['fecha_solicitada'];
+                $item->dia_solicitado  = $row['dia_solicitado'];
+                $item->estatus  = $row['estatus'];
                 array_push($items, $item);
             }
             return $items;
@@ -82,17 +83,12 @@ class PeticionModel extends Model{
             return [];
         }
     }
-    public function update($item){
+    public function updateDay($item){
         $query = $this->db->connect()->prepare('UPDATE Personal SET turno = :turno WHERE id_personal = :id_personal');
         try{
             $query->execute([
                 'id_personal' => $item['id_personal'],
                 'turno' => $item['dia_solicitado']
-            ]);
-            $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
-            $query->execute([
-                'folio' => $item['folio'],
-                'estatus' => "Autorizado"
             ]);
             return true;
         }catch(PDOException $e){
@@ -107,7 +103,14 @@ class PeticionModel extends Model{
                 'fecha' => $item['fecha_solicitada'],
                 'estatus' => "Asistencia"
             ]);
-            $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
+    public function update($item){
+        $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
+        try{
             $query->execute([
                 'folio' => $item['folio'],
                 'estatus' => "Autorizado"

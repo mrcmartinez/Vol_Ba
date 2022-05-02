@@ -13,11 +13,17 @@ class Peticion extends Controller{
     function render(){
         $this->view->render('peticion/nuevo');
     }
+    function nuevo(){
+        $this->view->render('peticion/peticionTurno');
+    }
     function listar($param = null){
         // $consulta  = "";
-        // $filtro="Activo";
+        $filtro="Pendiente";
         // $fecha="";
-        $peticiones = $this->view->datos = $this->model->get();
+        if (isset($_POST['radio_busqueda'])) {
+            $filtro  = $_POST['radio_busqueda'];
+        }
+        $peticiones = $this->view->datos = $this->model->getBusqueda($filtro);
         $this->view->peticiones = $peticiones;
         // $this->view->consulta = "Usted busco:". $consulta;
         // $this->view->radio = $filtro;
@@ -25,36 +31,39 @@ class Peticion extends Controller{
             // $this->view->idCurso = $param[0];
             // $this->view->render('curso/consulta');
         // }else{
+            $this->view->radio = $filtro;
             $this->view->render('peticion/consulta');
         // }
     }
     function autorizarFecha(){
-        echo "autorizar Dia";
+        // echo "autorizar Dia";
         $folio  = $_POST['folio'];
-        echo "folio".$folio;
+        // echo "folio".$folio;
         $id_personal=$_POST['id_personal'];
-        echo "Id personal".$id_personal;
+        // echo "Id personal".$id_personal;
         $fecha_solicitada  = $_POST['fecha_solicitada'];
-        echo "fecha_solicitada".$fecha_solicitada;
-        if($this->model->updateDate(['folio' => $folio, 'id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
+        // echo "fecha_solicitada".$fecha_solicitada;
+        if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
+            $this->model->update(['folio' => $folio]);
         $this->view->mensaje = "Se autorizo correctamente";
         }else{
-        $this->view->mensaje = "No se pudo autorizar al curso";
+        $this->view->mensaje = "No se pudo autorizar fecha no valida";
         }
         $this->render();
     }
     function autorizarDia(){
-        echo "autorizar Dia";
+        // echo "autorizar Dia";
         $folio  = $_POST['folio'];
-        echo "folio".$folio;
+        // echo "folio".$folio;
         $id_personal=$_POST['id_personal'];
-        echo "Id personal".$id_personal;
+        // echo "Id personal".$id_personal;
         $dia_solicitado  = $_POST['dia_solicitado'];
-        echo "dia_solicitado".$dia_solicitado;
-        if($this->model->update(['folio' => $folio, 'id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
+        // echo "dia_solicitado".$dia_solicitado;
+        if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
+        $this->model->update(['folio' => $folio]);
         $this->view->mensaje = "Se autorizo correctamente";
         }else{
-        $this->view->mensaje = "No se pudo autorizar al curso";
+        $this->view->mensaje = "No se pudo autorizar el cambio de turno";
         }
         $this->render();
         // $this->view->render('peticion/listar');

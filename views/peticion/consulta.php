@@ -18,8 +18,26 @@
         <div><?php echo $this->mensaje; ?></div>
         <h1 class="center">Sección de consulta peticiones</h1>
         <form action="<?php echo constant('URL'); ?>peticion" method="POST">
-            <input type="submit" value="Nuevo">
+            <input type="submit" value="Peticion asistencia">
         </form>
+
+        <form action="<?php echo constant('URL'); ?>peticion/nuevo" method="POST">
+            <input type="submit" value="Peticion turno">
+        </form>
+        <form action="<?php echo constant('URL'); ?>peticion/listar" method="post">
+        <?php switch($this->radio){
+                    case "Pendiente":
+                        echo '<input type="radio" name="radio_busqueda" value="Pendiente" onchange="this.form.submit()" checked/>Pendientes
+                        <input type="radio" name="radio_busqueda" value="Autorizado" onchange="this.form.submit()" />Autorizados';
+                        break;
+                    case "Autorizado":
+                        echo '<input type="radio" name="radio_busqueda" value="Pendiente" onchange="this.form.submit()" />Pendientes
+                        <input type="radio" name="radio_busqueda" value="Autorizado" onchange="this.form.submit()" checked/>Autorizados';
+                        break;
+                }?>
+            
+        </form>
+
         <table width="100%" id="tabla">
             <thead>
                 <tr>
@@ -50,7 +68,9 @@
                     <td><a
                             href="<?php echo constant('URL') . 'peticion/verPeticionId/'. $peticion->folio;?>">Gestionar</a>
                     </td>
-                    <td><a href="<?php echo constant('URL') . 'peticion/verPeticion/' . $peticion->folio; ?>">Eliminar</a></td>
+                    <td><a
+                            href="<?php echo constant('URL') . 'peticion/verPeticion/' . $peticion->folio; ?>">Eliminar</a>
+                    </td>
                 </tr>
                 <?php } ?>
             </tbody>

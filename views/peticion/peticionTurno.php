@@ -13,20 +13,20 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Petición Justificante</h1>
-        <form action="<?php echo constant('URL'); ?>personal/seleccionar" method="post"></form>
+        <h1 class="center">Petición Cambio de Turno</h1>
+
         <form action="<?php echo constant('URL'); ?>peticion/crear" method="POST">
 
             <label for="">Id personal</label><br>
             <input type="number" name="id_personal" id=""><br>
 
             <label for="">Tipo</label><br>
-            <input type="text" readonly name="tipo" value="Justificante"><br>
+            <input type="text" readonly name="tipo" value="Cambio turno"><br>
 
-            <label for="">Fecha solicitada</label><br>
-            <input type="date" name="fecha_solicitada" id=""><br>
+            <label for="">Dia solicitado</label><br>
+            <input type="text" name="dia_solicitado" id=""><br>
 
-            <input type="hidden" name="dia_solicitado" id="">
+            <input type="hidden" name="fecha_solicitada" id="">
 
             <label for="">Descripcion</label><br>
             <input type="text" name="descripcion" id=""><br>
