@@ -29,14 +29,19 @@ class Peticion extends Controller{
         // }
     }
     function autorizarFecha(){
+        echo "autorizar Dia";
         $folio  = $_POST['folio'];
+        echo "folio".$folio;
         $id_personal=$_POST['id_personal'];
+        echo "Id personal".$id_personal;
         $fecha_solicitada  = $_POST['fecha_solicitada'];
-        if($this->model->update(['folio' => $folio, 'id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
-            $this->view->mensaje = "Se autorizo correctamente";
-            }else{
-            $this->view->mensaje = "No se pudo autorizar al curso";
+        echo "fecha_solicitada".$fecha_solicitada;
+        if($this->model->updateDate(['folio' => $folio, 'id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
+        $this->view->mensaje = "Se autorizo correctamente";
+        }else{
+        $this->view->mensaje = "No se pudo autorizar al curso";
         }
+        $this->render();
     }
     function autorizarDia(){
         echo "autorizar Dia";

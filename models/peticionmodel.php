@@ -99,6 +99,24 @@ class PeticionModel extends Model{
             return false;
         }
     }
+    public function updateDate($item){
+        $query = $this->db->connect()->prepare('UPDATE asistencia SET estatus = :estatus WHERE id_personal = :id_personal and fecha = :fecha');
+        try{
+            $query->execute([
+                'id_personal' => $item['id_personal'],
+                'fecha' => $item['fecha_solicitada'],
+                'estatus' => "Asistencia"
+            ]);
+            $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
+            $query->execute([
+                'folio' => $item['folio'],
+                'estatus' => "Autorizado"
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 
     public function delete($id,$estatus){
         if ($estatus=="Activo") {

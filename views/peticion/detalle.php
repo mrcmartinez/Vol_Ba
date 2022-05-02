@@ -52,7 +52,7 @@
         <?php if ( empty($this->peticion->dia_solicitado)) { ?>
         <p>
             <label for="fecha_solicitada">Fecha solicitada</label><br>
-            <input type="date" name="colonia" readonly value="<?php echo $this->peticion->fecha_solicitada; ?>">
+            <input type="date" name="fecha_solicitada" readonly value="<?php echo $this->peticion->fecha_solicitada; ?>">
         </p>
         <?php }else{
             ?>
