@@ -83,16 +83,16 @@ class PeticionModel extends Model{
         }
     }
     public function update($item){
-        $query = $this->db->connect()->prepare('UPDATE curso SET nombre = :nombre, descripcion = :descripcion, responsable = :responsable, fecha = :fecha, hora = :hora, estatus = :estatus WHERE id = :id');
+        $query = $this->db->connect()->prepare('UPDATE Personal SET turno = :turno WHERE id_personal = :id_personal');
         try{
             $query->execute([
-                'id' => $item['id'],
-                'nombre' => $item['nombre'],
-                'descripcion' => $item['descripcion'],
-                'responsable' => $item['responsable'],
-                'fecha' => $item['fecha'],
-                'hora' => $item['hora'],
-                'estatus' => $item['estatus']
+                'id_personal' => $item['id_personal'],
+                'turno' => $item['dia_solicitado']
+            ]);
+            $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
+            $query->execute([
+                'folio' => $item['folio'],
+                'estatus' => "Autorizado"
             ]);
             return true;
         }catch(PDOException $e){

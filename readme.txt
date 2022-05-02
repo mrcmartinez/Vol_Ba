@@ -54,3 +54,4 @@ commit reporte documento y aistencias
 commit personal depuracion
 commit edad
 commit peticiones
+commit peticiones autorizar
