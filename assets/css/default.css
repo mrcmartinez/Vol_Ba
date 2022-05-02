@@ -37,7 +37,8 @@ body{
 }
 
 .center{
-    text-align: center
+    text-align: center;
+    font-family:serif ;
 }
 .center small{
     color: #c7c7c7;

@@ -23,7 +23,7 @@
             <input type="submit" value="Bajas">
         </form>
 
-        <h1 class="center">Sección de Reporte bajas</h1>
+        <h1 class="center"><small>Reportes</small>Bajas</h1>
 
         <form action="<?php echo constant('URL'); ?>baja" method="POST">
             <p>
@@ -39,21 +39,21 @@
         <form action="<?php echo constant('URL'); ?>baja/generarReporte" method="POST">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
             <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
         </form>
 
         <form action="<?php echo constant('URL'); ?>baja/generarReportePDF" method="post">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
             <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
 
         <table width="100%">
             <thead>
                 <tr>
-                    <th>ID_PERSONAL</th>
-                    <th>FECHA</th>
-                    <th>MOTIVO</th>
+                    <th>Id personal</th>
+                    <th>Fecha</th>
+                    <th>Motivo</th>
                 </tr>
             </thead>
             <tbody id="tbody-baja">

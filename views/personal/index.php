@@ -15,7 +15,7 @@
     <?php require 'views/header.php'; ?>
 
     <div class="container-fluid">
-        <h1 class="center"><small>Personal </small>Voluntariado</h1>
+        <h1 class="center"><small>Personal</small>Voluntariado</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -24,28 +24,28 @@
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                 <?php switch($this->radio){
                     case "Activo":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja">Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato">Candidato';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()" checked>Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato" onchange="this.form.submit()">Candidato';
                         break;
                     case "Baja":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja"checked>Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato">Candidato';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja"checked onchange="this.form.submit()">Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato" onchange="this.form.submit()">Candidato';
                         break;
                     case "Candidato":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja">Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked>Candidato';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
                         break;
                 }?>
                 <p>
-                    <input type="search" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="search" name="caja_busqueda" id="caja_busqueda" value ="<?php echo $this->consulta; ?>"autofocus>
                     <input type="submit" value="🔍︎Buscar">
                 </p>
             </form>
         </div>
-        <div class="center"><?php echo $this->consulta; ?></div>
+        <div class="center"></div>
         <form action="<?php echo constant('URL'); ?>personal" method="POST">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
         </form>

@@ -20,12 +20,12 @@
         <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">
             <?php switch($this->radio){
                     case "Activo":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Terminado">Terminado';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Terminado" onchange="this.form.submit()">Terminado';
                         break;
                     case "Terminado":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Terminado"checked>Terminado';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Terminado"checked onchange="this.form.submit()">Terminado';
                         break;
                 }?>
             <p>

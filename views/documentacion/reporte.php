@@ -22,7 +22,7 @@
             <input type="submit" value="Bajas">
         </form>
 
-        <h1 class="center">Sección de Reporte Documentacion</h1>
+        <h1 class="center"><small>Reportes</small>Documentacion</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
         <form action="<?php echo constant('URL'); ?>documento" method="POST">
@@ -33,12 +33,12 @@
             </form>
         <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
         <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
         </form>
 
         <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
         <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
 
         <table width="100%">

@@ -21,7 +21,7 @@
         <form action="<?php echo constant('URL'); ?>baja" method="POST">
             <input type="submit" value="Bajas">
         </form>
-        <h1 class="center">Sección de Asistencia Reporte</h1>
+        <h1 class="center"><small>Reportes</small>Asistencia</h1>
         <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
         <div id="respuesta" class="center"></div>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
@@ -48,7 +48,7 @@
             <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
             <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconxls.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
         </form>
 
         <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
@@ -56,7 +56,7 @@
             <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
             <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/iconpdf.png">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
         <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
         <input type="submit" value="enviar">
@@ -66,8 +66,8 @@
             <thead>
                 <tr>
                     <th>Id Personal</th>
-                    <th>fecha</th>
-                    <th>eststus</th>
+                    <th>Fecha</th>
+                    <th>Estatus</th>
                 </tr>
             </thead>
             <tbody id="tbody-asistencia">
