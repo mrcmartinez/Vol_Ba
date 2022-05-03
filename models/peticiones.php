@@ -9,6 +9,7 @@ class Peticiones{
     public $fecha_solicitada;
     public $dia_solicitado;
     public $descripcion;
+    public $archivo;
     public $estatus;
 }
 

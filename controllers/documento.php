@@ -38,6 +38,7 @@ class Documento extends Controller
         $nombre = $_POST['nombre'];
         $estatus = "Entregado";
         $file_name = $_FILES['descripcion']['name'];
+        // echo "file_name es: ".$file_name;
         $file_tmp = $_FILES['descripcion']['tmp_name'];
         $route = "assets/img/" . $file_name;
         $descripcion = $file_name;

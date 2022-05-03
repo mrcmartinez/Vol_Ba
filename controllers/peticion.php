@@ -76,10 +76,15 @@ class Peticion extends Controller{
         $dia_solicitado  = $_POST['dia_solicitado'];
         $descripcion  = $_POST['descripcion'];
         $estatus  = "Pendiente";
+        $file_name = $_FILES['archivo']['name'];
+        $file_tmp = $_FILES['archivo']['tmp_name'];
+        $route = "assets/img/document/" . $file_name;
+        $archivo = $file_name;
+        move_uploaded_file($file_tmp, $route);
 
         if($this->model->insert(['id_personal' => $id_personal,
                                  'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
-                                  'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'estatus' => $estatus])){
+                                  'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'archivo' => $archivo,'estatus' => $estatus])){
             $this->view->mensaje = "Peticion creada correctamente";
             $this->view->render('peticion/nuevo');
         }else{
@@ -87,6 +92,7 @@ class Peticion extends Controller{
             $this->view->render('peticion/nuevo');
         }
     }
+
     function verPeticionId($param = null){
         $idPeticion = $param[0];
         $peticion = $this->model->getById($idPeticion);

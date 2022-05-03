@@ -24,7 +24,7 @@
             </p>
             <p>
                 <label for="nombre_1">Documento</label><br>
-                <input type="text" name="nombre_1" value="IFE" readonly>
+                <input type="text" name="nombre_1" value="INE" readonly>
                 <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
                 <input type="file" name="descripcion_1" >
             </p></br>

@@ -24,7 +24,7 @@ class PeticionModel extends Model{
         }
     }
     public function insert($datos){
-        $query = $this->db->connect()->prepare('INSERT INTO PETICION (ID_PERSONAL, FECHA_APERTURA, TIPO, FECHA_SOLICITADA, DIA_SOLICITADO,DESCRIPCION,ESTATUS) VALUES(:id_personal, :fecha_apertura, :tipo, :fecha_solicitada, :dia_solicitado, :descripcion, :estatus)');
+        $query = $this->db->connect()->prepare('INSERT INTO PETICION (ID_PERSONAL, FECHA_APERTURA, TIPO, FECHA_SOLICITADA, DIA_SOLICITADO,DESCRIPCION,ARCHIVO,ESTATUS) VALUES(:id_personal, :fecha_apertura, :tipo, :fecha_solicitada, :dia_solicitado, :descripcion, :archivo, :estatus)');
         try{
             $query->execute([
                 'id_personal' => $datos['id_personal'],
@@ -33,8 +33,8 @@ class PeticionModel extends Model{
                 'fecha_solicitada' => $datos['fecha_solicitada'],
                 'dia_solicitado' => $datos['dia_solicitado'],
                 'descripcion' => $datos['descripcion'],
+                'archivo' => $datos['archivo'],
                 'estatus' => $datos['estatus']
-                
             ]);
             return true;
         }catch(PDOException $e){

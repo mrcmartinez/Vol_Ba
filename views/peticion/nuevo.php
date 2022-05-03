@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Peticiones</title>
+    <title>Document</title>
 </head>
-<body>
 
+<body>
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Petición Justificante</h1>
-        <form action="<?php echo constant('URL'); ?>personal/seleccionar" method="post"></form>
-        <form action="<?php echo constant('URL'); ?>peticion/crear" method="POST">
+        <h1 class="center">Agregar peticion falta</h1>
 
-            <label for="">Id personal</label><br>
+        <div class="center"><?php echo $this->mensaje; ?></div>
+        <form action="<?php echo constant('URL'); ?>peticion/crear" method="POST" enctype="multipart/form-data">
+
+        <label for="">Id personal</label><br>
             <input type="number" name="id_personal" id=""><br>
 
             <label for="">Tipo</label><br>
@@ -31,11 +31,13 @@
             <label for="">Descripcion</label><br>
             <input type="text" name="descripcion" id=""><br>
 
-            <input type="submit" value="Solicitar">
+            <p><input type="file" name="archivo"></p></br>
+            <p><input type="submit" value="Solicitar"></p>
+
         </form>
     </div>
 
     <?php require 'views/footer.php'; ?>
-    
 </body>
+
 </html>

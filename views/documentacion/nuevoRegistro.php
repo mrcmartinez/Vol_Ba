@@ -30,7 +30,7 @@
                     <option value="Carta compromiso">Carta compromiso</option>
                     <option value="Acta nacimiento">Acta nacimiento</option>
                     <option value="CURP">CURP</option>
-                    <option value="IFE">IFE</option>
+                    <option value="INE">INE</option>
                     <option value="Comprobante domicilio">Comprobante domicilio</option>
                     <option value="Estudio socioeconomico">Estudio socioeconomico</option>
                     <option value="Examen medico">Examen medico</option>

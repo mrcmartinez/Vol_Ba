@@ -23,7 +23,7 @@
             </p>
             <p>
                 <label for="nombre">Documento</label><br>
-                <input type="text" name="nombre" value="IFE" readonly>
+                <input type="text" name="nombre" value="INE" readonly>
                 <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
                 <input type="file" name="descripcion" >
             </p></br>
