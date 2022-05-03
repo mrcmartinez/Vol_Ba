@@ -14,11 +14,15 @@
     <div id="main">
         <h1 class="center">Agregar peticion falta</h1>
 
+        <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">
+        <input type="submit" value="Buscar">
+        </form>
+
         <div class="center"><?php echo $this->mensaje; ?></div>
         <form action="<?php echo constant('URL'); ?>peticion/crear" method="POST" enctype="multipart/form-data">
 
         <label for="">Id personal</label><br>
-            <input type="number" name="id_personal" id=""><br>
+            <input type="number" name="id_personal" value="<?php echo $this->id; ?>"><br>
 
             <label for="">Tipo</label><br>
             <input type="text" readonly name="tipo" value="Justificante"><br>

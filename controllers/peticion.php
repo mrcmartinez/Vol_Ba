@@ -7,6 +7,7 @@ class Peticion extends Controller{
         parent::__construct();
         $this->view->peticiones = [];
         $this->view->mensaje = "";
+        $this->view->id = "";
         // $this->view->consulta= "";
     }
 
@@ -127,6 +128,11 @@ class Peticion extends Controller{
             $mensaje = "No se pudo eliminar al curso";
         }
         $this->listar();
+    }
+    function imprimir(){
+        $id_personal=$_POST['personal'];
+        $this->view->id = $id_personal;
+        $this->view->render('peticion/nuevo');
     }
 }
 

@@ -65,6 +65,19 @@ class Personal extends Controller{
             $this->view->render('personal/index');
         }
     }
+    function seleccionarPersonal(){
+        $consulta  = "";
+        $filtro="Activo";
+        if (isset($_POST['caja_busqueda'])) {
+            $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
+        }
+        $personal = $this->model->getBusqueda($consulta,$filtro);
+        $this->view->personal = $personal;
+        $this->view->consulta = $consulta;
+        $this->view->radio = $filtro;
+        $this->view->render('personal/seleccionar');
+    }
 
     function verPersonal($param = null){
         $idPersonal = $param[0];
