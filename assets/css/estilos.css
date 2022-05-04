@@ -5,6 +5,7 @@ body{
 ul a{
     text-decoration: none;
     color: white;
+	padding: 25px;
 }
 header{
     display: flex;
@@ -41,6 +42,7 @@ header{
     font-size: 18px;
 } */
 nav a{
+	align-items: center;
     font-weight: 600;
     padding-right: 20px;
 }
@@ -50,8 +52,9 @@ nav a{
     color: white;
     /* border-block-end: 5px solid rgb(238, 235, 68); */
     /* min-height: 70px; */
-    padding: 25px;
+    /* padding: 25px; */
     /* padding-top: 30px; */
+	padding-block-start: 25px;
     padding-block-end: 40px;
     /* padding: auto; */
     background:  rgba(24, 72, 230, 0.3);

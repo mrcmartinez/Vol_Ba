@@ -24,12 +24,12 @@
 
                 <?php switch($this->radio){
                     case "Activo":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked>Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato">Candidato';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato" onchange="this.form.submit()">Candidato';
                         break;
                     case "Candidato":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked>Candidato';
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
+                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
                         break;
                 }?>
                 <p>

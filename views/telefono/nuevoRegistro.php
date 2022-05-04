@@ -22,25 +22,7 @@
                 <label for="id_personal">ID</label><br>
                 <input type="number" name="id_personal" readonly value=<?php echo $idU?>>
             </p>
-            <!--  -->
-            <!-- <p>
-                <label for="lada_1">Lada</label><br>
-                <input type="number" name="lada_1" id="">
-            </p>
-            <p>
-                <label for="numero_1">Numero</label><br>
-                <input type="number" name="numero_1" id="">
-            </p>
-            <p>
-                <label for="tipo_1">Tipo</label><br>
-                <input type="text" name="tipo_1" value="Telefono casa">
-            </p>
-            <p>
-                <label for="descripcion_1">Descripcion</label><br>
-                <input type="text" name="descripcion_1" id="">
-            </p> -->
-            <!--  -->
-            <!--  -->
+
             <p>
                 <label for="lada">Lada</label><br>
                 <input type="tel" name="lada" id="" pattern="[0-9]{3}" required>

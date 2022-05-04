@@ -18,10 +18,6 @@
 
         <form action="<?php echo constant('URL'); ?>usuario/crear" method="POST">
 
-            <!-- <p>
-                <label for="id_personal">ID</label><br>
-                <input type="number" name="id_personal" id="">
-            </p> -->
             <p>
                 <label for="nombre_usuario">Usuario</label><br>
                 <input type="text" name="nombre_usuario" id="" required autofocus>
@@ -36,11 +32,9 @@
                     <option value="Administrador">Administrador</option>
                     <option value="Supervisor">Supervisor</option>
                 </select>
-                <!-- <input type="text" name="estatus" id="" required> -->
             </p>
             <p>
                 <input type="submit" value="Registrar">
-                <!-- <progress id="file" value="0" max="100"> 32% </progress> -->
             </p>
 
         </form>
