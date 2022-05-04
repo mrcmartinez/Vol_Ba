@@ -45,7 +45,7 @@ class Peticion extends Controller{
         $fecha_solicitada  = $_POST['fecha_solicitada'];
         // echo "fecha_solicitada".$fecha_solicitada;
         if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
-            $this->model->update(['folio' => $folio]);
+            $this->model->update(['folio' => $folio,'estatus' => "Autorizado"]);
         $this->view->mensaje = "Se autorizo correctamente";
         }else{
         $this->view->mensaje = "No se pudo autorizar fecha no valida";
@@ -61,13 +61,19 @@ class Peticion extends Controller{
         $dia_solicitado  = $_POST['dia_solicitado'];
         // echo "dia_solicitado".$dia_solicitado;
         if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
-        $this->model->update(['folio' => $folio]);
+        $this->model->update(['folio' => $folio,'estatus' => "Autorizado"]);
         $this->view->mensaje = "Se autorizo correctamente";
         }else{
         $this->view->mensaje = "No se pudo autorizar el cambio de turno";
         }
         $this->render();
         // $this->view->render('peticion/listar');
+    }
+    function rechazarPeticion(){
+        $folio  = $_POST['folio'];
+        $this->model->update(['folio' => $folio,'estatus' => "Rechazada"]);
+        $this->view->mensaje = "folio peticion rechazada";
+        $this->render();
     }
     function crear(){
         $id_personal  = $_POST['id_personal'];

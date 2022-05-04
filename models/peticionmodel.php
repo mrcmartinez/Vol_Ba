@@ -113,7 +113,7 @@ class PeticionModel extends Model{
         try{
             $query->execute([
                 'folio' => $item['folio'],
-                'estatus' => "Autorizado"
+                'estatus' => $item['estatus']
             ]);
             return true;
         }catch(PDOException $e){
