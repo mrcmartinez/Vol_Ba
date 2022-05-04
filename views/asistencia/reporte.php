@@ -28,11 +28,18 @@
             <?php switch($this->radio){
                     case "Asistencia":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked onchange="this.form.submit()">Asistencias
-                        <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas';
+                        <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
+                        <input type="radio" id="" name="radio_busqueda" value="" onchange="this.form.submit()">Todo';
                         break;
                     case "Falta":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias
-                        <input type="radio" id="" name="radio_busqueda" value="Falta"checked onchange="this.form.submit()">Faltas';
+                        <input type="radio" id="" name="radio_busqueda" value="Falta"checked onchange="this.form.submit()">Faltas
+                        <input type="radio" id="" name="radio_busqueda" value="" onchange="this.form.submit()">Todo';
+                        break;
+                    case "":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias
+                        <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
+                        <input type="radio" id="" name="radio_busqueda" value="" checked onchange="this.form.submit()">Todo';
                         break;
                 }?>
 
