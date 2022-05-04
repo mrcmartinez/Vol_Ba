@@ -12,16 +12,22 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <div><?php echo $this->mensaje; ?></div>
+        
         <h1 class="center">Petición cambio de turno</h1>
+
+        <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">
+            <input type="hidden" name="peticion" value="turno">
+            <input type="submit" value="Buscar">
+        </form>
+        <div><?php echo $this->mensaje; ?></div>
         <!-- <form action="<?php echo constant('URL'); ?>personal/seleccionar" method="post"></form> -->
         <form action="<?php echo constant('URL'); ?>peticion/crear"  method="POST" enctype="multipart/form-data">
 
             <label for="">Id personal</label><br>
-            <input type="number" name="id_personal" id=""><br>
+            <input type="number" name="id_personal" id="" value="<?php echo $this->id; ?>"><br>
 
             <label for="">Tipo</label><br>
-            <input type="text" readonly name="tipo" value="Justificante"><br>
+            <input type="text" readonly name="tipo" value="Cambio turno"><br>
 
             
             <input type="hidden" name="fecha_solicitada" id="">

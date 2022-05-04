@@ -132,7 +132,17 @@ class Peticion extends Controller{
     function imprimir(){
         $id_personal=$_POST['personal'];
         $this->view->id = $id_personal;
-        $this->view->render('peticion/nuevo');
+        switch ($_POST['peticion']) {
+            case 'falta':
+                $this->view->render('peticion/nuevo');
+                break;
+            case 'turno':
+                $this->view->render('peticion/peticionTurno');
+                break;
+            default:
+                break;
+        }
+
     }
 }
 

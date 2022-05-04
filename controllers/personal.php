@@ -76,6 +76,7 @@ class Personal extends Controller{
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
+        $this->view->tipo = $_POST['peticion'];;
         $this->view->render('personal/seleccionar');
     }
 

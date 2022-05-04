@@ -39,6 +39,7 @@
         </div>
         <div class="center"><?php echo $this->consulta; ?></div>
         <form action="<?php echo constant('URL'); ?>peticion/imprimir" method="POST">
+        <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>">
         <!-- <form method="POST"> -->
             <table class="table">
                 <thead>

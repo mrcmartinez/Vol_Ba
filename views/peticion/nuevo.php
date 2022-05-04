@@ -15,6 +15,7 @@
         <h1 class="center">Agregar peticion falta</h1>
 
         <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">
+        <input type="hidden" name="peticion" value="falta">
         <input type="submit" value="Buscar">
         </form>
 
