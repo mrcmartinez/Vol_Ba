@@ -15,7 +15,6 @@
 
     <div class="container-fluid">
         <h1 class="center">Asignar Voluntariado</h1>
-        <div class="center"><?php echo $this->idCurso; ?></div>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -33,12 +32,11 @@
                         break;
                 }?>
                 <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="search" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>" autofocus>
                     <input type="submit" value="Buscar">
                 </p>
             </form>
         </div>
-        <div class="center"><?php echo $this->consulta; ?></div>
         <form action="<?php echo constant('URL'); ?>capacitaciones/asignarCapacitacion" method="POST">
         <!-- <form method="POST"> -->
             <table class="table">

@@ -22,13 +22,12 @@
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal/" method="POST">
             <input type="radio" id="" name="radio_busqueda" value="Activo" checked>Activo
                 <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="search" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>" autofocus>
                     <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>">
                     <input type="submit" value="Buscar">
                 </p>
             </form>
         </div>
-        <div class="center"><?php echo $this->consulta; ?></div>
         <form action="<?php echo constant('URL'); ?>peticion/imprimir" method="POST">
         <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>">
         <!-- <form method="POST"> -->
@@ -53,6 +52,7 @@
                         <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
                         <td><?php echo $personal->estatus; ?></td>
                         <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="personal" onchange="this.form.submit()"></td>
+                        <input type="hidden" name="nombre" value="<?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>">
                     </tr>
 
                     <?php } ?>
