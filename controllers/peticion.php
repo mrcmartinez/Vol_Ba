@@ -50,7 +50,7 @@ class Peticion extends Controller{
         }else{
         $this->view->mensaje = "No se pudo autorizar fecha no valida";
         }
-        $this->render();
+        $this->listar();
     }
     function autorizarDia(){
         // echo "autorizar Dia";
@@ -66,14 +66,14 @@ class Peticion extends Controller{
         }else{
         $this->view->mensaje = "No se pudo autorizar el cambio de turno";
         }
-        $this->render();
+        $this->listar();
         // $this->view->render('peticion/listar');
     }
     function rechazarPeticion(){
         $folio  = $_POST['folio'];
         $this->model->update(['folio' => $folio,'estatus' => "Rechazada"]);
         $this->view->mensaje = "folio peticion rechazada";
-        $this->render();
+        $this->listar();
     }
     function crear(){
         $id_personal  = $_POST['id_personal'];
@@ -93,10 +93,10 @@ class Peticion extends Controller{
                                  'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
                                   'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'archivo' => $archivo,'estatus' => $estatus])){
             $this->view->mensaje = "Peticion creada correctamente";
-            $this->view->render('peticion/nuevo');
+            $this->listar();
         }else{
             $this->view->mensaje = "Folio ya está registrada";
-            $this->view->render('peticion/nuevo');
+            $this->listar();
         }
     }
 

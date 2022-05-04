@@ -48,7 +48,6 @@
                     <th>Hora</th>
                     <th>Estatus</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
 
@@ -69,14 +68,14 @@
                     <td><?php echo $curso->hora; ?></td>
                     <td><?php echo $curso->estatus; ?></td>
                     <td><a
-                            href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>">Ver</a>
-                    </td>
-                    <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>">Actualizar</a></td>
-                    <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>">Asignar</a></td>
-                    <td> <a
+                            href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/lista.png"/></a>
+                    
+                            <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a></td>
+                            <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/grupo.png"/></a></td>
+                            <td><a
                             href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
-                            ?>Cerrar</button><?php
+                            ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
