@@ -70,6 +70,7 @@
                     <label for="estatus">Estatus</label><br>
                     <input type="text" name="estatus" readonly value="<?php echo $this->peticion->estatus; ?>">
                 </p>
+                <a href="<?php echo constant('URL') . 'peticion/verDocumentoPeticion/'.$this->peticion->id_personal.'/'.$this->peticion->archivo ?>"target="_blank">Ver</a>
                 <p>
                     <input type="submit" value="Autorizar">
                 </p>

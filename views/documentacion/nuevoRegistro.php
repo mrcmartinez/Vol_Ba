@@ -37,7 +37,7 @@
                 </select>
 
                 <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
-                <input type="file" name="descripcion" required>
+                <input type="file" name="descripcion" accept="application/pdf" required>
             </p></br>
             <p>
                 <input type="submit" value="Subir Documentos">

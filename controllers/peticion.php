@@ -85,7 +85,12 @@ class Peticion extends Controller{
         $estatus  = "Pendiente";
         $file_name = $_FILES['archivo']['name'];
         $file_tmp = $_FILES['archivo']['tmp_name'];
-        $route = "assets/img/document/" . $file_name;
+
+        $micarpeta = "assets/img/document/".$id_personal;
+        if (!file_exists($micarpeta)) {
+        mkdir($micarpeta, 0777, true);
+        }
+        $route = "assets/img/document/".$id_personal."/" . $file_name;
         $archivo = $file_name;
         move_uploaded_file($file_tmp, $route);
 
@@ -148,8 +153,18 @@ class Peticion extends Controller{
             default:
                 break;
         }
-
     }
+    function verDocumentoPeticion($param = null){
+        $id= $param[0];
+        $descripcion= $param[1];
+        // echo $id;
+        // echo $descripcion;
+        $route = "assets/img/document/".$id."/" . $descripcion;
+        header("Content-type: application/pdf");
+        header("Content-Disposition: inline; filename=documento.pdf");
+        readfile($route);
+        
+    } 
 }
 
 ?>

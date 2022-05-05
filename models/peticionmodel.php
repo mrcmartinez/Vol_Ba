@@ -15,6 +15,7 @@ class PeticionModel extends Model{
                 $item->id_personal = $row['id_personal'];
                 $item->fecha_apertura = $row['fecha_apertura'];
                 $item->tipo = $row['tipo'];
+                $item->archivo = $row['archivo'];
                 $item->estatus  = $row['estatus'];
                 array_push($items, $item);
             }
@@ -55,6 +56,7 @@ class PeticionModel extends Model{
                 $item->descripcion  = $row['descripcion'];
                 $item->fecha_solicitada  = $row['fecha_solicitada'];
                 $item->dia_solicitado  = $row['dia_solicitado'];
+                $item->archivo = $row['archivo'];
                 $item->estatus  = $row['estatus'];
             }
             return $item;
@@ -75,6 +77,7 @@ class PeticionModel extends Model{
                 $item->descripcion  = $row['descripcion'];
                 $item->fecha_solicitada  = $row['fecha_solicitada'];
                 $item->dia_solicitado  = $row['dia_solicitado'];
+                $item->archivo = $row['archivo'];
                 $item->estatus  = $row['estatus'];
                 array_push($items, $item);
             }
