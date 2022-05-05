@@ -38,7 +38,7 @@
             <label for="">Descripcion</label><br>
             <input type="text" name="descripcion" id=""><br>
 
-            <input type="file" name="archivo" ></br>
+            <input type="file" name="archivo" accept="application/pdf"></br>
 
             <input type="submit" value="Solicitar">
         </form>

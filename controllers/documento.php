@@ -37,10 +37,18 @@ class Documento extends Controller
         $mensaje = "";
         $nombre = $_POST['nombre'];
         $estatus = "Entregado";
+        //Se verifica que el archivo sea PDF
+        if ($_FILES['descripcion']['type'] !='application/pdf'){
+            $mensaje =  "El archivo NO es pdf";
+            $this->view->ultimoId = $id_personal;
+            $this->view->mensaje = $mensaje;
+            $this->view->render('documentacion/nuevoRegistro');
+        }else{
+            // echo "El archivo SI es pdf";  
         $file_name = $_FILES['descripcion']['name'];
         // echo "file_name es: ".$file_name;
         $file_tmp = $_FILES['descripcion']['tmp_name'];
-
+        
         $micarpeta = "assets/img/".$id_personal;
         if (!file_exists($micarpeta)) {
         mkdir($micarpeta, 0777, true);
@@ -57,7 +65,8 @@ class Documento extends Controller
         $this->view->ultimoId = $id_personal;
         $this->view->mensaje = $mensaje;
         $this->view->render('documentacion/nuevoRegistro');
-
+        }
+   
     }
 
     public function registrarDocumento()

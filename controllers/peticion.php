@@ -83,25 +83,32 @@ class Peticion extends Controller{
         $dia_solicitado  = $_POST['dia_solicitado'];
         $descripcion  = $_POST['descripcion'];
         $estatus  = "Pendiente";
-        $file_name = $_FILES['archivo']['name'];
-        $file_tmp = $_FILES['archivo']['tmp_name'];
-
-        $micarpeta = "assets/img/document/".$id_personal;
-        if (!file_exists($micarpeta)) {
-        mkdir($micarpeta, 0777, true);
-        }
-        $route = "assets/img/document/".$id_personal."/" . $file_name;
-        $archivo = $file_name;
-        move_uploaded_file($file_tmp, $route);
-
-        if($this->model->insert(['id_personal' => $id_personal,
-                                 'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
-                                  'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'archivo' => $archivo,'estatus' => $estatus])){
-            $this->view->mensaje = "Peticion creada correctamente";
-            $this->listar();
+        //"Ela archivo No es pdf"
+        if (($_FILES['archivo']['type'] !='application/pdf')&&($_FILES['archivo']['size'] > 1000000)){
+            $this->view->mensaje = "El archivo NO es pdf valido";
+            $this->view->render('peticion/nuevo');
         }else{
-            $this->view->mensaje = "Folio ya está registrada";
-            $this->listar();
+            // echo "El archivo SI es pdf";
+            $file_name = $_FILES['archivo']['name'];
+            $file_tmp = $_FILES['archivo']['tmp_name'];
+    
+            $micarpeta = "assets/img/document/".$id_personal;
+            if (!file_exists($micarpeta)) {
+            mkdir($micarpeta, 0777, true);
+            }
+            $route = "assets/img/document/".$id_personal."/" . $file_name;
+            $archivo = $file_name;
+            move_uploaded_file($file_tmp, $route);
+    
+            if($this->model->insert(['id_personal' => $id_personal,
+                                     'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
+                                      'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'archivo' => $archivo,'estatus' => $estatus])){
+                $this->view->mensaje = "Peticion creada correctamente";
+                $this->listar();
+            }else{
+                $this->view->mensaje = "Folio ya está registrada";
+                $this->listar();
+            }
         }
     }
 
@@ -157,8 +164,6 @@ class Peticion extends Controller{
     function verDocumentoPeticion($param = null){
         $id= $param[0];
         $descripcion= $param[1];
-        // echo $id;
-        // echo $descripcion;
         $route = "assets/img/document/".$id."/" . $descripcion;
         header("Content-type: application/pdf");
         header("Content-Disposition: inline; filename=documento.pdf");
