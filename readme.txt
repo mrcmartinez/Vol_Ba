@@ -58,3 +58,4 @@ commit peticiones autorizar
 commit asistencia y turno
 commit seleccionarPersonal
 commit archivo justificante
+commit ver documento

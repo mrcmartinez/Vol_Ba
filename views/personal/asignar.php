@@ -33,7 +33,7 @@
                 }?>
                 <p>
                     <input type="search" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>" autofocus>
-                    <input type="submit" value="Buscar">
+                    <input type="submit" value="🔍Buscar">
                 </p>
             </form>
         </div>

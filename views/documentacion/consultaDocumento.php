@@ -10,7 +10,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Consulta</h1>
+        <h1 class="center">Sección de Consultaid</h1>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
@@ -38,6 +38,8 @@
                     <th>ID</th>
                     <th>Tipo</th>
                     <th>Estatus</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="tbody-documento">
@@ -51,7 +53,8 @@
                     <td><?php echo $documento->id_personal; ?></td>
                     <td><?php echo $documento->nombre; ?></td>
                     <td><?php echo $documento->estatus; ?></td>
-                    <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td>
+                    <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a></td>
+                    <td><a href="<?php echo constant('URL') . 'documento/verDocumento/' . $documento->id_personal.'/'. $documento->descripcion; ?>"target="_blank">ver</a></td>
                 
                 </tr>
 

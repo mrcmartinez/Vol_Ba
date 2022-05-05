@@ -31,7 +31,7 @@
             <p>
                 <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
                 <input type="date" name="caja_fecha" id="caja_fecha" autofocus>
-                <input type="submit" value="Buscar">
+                <input type="submit" value="🔍Buscar">
             </p>
         </form>
         <form action="<?php echo constant('URL'); ?>curso" method="POST">
@@ -70,12 +70,13 @@
                     <td><a
                             href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/lista.png"/></a>
                     
-                            <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a></td>
+                            
                             <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/grupo.png"/></a></td>
+                            <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a></td>
                             <td><a
                             href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
-                            ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></button><?php
+                            ?></button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>

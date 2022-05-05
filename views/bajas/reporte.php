@@ -29,7 +29,7 @@
             <p>
                 De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 a:<input type="Date" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-                <input type="submit" value="Buscar">
+                <input type="submit" value="🔍Buscar">
             </p>
         </form>
 

@@ -17,7 +17,7 @@
 
         <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">
             <input type="hidden" name="peticion" value="turno">
-            <input type="submit" value="Buscar">
+            <input type="submit" value="🔍Buscar">
         </form>
         <div><?php echo $this->mensaje; ?></div>
         <!-- <form action="<?php echo constant('URL'); ?>personal/seleccionar" method="post"></form> -->

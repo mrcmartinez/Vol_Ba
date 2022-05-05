@@ -28,7 +28,7 @@
         <form action="<?php echo constant('URL'); ?>documento" method="POST">
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" value="Buscar">
+                    <input type="submit" value="🔍Buscar">
                 </p>
             </form>
         <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">

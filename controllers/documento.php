@@ -109,6 +109,7 @@ class Documento extends Controller
         }
         $this->view->mensaje = $mensaje;
         $documento = $this->model->get($id_personal);
+        $this->view->id = $id_personal;
         $this->view->documento = $documento;
         $this->view->render('documentacion/consultaDocumento');
     }
@@ -161,4 +162,13 @@ class Documento extends Controller
         $pdf->Output("Documentacion.pdf", "D");
         // $archivo->Output("test.pdf", "D");
     }
+    function verDocumento($param = null){
+        $id= $param[0];
+        $descripcion= $param[1];
+        $route = "assets/img/".$id."/" . $descripcion;
+        header("Content-type: application/pdf");
+        header("Content-Disposition: inline; filename=documento.pdf");
+        readfile($route);
+        
+    } 
 }
