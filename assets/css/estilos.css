@@ -192,3 +192,7 @@ nav a{
 		/* z-index: 1; */
 	}
 }
+.table{
+    width: 200px;
+    background-color: red;
+}
