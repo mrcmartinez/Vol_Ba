@@ -77,7 +77,7 @@ class Baja extends Controller
         $pdf->SetFont('Arial','',14);
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
-            $pdf->Cell(80,10,$r->nombre,1,0,'c',0);
+            $pdf->Cell(80,10,utf8_decode($r->nombre),1,0,'c',0);
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->motivo,1,1,'c',0);
         }

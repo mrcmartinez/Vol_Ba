@@ -36,8 +36,8 @@
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <a href="<?php echo constant('URL'); ?>usuario/nuevo">Usuarios</a>
-                <a href="<?php echo constant('URL'); ?>usuario/listar">Configuracion</a>
+                <!-- <a href="<?php echo constant('URL'); ?>usuario/nuevo">Usuarios</a> -->
+                <a href="<?php echo constant('URL'); ?>usuario/listar">Usuarios</a>
                 <a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">Cerrar sesion</a>
             </nav>
             <label for="btn-menu">✖️</label>

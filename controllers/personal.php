@@ -192,9 +192,9 @@ class Personal extends Controller{
     $pdf->SetFont('Arial','',12);
     foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
         $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
-        $pdf->Cell(40,10,$r->nombre,1,0,'c',0);
-        $pdf->Cell(30,10,$r->apellido_paterno,1,0,'c',0);
-        $pdf->Cell(30,10,$r->apellido_materno,1,0,'c',0);
+        $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
+        $pdf->Cell(30,10,utf8_decode($r->apellido_paterno),1,0,'c',0);
+        $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
         $pdf->Cell(30,10,$r->turno,1,0,'c',0);
         $pdf->Cell(30,10,$r->actividad,1,0,'c',0);
         $pdf->Cell(22,10,$r->estatus,1,1,'c',0);

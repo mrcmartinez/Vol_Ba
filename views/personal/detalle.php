@@ -57,14 +57,15 @@
                 <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>"
                     required>
             </p>
-            <p>
-                <label for="edad">Edad</label><br>
-                <input type="number" name="edad" value="<?php echo $this->edadCalculada; ?>" readonly>
-            </p>
-            <p>
-                <label for="estado_civil">Estado Civil</label><br>
-                <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>" required>
-            </p>
+            <label for="estado_civil">Estado Civil</label><br>
+                <select id="estado_civil" name="estado_civil">
+                    <option value="<?php echo $this->personal->estado_civil; ?>">✔<?php echo $this->personal->estado_civil; ?></option>
+                    <option value="Casada">Casada</option>
+                    <option value="Soltera">Soltera</option>
+                    <option value="Viuda">Viuda</option>
+                    <option value="Concubinato">Concubinato</option>
+                    <option value="Union libre">Union Libre</option>
+                </select>
 
             <p>
                 <label for="numero_hijos">Numero de hijos</label><br>
@@ -81,10 +82,6 @@
             <p>
                 <label for="actividad">Actividad</label><br>
                 <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>">
-            </p>
-            <p>
-                <label for="estatus">Estatus</label><br>
-                <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" readonly>
             </p>
             <p>
                 <input type="submit" value="Actualizar personal">

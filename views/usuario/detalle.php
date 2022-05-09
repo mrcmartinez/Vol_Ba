@@ -36,8 +36,11 @@
             </p>
             <p>
                 <label for="rol">Rol</label><br>
-                <input type="text" name="rol" value="<?php echo $this->usuario->rol; ?>"
-                    required>
+                <select id="rol" name="rol">
+                    <option value="<?php echo $this->usuario->rol; ?>">✔<?php echo $this->usuario->rol; ?></option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Supervisor">Supervisor</option>
+                </select>
             </p>
         
             <p>

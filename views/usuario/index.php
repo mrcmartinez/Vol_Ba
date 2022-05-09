@@ -12,6 +12,9 @@
     <div id="main">
         <h1 class="center">Sección de Consulta usuarios</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
+        <form action="<?php echo constant('URL'); ?>usuario/nuevo" method="POST">
+            <input type="submit" value="Nuevo">
+        </form>
         <div id="respuesta" class="center"></div>
 
         <table width="100%">
