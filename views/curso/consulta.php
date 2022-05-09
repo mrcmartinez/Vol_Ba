@@ -1,4 +1,4 @@
-<?php require 'libraries/session.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,19 +67,21 @@
                     <td><?php echo $curso->fecha; ?></td>
                     <td><?php echo $curso->hora; ?></td>
                     <td><?php echo $curso->estatus; ?></td>
-                    <td><a
-                            href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/lista.png"/></a>
-                    
-                            
-                            <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img src="<?php echo constant('URL'); ?>assets/img/grupo.png"/></a></td>
-                            <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a></td>
-                            <td><a
-                            href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
+                    <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img
+                                src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
+
+                        <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                    <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img
+                                src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a></td>
+                    <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
+                                src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a></td>
+                    <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?></button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
+                    <?php } ?>
                 </tr>
                 <?php } ?>
             </tbody>

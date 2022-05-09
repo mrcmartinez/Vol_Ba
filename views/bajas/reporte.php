@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
     <title>Document</title>
 </head>
 
 <body>
     <?php require 'views/header.php'; ?>
 
-    <div id="main">
-    <form action="<?php echo constant('URL'); ?>documento" method="POST">
+    <div class="container-lg">
+        <form action="<?php echo constant('URL'); ?>documento" method="POST">
             <input type="submit" value="Documentacion">
         </form>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
@@ -28,7 +31,7 @@
         <form action="<?php echo constant('URL'); ?>baja" method="POST">
             <p>
                 De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-                a:<input type="Date" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+                a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
                 <input type="submit" value="🔍Buscar">
             </p>
         </form>
@@ -38,41 +41,44 @@
 
         <form action="<?php echo constant('URL'); ?>baja/generarReporte" method="POST">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
         </form>
 
         <form action="<?php echo constant('URL'); ?>baja/generarReportePDF" method="post">
             <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
+            <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
-
-        <table width="100%">
-            <thead>
-                <tr>
-                    <th>Id personal</th>
-                    <th>Fecha</th>
-                    <th>Motivo</th>
-                </tr>
-            </thead>
-            <tbody id="tbody-baja">
-                <?php
+        <div class="table-regis">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id personal</th>
+                        <th>Nombre</th>
+                        <th>Fecha Baja</th>
+                        <th>Motivo</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-baja">
+                    <?php
                     include_once 'models/bajas.php';
                     foreach($this->baja as $row){
                         $baja = new Bajas();
                         $baja = $row; 
                 ?>
-                <tr id="fila-<?php echo $baja->id_personal; ?>">
-                    <td><?php echo $baja->id_personal; ?></td>
-                    <td><?php echo $baja->fecha; ?></td>
-                    <td><?php echo $baja->motivo; ?></td>
+                    <tr id="fila-<?php echo $baja->id_personal; ?>">
+                        <td><?php echo $baja->id_personal; ?></td>
+                        <td><?php echo $baja->nombre; ?></td>
+                        <td><?php echo $baja->fecha; ?></td>
+                        <td><?php echo $baja->motivo; ?></td>
 
-                </tr>
+                    </tr>
 
-                <?php } ?>
-            </tbody>
-        </table>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>

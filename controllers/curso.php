@@ -1,6 +1,5 @@
 <?php
-
-
+require 'libraries/session.php';
 
 class Curso extends Controller{
     function __construct(){

@@ -1,5 +1,5 @@
 <?php
-
+require 'libraries/session.php';
 
 
 class Peticion extends Controller{

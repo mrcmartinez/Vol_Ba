@@ -36,9 +36,9 @@ class Baja extends Controller
         $f_termino  = $_POST['fecha_termino'];
         $salida = "";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>FECHA</th> <th>MOTIVO</th> </thead>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>MOTIVO</th> </thead>";
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->fecha."</td> <td>".$r->motivo."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->fecha."</td> <td>".$r->motivo."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -53,6 +53,8 @@ class Baja extends Controller
         $f_termino  = $_POST['fecha_termino'];
         $pdf = new FPDF();
         $pdf->AddPage();
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(0,10,date('Y-m-d'),0,1,'R');
         $pdf->Image('assets/img/logo (3).png',10,8,33);
         $pdf->SetFont('Arial','B',24);
          // Movernos a la derecha
@@ -60,22 +62,27 @@ class Baja extends Controller
          // Título
         $pdf->SetTextColor(250,150,100);
         // $pdf->SetFillColor(200,220,255);
-        $pdf->Cell(30,10,'Bajas personal voluntariado',0,0,'C');
+        $pdf->Cell(30,10,'Bajas personal voluntariado',0,1,'C');
         $pdf->SetTextColor(0);
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(70);
+        $pdf->Cell(50,10,'De: '.$f_inicio.' a: '.$f_termino,0,1,'c');
         $pdf->Ln(30);
         $pdf->SetFont('Arial','B',14);
         $pdf->SetFillColor(250,150,100);
         $pdf->Cell(15,10,'ID',1,0,'c',1);
+        $pdf->Cell(80,10,'NOMBRE',1,0,'c',1);
         $pdf->Cell(50,10,'FECHA',1,0,'c',1);
         $pdf->Cell(50,10,'MOTIVO',1,1,'c',1);
         $pdf->SetFont('Arial','',14);
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
+            $pdf->Cell(80,10,$r->nombre,1,0,'c',0);
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->motivo,1,1,'c',0);
         }
-        // $pdf->Output();
-        $pdf->Output("BajasVoluntariado.pdf", "D");
+        $pdf->Output();
+        // $pdf->Output("BajasVoluntariado.pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
 }

@@ -46,7 +46,7 @@ class PeticionModel extends Model{
     public function getById($id){
         $item = new Peticiones();
         try{
-            $query = $this->db->connect()->prepare('SELECT * FROM peticion WHERE folio = :folio');
+            $query = $this->db->connect()->prepare("SELECT * FROM peticion WHERE folio = :folio");
             $query->execute(['folio' => $id]);
             while($row = $query->fetch()){
                 $item->folio = $row['folio'];
@@ -67,17 +67,21 @@ class PeticionModel extends Model{
     public function getBusqueda($f){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT * FROM peticion WHERE estatus like '%".$f."%'");
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, pet.folio, pet.id_personal,pet.fecha_apertura, pet.tipo, pet.estatus
+            FROM peticion as pet 
+            INNER JOIN personal as p
+            ON pet.id_personal = p.id_personal WHERE pet.estatus like '%".$f."%'");
             while($row = $query->fetch()){
                 $item = new Peticiones();
                 $item->folio = $row['folio'];
                 $item->id_personal    = $row['id_personal'];
                 $item->fecha_apertura  = $row['fecha_apertura'];
                 $item->tipo  = $row['tipo'];
-                $item->descripcion  = $row['descripcion'];
-                $item->fecha_solicitada  = $row['fecha_solicitada'];
-                $item->dia_solicitado  = $row['dia_solicitado'];
-                $item->archivo = $row['archivo'];
+                $item->nombre  = $row['nombre'];
+                // $item->descripcion  = $row['descripcion'];
+                // $item->fecha_solicitada  = $row['fecha_solicitada'];
+                // $item->dia_solicitado  = $row['dia_solicitado'];
+                // $item->archivo = $row['archivo'];
                 $item->estatus  = $row['estatus'];
                 array_push($items, $item);
             }

@@ -53,7 +53,8 @@
             <thead>
                 <tr>
                     <th>Folio</th>
-                    <th>Id personal</th>
+                    <th>ID personal</th>
+                    <th>Nombre</th>
                     <th>Fecha apertura</th>
                     <th>Tipo</th>
                     <th>Estatus</th>
@@ -72,11 +73,12 @@
                 <tr id="fila-<?php echo $peticion->folio; ?>">
                     <td><?php echo $peticion->folio; ?></td>
                     <td><?php echo $peticion->id_personal; ?></td>
+                    <td><?php echo $peticion->nombre; ?></td>
                     <td><?php echo $peticion->fecha_apertura; ?></td>
                     <td><?php echo $peticion->tipo; ?></td>
                     <td><?php echo $peticion->estatus; ?></td>
                     <?php
-                        if ($peticion->estatus=="Pendiente") {?>
+                        if ($_SESSION['rol']!="Supervisor" && $peticion->estatus=="Pendiente") {?>
                         <td><a href="<?php echo constant('URL') . 'peticion/verPeticionId/'. $peticion->folio;?>">Gestionar</a></td>
                         <?php                 
                         }           
