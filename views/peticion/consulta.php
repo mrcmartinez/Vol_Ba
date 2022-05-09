@@ -1,4 +1,3 @@
-<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
-    <title>Peticiones</title>
 </head>
 
 <body>
+    
 
-    <?php require 'views/header.php'; ?>
+<?php require 'views/header.php'; ?>
+    <div class="center container-lg">
 
-    <div id="main">
     
         <h1 class="center">Sección de consulta peticiones</h1>
 
@@ -46,7 +48,7 @@
         <form action="<?php echo constant('URL'); ?>peticion/nuevo" method="POST">
             <input type="submit" value="Peticion turno">
         </form>
-
+        <div class="table-regis">
         <table class="table">
             <thead>
                 <tr>
@@ -84,10 +86,10 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
     </div>
-
     <?php require 'views/footer.php'; ?>
     <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
-</body>
 
+</body>
 </html>

@@ -13,6 +13,9 @@
 <body>
     <?php require 'views/header.php'; ?>
     <div class="display">
+    <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
+            <input type="submit" value="❌">
+        </form>
         <div class="container-details">
             <h1 class="center">Detalle Folio <?php echo $this->peticion->folio; ?></h1>
 

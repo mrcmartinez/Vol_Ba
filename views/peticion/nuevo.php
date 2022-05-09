@@ -11,7 +11,11 @@
 
 <body>
     <?php require 'views/header.php'; ?>
+
     <div class="display">
+        <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
+            <input type="submit" value="❌">
+        </form>
         <div class="container">
             <h1 class="center">Petición Asistencia</h1>
             <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">

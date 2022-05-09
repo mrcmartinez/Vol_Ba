@@ -62,7 +62,7 @@
         </form>
         <!-- <div class="table-responsive"> -->
         <table class="table">
-            <thead class="table-info">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>

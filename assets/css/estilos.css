@@ -150,6 +150,16 @@ nav a{
 		background-color:rgba(237, 253, 6,0.3)!important;
 		
 	}
+/* otras tablas */
+	.table-regis table th{
+		text-align: left;
+		background-color: #165e99!important;
+		color: #fff;
+	}
+	/* .table{
+		width: 50%;
+		table-layout: fixed;
+	} */
 
 @media (max-width:700px){
     header{
@@ -192,7 +202,36 @@ nav a{
 		/* z-index: 1; */
 	}
 }
-.table{
-    width: 200px;
-    background-color: red;
-}
+
+/* .contenedor-table table{
+	display: contents;
+    width: 400%;
+	table-layout: fixed; */
+    /* background-color: red!important; */
+/* } */
+/* @media screen and (max-width: 600px) {
+	table {
+		width:100%;
+	}
+	thead {
+		display: none;
+	}
+	tr:nth-of-type(2n) {
+		background-color: inherit;
+	}
+	tr td:first-child {
+		background: #f0f0f0;
+		font-weight:bold;
+		font-size:1.3em;
+	}
+	tbody td {
+		display: block;
+		text-align:center;
+	}
+	tbody td:before {
+		content: attr(data-th);
+		display: block;
+		text-align:center;
+	}
+} */
+
