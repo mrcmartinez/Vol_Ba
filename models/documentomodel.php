@@ -73,10 +73,14 @@ class DocumentoModel extends Model
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query("SELECT * FROM documentacion WHERE (id_personal like '%" . $c . "%' OR nombre like '%" . $c . "%')");
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre_personal, d.id_personal, d.nombre,d.descripcion, d.estatus
+            FROM documentacion as d 
+            INNER JOIN personal as p
+            ON d.id_personal = p.id_personal WHERE (d.id_personal like '%" . $c . "%' OR d.nombre like '%" . $c . "%')");
             while ($row = $query->fetch()) {
                 $item = new Documentos();
                 $item->id_personal = $row['id_personal'];
+                $item->nombre_personal = $row['nombre_personal'];
                 $item->nombre = $row['nombre'];
                 $item->descripcion = $row['descripcion'];
                 $item->estatus = $row['estatus'];
