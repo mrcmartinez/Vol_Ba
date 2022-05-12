@@ -24,13 +24,17 @@ class CapacitacionesModel extends Model{
     }
     public function getById($id){
         $items = [];
-            $query = $this->db->connect()->prepare("SELECT*FROM capacitacion WHERE id_curso = :id_curso");
+            $query = $this->db->connect()->prepare("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, c.id_curso, c.id_personal,c.estatus 
+            FROM capacitacion as c 
+            INNER JOIN personal as p
+            ON c.id_personal = p.id_personal WHERE c.id_curso=:id_curso");
             try{
             $query->execute(['id_curso' => $id]);
             while($row = $query->fetch()){
                 $item = new Capacitacion();
                 $item->id_curso = $row['id_curso'];
                 $item->id_personal = $row['id_personal'];
+                $item->nombre = $row['nombre'];
                 $item->estatus = $row['estatus'];
                 array_push($items, $item);         
             }

@@ -73,6 +73,7 @@
             <thead>
                 <tr>
                     <th>Id Personal</th>
+                    <th>Nombre</th>
                     <th>Fecha</th>
                     <th>Estatus</th>
                 </tr>
@@ -86,6 +87,7 @@
                 ?>
                 <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                     <td><?php echo $asistencia->id_personal; ?></td>
+                    <td><?php echo $asistencia->nombre; ?></td>
                     <td><?php echo $asistencia->fecha; ?></td>
                     <td><?php echo $asistencia->estatus; ?></td>
 

@@ -20,8 +20,9 @@
             <table width="100%" id="tabla">
                 <thead>
                     <tr>
-                        <th>ID_curso</th>
+                        <!-- <th>ID_curso</th> -->
                         <th>ID_personal</th>
+                        <th>Nombre</th>
                         <th>estatus</th>
                         <th></th>
                         <th></th>
@@ -37,8 +38,9 @@
                 $capacitacion = $row;
         ?>
                     <tr id="fila-<?php echo $capacitacion->id_curso; ?>">
-                        <td><?php echo $capacitacion->id_curso; ?></td>
+                        <!-- <td><?php echo $capacitacion->id_curso; ?></td> -->
                         <td><?php echo $capacitacion->id_personal; ?></td>
+                        <td><?php echo $capacitacion->nombre; ?></td>
                         <td><?php echo $capacitacion->estatus; ?></td>
 
                         <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
