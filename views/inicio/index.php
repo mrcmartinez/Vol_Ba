@@ -13,6 +13,7 @@
 <body>
 
     <div id="main">
+    <!-- <div><?php echo $this->mensaje; ?></div> -->
         <h1 class="center">Login</h1>
 
         <form action="<?php echo constant('URL'); ?>inicio/iniciarSesion" method="POST">
@@ -22,6 +23,22 @@
         </form>
     </div>
     <?php require 'views/footer.php'; ?>
+    <?php
+        if (!empty($this->mensaje)) 
+        {
+            ?>
+            <script>
+                Swal.fire({
+                // position: 'top-end',
+                icon: "<?php echo $this->code; ?>",
+                title: '<?php echo $this->mensaje; ?>',
+                showConfirmButton: false,
+                timer: 1500
+      })
+            </script>
+            <?php    
+        }
+    ?>
 </body>
 
 </html>

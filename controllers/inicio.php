@@ -4,6 +4,7 @@ class Inicio extends Controller{
 
     function __construct(){
         parent::__construct();
+        $this->view->mensaje = "";
         //echo "<p>Nuevo controlador Inicio</p>";
     }
 
@@ -54,6 +55,9 @@ class Inicio extends Controller{
                     case "Administrador":
                         // $this->view->mensaje="";
                         // $this->view->render('personal/index');
+                        include_once 'controllers/personal.php';
+                        // $p = new personal();
+                        // $p.$this->listarPersonal();
                         header('location:'. base_url().'personal');
                         break;
                     case "Supervisor":
@@ -64,8 +68,12 @@ class Inicio extends Controller{
                         default;
                 }
             }else{
-                 header('location:'. base_url().'inicio');
-                 echo "el usuario o contraseña son incorrectos";
+                $this->view->mensaje = "el usuario o contraseña son incorrectos";
+                $this->view->code = "error";
+                $this->render();
+                // header('location:'. base_url().'inicio');
+                //  $this->view->mensaje = "el usuario o contraseña son incorrectos";
+                //  echo "el usuario o contraseña son incorrectos";
             }
             // $id = $conn->lastInsertId();
             // echo 'El id de la última fila insertada fue: ' . $id;
