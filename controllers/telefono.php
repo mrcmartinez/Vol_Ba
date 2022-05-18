@@ -31,8 +31,10 @@ class Telefono extends Controller{
         if($this->model->insert(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
             'tipo' => $tipo, 'descripcion' => $descripcion])){
             $mensaje = "Telefono creado";
+            $this->view->code = "success";
         }else{
-            $mensaje = "Telefono ya existe";    
+            $mensaje = "Telefono ya existe";   
+            $this->view->code = "error";
             }
             $this->view->mensaje = $mensaje;
             $this->view->id = $id_personal;
@@ -105,8 +107,10 @@ class Telefono extends Controller{
             // $telefono->descripcion = $descripcion;
             // $this->view->telefono = $telefono;
             $this->view->mensaje = "telefono actualizado correctamente";
+            $this->view->code = "success";
         }else{
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
+            $this->view->code = "error";
         }
         
         $telefono = $this->model->get($id_personal);
@@ -122,8 +126,10 @@ class Telefono extends Controller{
 
         if($this->model->delete($id_personal,$lada,$numero)){
             $mensaje = "telefono eliminado correctamente";
+            $this->view->code = "success";
         }else{
             $mensaje = "No se pudo eliminar el telefono";
+            $this->view->code = "error";
         }
         $this->view->mensaje = $mensaje;
         $telefono = $this->model->get($id_personal);
