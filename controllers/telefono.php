@@ -35,8 +35,10 @@ class Telefono extends Controller{
             $mensaje = "Telefono ya existe";    
             }
             $this->view->mensaje = $mensaje;
-            $this->view->ultimoId = $id_personal;
-            $this->view->render('telefono/nuevoRegistro');
+            $this->view->id = $id_personal;
+            $telefono = $this->model->get($id_personal);
+            $this->view->telefono = $telefono;
+            $this->view->render('telefono/index');
     }
     function registrarTelefono(){
         $mensaje = "Favor de ingresar Telefono";
@@ -95,13 +97,13 @@ class Telefono extends Controller{
         if($this->model->update(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
          'tipo' => $tipo,
          'descripcion' => $descripcion, 'ant_lada' => $ant_lada, 'ant_numero' => $ant_numero] )){
-            $telefono = new Telefonos();
-            $telefono->id_personal = $id_personal;
-            $telefono->lada = $lada;
-            $telefono->numero = $numero;
-            $telefono->tipo = $tipo;
-            $telefono->descripcion = $descripcion;
-            $this->view->telefono = $telefono;
+            // $telefono = new Telefonos();
+            // $telefono->id_personal = $id_personal;
+            // $telefono->lada = $lada;
+            // $telefono->numero = $numero;
+            // $telefono->tipo = $tipo;
+            // $telefono->descripcion = $descripcion;
+            // $this->view->telefono = $telefono;
             $this->view->mensaje = "telefono actualizado correctamente";
         }else{
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
