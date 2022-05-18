@@ -77,7 +77,7 @@
                                 src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a></td>
                     <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
-                            ?></button><?php
+                            ?>Cerrar</button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
@@ -90,6 +90,23 @@
 
     <?php require 'views/footer.php'; ?>
     <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
+    <?php
+        if (!empty($this->mensaje)) 
+        {
+            ?>
+            <script>
+                Swal.fire({
+                // position: 'top-end',
+                icon: "<?php echo $this->code; ?>",
+                title: '<?php echo $this->mensaje; ?>',
+                showConfirmButton: false,
+                timer: 1500
+      })
+            </script>
+            <?php    
+        }
+    ?>
+    
 </body>
 
 </html>

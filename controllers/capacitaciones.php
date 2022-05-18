@@ -24,18 +24,22 @@ class Capacitaciones extends Controller{
         $id_curso=$_POST['id'];
         $estatus="Pendiente";
         if (empty($_POST['personal'])) {
-            echo "no se ha seleccionadao nada";
+            // echo "no se ha seleccionadao nada";
+            $this->view->mensaje = "No se ha seleccionado personal";
+            $this->view->code = "error";
+
         }else{
         foreach ($_POST['personal'] as $id_personal) {
             $this->model->insert(['id_curso' => $id_curso, 'id_personal' => $id_personal,
                                   'estatus' => $estatus]);
         
           }
-        $this->view->mensaje = "se asigno correctamente personal";
+            $this->view->mensaje = "Personal asignado";
+            $this->view->code = "success";
+        }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
         $this->view->capacitacion = $capacitacion;
         $this->view->render('capacitaciones/consulta');
-        }
     }
     function verCapacitacionId($param = null){
         $idCurso = $param[0];
