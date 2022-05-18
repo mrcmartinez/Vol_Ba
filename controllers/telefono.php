@@ -34,9 +34,9 @@ class Telefono extends Controller{
         }else{
             $mensaje = "Telefono ya existe";    
             }
-        $this->view->mensaje = $mensaje;
-        $this->view->ultimoId = $id_personal;
-        $this->vertelefonoid($id_personal);
+            $this->view->mensaje = $mensaje;
+            $this->view->ultimoId = $id_personal;
+            $this->view->render('telefono/nuevoRegistro');
     }
     function registrarTelefono(){
         $mensaje = "Favor de ingresar Telefono";
@@ -108,6 +108,7 @@ class Telefono extends Controller{
         }
         
         $telefono = $this->model->get($id_personal);
+        $this->view->id = $id_personal;
         $this->view->telefono = $telefono;
         $this->view->render('telefono/index');
     }
@@ -125,6 +126,7 @@ class Telefono extends Controller{
         $this->view->mensaje = $mensaje;
         $telefono = $this->model->get($id_personal);
         $this->view->telefono = $telefono;
+        $this->view->id = $id_personal;
         $this->view->render('telefono/index');
     }
 }

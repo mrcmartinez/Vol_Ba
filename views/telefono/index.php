@@ -13,6 +13,7 @@
 
     <div id="main">
         <h1 class="center">Sección de Consulta telefonos</h1>
+        <?php echo "id es: ".$this->id?>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
