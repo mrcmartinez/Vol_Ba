@@ -59,3 +59,4 @@ commit asistencia y turno
 commit seleccionarPersonal
 commit archivo justificante
 commit ver documento
+commit alertas

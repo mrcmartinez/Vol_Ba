@@ -84,6 +84,10 @@
                 <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>">
             </p>
             <p>
+                
+                <input type="hidden" name="estatus" value="<?php echo $this->personal->estatus; ?>">
+            </p>
+            <p>
                 <input type="submit" value="Actualizar personal">
             </p>
 

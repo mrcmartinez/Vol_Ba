@@ -18,7 +18,6 @@ class Documento extends Controller
             $consulta = $_POST['caja_busqueda'];
         }
         $documento = $this->model->getBusqueda($consulta);
-        print_r($documento);
         $this->view->documento = $documento;
         $this->view->consulta = $consulta;
         $this->view->render('documentacion/reporte');

@@ -36,7 +36,7 @@ class Telefono extends Controller{
             }
         $this->view->mensaje = $mensaje;
         $this->view->ultimoId = $id_personal;
-        $this->view->render('telefono/nuevoRegistro');
+        $this->vertelefonoid($id_personal);
     }
     function registrarTelefono(){
         $mensaje = "Favor de ingresar Telefono";
@@ -106,6 +106,7 @@ class Telefono extends Controller{
         }else{
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
         }
+        
         $telefono = $this->model->get($id_personal);
         $this->view->telefono = $telefono;
         $this->view->render('telefono/index');

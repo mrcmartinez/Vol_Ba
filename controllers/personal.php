@@ -129,8 +129,10 @@ class Personal extends Controller{
          'turno' => $turno,
          'actividad' => $actividad] )){
             $this->view->mensaje = "Personal actualizado correctamente";
+            $this->view->code = "success";
         }else{
             $this->view->mensaje = "No se pudo actualizar el Persoanl";
+            $this->view->code = "error";
         }
         $this->listarPersonal();
     }
