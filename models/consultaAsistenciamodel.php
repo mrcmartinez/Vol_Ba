@@ -66,5 +66,38 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
+    public function getList($fecha){
+        $items = [];
+        try{
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus
+            FROM asistencia as a 
+            INNER JOIN personal as p
+            ON a.id_personal = p.id_personal WHERE fecha = '$fecha'");
+            while($row = $query->fetch()){
+                $item = new Asistencia();
+                $item->id_personal = $row['id_personal'];
+                $item->nombre = $row['nombre'];
+                $item->fecha = $row['fecha'];
+                $item->estatus = $row['estatus'];
+                array_push($items, $item);    
+            }
+            return $items;
+        }catch(PDOException $e){
+            return [];
+        }
+    }
+    public function update($item){
+        $query = $this->db->connect()->prepare('UPDATE ASISTENCIA SET estatus = :estatus WHERE (fecha = :fecha AND id_personal = :id_personal)');
+        try{
+            $query->execute([
+                'id_personal' => $item['id_personal'],
+                'fecha' => $item['fecha'],
+                'estatus' => $item['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 }
 ?>

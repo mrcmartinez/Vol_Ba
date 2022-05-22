@@ -29,7 +29,32 @@ class ConsultaAsistencia extends Controller{
         $this->view->asistencia = $asistencia;
         $this->view->render('asistencia/reporte');
     }
-    
+    function paseLista(){
+        $fecha=date('Y-m-d');
+        $asistencia = $this->model->getList($fecha);
+        $this->view->asistencia = $asistencia;
+        $this->view->render('asistencia/lista');
+    }
+    function saludo(){
+            $fecha=date('Y-m-d');
+            //$this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
+            $estatus=$_POST['estatus'];
+            if (empty($_POST['personal'])) {
+                // echo "no se ha seleccionadao nada";
+                $this->view->mensaje = "No se ha seleccionado ningun";
+                $this->view->code = "error";
+            }else{
+            foreach ($_POST['personal'] as $id_personal) {
+                $this->model->update(['id_personal' => $id_personal,'fecha' => $fecha,'estatus' => $estatus]);
+              }
+            $this->view->mensaje = "Asistencia registrada";
+            $this->view->code = "success";
+            }
+            $asistencia = $this->model->getList($fecha);
+            $this->view->asistencia = $asistencia;
+            $this->view->render('asistencia/lista'); 
+        
+    }
     function verasistenciaid($param = null){
         $idPersonal = $param[0];
         $asistencia = $this->model->get($idPersonal);
