@@ -37,7 +37,7 @@
         <form action="<?php echo constant('URL'); ?>curso" method="POST">
             <input type="submit" value="Nuevo">
         </form>
-        <table width="100%" id="tabla">
+        <table id="tabla">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -45,9 +45,10 @@
                     <th>descripcion</th>
                     <th>Responsable</th>
                     <th>Fecha</th>
-                    <th>Hora</th>
+                    
                     <th>Estatus</th>
                     <th></th>
+                    
                 </tr>
             </thead>
 
@@ -65,17 +66,17 @@
                     <td><?php echo $curso->descripcion; ?></td>
                     <td><?php echo $curso->responsable; ?></td>
                     <td><?php echo $curso->fecha; ?></td>
-                    <td><?php echo $curso->hora; ?></td>
+                    
                     <td><?php echo $curso->estatus; ?></td>
                     <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
 
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                    <td><a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img
-                                src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a></td>
-                    <td><a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
-                                src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a></td>
-                    <td><a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
+                    <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img
+                                src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a>
+                    <a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
+                                src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>
+                    <a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Cerrar</button><?php
                             }else{
