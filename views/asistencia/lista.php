@@ -12,7 +12,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Lista hoy Asistencia</h1>
+        <h1 class="center">Lista Asistencia <?php echo $this->fecha; ?></h1>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
@@ -21,9 +21,9 @@
             <table width="100%">
                 <thead>
                     <tr>
-                        <th>Id Personal</th>
+                        <th>Id</th>
                         <th>Nombre</th>
-                        <th>fecha</th>
+                        <th>Actividad</th>
                         
                         
                     </tr>
@@ -38,7 +38,7 @@
                     <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                         <td><?php echo $asistencia->id_personal; ?></td>
                         <td><?php echo $asistencia->nombre; ?></td>
-                        <td><?php echo $asistencia->fecha; ?></td>
+                        <td><?php echo $asistencia->actividad; ?></td>
                         
 
                         <?php if ($asistencia->estatus!="Asistencia" ) { ?>

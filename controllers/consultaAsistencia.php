@@ -33,6 +33,7 @@ class ConsultaAsistencia extends Controller{
         $fecha=date('Y-m-d');
         $asistencia = $this->model->getList($fecha);
         $this->view->asistencia = $asistencia;
+        $this->view->fecha = $fecha;
         $this->view->render('asistencia/lista');
     }
     function saludo(){
@@ -52,6 +53,7 @@ class ConsultaAsistencia extends Controller{
             }
             $asistencia = $this->model->getList($fecha);
             $this->view->asistencia = $asistencia;
+            $this->view->fecha = $fecha;
             $this->view->render('asistencia/lista'); 
         
     }

@@ -69,7 +69,7 @@ class ConsultaAsistenciaModel extends Model{
     public function getList($fecha){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, p.actividad, a.id_personal, a.fecha,a.estatus
             FROM asistencia as a 
             INNER JOIN personal as p
             ON a.id_personal = p.id_personal WHERE fecha = '$fecha'");
@@ -78,6 +78,7 @@ class ConsultaAsistenciaModel extends Model{
                 $item->id_personal = $row['id_personal'];
                 $item->nombre = $row['nombre'];
                 $item->fecha = $row['fecha'];
+                $item->actividad = $row['actividad'];
                 $item->estatus = $row['estatus'];
                 array_push($items, $item);    
             }

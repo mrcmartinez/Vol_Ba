@@ -176,6 +176,7 @@ nav a{
 	.check-color input[type="checkbox"] {
 		display: none;
 	}
+	/*  */
 
 @media (max-width:700px){
     header{
