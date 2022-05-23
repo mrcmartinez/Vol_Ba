@@ -176,8 +176,55 @@ nav a{
 	.check-color input[type="checkbox"] {
 		display: none;
 	}
-	/*  */
+	/* login */
+	.main-login{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		background-color: #dedede79;
+		display:flex;
+		min-height:100vh ;
+	}
 
+	.main-login form{
+		margin: auto;
+		width: 50%;
+		max-width: 500px;/* ancho maximo */
+		background: #fff;
+		padding: 30px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+	}
+	.main-login h2{
+		text-align: center;
+		margin-bottom: 20px;
+		color: #ffb940;
+	}
+
+
+	.main-login input{
+		display:block;
+		padding: 10px 0;
+		width: 100%;/*input ocupara todoe el tamaño del formulario*/
+		margin: 30px 0;
+		font-size: 20px;
+	}
+	.main-login input[type=submit]{
+		background: linear-gradient(#ffda63,#ffb940);
+		border: 0;
+		color: brown;
+		cursor:pointer ;
+		border-radius: 4px;
+		margin-bottom: 0;
+	}
+	.main-login input[type=submit]:hover{
+		opacity: 0.8;
+	}
+	.main-login input[type=image]{
+		width: 50%;
+		display: block;
+		margin: auto;
+		
+	}
 @media (max-width:700px){
     header{
         flex-direction: column;
