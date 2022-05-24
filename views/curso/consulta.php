@@ -71,18 +71,19 @@
                     <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
 
-                        <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                        <?php if (( $_SESSION['rol']!="Supervisor" )&&($this->radio=="Activo")) { ?>
                     <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a>
                     <a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>
+                    
+                    <?php } ?>
                     <a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Cerrar</button><?php
                             }else{
                                 ?>Activar</button><?php
                             } ?></a></td>
-                    <?php } ?>
                 </tr>
                 <?php } ?>
             </tbody>

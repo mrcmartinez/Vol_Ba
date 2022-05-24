@@ -15,7 +15,6 @@
         <h1 class="center">Agregar Personal Voluntariado</h1>
 
         <div class="center"><?php echo $this->mensaje; ?></div>
-
         <form action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
             <p>
                 <label for="nombre">Nombre</label><br>
@@ -90,6 +89,7 @@
         </form>
     </div>
     <?php require 'views/footer.php'; ?>
+    
 </body>
 
 </html>
