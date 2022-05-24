@@ -45,7 +45,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>NOMBRE</th>
+                    <th>Documento</th>
                     <th>Tipo</th>
                     <th>Estatus</th>
                 </tr>
