@@ -68,7 +68,7 @@
                     <td><?php echo $curso->fecha; ?></td>
                     
                     <td><?php echo $curso->estatus; ?></td>
-                    <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id;?>"><img
+                    <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id.'/'.$curso->estatus;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
 
                         <?php if (( $_SESSION['rol']!="Supervisor" )&&($this->radio=="Activo")) { ?>

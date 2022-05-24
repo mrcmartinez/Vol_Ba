@@ -46,8 +46,10 @@ class Capacitaciones extends Controller{
     }
     function verCapacitacionId($param = null){
         $idCurso = $param[0];
+        $estado = $param[1];
         $capacitacion = $this->model->getById($idCurso);
         $this->view->capacitacion = $capacitacion;
+        $this->view->estado = $estado;
         $this->view->render('capacitaciones/consulta');
     }
     

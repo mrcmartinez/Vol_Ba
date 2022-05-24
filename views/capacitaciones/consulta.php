@@ -61,7 +61,9 @@
                 </tbody>
             </table>
             <input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>">
-            <input type="submit" name="seleccion" value="ok" />
+            <?php if ($this->estado=="Activo") {
+            ?><input type="submit" name="seleccion" value="ok" /><?php    
+            }?>
         </form>
     </div>
 
