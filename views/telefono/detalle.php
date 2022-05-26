@@ -28,11 +28,12 @@
 
             <p>
                 <label for="lada">lada</label><br>
-                <input type="text" name="lada" value="<?php echo $this->telefono->lada; ?>" required>
+                <input type="tel" name="lada" value="<?php echo $this->telefono->lada; ?>" pattern="[0-9]{3}" required>
+                
             </p>
             <p>
                 <label for="numero">numero</label><br>
-                <input type="text" name="numero" value="<?php echo $this->telefono->numero; ?>" required>
+                <input type="tel" name="numero" value="<?php echo $this->telefono->numero; ?>" pattern="[0-9]{7}" required>
             </p>
 
             <p>
@@ -41,7 +42,7 @@
             </p>
             <p>
                 <label for="descripcion">descripcion</label><br>
-                <input type="text" name="descripcion" value="<?php echo $this->telefono->descripcion; ?>" required>
+                <input type="text" name="descripcion" value="<?php echo $this->telefono->descripcion; ?>">
             </p>
 
             <p>

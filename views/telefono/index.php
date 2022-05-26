@@ -42,7 +42,7 @@
                         <th>lada</th>
                         <th>numero</th>
                         <th>Tipo</th>
-                        <th>Propietario: </th>
+                        <th>Detalle </th>
                         <th></th>
                         <th></th>
                     </tr>

@@ -144,6 +144,10 @@ nav a{
 		padding-right: 3px;
 		
 	}
+	.espaciado{
+		padding-left: 11vw;
+		}
+
 	.td-activo {
 		background-color:rgba(10, 243, 22,0.2)!important;
 	}

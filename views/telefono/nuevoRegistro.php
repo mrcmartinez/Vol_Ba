@@ -42,7 +42,7 @@
             </p>
             <p>
                 <label for="descripcion">Descripcion</label><br>
-                <input type="text" name="descripcion" id="" value="Propietario">
+                <input type="text" name="descripcion" id="">
             </p>
 
             <p>

@@ -63,19 +63,26 @@
         <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png">
         </form>
+    
         <!-- <div class="table-responsive"> -->
-        <table class="table">
-            <thead>
+        <table>
+        <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Turno</th>
-                    <th>Actividad</th>
-                    <th>Estatus</th>
-                    <th>Acciones</th>
+                    <th class="espaciado"></th>
+                    <th >Turno</th>
+                    <th >Actividad</th>
+                    <th >Estatus</th>
+                    <th >Acciones</th>
                 </tr>
             </thead>
-            <tbody id="tbody-personal">
+        </table>
+        
+        <div id="div2">
+        <table class="table">
+
+            <tbody id="tbody-personal">        
                 <?php
                     include_once 'models/personalBanco.php';
                     foreach($this->personal as $row){
@@ -83,6 +90,7 @@
                         $personal = $row; 
                 ?>
                 <tr id="fila-<?php echo $personal->id_personal; ?>">
+                
                     <td><?php echo $personal->id_personal; ?></td>
                     <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
                     <td><?php echo $personal->turno; ?></td>
@@ -114,6 +122,7 @@
                 </tr>
                 <?php } ?>
             </tbody>
+            </div>
         </table>
     </div>
     <?php require 'views/footer.php'; ?>

@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="numero_exterior">Numero exterior</label>
-                    <input class="form-control" type="number" name="numero_exterior" id="" required>
+                    <input class="form-control" type="number" name="numero_exterior" id="">
                 </div>
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
