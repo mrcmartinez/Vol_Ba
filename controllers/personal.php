@@ -62,6 +62,10 @@ class Personal extends Controller{
             $this->view->idCurso = $param[0];
             $this->view->render('personal/asignar');
         }else{
+            if (isset($_POST['mensaje'])) {
+                $this->view->mensaje = "Añadido correctamente";
+                $this->view->code = "success";
+            }
             $this->view->render('personal/index');
         }
     }

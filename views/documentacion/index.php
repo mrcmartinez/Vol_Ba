@@ -77,6 +77,7 @@
 
         </form>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+        <input type="hidden" name="mensaje">
             <input type="submit" value="Omitir">
         </form>
     </div>

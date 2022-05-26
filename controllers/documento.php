@@ -37,8 +37,9 @@ class Documento extends Controller
         $mensaje = "";
         $nombre = $_POST['nombre'];
         $estatus = "Entregado";
+        
         //Se verifica que el archivo sea PDF
-        if ($_FILES['descripcion']['type'] !='application/pdf'){
+        if (($_FILES['descripcion']['type'] !='application/pdf')&&($_FILES['descripcion']['size'] > 1000000)){
             $mensaje =  "El archivo NO es pdf";
             $this->view->ultimoId = $id_personal;
             $this->view->mensaje = $mensaje;
@@ -49,11 +50,11 @@ class Documento extends Controller
         // echo "file_name es: ".$file_name;
         $file_tmp = $_FILES['descripcion']['tmp_name'];
         
-        $micarpeta = "assets/img/".$id_personal;
+        $micarpeta = "assets/img/documentacion/".$id_personal;
         if (!file_exists($micarpeta)) {
         mkdir($micarpeta, 0777, true);
         }
-        $route = "assets/img/".$id_personal."/" . $file_name;
+        $route = "assets/img/documentacion/".$id_personal."/" . $file_name;
         $descripcion = $file_name;
         move_uploaded_file($file_tmp, $route);
         if ($this->model->insert(['id_personal' => $id_personal, 'nombre' => $nombre,
@@ -174,7 +175,8 @@ class Documento extends Controller
     function verDocumento($param = null){
         $id= $param[0];
         $descripcion= $param[1];
-        $route = "assets/img/".$id."/" . $descripcion;
+        $route = "assets/img/documentacion/".$id."/" . $descripcion;
+        echo $route;
         header("Content-type: application/pdf");
         header("Content-Disposition: inline; filename=documento.pdf");
         readfile($route);
