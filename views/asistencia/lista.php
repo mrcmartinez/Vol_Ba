@@ -57,7 +57,7 @@
                 </tbody>
             </table>
             <input type="hidden" name="estatus" value="Asistencia">
-            <input type="submit" name="seleccion" value="Valiidar" />
+            <input type="submit" name="seleccion" value="Validar" />
         </form>
     </div>
 

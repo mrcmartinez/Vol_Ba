@@ -105,6 +105,9 @@
                     case "Candidato":
                         echo '<td class="td-candidato">';echo $personal->estatus;'</td>';
                         break;
+                    case "Activo-Pendiente":
+                            echo '<td class="td-activo-pendiente">';echo $personal->estatus;'</td>';
+                        break;
                 }?>
                     
                     <td>
