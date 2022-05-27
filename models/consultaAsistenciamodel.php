@@ -100,5 +100,17 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }
     }
+    public function insertManual($datos){
+        $query = $this->db->connect()->prepare('INSERT ignore into asistencia(id_personal) SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno');
+        try{
+            $query->execute([
+                'turno' => $datos['turno'],
+                'estatus' => $datos['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
 }
 ?>

@@ -16,6 +16,9 @@
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form>
+        <form action="<?php echo constant('URL'); ?>consultaAsistencia/generar" method="POST">
+            <input type="submit" value="manual">
+        </form>
         <div id="respuesta" class="center"></div>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
             <table width="100%">

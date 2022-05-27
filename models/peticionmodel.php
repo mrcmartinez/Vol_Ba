@@ -108,7 +108,7 @@ class PeticionModel extends Model{
             $query->execute([
                 'id_personal' => $item['id_personal'],
                 'fecha' => $item['fecha_solicitada'],
-                'estatus' => "Asistencia"
+                'estatus' => "Falta-Justificada"
             ]);
             return true;
         }catch(PDOException $e){
@@ -127,7 +127,18 @@ class PeticionModel extends Model{
             return false;
         }
     }
-
+    public function updateEstatus($item){
+        $query = $this->db->connect()->prepare('UPDATE personal set estatus = :estatus WHERE id_personal IN (SELECT id_personal from vistafalta WHERE id_personal=:id_personal)');
+        try{
+            $query->execute([
+                'id_personal' => $item['id_personal'],
+                'estatus' => $item['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     public function delete($id,$estatus){
         if ($estatus=="Activo") {
             $query = $this->db->connect()->prepare("UPDATE curso SET estatus = 'Terminado' WHERE id = :id");

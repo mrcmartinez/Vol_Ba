@@ -64,6 +64,46 @@ class ConsultaAsistencia extends Controller{
         $this->view->id = $idPersonal;
         $this->view->render('asistencia/index');
     }
+    function generar($param = null){
+     echo "activaste modo manual";
+     $fecha= date('Y-m-d');
+    $dia = "";
+    switch (date("l")) {
+        case "Saturday":
+           $dia = "Sabado";
+        break;
+        case "Monday":
+           $dia = "Lunes";
+        break;
+        case "Tuesday":
+          $dia = "Martes";
+        break;
+        case "Wednesday":
+          $dia = "Miercoles";
+        break;
+        case "Thursday":
+          $dia = "Jueves";
+        break;
+        case "Friday":
+          $dia = "Viernes";
+        break;
+    }
+        if($this->model->insertManual(['turno' => $dia, 'estatus' => 'Activo'])){
+            $this->view->mensaje = "Modo manual";
+            // $this->view->render('curso/nuevo');
+            $this->view->code = "success";
+            // $this->listar();
+        }else{
+            $this->view->mensaje = "No se pudo activar Modo manual";
+            $this->view->code = "error";
+        }
+        $this->paseLista();
+        // $idPersonal = $param[0];
+        // $asistencia = $this->model->get($idPersonal);
+        // $this->view->asistencia = $asistencia;
+        // $this->view->id = $idPersonal;
+        // $this->view->render('asistencia/index');
+    }
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];

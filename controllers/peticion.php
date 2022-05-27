@@ -43,6 +43,7 @@ class Peticion extends Controller{
         if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
             $this->model->update(['folio' => $folio,'estatus' => "Autorizado"]);
         $this->view->mensaje = "Se autorizo correctamente";
+        $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
         }else{
         $this->view->mensaje = "No se pudo autorizar fecha no valida";
         }
