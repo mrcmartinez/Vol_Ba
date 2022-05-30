@@ -72,7 +72,7 @@
                                 src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
 
                         <?php if (( $_SESSION['rol']!="Supervisor" )&&($this->radio=="Activo")) { ?>
-                    <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id;?>"><img
+                    <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id.'/'.$curso->estatus;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a>
                     <a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>

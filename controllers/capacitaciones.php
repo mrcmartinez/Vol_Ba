@@ -26,6 +26,8 @@ class Capacitaciones extends Controller{
     function asignarCapacitacion(){
         $id_curso=$_POST['id'];
         $estatus="Pendiente";
+        $estado=$_POST['estado'];
+        
         if (empty($_POST['personal'])) {
             // echo "no se ha seleccionadao nada";
             $this->view->mensaje = "No se ha seleccionado personal";
@@ -42,6 +44,7 @@ class Capacitaciones extends Controller{
         }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
         $this->view->capacitacion = $capacitacion;
+        $this->view->estado = $estado;
         $this->view->render('capacitaciones/consulta');
     }
     function verCapacitacionId($param = null){
