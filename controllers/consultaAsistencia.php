@@ -111,9 +111,9 @@ class ConsultaAsistencia extends Controller{
         $f_termino  = $_POST['fecha_termino'];
         $salida = "";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>FECHA</th> <th>ESTATUS</th> </thead>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>ESTATUS</th> </thead>";
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->fecha."</td> <td>".$r->estatus."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->fecha."</td> <td>".$r->estatus."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -143,11 +143,13 @@ class ConsultaAsistencia extends Controller{
         $pdf->SetFont('Arial','B',14);
         $pdf->SetFillColor(250,150,100);
         $pdf->Cell(15,10,'ID',1,0,'c',1);
+        $pdf->Cell(80,10,'NOMBRE',1,0,'c',1);
         $pdf->Cell(50,10,'FECHA',1,0,'c',1);
         $pdf->Cell(50,10,'ESTATUS',1,1,'c',1);
         $pdf->SetFont('Arial','',14);
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
+            $pdf->Cell(80,10,$r->nombre,1,0,'c',0);
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->estatus,1,1,'c',0);
         }
