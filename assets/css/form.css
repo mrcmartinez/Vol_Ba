@@ -53,7 +53,16 @@ body{
     background: rgb(40, 205,245,0.2);
     color: white;
 }
-
+.select{
+    width: 100%;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    background: rgb(40, 205,245,0.2);
+    color: white;
+}
 /* .wrapper .box input:focus,.wrapper .box input:valid{
 padding: 10px 10px;
 background: rgb(40, 205,245,0.2);

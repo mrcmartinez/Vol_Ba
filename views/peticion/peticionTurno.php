@@ -37,8 +37,22 @@
                         <input type="text" readonly name="tipo" value="Cambio turno">
                         <input type="hidden" name="fecha_solicitada" id="">
 
-                        <label for="">Dia solicitado</label>
-                        <input type="text" name="dia_solicitado" id="">
+                        <!-- <label for="">Dia solicitado</label>
+                        <input type="text" name="dia_solicitado" id=""> -->
+                        <!--  -->
+                        
+                        <label for="turno">Turno</label>
+                        
+                        <select class="select" id="dia_solicitado" name="dia_solicitado">
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                            <option value="Sabado">Sabado</option>
+                        </select>
+                        
+                        <!--  -->
                         <label for="">Descripcion</label>
                         <input type="text" name="descripcion" id="">
                         <input type="file" name="archivo" accept="application/pdf">

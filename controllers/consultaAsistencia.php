@@ -65,7 +65,7 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/index');
     }
     function generar($param = null){
-     echo "activaste modo manual";
+     //echo "activaste modo manual";
      $fecha= date('Y-m-d');
     $dia = "";
     switch (date("l")) {

@@ -103,7 +103,7 @@ class Peticion extends Controller{
                 $this->view->mensaje = "Peticion creada correctamente";
                 $this->listar();
             }else{
-                $this->view->mensaje = "Folio ya está registrada";
+                $this->view->mensaje = "No se pudo crear";
                 $this->listar();
             }
         }
