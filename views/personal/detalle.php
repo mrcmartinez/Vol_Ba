@@ -84,11 +84,22 @@
                         value="<?php echo $this->personal->escolaridad; ?>" required>
                 </div>
                 <input class="form-control" type="hidden" name="turno" value="<?php echo $this->personal->turno; ?>">
+                
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
-                    <input class="form-control" type="text" name="actividad"
-                        value="<?php echo $this->personal->actividad; ?>">
+                    <select class="form-select" id="actividad" name="actividad">
+                        <option value="<?php echo $this->personal->actividad; ?>">
+                            ✔<?php echo $this->personal->actividad; ?></option>
+                            <option value="Panaderia">Panaderia</option>
+                        <option value="Comedor">Comedor</option>
+                        <option value="Aseo">Aseo</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Armado">Armado</option>
+                        <option value="Extra">Extra</option>
+                        <option value="Barrio">f.s Barrio</option>
+                    </select>
                 </div>
+
                 <div class="col-md-3">
 
                     <input class="form-control" type="hidden" name="estatus"

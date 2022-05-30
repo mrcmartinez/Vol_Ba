@@ -69,14 +69,30 @@
                     <label for="escolaridad">Escolaridad</label>
                     <input class="form-control" type="text" name="escolaridad" id="" required>
                 </div>
+
                 <div class="col-md-4">
                     <label for="turno">Turno</label>
-                    <input class="form-control" type="text" name="turno" id="">
+                    <select class="form-select" id="turno" name="turno">
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                    </select>
                 </div>
 
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
-                    <input class="form-control" type="text" name="actividad" id="">
+                    <select class="form-select" id="actividad" name="actividad">
+                        <option value="Panaderia">Panaderia</option>
+                        <option value="Comedor">Comedor</option>
+                        <option value="Aseo">Aseo</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Armado">Armado</option>
+                        <option value="Extra">Extra</option>
+                        <option value="Barrio">f.s Barrio</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="estatus">Estatus</label>
