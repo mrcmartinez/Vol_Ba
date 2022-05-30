@@ -50,7 +50,9 @@ class Inicio extends Controller{
             if ($row == true) {
                 echo "el usuario o contraseña son correctos";
                 $rol=$row[3];
+                $usuario=$row[1];
                 $_SESSION['rol']=$rol;
+                $_SESSION['user']=$usuario;
                 switch($_SESSION['rol']){
                     case "Administrador":
                         // $this->view->mensaje="";

@@ -67,7 +67,7 @@ class PeticionModel extends Model{
     public function getBusqueda($f){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, pet.folio, pet.id_personal,pet.fecha_apertura, pet.tipo, pet.estatus
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, pet.folio, pet.id_personal,pet.fecha_apertura, pet.tipo, pet.autorizo,pet.estatus
             FROM peticion as pet 
             INNER JOIN personal as p
             ON pet.id_personal = p.id_personal WHERE pet.estatus like '%".$f."%'");
@@ -78,6 +78,7 @@ class PeticionModel extends Model{
                 $item->fecha_apertura  = $row['fecha_apertura'];
                 $item->tipo  = $row['tipo'];
                 $item->nombre  = $row['nombre'];
+                $item->autorizo  = $row['autorizo'];
                 // $item->descripcion  = $row['descripcion'];
                 // $item->fecha_solicitada  = $row['fecha_solicitada'];
                 // $item->dia_solicitado  = $row['dia_solicitado'];
@@ -116,11 +117,12 @@ class PeticionModel extends Model{
         }
     }
     public function update($item){
-        $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus WHERE folio = :folio');
+        $query = $this->db->connect()->prepare('UPDATE peticion SET estatus = :estatus, autorizo = :autorizo WHERE folio = :folio');
         try{
             $query->execute([
                 'folio' => $item['folio'],
-                'estatus' => $item['estatus']
+                'estatus' => $item['estatus'],
+                'autorizo' => $item['autorizo']
             ]);
             return true;
         }catch(PDOException $e){

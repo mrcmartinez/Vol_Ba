@@ -81,6 +81,8 @@
                         if ($_SESSION['rol']!="Supervisor" && $peticion->estatus=="Pendiente") {?>
                         <td><a href="<?php echo constant('URL') . 'peticion/verPeticionId/'. $peticion->folio;?>">Gestionar</a></td>
                         <?php                 
+                        }else{?><td><?php echo $peticion->autorizo; ?></td><?php
+
                         }           
                     ?>
                     

@@ -40,8 +40,9 @@ class Peticion extends Controller{
         $folio  = $_POST['folio'];
         $id_personal=$_POST['id_personal'];
         $fecha_solicitada  = $_POST['fecha_solicitada'];
+        $autorizo=$_SESSION['user'];
         if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
-            $this->model->update(['folio' => $folio,'estatus' => "Autorizado"]);
+            $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
         $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
         }else{
@@ -57,8 +58,9 @@ class Peticion extends Controller{
         // echo "Id personal".$id_personal;
         $dia_solicitado  = $_POST['dia_solicitado'];
         // echo "dia_solicitado".$dia_solicitado;
+        $autorizo=$_SESSION['user'];
         if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
-        $this->model->update(['folio' => $folio,'estatus' => "Autorizado"]);
+        $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
         }else{
         $this->view->mensaje = "No se pudo autorizar el cambio de turno";
@@ -67,8 +69,9 @@ class Peticion extends Controller{
         // $this->view->render('peticion/listar');
     }
     function rechazarPeticion(){
+        $autorizo=$_SESSION['user'];
         $folio  = $_POST['folio'];
-        $this->model->update(['folio' => $folio,'estatus' => "Rechazada"]);
+        $this->model->update(['folio' => $folio,'estatus' => "Rechazada",'autorizo' => $autorizo]);
         $this->view->mensaje = "folio peticion rechazada";
         $this->listar();
     }
@@ -110,6 +113,8 @@ class Peticion extends Controller{
     }
 
     function verPeticionId($param = null){
+        echo $_SESSION['user'];
+        // echo $_SESSION['rol'];
         $idPeticion = $param[0];
         $peticion = $this->model->getById($idPeticion);
         $this->view->peticion = $peticion;

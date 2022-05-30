@@ -11,6 +11,7 @@ class Peticiones{
     public $dia_solicitado;
     public $descripcion;
     public $archivo;
+    public $autorizo;
     public $estatus;
 }
 
