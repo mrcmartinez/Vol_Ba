@@ -94,6 +94,11 @@
                         disabled>
                 </p>
                 <p>
+                    <label for="seguro_medico">Seguro medico</label><br>
+                    <input type="text" name="seguro_medico" value="<?php echo $this->personal->seguro_medico; ?>"
+                        disabled>
+                </p>
+                <p>
                     <label for="escolaridad">Escolaridad</label><br>
                     <input type="text" name="escolaridad" value="<?php echo $this->personal->escolaridad; ?>" disabled>
                 </p>

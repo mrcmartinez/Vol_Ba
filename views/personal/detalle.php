@@ -73,11 +73,17 @@
                         <option value="Union libre">Union Libre</option>
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="numero_hijos">Numero de hijos</label>
                     <input class="form-control" type="number" name="numero_hijos"
                         value="<?php echo $this->personal->numero_hijos; ?>" required>
                 </div>
+                <div class="col-md-2">
+                    <label for="seguro_medico">Seguro medico</label>
+                    <input class="form-control" type="text" name="seguro_medico"
+                        value="<?php echo $this->personal->seguro_medico; ?>" required>
+                </div>
+
                 <div class="col-md-4">
                     <label for="escolaridad">Escolaridad</label>
                     <input class="form-control" type="text" name="escolaridad"

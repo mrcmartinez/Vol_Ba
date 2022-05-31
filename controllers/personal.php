@@ -25,6 +25,7 @@ class Personal extends Controller{
         $fecha_nacimiento  = $_POST['fecha_nacimiento'];
         $estado_civil  = $_POST['estado_civil'];
         $numero_hijos  = $_POST['numero_hijos'];
+        $seguro_medico  = $_POST['seguro_medico'];
         $escolaridad  = $_POST['escolaridad'];
         $turno  = $_POST['turno'];
         $actividad  = $_POST['actividad'];
@@ -35,7 +36,7 @@ class Personal extends Controller{
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
         'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
-        'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
+        'seguro_medico' => $seguro_medico,'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
 
         if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";
@@ -119,9 +120,11 @@ class Personal extends Controller{
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $estado_civil = $_POST['estado_civil'];
         $numero_hijos = $_POST['numero_hijos'];
+        $seguro_medico = $_POST['seguro_medico'];
         $escolaridad = $_POST['escolaridad'];
         $turno = $_POST['turno'];
         $actividad = $_POST['actividad'];
+        
         if($this->model->update(['id_personal' => $id_personal, 'nombre' => $nombre, 'estatus' => $estatus,
          'apellido_paterno' => $apellido_paterno,
          'apellido_materno' => $apellido_materno,
@@ -131,6 +134,7 @@ class Personal extends Controller{
          'fecha_nacimiento' => $fecha_nacimiento,
          'estado_civil' => $estado_civil,
          'numero_hijos' => $numero_hijos,
+         'seguro_medico' => $seguro_medico,
          'escolaridad' => $escolaridad,
          'turno' => $turno,
          'actividad' => $actividad] )){

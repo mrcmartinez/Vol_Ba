@@ -60,9 +60,14 @@
                         <option value="union libre">Union Libre</option>
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="numero_hijos">Numero de hijos</label>
                     <input class="form-control" type="number" name="numero_hijos" id="" required>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="seguro_medico">Seguro medico</label>
+                    <input class="form-control" type="text" name="seguro_medico" id="" required>
                 </div>
 
                 <div class="col-md-4">
