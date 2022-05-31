@@ -107,6 +107,10 @@
                     <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>" disabled>
                 </p>
                 <p>
+                    <label for="fecha_ingreso">fecha_ingreso</label><br>
+                    <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>" disabled>
+                </p>
+                <p>
                     <label for="estatus">Estatus</label><br>
                     <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" disabled>
                 </p>

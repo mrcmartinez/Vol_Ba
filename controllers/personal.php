@@ -15,6 +15,7 @@ class Personal extends Controller{
     }
 
     function registrarPersonal(){
+        $fecha_ingreso  = date("Y-m-d");
         $nombre    = $_POST['nombre'];
         $apellido_paterno  = $_POST['apellido_paterno'];
         $apellido_materno  = $_POST['apellido_materno'];
@@ -34,7 +35,7 @@ class Personal extends Controller{
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
         'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
-        'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'estatus' => $estatus]);
+        'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
 
         if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";
