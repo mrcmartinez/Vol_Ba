@@ -16,7 +16,7 @@
 
     <div class="container-fluid">
         <h1 class="center"><small>Personal</small>Voluntariado</h1>
-        <div class="center"><?php echo $this->mensaje; ?></div>
+        <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
 
         <div id="respuesta" class="center">
             <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
@@ -45,7 +45,7 @@
                 </p>
             </form>
         </div>
-        <div class="center"></div>
+        <!-- <div class="center"></div> -->
         <form action="<?php echo constant('URL'); ?>personal" method="POST">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
         </form>
