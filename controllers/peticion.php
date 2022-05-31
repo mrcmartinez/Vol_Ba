@@ -121,7 +121,7 @@ class Peticion extends Controller{
     }
 
     function verPeticionId($param = null){
-        echo $_SESSION['user'];
+        // echo $_SESSION['user'];
         // echo $_SESSION['rol'];
         $idPeticion = $param[0];
         $peticion = $this->model->getById($idPeticion);

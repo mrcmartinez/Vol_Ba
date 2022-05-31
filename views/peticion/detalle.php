@@ -39,6 +39,11 @@
                             <label for="id_personal">ID personal</label><br>
                             <input type="number" name="id_personal" readonly
                                 value="<?php echo $this->peticion->id_personal; ?>">
+
+                            <label for="nombre">Nombre</label><br>
+                            <input type="text" name="nombre" readonly
+                                value="<?php echo $this->peticion->nombre; ?>">
+
                             <label for="fecha_apertura">fecha apertura</label><br>
                             <input type="date" name="fecha_apertura" readonly
                                 value="<?php echo $this->peticion->fecha_apertura; ?>">

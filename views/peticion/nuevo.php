@@ -28,7 +28,7 @@
                 <div class="wrapper">
                     <div class="box">
                         <label for="">Id personal</label>
-                        <input type="number" name="id_personal" value="<?php echo $this->id; ?>">
+                        <input type="number" readonly name="id_personal" value="<?php echo $this->id; ?>">
                         <label for="">Tipo</label>
                         <input type="text" readonly name="tipo" value="Justificante">
                         <label for="">Fecha solicitada</label>

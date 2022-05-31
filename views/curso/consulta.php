@@ -16,7 +16,7 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Sección de consulta curso</h1>
+        <h1 class="center">Cursos</h1>
         <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">
             <?php switch($this->radio){
                     case "Activo":

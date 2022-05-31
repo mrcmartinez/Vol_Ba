@@ -42,11 +42,11 @@
         </form>
         <div><?php echo $this->mensaje; ?></div>
         <form action="<?php echo constant('URL'); ?>peticion" method="POST">
-            <input type="submit" value="Peticion asistencia">
+            <input type="submit" value="Justificante">
         </form>
 
         <form action="<?php echo constant('URL'); ?>peticion/nuevo" method="POST">
-            <input type="submit" value="Peticion turno">
+            <input type="submit" value="Cambio turno">
         </form>
         <div class="table-regis">
         <table class="table">
