@@ -44,9 +44,11 @@ class Peticion extends Controller{
         if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
             $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
+        $this->view->code = "success";
         $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
         }else{
         $this->view->mensaje = "No se pudo autorizar fecha no valida";
+        $this->view->code = "error";
         }
         $this->listar();
     }
@@ -62,8 +64,10 @@ class Peticion extends Controller{
         if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
         $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
+        $this->view->code = "success";
         }else{
         $this->view->mensaje = "No se pudo autorizar el cambio de turno";
+        $this->view->code = "error";
         }
         $this->listar();
         // $this->view->render('peticion/listar');
@@ -73,6 +77,7 @@ class Peticion extends Controller{
         $folio  = $_POST['folio'];
         $this->model->update(['folio' => $folio,'estatus' => "Rechazada",'autorizo' => $autorizo]);
         $this->view->mensaje = "folio peticion rechazada";
+        $this->view->code = "error";
         $this->listar();
     }
     function crear(){
@@ -86,6 +91,7 @@ class Peticion extends Controller{
         //"Ela archivo No es pdf"
         if (($_FILES['archivo']['type'] !='application/pdf')&&($_FILES['archivo']['size'] > 1000000)){
             $this->view->mensaje = "El archivo NO es pdf valido";
+            $this->view->code = "error";
             $this->view->render('peticion/nuevo');
         }else{
             // echo "El archivo SI es pdf";
@@ -104,9 +110,11 @@ class Peticion extends Controller{
                                      'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
                                       'dia_solicitado' => $dia_solicitado,'descripcion' => $descripcion,'archivo' => $archivo,'estatus' => $estatus])){
                 $this->view->mensaje = "Peticion creada correctamente";
+                $this->view->code = "success";
                 $this->listar();
             }else{
                 $this->view->mensaje = "No se pudo crear";
+                $this->view->code = "error";
                 $this->listar();
             }
         }

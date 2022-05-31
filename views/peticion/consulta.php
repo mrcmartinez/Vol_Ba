@@ -94,6 +94,21 @@
     </div>
     <?php require 'views/footer.php'; ?>
     <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
-
+    <?php
+        if (!empty($this->mensaje)) 
+        {
+            ?>
+            <script>
+                Swal.fire({
+                // position: 'top-end',
+                icon: "<?php echo $this->code; ?>",
+                title: '<?php echo $this->mensaje; ?>',
+                showConfirmButton: false,
+                timer: 1500
+      })
+            </script>
+            <?php    
+        }
+    ?>
 </body>
 </html>
