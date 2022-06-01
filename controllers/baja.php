@@ -31,6 +31,7 @@ class Baja extends Controller
         $this->view->render('bajas/reporte');
     }
 
+
     function generarReporte(){
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];

@@ -114,12 +114,14 @@
                         <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                             <a href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
                             <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/edit.png"/></a>
+
                             <a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></button><?php
                             }else{
                                 ?>Alta</button><?php
                             } ?></a>
+                            <a href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></a>
                     </td>
                     <?php } ?>
                 </tr>
@@ -146,6 +148,30 @@
             <?php    
         }
     ?>
-
+        <?php
+        if (!empty($this->idBaja)) 
+        {
+            ?>
+            <a href="#miModalBaja">Abrir Modal</a>
+            <div id="miModalBaja" class="modalBaja">
+            
+                <div class="modalBaja-contenido">
+                    <p>
+                <a href="<?php echo constant('URL'); ?>personal/listarPersonal">❌</a>
+                </p>      
+                    <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
+                    <!-- <h2>Baja de personal</h2> -->
+                    <label for="">Motivo de la baja</label>
+                    <p>
+                    <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
+                    <input type="text" name="motivo" required>
+                    </p>
+                    <input type="submit" value="Aceptar">
+                    </form>
+                </div>  
+            </div>
+            <?php    
+        }
+    ?>
 </body>
 </html>

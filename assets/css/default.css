@@ -110,3 +110,33 @@ form{
     height: 350px; 
     overflow-y: scroll; margin-bottom: 12px;
 }
+/* modal */
+.modalBaja-contenido{
+    background-color:#ffffff;
+    width:500px;
+    padding: 20px 20px;
+    margin: 20% auto;
+    position: relative;
+  }
+  .modalBaja{
+    background-color: rgba(0,0,0,.8);
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
+    transition: all 1s;
+    opacity:1;
+    pointer-events:auto;
+  }
+  .modalBaja input[type=text]{
+      height: 100px;
+      width: 450px;
+      padding: 0;
+  }
+  #miModalBaja:target{
+    opacity:1;
+    pointer-events:auto;
+  }

@@ -141,17 +141,29 @@ class Personal extends Controller{
             $this->view->mensaje = "Personal actualizado correctamente";
             $this->view->code = "success";
         }else{
-            $this->view->mensaje = "No se pudo actualizar el Persoanl";
+            $this->view->mensaje = "No se pudo actualizar el Personal";
             $this->view->code = "error";
         }
         $this->listarPersonal();
     }
+    function llamarBaja($param = null){
+        $this->view->idBaja = $param[0];;
+        $this->listarPersonal();
+    }
+    
 
     function eliminarPersonal($param = null){
-        $id_personal = $param[0];
-        $estatus = $param[1];
+        if (isset($param[0])) {
+            $id_personal = $param[0];
+            $estatus = $param[1];
+            $motivo="Baja definitiva";
+        }
+        if (isset($_POST['id_personal'])) {
+            $id_personal=$_POST['id_personal'];
+            $motivo=$_POST['motivo'];
+            $estatus = "Activo";
+        }
         $fecha=date("Y-m-d");
-        $motivo="Baja definitiva";
         if($this->model->delete($id_personal,$estatus)){
             $mensaje = "Personal eliminado correctamente";
             $this->model->insertBaja(['id_personal' => $id_personal,'fecha' => $fecha,'motivo' => $motivo]);
