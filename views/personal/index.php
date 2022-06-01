@@ -115,13 +115,14 @@
                             <a href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a>
                             <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/edit.png"/></a>
 
-                            <a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
-                                onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
-                            ?><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></button><?php
+                            <?php if ($this->radio!="Activo") {
+                                ?><a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
+                                onclick="return confirmBaja()"><img src="<?php echo constant('URL'); ?>assets/img/alta.png"/></a><?php
                             }else{
-                                ?>Alta</button><?php
-                            } ?></a>
-                            <a href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></a>
+                                ?><a href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></a><?php
+                            }?>
+                            
+                            
                     </td>
                     <?php } ?>
                 </tr>

@@ -165,11 +165,14 @@ class Personal extends Controller{
         }
         $fecha=date("Y-m-d");
         if($this->model->delete($id_personal,$estatus)){
-            $mensaje = "Personal eliminado correctamente";
+            $mensaje = "Listado actualizado";
+            $this->view->code = "success";
             $this->model->insertBaja(['id_personal' => $id_personal,'fecha' => $fecha,'motivo' => $motivo]);
         }else{
-            $mensaje = "No se pudo eliminar el personal";
+            $this->view->code = "error";
+            $mensaje = "No se pudo modificar el personal";
         }
+        $this->view->mensaje = $mensaje;
         $this->listarPersonal();
     }
     function generarReporte(){
