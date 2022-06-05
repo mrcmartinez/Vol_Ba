@@ -51,6 +51,7 @@
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
         <div class="table-regis">
+        <div id="div2">
             <table class="table">
                 <thead>
                     <tr>
@@ -78,6 +79,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

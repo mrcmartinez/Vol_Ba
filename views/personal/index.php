@@ -165,7 +165,8 @@
                     <label for="">Motivo de la baja</label>
                     <p>
                     <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
-                    <input type="text" name="motivo" required>
+                    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+                    <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
                     </p>
                     <input type="submit" value="Aceptar">
                     </form>

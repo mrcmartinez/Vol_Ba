@@ -40,7 +40,7 @@
         <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
         </form>
-
+        <div id="div2">
         <table width="100%">
             <thead>
                 <tr>
@@ -69,6 +69,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>

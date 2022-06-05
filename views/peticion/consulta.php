@@ -49,6 +49,7 @@
             <input type="submit" value="Cambio turno">
         </form>
         <div class="table-regis">
+        <div id="div2">
         <table class="table">
             <thead>
                 <tr>
@@ -90,6 +91,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
         </div>
     </div>
     <?php require 'views/footer.php'; ?>

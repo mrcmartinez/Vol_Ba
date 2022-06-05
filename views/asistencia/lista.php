@@ -21,6 +21,7 @@
         </form>
         <div id="respuesta" class="center"></div>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
+        <div id="div2">
             <table width="100%">
                 <thead>
                     <tr>
@@ -59,6 +60,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
             <input type="hidden" name="estatus" value="Asistencia">
             <input type="submit" name="seleccion" value="Validar" />
         </form>

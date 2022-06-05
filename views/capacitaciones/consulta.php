@@ -14,9 +14,10 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <div><?php echo $this->mensaje; ?></div>
+        
         <h1 class="center">Sección de consulta capacitacion todo</h1>
         <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
+        <div id="div2">
             <table width="100%" id="tabla">
                 <thead>
                     <tr>
@@ -60,6 +61,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
             <input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>">
             
             <input type="submit" name="seleccion" value="ok" />    

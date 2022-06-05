@@ -18,7 +18,6 @@
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
-            <h4>Bienvenido<?php echo $_SESSION['rol']?></h4>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal/" method="POST">
             <input type="radio" id="" name="radio_busqueda" value="Activo" checked>Activo
                 <p>
@@ -31,12 +30,14 @@
         <form action="<?php echo constant('URL'); ?>peticion/imprimir" method="POST">
         <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>">
         <!-- <form method="POST"> -->
+        <div id="div2">
             <table class="table">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Estatus</th>
+                        <th>Turno</th>
+                        <th>Actividad</th>
                         <th>SELECCIONAR</th>
                     </tr>
                 </thead>
@@ -50,7 +51,8 @@
                     <tr id="fila-<?php echo $personal->id_personal; ?>">
                         <td><?php echo $personal->id_personal; ?></td>
                         <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?></td>
-                        <td><?php echo $personal->estatus; ?></td>
+                        <td><?php echo $personal->turno; ?></td>
+                        <td><?php echo $personal->actividad; ?></td>
                         <td><input type="checkbox" value="<?php echo $personal->id_personal; ?>" name="personal" onchange="this.form.submit()"></td>
                         <input type="hidden" name="nombre" value="<?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>">
                     </tr>
@@ -58,6 +60,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </div>
         </form>
     </div>
 

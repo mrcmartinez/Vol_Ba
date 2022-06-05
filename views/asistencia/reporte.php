@@ -68,7 +68,7 @@
         <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
         <input type="submit" value="enviar">
         </form> -->
-
+        <div id="div2">
         <table width="100%">
             <thead>
                 <tr>
@@ -99,6 +99,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        <div id="div2">
         <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form> -->

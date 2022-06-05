@@ -15,7 +15,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <div><?php echo $this->mensaje; ?></div>
+        
         <h1 class="center">Cursos</h1>
         <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">
             <?php switch($this->radio){
@@ -37,6 +37,7 @@
         <form action="<?php echo constant('URL'); ?>curso" method="POST">
             <input type="submit" value="Nuevo">
         </form>
+        <div id="div2">
         <table id="tabla">
             <thead>
                 <tr>
@@ -88,6 +89,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>
