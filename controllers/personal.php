@@ -62,7 +62,7 @@ class Personal extends Controller{
         $this->view->radio = $filtro;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];
-            $this->view->estado = $param[1];
+            $this->view->estado = "Activo";
             $this->view->render('personal/asignar');
         }else{
             if (isset($_POST['mensaje'])) {
@@ -151,23 +151,35 @@ class Personal extends Controller{
         $this->listarPersonal();
     }
     
-
     function eliminarPersonal($param = null){
-        if (isset($param[0])) {
-            $id_personal = $param[0];
-            $estatus = $param[1];
-            $motivo="Baja definitiva";
-        }
-        if (isset($_POST['id_personal'])) {
+        $fecha=date("Y-m-d");
+            if (isset($_POST['id_personal'])) {
             $id_personal=$_POST['id_personal'];
             $motivo=$_POST['motivo'];
             $estatus = "Activo";
-        }
-        $fecha=date("Y-m-d");
+        }    
         if($this->model->delete($id_personal,$estatus)){
             $mensaje = "Listado actualizado";
             $this->view->code = "success";
             $this->model->insertBaja(['id_personal' => $id_personal,'fecha' => $fecha,'motivo' => $motivo]);
+        }else{
+            $this->view->code = "error";
+            $mensaje = "No se pudo modificar el personal";
+        }
+        $this->view->mensaje = $mensaje;
+        $this->listarPersonal();
+    }
+
+    function altaPersonal($param = null){
+        $fecha=date("Y-m-d");
+        if (isset($param[0])) {
+            $id_personal = $param[0];
+            $estatus = $param[1];
+        }
+        if($this->model->delete($id_personal,$estatus)){
+            $mensaje = "Listado actualizado";
+            $this->view->code = "success";
+            $this->model->updateIngreso(['id_personal' => $id_personal,'fecha_ingreso' => $fecha]);
         }else{
             $this->view->code = "error";
             $mensaje = "No se pudo modificar el personal";

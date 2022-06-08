@@ -54,7 +54,7 @@
                         
                         <!--  -->
                         <label for="">Descripcion</label>
-                        <input type="text" name="descripcion" id="">
+                        <input type="text" name="descripcion" id=""required>
                         <input type="file" name="archivo" accept="application/pdf">
                     </div>
                 </div>

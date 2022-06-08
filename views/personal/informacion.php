@@ -12,13 +12,15 @@
 <body>
     <?php require 'views/header.php'; ?>
     <div id="main">
-        <h1 class="center">Detalle de
-            <?php echo $this->personal->apellido_paterno.' '.$this->personal->apellido_materno.' '.$this->personal->nombre; ?>
-        </h1>
+
 
 
         <div class="center-form"><?php echo $this->mensaje; ?>
+        <h1 class="center">Detalle de
+            <?php echo $this->personal->apellido_paterno.' '.$this->personal->apellido_materno.' '.$this->personal->nombre; ?>
+        </h1>
             <div class="section-form">
+                
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input class="btn-option" type="submit" value="Regresar">
                 </form>

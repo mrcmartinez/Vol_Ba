@@ -28,14 +28,14 @@
                 <div class="wrapper">
                     <div class="box">
                         <label for="">Id personal</label>
-                        <input type="number" readonly name="id_personal" value="<?php echo $this->id; ?>">
+                        <input type="number"readonly name="id_personal" value="<?php echo $this->id; ?>"required >
                         <label for="">Tipo</label>
                         <input type="text" readonly name="tipo" value="Justificante">
                         <label for="">Fecha solicitada</label>
-                        <input type="date" name="fecha_solicitada" id="">
-                        <input type="hidden" name="dia_solicitado" id="">
+                        <input type="date" name="fecha_solicitada" id=""required>
+                        <input type="hidden" name="dia_solicitado" id=""required>
                         <label for="">Descripcion</label>
-                        <input type="text" name="descripcion" id="">
+                        <input type="text" name="descripcion" id=""required>
                         <input type="file" name="archivo" accept="application/pdf">
                     </div>
                 </div>

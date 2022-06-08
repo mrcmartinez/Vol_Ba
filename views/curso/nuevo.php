@@ -17,16 +17,16 @@
 
         <form action="<?php echo constant('URL'); ?>curso/crear" method="POST">
             <label for="">Nombre</label><br>
-            <input type="text" name="nombre" id=""><br>
+            <input type="text" name="nombre" id="" required><br>
             <label for="">Descripcion</label><br>
-            <input type="text" name="descripcion" id=""><br>
+            <input type="text" name="descripcion" id=""required><br>
             <label for="">Responsable</label><br>
-            <input type="text" name="responsable" id=""><br>
+            <input type="text" name="responsable" id=""required><br>
             <label for="">Fecha</label><br>
-            <input type="date" name="fecha" id=""><br>
+            <input type="date" name="fecha" id=""required><br>
             <label for="">Hora</label><br>
-            <input type="time" name="hora" id=""><br>
-            <input type="hidden" value ="Activo" name="estatus" id=""><br>
+            <input type="time" name="hora" id=""required><br>
+            <input type="hidden" value ="Activo" name="estatus" id=""required><br>
             <input type="submit" value="Crear nuevo curso">
         </form>
     </div>

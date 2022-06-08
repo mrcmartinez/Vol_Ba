@@ -15,7 +15,7 @@
 
     <div id="main">
         
-        <h1 class="center">Sección de consulta capacitacion todo</h1>
+        <h1 class="center">Capacitación</h1>
         <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
         <div id="div2">
             <table width="100%" id="tabla">
@@ -62,10 +62,15 @@
                 </tbody>
             </table>
             </div>
-            <input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>">
-            
+            <?php
+            if (isset($this->idCurso)) {
+                echo $this->idCurso;
+                ?><input type="hidden" name="id" value="<?php echo $this->idCurso; ?>"><?php
+            }else{
+                ?><input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>"><?php
+            }
+            ?>
             <input type="submit" name="seleccion" value="ok" />    
-            
         </form>
     </div>
 

@@ -13,7 +13,7 @@
 
     <div id="main">
         <div class="center-form">
-            <h1 class="center">Sección de Consulta telefonos</h1>
+            <h1 class="center">Telefonos</h1>
             
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div class="section-form">
@@ -62,10 +62,10 @@
                         <td><?php echo $telefono->descripcion; ?></td>
 
                         <td><a
-                                href="<?php echo constant('URL') . 'telefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Editar</a>
+                                href="<?php echo constant('URL') . 'telefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
                         </td>
                         <td><a
-                                href="<?php echo constant('URL') . 'telefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>">Eliminar</a>
+                                href="<?php echo constant('URL') . 'telefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></a>
                         </td>
                         <!-- <td><button class="bEliminar"
                             data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td> -->

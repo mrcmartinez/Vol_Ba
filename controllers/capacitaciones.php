@@ -21,6 +21,7 @@ class Capacitaciones extends Controller{
         }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
         $this->view->capacitacion = $capacitacion;
+        $this->view->idCurso = $id_curso;
         $this->view->render('capacitaciones/consulta');
     }
     function asignarCapacitacion(){
@@ -55,6 +56,7 @@ class Capacitaciones extends Controller{
         $capacitacion = $this->model->getById($idCurso);
         $this->view->capacitacion = $capacitacion;
         $this->view->estado = $estado;
+        $this->view->idCurso = $idCurso;
         $this->view->render('capacitaciones/consulta');
     }
     

@@ -136,6 +136,18 @@ class PersonalModel extends Model{
             return false;
         }    
     }
+    public function updateIngreso($datos){
+        $query = $this->db->connect()->prepare("UPDATE personal SET fecha_ingreso = :fecha_ingreso WHERE id_personal = :id_personal");
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha_ingreso' => $datos['fecha_ingreso']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
 }
 
 ?>

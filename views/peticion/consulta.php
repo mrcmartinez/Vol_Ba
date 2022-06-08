@@ -18,7 +18,7 @@
     <div class="center container-lg">
 
     
-        <h1 class="center">Sección de consulta peticiones</h1>
+        <h1 class="center">Peticiones</h1>
 
         <form action="<?php echo constant('URL'); ?>peticion/listar" method="post">
         <?php switch($this->radio){

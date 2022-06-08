@@ -14,7 +14,7 @@
     <div id="main">
         
         <div class="center-form"><?php echo $this->mensaje; ?>
-        <h1 class="center">Sección de Consultaid</h1>
+        <h1 class="center">Documentación</h1>
             <div class="section-form">
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input type="submit" value="Regresar">
@@ -41,8 +41,7 @@
                         <th>ID</th>
                         <th>Tipo</th>
                         <th>Estatus</th>
-                        <th></th>
-                        <th></th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-documento">
@@ -57,10 +56,10 @@
                         <td><?php echo $documento->nombre; ?></td>
                         <td><?php echo $documento->estatus; ?></td>
                         <td><a
-                                href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a>
-                        </td>
-                        <td><a href="<?php echo constant('URL') . 'documento/verDocumento/' . $documento->id_personal.'/'. $documento->descripcion; ?>"
-                                target="_blank">ver</a></td>
+                                href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></a>
+                        
+                        <a href="<?php echo constant('URL') . 'documento/verDocumento/' . $documento->id_personal.'/'. $documento->descripcion; ?>"
+                                target="_blank"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a></td>
 
                     </tr>
 

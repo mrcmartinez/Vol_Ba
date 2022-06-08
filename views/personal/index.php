@@ -116,7 +116,7 @@
                             <a href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/edit.png"/></a>
 
                             <?php if ($this->radio!="Activo") {
-                                ?><a href="<?php echo constant('URL') . 'personal/eliminarPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
+                                ?><a href="<?php echo constant('URL') . 'personal/altaPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><img src="<?php echo constant('URL'); ?>assets/img/alta.png"/></a><?php
                             }else{
                                 ?><a href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar.png"/></a><?php
