@@ -20,7 +20,8 @@ class Usuario extends Controller{
     }
     function crear(){
         $nombre_usuario = $_POST['nombre_usuario'];
-        $password  = $_POST['password'];
+        //$pass  = $_POST['password'];
+        $password=md5($_POST['password']);
         $rol  = $_POST['rol'];
         if($this->model->insert(['nombre_usuario' => $nombre_usuario, 'password' => $password,
                                  'rol' => $rol])){
@@ -41,7 +42,7 @@ class Usuario extends Controller{
     function actualizarUsuario($param = null){
         $id_usuario = $_POST['id_usuario'];
         $nombre_usuario    = $_POST['nombre_usuario'];
-        $password  = $_POST['password'];
+        $password  = md5($_POST['password']);
         $rol  = $_POST['rol'];
         if($this->model->update(['id_usuario' => $id_usuario,'nombre_usuario' => $nombre_usuario, 'password' => $password,
                                 'rol' => $rol])){

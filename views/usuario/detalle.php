@@ -31,7 +31,7 @@
 
             <p>
                 <label for="password">Password</label><br>
-                <input type="text" name="password" value="<?php echo $this->usuario->password; ?>"
+                <input type="password" name="password" value="<?php echo $this->usuario->password; ?>"
                     required>
             </p>
             <p>

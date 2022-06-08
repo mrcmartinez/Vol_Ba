@@ -44,7 +44,8 @@ class Inicio extends Controller{
         }
         if (isset($_POST['nombre_usuario'])&&isset($_POST['password'])) {
             $nombre_usuario=$_POST['nombre_usuario'];
-            $password=$_POST['password'];
+            $password=md5($_POST['password']);
+            //$password=$_POST['password'];
             $row=$this->model->select(['nombre_usuario' => $nombre_usuario,'password' => $password]);
 
             if ($row == true) {

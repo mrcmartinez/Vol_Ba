@@ -65,3 +65,4 @@ commit asistencia adm
 commit login
 commit error curso
 commit modal
+commit md5

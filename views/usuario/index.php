@@ -10,7 +10,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Sección de Consulta usuarios</h1>
+        <h1 class="center">Usuarios</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <form action="<?php echo constant('URL'); ?>usuario/nuevo" method="POST">
             <input type="submit" value="Nuevo">
@@ -22,7 +22,6 @@
                 <tr>
                     <th>Id usuario</th>
                     <th>usuario</th>
-                    <th>password</th>
                     <th>rol</th>
                 </tr>
             </thead>
@@ -36,7 +35,6 @@
                 <tr id="fila-<?php echo $usuario->id_usuario; ?>">
                     <td><?php echo $usuario->id_usuario; ?></td>
                     <td><?php echo $usuario->nombre_usuario; ?></td>
-                    <td><?php echo $usuario->password; ?></td>
                     <td><?php echo $usuario->rol; ?></td>
                 
                     <td><a href="<?php echo constant('URL') . 'usuario/verUsuario/' . $usuario->id_usuario; ?>">Editar</a>  </td>

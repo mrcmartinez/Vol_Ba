@@ -17,7 +17,7 @@
         
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/logo1.png">
             <h2>Bienvenido</h2>
-            <input type="text" name="nombre_usuario" placeholder="🔐Usuario">
+            <input type="text" name="nombre_usuario" placeholder="👤Usuario">
             <input type="password" name="password" placeholder="🔐Contraseña">
             <input type="submit" value="Ingresar">
         </form>
