@@ -28,6 +28,7 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Actividad</th>
+                        <th>hora</th>
                         
                         
                     </tr>
@@ -42,8 +43,9 @@
                     <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                         <td><?php echo $asistencia->id_personal; ?></td>
                         <td><?php echo $asistencia->nombre; ?></td>
-                        <td><?php echo $asistencia->actividad; ?></td>
                         
+                        <td><?php echo $asistencia->actividad; ?></td>
+                        <td><?php echo $asistencia->hora; ?></td>
 
                         <?php if ($asistencia->estatus!="Asistencia" ) { ?>
 

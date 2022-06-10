@@ -6,6 +6,7 @@ class Asistencia{
     public $nombre;
     public $actividad;
     public $fecha;
+    public $hora;
     public $estatus;
 }
 

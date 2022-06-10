@@ -75,6 +75,7 @@
                     <th>Id Personal</th>
                     <th>Nombre</th>
                     <th>Fecha</th>
+                    <th>Hora</th>
                     <th>Estatus</th>
                 </tr>
             </thead>
@@ -89,6 +90,7 @@
                     <td><?php echo $asistencia->id_personal; ?></td>
                     <td><?php echo $asistencia->nombre; ?></td>
                     <td><?php echo $asistencia->fecha; ?></td>
+                    <td><?php echo $asistencia->hora; ?></td>
                     <td><?php echo $asistencia->estatus; ?></td>
 
                     <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->

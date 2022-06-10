@@ -38,6 +38,7 @@ class ConsultaAsistencia extends Controller{
     }
     function saludo(){
             $fecha=date('Y-m-d');
+            $hora=date("H:i:s");
             //$this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
             $estatus=$_POST['estatus'];
             if (empty($_POST['personal'])) {
@@ -46,7 +47,7 @@ class ConsultaAsistencia extends Controller{
                 $this->view->code = "error";
             }else{
             foreach ($_POST['personal'] as $id_personal) {
-                $this->model->update(['id_personal' => $id_personal,'fecha' => $fecha,'estatus' => $estatus]);
+                $this->model->update(['id_personal' => $id_personal,'fecha' => $fecha,'estatus' => $estatus,'hora' => $hora]);
               }
             $this->view->mensaje = "Asistencia registrada";
             $this->view->code = "success";
