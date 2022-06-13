@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                 
             </p>
             <p>
-                <label for="numero">numero</label><br>
+                <label for="numero">número</label><br>
                 <input type="tel" name="numero" value="<?php echo $this->telefono->numero; ?>" pattern="[0-9]{7}" required>
             </p>
 
@@ -41,12 +41,12 @@
                 <input type="text" name="tipo" value="<?php echo $this->telefono->tipo; ?>" required>
             </p>
             <p>
-                <label for="descripcion">descripcion</label><br>
+                <label for="descripcion">descripción</label><br>
                 <input type="text" name="descripcion" value="<?php echo $this->telefono->descripcion; ?>">
             </p>
 
             <p>
-                <input type="submit" value="Actualizar telefono">
+                <input type="submit" value="Actualizar teléfono">
             </p>
 
         </form>

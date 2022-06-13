@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 
     <div class="container-lg">
         <form action="<?php echo constant('URL'); ?>documento" method="POST">
-            <input type="submit" value="Documentacion">
+            <input type="submit" value="Documentación">
         </form>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
             <input type="submit" value="Asistencias">

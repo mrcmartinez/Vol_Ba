@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -43,30 +43,30 @@
                     <input class="form-control" type="text" name="colonia" id="" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="numero_exterior">Numero exterior</label>
-                    <input class="form-control" type="number" name="numero_exterior" id="">
+                    <label for="numero_exterior">Número exterior</label>
+                    <input class="form-control" type="text" name="numero_exterior" id="">
                 </div>
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
-                    <input class="form-control" type="date" name="fecha_nacimiento" id="" required>
+                    <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>" name="fecha_nacimiento" id="" required>
                 </div>
                 <div class="col-md-4">
                     <label for="estado_civil">Estado Civil</label>
                     <select class="form-select" id="estado_civil" name="estado_civil">
                         <option value="casada">Casada</option>
-                        <option value="soltera">soltera</option>
+                        <option value="soltera">Soltera</option>
                         <option value="viuda">Viuda</option>
                         <option value="concubinato">Concubinato</option>
                         <option value="union libre">Union Libre</option>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label for="numero_hijos">Numero de hijos</label>
-                    <input class="form-control" type="number" name="numero_hijos" id="" required>
+                    <label for="numero_hijos">Número de hijos</label>
+                    <input class="form-control" type="number" min="0" max="20" name="numero_hijos" id="" required>
                 </div>
 
                 <div class="col-md-2">
-                    <label for="seguro_medico">Seguro medico</label>
+                    <label for="seguro_medico">Seguro Médico</label>
                     <input class="form-control" type="text" name="seguro_medico" id="" required>
                 </div>
 

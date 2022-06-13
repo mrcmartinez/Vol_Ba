@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Agregar telefono</h1>
+        <h1 class="center">Agregar teléfono</h1>
 
         <div class="center"><?php echo $this->mensaje; ?></div>
         <?php $idU=intval($this->ultimoId);?>
@@ -28,7 +28,7 @@
                 <input type="tel" name="lada" id="" pattern="[0-9]{3}" required>
             </p>
             <p>
-                <label for="numero">Numero</label><br>
+                <label for="numero">Número</label><br>
                 <input type="tel" name="numero" id="" pattern="[0-9]{7}"required>
             </p>
             <p>
@@ -41,7 +41,7 @@
 
             </p>
             <p>
-                <label for="descripcion">Descripcion</label><br>
+                <label for="descripcion">Descripción</label><br>
                 <input type="text" name="descripcion" id="">
             </p>
 

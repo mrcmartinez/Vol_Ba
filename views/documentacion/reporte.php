@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
     <div id="main">
     <form action="<?php echo constant('URL'); ?>documento" method="POST">
-            <input type="submit" value="Documentacion">
+            <input type="submit" value="Documentación">
         </form>
         <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
             <input type="submit" value="Asistencias">
@@ -22,7 +22,7 @@
             <input type="submit" value="Bajas">
         </form>
 
-        <h1 class="center"><small>Reportes</small>Documentacion</h1>
+        <h1 class="center"><small>Reportes</small>Documentación</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
         <div id="respuesta" class="center"></div>
         <form action="<?php echo constant('URL'); ?>documento" method="POST">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                         value="<?php echo $this->personal->colonia; ?>" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="numero_exterior">Numero exterior</label>
+                    <label for="numero_exterior">Número exterior</label>
                     <input class="form-control" type="number" name="numero_exterior"
                         value="<?php echo $this->personal->numero_exterior; ?>" required>
                 </div>
@@ -74,12 +74,12 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label for="numero_hijos">Numero de hijos</label>
+                    <label for="numero_hijos">Número de hijos</label>
                     <input class="form-control" type="number" name="numero_hijos"
                         value="<?php echo $this->personal->numero_hijos; ?>" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="seguro_medico">Seguro medico</label>
+                    <label for="seguro_medico">Seguro Médico</label>
                     <input class="form-control" type="text" name="seguro_medico"
                         value="<?php echo $this->personal->seguro_medico; ?>" required>
                 </div>

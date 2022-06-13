@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 <input class="form-control" type="tel" name="lada_1" id="" pattern="[0-9]{3}">
             </div>
             <div class="col-md-3">
-                <label for="numero_1">Numero</label><br>
+                <label for="numero_1">Número</label><br>
                 <input class="form-control" type="tel" name="numero_1" id="" pattern="[0-9]{7}">
             </div>
             <div class="col-md-3">
@@ -37,7 +37,7 @@
                 <input class="form-control" type="text" name="tipo_1" value="Telefono celular" readonly>
             </div>
             <div class="col-md-5">
-                <label for="descripcion_1">Descripcion</label><br>
+                <label for="descripcion_1">Descripción</label><br>
                 <input class="form-control" type="text" name="descripcion_1" id="" value="">
             </div>
             <!--  -->
@@ -46,7 +46,7 @@
                 <input class="form-control" type="tel" name="lada_2" id="" pattern="[0-9]{3}">
             </div>
             <div class="col-md-3">
-                <label for="numero_2">Numero</label><br>
+                <label for="numero_2">Número</label><br>
                 <input class="form-control" type="tel" name="numero_2" id="" pattern="[0-9]{7}">
             </div>
             <div class="col-md-3">
@@ -54,7 +54,7 @@
                 <input class="form-control" type="text" name="tipo_2" value="Telefono casa" readonly>
             </div>
             <div class="col-md-5">
-                <label for="descripcion_2">Descripcion</label><br>
+                <label for="descripcion_2">Descripción</label><br>
                 <input class="form-control" type="text" name="descripcion_2" id="" value="">
             </div>
             <!--casa  -->
@@ -64,7 +64,7 @@
                 <input class="form-control" type="tel" name="lada_3" id="" pattern="[0-9]{3}">
             </div>
             <div class="col-md-3">
-                <label for="numero_3">Numero</label><br>
+                <label for="numero_3">Número</label><br>
                 <input class="form-control" type="tel" name="numero_3" id="" pattern="[0-9]{7}">
             </div>
             <div class="col-md-3">

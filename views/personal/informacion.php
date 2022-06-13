@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -32,12 +32,12 @@
                 <form
                     action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Documentacion">
+                    <input type="submit" value="Documentación">
                 </form>
                 <form
                     action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Telefonos">
+                    <input type="submit" value="Teléfonos">
                 </form>
             </div>
             
@@ -71,7 +71,7 @@
                     <input type="text" name="colonia" value="<?php echo $this->personal->colonia; ?>" disabled>
                 </p>
                 <p>
-                    <label for="numero_exterior">Numero exterior</label><br>
+                    <label for="numero_exterior">Número exterior</label><br>
                     <input type="number" name="numero_exterior" value="<?php echo $this->personal->numero_exterior; ?>"
                         disabled>
                 </p>
@@ -91,12 +91,12 @@
                 </p>
 
                 <p>
-                    <label for="numero_hijos">Numero de hijos</label><br>
+                    <label for="numero_hijos">Número de hijos</label><br>
                     <input type="number" name="numero_hijos" value="<?php echo $this->personal->numero_hijos; ?>"
                         disabled>
                 </p>
                 <p>
-                    <label for="seguro_medico">Seguro medico</label><br>
+                    <label for="seguro_medico">Seguro Médico</label><br>
                     <input type="text" name="seguro_medico" value="<?php echo $this->personal->seguro_medico; ?>"
                         disabled>
                 </p>
@@ -114,7 +114,7 @@
                     <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>" disabled>
                 </p>
                 <p>
-                    <label for="fecha_ingreso">fecha_ingreso</label><br>
+                    <label for="fecha_ingreso">Fecha Ingreso</label><br>
                     <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>" disabled>
                 </p>
                 <p>
