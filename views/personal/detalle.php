@@ -80,8 +80,14 @@
                 </div>
                 <div class="col-md-2">
                     <label for="seguro_medico">Seguro Médico</label>
-                    <input class="form-control" type="text" name="seguro_medico"
+                    <input class="form-control" list="seguro" name="seguro_medico" id="seguro_medico"
                         value="<?php echo $this->personal->seguro_medico; ?>" required>
+                    <datalist id="seguro">
+                        <option value="IMSS">
+                        <option value="ISSSTE">
+                        <option value="INSABI">
+                        <option value="NINGUNO">
+                    </datalist>
                 </div>
 
                 <div class="col-md-4">
@@ -90,13 +96,13 @@
                         value="<?php echo $this->personal->escolaridad; ?>" required>
                 </div>
                 <input class="form-control" type="hidden" name="turno" value="<?php echo $this->personal->turno; ?>">
-                
+
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
                     <select class="form-select" id="actividad" name="actividad">
                         <option value="<?php echo $this->personal->actividad; ?>">
                             ✔<?php echo $this->personal->actividad; ?></option>
-                            <option value="Panaderia">Panaderia</option>
+                        <option value="Panaderia">Panaderia</option>
                         <option value="Comedor">Comedor</option>
                         <option value="Aseo">Aseo</option>
                         <option value="Administrativo">Administrativo</option>

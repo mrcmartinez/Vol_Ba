@@ -48,7 +48,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
-                    <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>" name="fecha_nacimiento" id="" required>
+                    <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>"
+                        name="fecha_nacimiento" id="" required>
                 </div>
                 <div class="col-md-4">
                     <label for="estado_civil">Estado Civil</label>
@@ -67,7 +68,14 @@
 
                 <div class="col-md-2">
                     <label for="seguro_medico">Seguro Médico</label>
-                    <input class="form-control" type="text" name="seguro_medico" id="" required>
+                    <!-- <input class="form-control" type="text" name="seguro_medico" id="seguro_medico" required> -->
+                    <input class="form-control"list="seguro" name="seguro_medico" id="seguro_medico"required>
+                    <datalist id="seguro">
+                        <option value="IMSS">
+                        <option value="ISSSTE">
+                        <option value="INSABI">
+                        <option value="NINGUNO">
+                    </datalist>
                 </div>
 
                 <div class="col-md-4">
@@ -106,15 +114,15 @@
                         <option value="Candidato">Candidato</option>
                     </select>
                 </div>
-                
+
                 <div class="col-md-4">
                     <input class="form-control" type="submit" value="Registrar">
                 </div>
                 <div class="col-md-4">
                     <progress id="file" value="0" max="100"> 32% </progress>
                 </div>
-                
-                
+
+
             </form>
         </div>
 
