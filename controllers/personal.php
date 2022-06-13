@@ -194,7 +194,7 @@ class Personal extends Controller{
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th></thead>";
         foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -242,8 +242,8 @@ class Personal extends Controller{
         $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
         $pdf->Cell(30,10,'',1,1,'c',0);
     }
-    $pdf->Output();
-    // $pdf->Output("Voluntariado.pdf", "D");
+    // $pdf->Output();
+    $pdf->Output("Voluntariado.pdf", "D");
     // $archivo->Output("test.pdf", "D");
     }
 }

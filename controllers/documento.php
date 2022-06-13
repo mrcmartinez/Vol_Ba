@@ -130,7 +130,7 @@ class Documento extends Controller
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>TIPO</th> <th>ESTATUS</th></thead>";
         foreach ($documento = $this->model->getBusqueda($consulta) as $r) {
-            $salida .= "<tr> <td>" . $r->id_personal . "</td> <td>" . $r->nombre_personal . "</td> <td>" . $r->nombre . "</td> <td>" . $r->estatus . "</td></tr>";
+            $salida .= "<tr> <td>" . $r->id_personal . "</td> <td>" .utf8_decode($r->nombre_personal). "</td> <td>" . $r->nombre . "</td> <td>" . $r->estatus . "</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -166,7 +166,7 @@ class Documento extends Controller
         foreach ($personal = $this->model->getBusqueda($consulta) as $r) {
             // $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
             $pdf->Cell(10, 10, $r->id_personal, 1, 0, 'c', 0);
-            $pdf->Cell(70, 10, $r->nombre_personal, 1, 0, 'c', 0);
+            $pdf->Cell(70, 10, utf8_decode($r->nombre_personal), 1, 0, 'c', 0);
             $pdf->Cell(70, 10, $r->nombre, 1, 0, 'c', 0);
             $pdf->Cell(22, 10, $r->estatus, 1, 1, 'c', 0);
         }
