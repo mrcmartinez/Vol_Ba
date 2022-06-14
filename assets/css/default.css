@@ -102,6 +102,10 @@ form{
     display: inline;
     align-items:center;
 }
+.form-info{
+    padding-left: 15%;
+    display: inline-block;
+}
 .error{
     /* color: #ac2323; */
 }

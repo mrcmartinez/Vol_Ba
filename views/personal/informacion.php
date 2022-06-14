@@ -40,7 +40,7 @@
                     <input type="submit" value="Teléfonos">
                 </form>
             </div>
-            
+            <div class="form-info">
                 <p>
                     <label for="id_personal">ID</label><br>
                     <input type="number" name="id_personal" disabled
@@ -75,6 +75,7 @@
                     <input type="number" name="numero_exterior" value="<?php echo $this->personal->numero_exterior; ?>"
                         disabled>
                 </p>
+                
                 <p>
                     <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
                     <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>"
@@ -84,11 +85,13 @@
                     <label for="edad">Edad</label><br>
                     <input type="number" name="edad" value="<?php echo $this->edadCalculada; ?>" disabled>
                 </p>
-                <p>
+                </div>
+                <div class="form-info">
+                
                     <label for="estado_civil">Estado Civil</label><br>
                     <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>"
                         disabled>
-                </p>
+                
 
                 <p>
                     <label for="numero_hijos">Número de hijos</label><br>
@@ -121,6 +124,7 @@
                     <label for="estatus">Estatus</label><br>
                     <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" disabled>
                 </p>
+                </div>
             
         </div>
     </div>
