@@ -13,7 +13,10 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Detalle de <?php echo $this->personal->id_personal; ?> </h1>
+        
+        <h1 class="center">Detalle de
+            <?php echo $this->personal->apellido_paterno.' '.$this->personal->apellido_materno.' '.$this->personal->nombre; ?>
+        </h1>
 
         <div class="center-form"><?php echo $this->mensaje; ?>
 

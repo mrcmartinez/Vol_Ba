@@ -67,3 +67,4 @@ commit error curso
 commit modal
 commit md5
 commit icon pestana
+commit nombreDetalles

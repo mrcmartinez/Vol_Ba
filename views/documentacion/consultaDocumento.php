@@ -1,3 +1,4 @@
+<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +15,7 @@
     <div id="main">
         
         <div class="center-form"><?php echo $this->mensaje; ?>
+        <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
         <h1 class="center">Documentación</h1>
             <div class="section-form">
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">

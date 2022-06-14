@@ -1,3 +1,4 @@
+<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,7 @@
 
     <div id="main">
         <div class="center-form">
+        <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">Telefonos</h1>
             
             <div class="center"><?php echo $this->mensaje; ?></div>

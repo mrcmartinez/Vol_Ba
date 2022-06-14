@@ -63,6 +63,7 @@ class ConsultaAsistencia extends Controller{
         $asistencia = $this->model->get($idPersonal);
         $this->view->asistencia = $asistencia;
         $this->view->id = $idPersonal;
+        
         $this->view->render('asistencia/index');
     }
     function generar($param = null){

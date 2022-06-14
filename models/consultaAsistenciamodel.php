@@ -10,12 +10,16 @@ class ConsultaAsistenciaModel extends Model{
 
     public function get($id){
         $items = [];
-            $query = $this->db->connect()->prepare("SELECT*FROM asistencia WHERE id_personal = :id_personal");
+            $query = $this->db->connect()->prepare("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora
+            FROM asistencia as a 
+            INNER JOIN personal as p
+            ON a.id_personal = p.id_personal where a.id_personal=:id_personal");
             try{
             $query->execute(['id_personal' => $id]);
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];
+                $item->nombre = $row['nombre'];
                 $item->fecha = $row['fecha'];
                 $item->hora = $row['hora'];
                 $item->estatus = $row['estatus'];
