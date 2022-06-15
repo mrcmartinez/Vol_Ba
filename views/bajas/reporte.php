@@ -52,7 +52,7 @@
             </form>
 
             <div id="div2">
-                <table>
+                <table class="t-tipo2">
                     <thead>
                         <tr>
                             <th>Id personal</th>

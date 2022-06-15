@@ -10,8 +10,9 @@ ul a{
 header{
     display: flex;
     min-height: 70px;
-    background:#1f1f1f;
-    justify-content: space-between;
+    /* background:#1f1f1f; */
+    background: rgba(0, 0, 0, 0.2);
+	justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
@@ -143,6 +144,44 @@ nav a{
 		padding-left: 3px;
 		padding-right: 3px;
 		
+	}
+	.t-tipo1 th{
+		text-align: left;
+		background-color: #cad621!important;
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.t-tipo2 th{
+		text-align: left;
+		background-color: #c200109f!important;
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.t-tipo3 th{
+		text-align: left;
+		background-color: #1cc5dbe0!important;
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.t-tipo4 th{
+		text-align: left;
+		background-color: #0220ccab!important;
+		/* background: linear-gradient(120deg, #db3030ce, #eeb855cc); */
+		/* background: #db3030ce!important; */
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 3px;
+		padding-right: 3px;
 	}
 	.espaciado{
 		padding-left: 11vw;

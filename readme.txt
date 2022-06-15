@@ -68,3 +68,4 @@ commit modal
 commit md5
 commit icon pestana
 commit nombreDetalles
+commit diseño general2

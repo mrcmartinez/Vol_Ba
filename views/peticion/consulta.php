@@ -49,7 +49,7 @@
             </form>
 
             <div id="div2">
-                <table>
+                <table class="t-tipo4">
                     <thead>
                         <tr>
                             <th>Folio</th>

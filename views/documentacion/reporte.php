@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
             </form>
             <div id="div2">
-                <table>
+                <table class = "t-tipo1">
                     <thead>
                         <tr>
                             <th>ID</th>

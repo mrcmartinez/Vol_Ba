@@ -70,7 +70,7 @@
         <input type="submit" value="enviar">
         </form> -->
             <div id="div2">
-                <table>
+                <table class="t-tipo3">
                     <thead>
                         <tr>
                             <th>Id Personal</th>
