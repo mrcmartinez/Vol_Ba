@@ -7,18 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css"> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
+    <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css"> -->
 </head>
 
 <body>
     <?php require 'views/header.php'; ?>
+
     <div id="main">
 
 
 
         <div class="center-form"><?php echo $this->mensaje; ?>
-        <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
+            <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <div class="section-form">
-                
+
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input class="btn-option" type="submit" value="Regresar">
                 </form>
@@ -73,7 +75,7 @@
                     <input type="number" name="numero_exterior" value="<?php echo $this->personal->numero_exterior; ?>"
                         disabled>
                 </p>
-                
+
                 <p>
                     <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
                     <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>"
@@ -83,13 +85,12 @@
                     <label for="edad">Edad</label><br>
                     <input type="number" name="edad" value="<?php echo $this->edadCalculada; ?>" disabled>
                 </p>
-                </div>
-                <div class="form-info">
-                
-                    <label for="estado_civil">Estado Civil</label><br>
-                    <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>"
-                        disabled>
-                
+            </div>
+            <div class="form-info">
+
+                <label for="estado_civil">Estado Civil</label><br>
+                <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>" disabled>
+
 
                 <p>
                     <label for="numero_hijos">Número de hijos</label><br>
@@ -116,17 +117,19 @@
                 </p>
                 <p>
                     <label for="fecha_ingreso">Fecha Ingreso</label><br>
-                    <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>" disabled>
+                    <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>"
+                        disabled>
                 </p>
                 <p>
                     <label for="estatus">Estatus</label><br>
                     <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" disabled>
                 </p>
-                </div>
-            
+            </div>
+
         </div>
     </div>
     </div>
+
 
     <?php require 'views/footer.php'; ?>
 </body>

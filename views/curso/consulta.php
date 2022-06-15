@@ -14,7 +14,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        
+        <div class="center-form">
         <h1 class="center">Cursos</h1>
         <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">
             <?php switch($this->radio){
@@ -88,6 +88,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
         </div>
     </div>
 

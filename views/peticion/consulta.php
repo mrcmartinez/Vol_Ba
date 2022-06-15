@@ -16,7 +16,7 @@
 
 <?php require 'views/header.php'; ?>
     <div class="center container-lg">
-
+        <div class="center-form">
     
         <h1 class="center">Peticiones</h1>
 
@@ -91,6 +91,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        </div>
         </div>
         </div>
     </div>
