@@ -5,7 +5,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(120deg, #db3030, #eeb955);
+    background: linear-gradient(120deg, #db3030ce, #eeb855cc);
     /* background-color: #eee; */
 }
 
@@ -50,7 +50,7 @@ table{
 }
 .center-form{
     margin: auto;
-    width: 90%;
+    width: 100%;
     padding: 20px;
     background: whitesmoke;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);

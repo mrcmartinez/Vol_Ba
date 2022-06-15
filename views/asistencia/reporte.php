@@ -12,20 +12,21 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <form action="<?php echo constant('URL'); ?>documento" method="POST">
-            <input type="submit" value="Documentacion">
-        </form>
-        <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
-            <input type="submit" value="Asistencias">
-        </form>
-        <form action="<?php echo constant('URL'); ?>baja" method="POST">
-            <input type="submit" value="Bajas">
-        </form>
-        <h1 class="center"><small>Reportes</small>Asistencia</h1>
-        <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
-        <div id="respuesta" class="center"></div>
-        <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
-            <?php switch($this->radio){
+        <div class="center-form">
+            <form action="<?php echo constant('URL'); ?>documento" method="POST">
+                <input type="submit" value="Documentacion">
+            </form>
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+                <input type="submit" value="Asistencias">
+            </form>
+            <form action="<?php echo constant('URL'); ?>baja" method="POST">
+                <input type="submit" value="Bajas">
+            </form>
+            <h1 class="center"><small>Reportes</small>Asistencia</h1>
+            <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
+            <div id="respuesta" class="center"></div>
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+                <?php switch($this->radio){
                     case "Asistencia":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked onchange="this.form.submit()">Asistencias
                         <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
@@ -43,68 +44,69 @@
                         break;
                 }?>
 
-            <p>
-                <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
-                De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-                a:<input type="Date" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-                <input type="submit" value="Buscar">
-            </p>
-        </form>
-        <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReporte" method="POST">
-            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
-        </form>
+                <p>
+                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
+                    De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+                    a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                    <input type="submit" value="Buscar">
+                </p>
+            </form>
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReporte" method="POST">
+                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+                <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
+            </form>
 
-        <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
-            <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-            <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-            <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-            <input type="hidden" name="fecha_termino" id="fecha_termino"value="<?php echo $this->termino; ?>">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
-        </form>
-        <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
+                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
+                <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
+            </form>
+            <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
         <input type="submit" value="enviar">
         </form> -->
-        <div id="div2">
-        <table width="100%">
-            <thead>
-                <tr>
-                    <th>Id Personal</th>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Estatus</th>
-                </tr>
-            </thead>
-            <tbody id="tbody-asistencia">
-                <?php
+            <div id="div2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id Personal</th>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-asistencia">
+                        <?php
                     include_once 'models/asistencia.php';
                     foreach($this->asistencia as $row){
                         $asistencia = new Asistencia();
                         $asistencia = $row; 
                 ?>
-                <tr id="fila-<?php echo $asistencia->id_personal; ?>">
-                    <td><?php echo $asistencia->id_personal; ?></td>
-                    <td><?php echo $asistencia->nombre; ?></td>
-                    <td><?php echo $asistencia->fecha; ?></td>
-                    <td><?php echo $asistencia->hora; ?></td>
-                    <td><?php echo $asistencia->estatus; ?></td>
+                        <tr id="fila-<?php echo $asistencia->id_personal; ?>">
+                            <td><?php echo $asistencia->id_personal; ?></td>
+                            <td><?php echo $asistencia->nombre; ?></td>
+                            <td><?php echo $asistencia->fecha; ?></td>
+                            <td><?php echo $asistencia->hora; ?></td>
+                            <td><?php echo $asistencia->estatus; ?></td>
 
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
-                    <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
-                    <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
-                </tr>
+                            <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
+                            <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
+                            <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
+                        </tr>
 
-                <?php } ?>
-            </tbody>
-        </table>
-        <div id="div2">
-        <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="Regresar">
         </form> -->
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>
