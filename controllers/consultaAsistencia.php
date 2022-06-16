@@ -140,13 +140,17 @@ class ConsultaAsistencia extends Controller{
         $pdf->Image('assets/img/logo (3).png',10,8,33);
         $pdf->SetFont('Arial','B',24);
          // Movernos a la derecha
-        $pdf->Cell(80);
+        $pdf->Cell(83);
          // Título
         $pdf->SetTextColor(250,150,100);
         // $pdf->SetFillColor(200,220,255);
         $pdf->Cell(30,10,'Asistencia personal voluntariado',0,0,'C');
         $pdf->SetTextColor(0);
-        $pdf->Ln(30);
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Ln(10);
+        $pdf->Cell(50);
+        $pdf->Cell(30,10,'De: '.$f_inicio.' a: '.$f_termino,0,1,'c');
+        $pdf->Ln(20);
         $pdf->SetFont('Arial','B',14);
         $pdf->SetFillColor(250,150,100);
         $pdf->Cell(15,10,'ID',1,0,'c',1);

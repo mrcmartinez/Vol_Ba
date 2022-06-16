@@ -149,6 +149,7 @@ class Documento extends Controller
     {
         require 'libraries/fpdf/fpdf.php';
         $consulta = $_POST['caja_busqueda'];
+        $fecha=date('Y-m-d');
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->Image('assets/img/logo (3).png', 10, 8, 33);
@@ -161,18 +162,21 @@ class Documento extends Controller
         $pdf->Cell(30, 10, 'Documentacion personal voluntariado', 0, 0, 'C');
         $pdf->SetTextColor(0);
         $pdf->Ln(30);
+        $pdf->Cell(50);
+        $pdf->SetFont('Arial','B',12);
+        $pdf->Cell(30,10,'Fecha: '.$fecha,0,1,'c');
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->SetFillColor(250, 150, 100);
         $pdf->Cell(10, 10, 'ID', 1, 0, 'c', 1);
-        $pdf->Cell(70, 10, 'NOMBRE', 1, 0, 'c', 1);
-        $pdf->Cell(70, 10, 'Documento', 1, 0, 'c', 1);
+        $pdf->Cell(80, 10, 'NOMBRE', 1, 0, 'c', 1);
+        $pdf->Cell(60, 10, 'Documento', 1, 0, 'c', 1);
         $pdf->Cell(22, 10, 'ESTATUS', 1, 1, 'c', 1);
         $pdf->SetFont('Arial', '', 12);
         foreach ($personal = $this->model->getBusqueda($consulta) as $r) {
             // $salida .= "<tr> <td>".$r->id_personal."</td> <td>".$r->nombre."</td> <td>".$r->apellido_paterno."</td> <td>".$r->apellido_materno."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
             $pdf->Cell(10, 10, $r->id_personal, 1, 0, 'c', 0);
-            $pdf->Cell(70, 10, utf8_decode($r->nombre_personal), 1, 0, 'c', 0);
-            $pdf->Cell(70, 10, $r->nombre, 1, 0, 'c', 0);
+            $pdf->Cell(80, 10, utf8_decode($r->nombre_personal), 1, 0, 'c', 0);
+            $pdf->Cell(60, 10, $r->nombre, 1, 0, 'c', 0);
             $pdf->Cell(22, 10, $r->estatus, 1, 1, 'c', 0);
         }
         // $pdf->Output();
