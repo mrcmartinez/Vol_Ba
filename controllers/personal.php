@@ -192,7 +192,12 @@ class Personal extends Controller{
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];
+        $fecha=date('Y-m-d');
+        $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
+        $salida .= "<h6>$fecha</h6><img src='$absoluta'>";
+        $salida .= "<h1>Reporte</h1>";
+        $salida .= "<h1>Personal voluntariado</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th></thead>";
         foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
