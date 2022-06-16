@@ -126,7 +126,12 @@ class Documento extends Controller
     public function generarReporte()
     {
         $consulta = $_POST['caja_busqueda'];
+        $fecha=date('Y-m-d');
+        $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
+        $salida .= "<h6>$fecha</h6><img src='$absoluta'>";
+        $salida .= "<h1>Reporte</h1>";
+        $salida .= "<h1>Documentacion Entregada</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>TIPO</th> <th>ESTATUS</th></thead>";
         foreach ($documento = $this->model->getBusqueda($consulta) as $r) {
@@ -171,7 +176,7 @@ class Documento extends Controller
             $pdf->Cell(22, 10, $r->estatus, 1, 1, 'c', 0);
         }
         // $pdf->Output();
-        $pdf->Output("Documentacion.pdf", "D");
+        $pdf->Output("Documnetacion".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
     }
     function verDocumento($param = null){
@@ -180,7 +185,7 @@ class Documento extends Controller
         $route = "assets/img/documentacion/".$id."/" . $descripcion;
         echo $route;
         header("Content-type: application/pdf");
-        header("Content-Disposition: inline; filename=documento.pdf");
+        header("Content-Disposition: inline; filename=documentacion".time().".pdf");
         readfile($route);
         
     } 

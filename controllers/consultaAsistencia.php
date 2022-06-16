@@ -111,7 +111,12 @@ class ConsultaAsistencia extends Controller{
         $filtro  = $_POST['radio_busqueda'];
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
+        $fecha=date('Y-m-d');
+        $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
+        $salida .= "<h6>$fecha</h6><img src='$absoluta'>";
+        $salida .= "<h1>Reporte</h1>";
+        $salida .= "<h1>Asistencias voluntariado</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>ESTATUS</th> </thead>";
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
@@ -156,7 +161,7 @@ class ConsultaAsistencia extends Controller{
             $pdf->Cell(50,10,$r->estatus,1,1,'c',0);
         }
         // $pdf->Output();
-        $pdf->Output("AsistenciasVoluntariado.pdf", "D");
+        $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
 }

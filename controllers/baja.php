@@ -35,7 +35,12 @@ class Baja extends Controller
     function generarReporte(){
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
+        $fecha=date('Y-m-d');
+        $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
+        $salida .= "<h6>$fecha</h6><img src='$absoluta'>";
+        $salida .= "<h1>Reporte</h1>";
+        $salida .= "<h1>Bajas voluntariado</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>MOTIVO</th> </thead>";
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
@@ -82,8 +87,8 @@ class Baja extends Controller
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->motivo,1,1,'c',0);
         }
-        $pdf->Output();
-        // $pdf->Output("BajasVoluntariado.pdf", "D");
+        // $pdf->Output();
+        $pdf->Output("BajasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
 }

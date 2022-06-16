@@ -205,7 +205,7 @@ class Personal extends Controller{
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=usuarios_".time().".xls");
+        header("Content-Disposition: attachment; filename=voluntariado_".time().".xls");
         header("Pragma: no-cache");
         header("Expires: 0");
         echo $salida;
@@ -250,7 +250,7 @@ class Personal extends Controller{
         $pdf->Cell(30,10,'',1,1,'c',0);
     }
     // $pdf->Output();
-    $pdf->Output("Voluntariado.pdf", "D");
+    $pdf->Output("Voluntariado".time().".pdf", "D");
     // $archivo->Output("test.pdf", "D");
     }
 }
