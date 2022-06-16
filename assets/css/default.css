@@ -117,8 +117,9 @@ form{
     align-items:center;
 }
 .form-info{
+    position: relative;
     padding-left: 15%;
-    display: inline-block;
+    display: inline-table;
 }
 .error{
     /* color: #ac2323; */
