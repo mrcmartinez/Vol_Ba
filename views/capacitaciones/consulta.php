@@ -13,60 +13,60 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-
-        <h1 class="center">Capacitación</h1>
-        <h3 class="center">
-            <?php if (isset($this->nombreCurso)) {
+        <div class="center-form">
+            <h1 class="center">Capacitación</h1>
+            <h3 class="center">
+                <?php if (isset($this->nombreCurso)) {
                 $_SESSION['nombreCurso']=$this->nombreCurso;
             }?>
-        <?php echo $_SESSION['nombreCurso'];?></h3>
-        <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
-            <div id="div2">
-                <table width="100%" id="tabla">
-                    <thead>
-                        <tr>
-                            <!-- <th>ID_curso</th> -->
-                            <th>ID_personal</th>
-                            <th>Nombre</th>
-                            <th>estatus</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
+                <?php echo $_SESSION['nombreCurso'];?></h3>
+            <form action="<?php echo constant('URL'); ?>capacitaciones/saludo" method="POST">
+                <div id="div2">
+                    <table width="100%" id="tabla">
+                        <thead>
+                            <tr>
+                                <!-- <th>ID_curso</th> -->
+                                <th>ID_personal</th>
+                                <th>Nombre</th>
+                                <th>estatus</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
 
-                    <tbody id="tbody-alumnos">
+                        <tbody id="tbody-alumnos">
 
-                        <?php
+                            <?php
             include_once 'models/capacitacion.php';
             foreach ($this->capacitacion as $row) {
                 $capacitacion = new Capacitacion();
                 $capacitacion = $row;
         ?>
-                        <tr id="fila-<?php echo $capacitacion->id_curso; ?>">
-                            <!-- <td><?php echo $capacitacion->id_curso; ?></td> -->
-                            <td><?php echo $capacitacion->id_personal; ?></td>
-                            <td><?php echo $capacitacion->nombre; ?></td>
-                            <td><?php echo $capacitacion->estatus; ?></td>
+                            <tr id="fila-<?php echo $capacitacion->id_curso; ?>">
+                                <!-- <td><?php echo $capacitacion->id_curso; ?></td> -->
+                                <td><?php echo $capacitacion->id_personal; ?></td>
+                                <td><?php echo $capacitacion->nombre; ?></td>
+                                <td><?php echo $capacitacion->estatus; ?></td>
 
-                            <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
+                                <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
 
-                            <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>"
-                                    name="personal[]" onclick=""></td>
+                                <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>"
+                                        name="personal[]" onclick=""></td>
 
-                            <?php }else{
+                                <?php }else{
                              ?>
-                            <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name="" checked
-                                    disabled onclick=""></td>
-                            <?php
+                                <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name=""
+                                        checked disabled onclick=""></td>
+                                <?php
                         } ?>
 
-                            <!-- <td><button class="bEliminar" data-matricula="<?php echo $capacitacion->id; ?>">Eliminar</button></td>  -->
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-            <?php
+                                <!-- <td><button class="bEliminar" data-matricula="<?php echo $capacitacion->id; ?>">Eliminar</button></td>  -->
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
             if (isset($this->idCurso)) {
                 // echo $this->idCurso;
                 ?><input type="hidden" name="id" value="<?php echo $this->idCurso; ?>"><?php
@@ -74,9 +74,10 @@
                 ?><input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>"><?php
             }
             ?>
-            <input type="hidden" name="nombreCurso" value="<?php echo $_SESSION['nombreCurso']; ?>">
-            <input type="submit" name="seleccion" value="Registrar capacitación" />
-        </form>
+                <input type="hidden" name="nombreCurso" value="<?php echo $_SESSION['nombreCurso']; ?>">
+                <input type="submit" name="seleccion" value="Registrar capacitación" />
+            </form>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>
