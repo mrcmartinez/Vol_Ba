@@ -42,7 +42,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>descripcion</th>
+                    <th>Descripción</th>
                     <th>Responsable</th>
                     <th>Fecha</th>
                     

@@ -83,7 +83,7 @@
                     <input class="form-control" type="text" name="escolaridad" id="" required>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="turno">Turno</label>
                     <select class="form-select" id="turno" name="turno">
                         <option value="Lunes">Lunes</option>
@@ -95,7 +95,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="actividad">Actividad</label>
                     <select class="form-select" id="actividad" name="actividad">
                         <option value="Panaderia">Panaderia</option>
@@ -107,7 +107,7 @@
                         <option value="Barrio">f.s Barrio</option>
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="estatus">Estatus</label>
                     <select class="form-select" id="estatus" name="estatus">
                         <option value="Activo">Activo</option>
@@ -116,10 +116,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <input class="form-control" type="submit" value="Registrar">
+                    <input class="form-control btn btn-dark" type="submit" value="Registrar">
                 </div>
-                <div class="col-md-4">
-                    <progress id="file" value="0" max="100"> 32% </progress>
+                <div class="col-md-8">
+                    <progress class="form-control"id="file" value="1" max="100"> 32% </progress>
                 </div>
 
 

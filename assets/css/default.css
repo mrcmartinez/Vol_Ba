@@ -159,3 +159,6 @@ form{
     opacity:1;
     pointer-events:auto;
   }
+  .alinear{
+    display: contents;
+  }
