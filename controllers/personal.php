@@ -42,6 +42,7 @@ class Personal extends Controller{
             $mensaje = "Nuevo voluntariado creado";
             $this->view->mensaje = $mensaje;
             $this->view->ultimoId = $consulta[1];
+            $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
             $this->view->render('telefono/nuevo');
         }else{
             $mensaje = "Voluntario ya existe";

@@ -1,3 +1,4 @@
+<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,11 +14,12 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        
+    <h3 class="center"><?php echo $_SESSION['nombreVol'];?></h3>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
         <div class="center-form">
+        
         <h1 class="center">Agregar Documentos</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <?php $idU=intval($this->ultimoId);?>

@@ -13,11 +13,14 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <h1 class="center">Agregar Teléfono</h1>
+    <h3 class="center"><?php echo $_SESSION['nombreVol'];?></h3>
+        
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
-        <div class="center-form"><?php echo $this->mensaje; ?>
+        <div class="center-form">
+        <h1 class="center">Agregar Teléfono</h1>
+            <?php echo $this->mensaje; ?>
 
             <?php $idU=intval($this->ultimoId);?>
             <form form class="row g-3" action="<?php echo constant('URL'); ?>telefono/registrarTelefono" method="POST">
