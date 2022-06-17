@@ -63,6 +63,9 @@ class Personal extends Controller{
         $this->view->radio = $filtro;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];
+            if (isset($param[2])) {
+                $_SESSION['nombreCurso']=$param[2];
+            }
             $this->view->estado = "Activo";
             $this->view->render('personal/asignar');
         }else{

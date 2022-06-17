@@ -8,6 +8,7 @@ class Capacitaciones extends Controller{
     function saludo(){
         $id_curso=$_POST['id'];
         $estatus="Completo";
+        $_SESSION['nombreCurso']=$_POST['nombreCurso'];
         if (empty($_POST['personal'])) {
             // echo "no se ha seleccionadao nada";
             $this->view->mensaje = "no se ha seleccionadao nada";
@@ -16,7 +17,7 @@ class Capacitaciones extends Controller{
         foreach ($_POST['personal'] as $id_personal) {
             $this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
           }
-        $this->view->mensaje = "correcto pase de toma";
+        $this->view->mensaje = "Capacitacion registrada";
         $this->view->code = "success";
         }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
@@ -28,6 +29,7 @@ class Capacitaciones extends Controller{
         $id_curso=$_POST['id'];
         $estatus="Pendiente";
         $estado=$_POST['estado'];
+        $nombreCurso=$_POST['nombreCurso'];
         // echo $estado;
         
         if (empty($_POST['personal'])) {
@@ -47,12 +49,13 @@ class Capacitaciones extends Controller{
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
         $this->view->capacitacion = $capacitacion;
         $this->view->estado = $estado;
-        
+        $this->view->nombreCurso = $nombreCurso;
         $this->view->render('capacitaciones/consulta');
     }
     function verCapacitacionId($param = null){
         $idCurso = $param[0];
         $estado = $param[1];
+        $_SESSION['nombreCurso'] = $param[2];
         $capacitacion = $this->model->getById($idCurso);
         $this->view->capacitacion = $capacitacion;
         $this->view->estado = $estado;

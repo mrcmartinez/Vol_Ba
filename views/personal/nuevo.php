@@ -14,12 +14,13 @@
 
     <div id="main">
 
-        <h1 class="center">Agregar <small>Personal voluntariado</small></h1>
 
+        <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+            <input type="submit" value="❌">
+        </form>
         <div class="center-form"><?php echo $this->mensaje; ?>
-            <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-                <input type="submit" value="❌">
-            </form>
+            <h1 class="center">Agregar <small>Personal voluntariado</small></h1>
+
             <form class="row g-3" action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
                 <div class="col-md-6">
                     <label for="nombre">Nombre</label>
@@ -69,7 +70,7 @@
                 <div class="col-md-2">
                     <label for="seguro_medico">Seguro Médico</label>
                     <!-- <input class="form-control" type="text" name="seguro_medico" id="seguro_medico" required> -->
-                    <input class="form-control"list="seguro" name="seguro_medico" id="seguro_medico"required>
+                    <input class="form-control" list="seguro" name="seguro_medico" id="seguro_medico" required>
                     <datalist id="seguro">
                         <option value="IMSS">
                         <option value="ISSSTE">
@@ -119,7 +120,7 @@
                     <input class="form-control btn btn-dark" type="submit" value="Registrar">
                 </div>
                 <div class="col-md-8">
-                    <progress class="form-control"id="file" value="1" max="100"> 32% </progress>
+                    <progress class="form-control" id="file" value="1" max="100"> 32% </progress>
                 </div>
 
 

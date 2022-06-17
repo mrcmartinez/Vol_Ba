@@ -15,6 +15,7 @@
 
     <div class="container-fluid">
         <h1 class="center">Asignar Voluntariado</h1>
+        <h1 class="center"><?php echo $_SESSION['nombreCurso'];?></h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -69,7 +70,8 @@
             </div>
             <input type="hidden" name="estado" value="<?php echo $this->estado; ?>">
             <input type="hidden" name="id" value="<?php echo $this->idCurso; ?>">
-            <input type="submit" name="seleccion"value="ok" />
+            <input type="hidden" name="nombreCurso" value="<?php echo $_SESSION['nombreCurso'];?>">
+            <input type="submit" name="seleccion"value="Agregar" />
         </form>
     </div>
 
