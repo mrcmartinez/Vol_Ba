@@ -81,7 +81,12 @@
 
                 <div class="col-md-4">
                     <label for="escolaridad">Escolaridad</label>
-                    <input class="form-control" type="text" name="escolaridad" id="" required>
+                    <select class="form-select" id="escolaridad" name="escolaridad">
+                        <option value="casada">Primaria</option>
+                        <option value="soltera">Secundaria</option>
+                        <option value="viuda">Preparatoria</option>
+                        <option value="concubinato">Licenciatura</option>
+                    </select>
                 </div>
 
                 <div class="col-md-3">

@@ -110,7 +110,6 @@ class Personal extends Controller{
         $this->view->edadCalculada = $edadCalculada;
         $this->view->mensaje = "";
         $_SESSION['nombreVol']=$personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre;
-        // echo $_SESSION['nombreVol'];
         $this->view->render('personal/informacion');
     }
 

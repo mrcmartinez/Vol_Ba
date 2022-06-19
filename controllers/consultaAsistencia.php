@@ -39,10 +39,8 @@ class ConsultaAsistencia extends Controller{
     function saludo(){
             $fecha=date('Y-m-d');
             $hora=date("H:i:s");
-            //$this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
             $estatus=$_POST['estatus'];
             if (empty($_POST['personal'])) {
-                // echo "no se ha seleccionadao nada";
                 $this->view->mensaje = "No se ha seleccionado ningun";
                 $this->view->code = "error";
             }else{
@@ -67,7 +65,6 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/index');
     }
     function generar($param = null){
-     //echo "activaste modo manual";
      $fecha= date('Y-m-d');
     $dia = "";
     switch (date("l")) {
@@ -92,19 +89,12 @@ class ConsultaAsistencia extends Controller{
     }
         if($this->model->insertManual(['turno' => $dia, 'estatus' => 'Activo'])){
             $this->view->mensaje = "Modo manual";
-            // $this->view->render('curso/nuevo');
             $this->view->code = "success";
-            // $this->listar();
         }else{
             $this->view->mensaje = "No se pudo activar Modo manual";
             $this->view->code = "error";
         }
         $this->paseLista();
-        // $idPersonal = $param[0];
-        // $asistencia = $this->model->get($idPersonal);
-        // $this->view->asistencia = $asistencia;
-        // $this->view->id = $idPersonal;
-        // $this->view->render('asistencia/index');
     }
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];

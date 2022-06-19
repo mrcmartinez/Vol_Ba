@@ -13,10 +13,6 @@ class Baja extends Controller
 
     public function render()
     {
-        // $consulta = "";
-        // if (isset($_POST['caja_busqueda'])) {
-        //     $consulta = $_POST['caja_busqueda'];
-        // }
         $f_inicio=date('Y-m-01');
         $f_termino=date('Y-m-d');
         if(isset($_POST['fecha_inicio'])){
@@ -27,10 +23,8 @@ class Baja extends Controller
         $this->view->baja = $baja;
         $this->view->inicio = $f_inicio;
         $this->view->termino = $f_termino;
-        // $this->view->consulta = $consulta;
         $this->view->render('bajas/reporte');
     }
-
 
     function generarReporte(){
         $f_inicio  = $_POST['fecha_inicio'];

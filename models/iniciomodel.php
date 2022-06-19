@@ -6,7 +6,6 @@ class inicioModel extends Model{
         parent::__construct();
     }
     public function select($datos){
-        print_r($datos);
         $row=false;
         try{
             $conn=$this->db->connect();

@@ -70,3 +70,4 @@ commit icon pestana
 commit nombreDetalles
 commit diseño general2
 commit diseñoV1
+commit depuracionUno

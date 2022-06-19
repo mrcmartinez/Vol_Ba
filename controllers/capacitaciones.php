@@ -10,7 +10,6 @@ class Capacitaciones extends Controller{
         $estatus="Completo";
         $_SESSION['nombreCurso']=$_POST['nombreCurso'];
         if (empty($_POST['personal'])) {
-            // echo "no se ha seleccionadao nada";
             $this->view->mensaje = "no se ha seleccionadao nada";
             $this->view->code = "error";
         }else{
@@ -30,10 +29,8 @@ class Capacitaciones extends Controller{
         $estatus="Pendiente";
         $estado=$_POST['estado'];
         $nombreCurso=$_POST['nombreCurso'];
-        // echo $estado;
         
         if (empty($_POST['personal'])) {
-            // echo "no se ha seleccionadao nada";
             $this->view->mensaje = "No se ha seleccionado personal";
             $this->view->code = "error";
 

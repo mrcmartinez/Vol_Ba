@@ -8,7 +8,6 @@ class Peticion extends Controller{
         $this->view->peticiones = [];
         $this->view->mensaje = "";
         $this->view->id = "";
-        // $this->view->consulta= "";
     }
 
     function render(){
@@ -18,23 +17,15 @@ class Peticion extends Controller{
         $this->view->render('peticion/peticionTurno');
     }
     function listar($param = null){
-        // $consulta  = "";
         $filtro="Pendiente";
-        // $fecha="";
         if (isset($_POST['radio_busqueda'])) {
             $filtro  = $_POST['radio_busqueda'];
         }
         $peticiones = $this->view->datos = $this->model->getBusqueda($filtro);
         $this->view->peticiones = $peticiones;
-        // $this->view->consulta = "Usted busco:". $consulta;
-        // $this->view->radio = $filtro;
-        // if (isset($param[0])) {
-            // $this->view->idCurso = $param[0];
-            // $this->view->render('curso/consulta');
-        // }else{
             $this->view->radio = $filtro;
             $this->view->render('peticion/consulta');
-        // }
+        
     }
     function autorizarFecha(){
         $folio  = $_POST['folio'];
@@ -53,13 +44,9 @@ class Peticion extends Controller{
         $this->listar();
     }
     function autorizarDia(){
-        // echo "autorizar Dia";
         $folio  = $_POST['folio'];
-        // echo "folio".$folio;
         $id_personal=$_POST['id_personal'];
-        // echo "Id personal".$id_personal;
         $dia_solicitado  = $_POST['dia_solicitado'];
-        // echo "dia_solicitado".$dia_solicitado;
         $autorizo=$_SESSION['user'];
         if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
         $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
@@ -70,7 +57,6 @@ class Peticion extends Controller{
         $this->view->code = "error";
         }
         $this->listar();
-        // $this->view->render('peticion/listar');
     }
     function rechazarPeticion(){
         $autorizo=$_SESSION['user'];
@@ -121,8 +107,6 @@ class Peticion extends Controller{
     }
 
     function verPeticionId($param = null){
-        // echo $_SESSION['user'];
-        // echo $_SESSION['rol'];
         $idPeticion = $param[0];
         $peticion = $this->model->getById($idPeticion);
         $this->view->peticion = $peticion;

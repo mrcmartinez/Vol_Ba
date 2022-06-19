@@ -43,7 +43,6 @@ class Curso extends Controller{
         if($this->model->insert(['nombre' => $nombre, 'descripcion' => $descripcion,
                                  'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
             $this->view->mensaje = "Curso creado correctamente";
-            // $this->view->render('curso/nuevo');
             $this->view->code = "success";
             $this->listar();
         }else{

@@ -99,13 +99,6 @@ class Telefono extends Controller{
         if($this->model->update(['id_personal' => $id_personal, 'lada' => $lada, 'numero' => $numero,
          'tipo' => $tipo,
          'descripcion' => $descripcion, 'ant_lada' => $ant_lada, 'ant_numero' => $ant_numero] )){
-            // $telefono = new Telefonos();
-            // $telefono->id_personal = $id_personal;
-            // $telefono->lada = $lada;
-            // $telefono->numero = $numero;
-            // $telefono->tipo = $tipo;
-            // $telefono->descripcion = $descripcion;
-            // $this->view->telefono = $telefono;
             $this->view->mensaje = "telefono actualizado correctamente";
             $this->view->code = "success";
         }else{
