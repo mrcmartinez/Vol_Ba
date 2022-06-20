@@ -121,5 +121,19 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }    
     }
+    public function insertApoyo($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO asistencia (id_personal, fecha, hora, estatus) VALUES(:id_personal, :fecha, :hora, :estatus)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha' => $datos['fecha'],
+                'hora' => $datos['hora'],
+                'estatus' => $datos['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
 }
 ?>

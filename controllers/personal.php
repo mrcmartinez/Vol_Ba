@@ -87,8 +87,13 @@ class Personal extends Controller{
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
-        $this->view->tipo = $_POST['peticion'];
-        $this->view->render('personal/seleccionar');
+        if (empty($_POST['listaApoyo'])) {
+            $this->view->render('personal/seleccionarApoyo');
+        }else{
+            $this->view->tipo = $_POST['peticion'];
+            $this->view->render('personal/seleccionar');
+        }
+        
     }
 
     function verPersonal($param = null){

@@ -18,7 +18,11 @@
                 <input type="submit" value="Regresar">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generar" method="POST">
-                <input type="submit" value="manual">
+                <input type="submit" value="Actualizar">
+            </form>
+            <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
+                <input type="hidden" name="listaApoyo">
+                <input type="submit" value="Agregar">
             </form>
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
@@ -30,6 +34,7 @@
                                 <th>Nombre</th>
                                 <th>Actividad</th>
                                 <th>hora</th>
+                                <th></th>
 
 
                             </tr>
@@ -48,7 +53,7 @@
                                 <td><?php echo $asistencia->actividad; ?></td>
                                 <td><?php echo $asistencia->hora; ?></td>
 
-                                <?php if ($asistencia->estatus!="Asistencia" ) { ?>
+                                <?php if ($asistencia->estatus=="Falta" ) { ?>
 
                                 <td><input type="checkbox" value="<?php echo $asistencia->id_personal; ?>"
                                         name="personal[]" onclick=""></td>
@@ -58,7 +63,7 @@
                                 <td>
                                     <div class="check-color"><input type="checkbox"
                                             value="<?php echo $asistencia->id_personal; ?>" name="personal[]" checked
-                                            disabled onclick="" id="check1"><label for="check1">Asistencia</label></div>
+                                            disabled onclick="" id="check1"><label for="check1"><?php echo $asistencia->estatus; ?></label></div>
                                 </td>
                                 <?php
 } ?>

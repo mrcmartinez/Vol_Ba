@@ -88,13 +88,29 @@ class ConsultaAsistencia extends Controller{
         break;
     }
         if($this->model->insertManual(['turno' => $dia, 'estatus' => 'Activo'])){
-            $this->view->mensaje = "Modo manual";
+            $this->view->mensaje = "Lista Actualizada";
             $this->view->code = "success";
         }else{
             $this->view->mensaje = "No se pudo activar Modo manual";
             $this->view->code = "error";
         }
         $this->paseLista();
+    }
+    function agregarApoyo(){
+            $id_personal=$_POST['personal'];
+            $fecha= date('Y-m-d');
+            $hora=date("H:i:s");
+            $estatus="Asistencia-Apoyo";
+            if($this->model->insertApoyo(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
+                $this->view->mensaje = "Personal apoyo agregado";
+                $this->view->code = "success";
+            }else{
+                $this->view->mensaje = "No se pudo agregar";
+                $this->view->code = "error";
+            }
+            // $this->view->id = $id_personal;
+            // $this->view->render('asistencia/lista');
+            $this->paseLista();
     }
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];
