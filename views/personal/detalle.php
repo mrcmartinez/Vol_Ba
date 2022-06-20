@@ -13,10 +13,13 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        
-        <h1 class="center">Detalle de
+
+        <h1 class="center">Actualizar Datos de
             <?php echo $this->personal->apellido_paterno.' '.$this->personal->apellido_materno.' '.$this->personal->nombre; ?>
         </h1>
+        <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+            <input type="submit" value="❌">
+        </form>
 
         <div class="center-form"><?php echo $this->mensaje; ?>
 
@@ -121,7 +124,7 @@
                         value="<?php echo $this->personal->estatus; ?>">
                 </div>
                 <div class="col-md-3">
-                    <input class="form-control" type="submit" value="Actualizar personal">
+                    <input class="form-control btn btn-dark" type="submit" value="Actualizar personal">
                 </div>
 
             </form>

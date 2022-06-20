@@ -14,16 +14,16 @@
 <body>
     <?php require 'views/header.php'; ?>
     <div id="main-inicio">
-    <div class="container">
-        <div class="center-form-inicio">
-            <h1 class="center"><small>Personal</small>Voluntariado</h1>
-            <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
+        <div class="container">
+            <div class="center-form-inicio">
+                <h1 class="center"><small>Personal</small>Voluntariado</h1>
+                <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
 
-            <div id="respuesta" class="center">
-                <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
+                <div id="respuesta" class="center">
+                    <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
 
-                <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-                    <?php switch($this->radio){
+                    <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                        <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()" checked>Activo
                         <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
@@ -40,65 +40,70 @@
                         <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
                         break;
                 }?>
-                    <p>
-                        <input type="search" name="caja_busqueda" id="caja_busqueda"
-                            value="<?php echo $this->consulta; ?>" autofocus>
-                        <input type="submit" value="🔍Buscar">
-                    </p>
-                </form>
+                
+                <div class="alinear">
+                    
+                        <!-- <div class="input-group mb-3"> -->
+                            <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
+                                value="<?php echo $this->consulta; ?>" autofocus>
+                            <input class="btn btn-info" type="submit" value="🔍Buscar">
+            <!-- </div> -->
             </div>
-            <!-- <div class="center"></div> -->
-            <form action="<?php echo constant('URL'); ?>personal" method="POST">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
-            </form>
-            <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
-                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
-            </form>
+            
+                    </form>
+                </div>
+                <!-- <div class="center"></div> -->
+                <form action="<?php echo constant('URL'); ?>personal" method="POST">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
+                </form>
+                <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
+                    <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                    <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
+                </form>
 
-            <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
-                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
-            </form>
-            <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png">
-            </form>
+                <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
+                    <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                    <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
+                </form>
+                <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png">
+                </form>
 
-            <!-- <div class="table-responsive"> -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th class="espaciado"></th>
-                        <th>Turno</th>
-                        <th>Actividad</th>
-                        <th>Estatus</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-            </table>
+                <!-- <div class="table-responsive"> -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th class="espaciado"></th>
+                            <th>Turno</th>
+                            <th>Actividad</th>
+                            <th>Estatus</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
 
-            <div id="div2">
-                <table class="table">
+                <div id="div2">
+                    <table class="table">
 
-                    <tbody id="tbody-personal">
-                        <?php
+                        <tbody id="tbody-personal">
+                            <?php
                     include_once 'models/personalBanco.php';
                     foreach($this->personal as $row){
                         $personal = new PersonalBanco();
                         $personal = $row; 
                 ?>
-                        <tr id="fila-<?php echo $personal->id_personal; ?>">
+                            <tr id="fila-<?php echo $personal->id_personal; ?>">
 
-                            <td><?php echo $personal->id_personal; ?></td>
-                            <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>
-                            </td>
-                            <td><?php echo $personal->turno; ?></td>
-                            <td><?php echo $personal->actividad; ?></td>
-                            <?php switch($personal->estatus){
+                                <td><?php echo $personal->id_personal; ?></td>
+                                <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>
+                                </td>
+                                <td><?php echo $personal->turno; ?></td>
+                                <td><?php echo $personal->actividad; ?></td>
+                                <?php switch($personal->estatus){
                     case "Activo":
                         echo '<td class="td-activo">';echo $personal->estatus;'</td>';
                         break;
@@ -113,78 +118,78 @@
                         break;
                 }?>
 
-                            <td>
-                                <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                                <a
-                                    href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>
-                                <a
-                                    href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/edit.png" /></a>
+                                <td>
+                                    <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                                    <a
+                                        href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>
+                                    <a
+                                        href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/edit.png" /></a>
 
-                                <?php if ($this->radio!="Activo") {
+                                    <?php if ($this->radio!="Activo") {
                                 ?><a
-                                    href="<?php echo constant('URL') . 'personal/altaPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
-                                        onclick="return confirmBaja()"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/alta.png" /></a><?php
+                                        href="<?php echo constant('URL') . 'personal/altaPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
+                                            onclick="return confirmBaja()"><img
+                                                src="<?php echo constant('URL'); ?>assets/img/alta.png" /></a><?php
                             }else{
                                 ?><a
-                                    href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/eliminar.png" /></a><?php
+                                        href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" /></a><?php
                             }?>
 
 
-                            </td>
+                                </td>
+                                <?php } ?>
+                            </tr>
                             <?php } ?>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
+                        </tbody>
+                </div>
+                </table>
             </div>
-            </table>
         </div>
-    </div>
-    <?php require 'views/footer.php'; ?>
-    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
-    <?php
+        <?php require 'views/footer.php'; ?>
+        <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
+        <?php
         if (!empty($this->mensaje)) 
         {
             ?>
-    <script>
-    Swal.fire({
-        // position: 'top-end',
-        icon: "<?php echo $this->code; ?>",
-        title: '<?php echo $this->mensaje; ?>',
-        showConfirmButton: false,
-        timer: 1500
-    })
-    </script>
-    <?php    
+        <script>
+        Swal.fire({
+            // position: 'top-end',
+            icon: "<?php echo $this->code; ?>",
+            title: '<?php echo $this->mensaje; ?>',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        </script>
+        <?php    
         }
     ?>
-    <?php
+        <?php
         if (!empty($this->idBaja)) 
         {
             ?>
-    <a href="#miModalBaja">Abrir Modal</a>
-    <div id="miModalBaja" class="modalBaja">
+        <a href="#miModalBaja">Abrir Modal</a>
+        <div id="miModalBaja" class="modalBaja">
 
-        <div class="modalBaja-contenido">
-            <p>
-                <a href="<?php echo constant('URL'); ?>personal/listarPersonal">❌</a>
-            </p>
-            <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
-                <!-- <h2>Baja de personal</h2> -->
-                <label for="">Motivo de la baja</label>
+            <div class="modalBaja-contenido">
                 <p>
-                    <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
-                    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-                    <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
+                    <a href="<?php echo constant('URL'); ?>personal/listarPersonal">❌</a>
                 </p>
-                <input type="submit" value="Aceptar">
-            </form>
+                <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
+                    <!-- <h2>Baja de personal</h2> -->
+                    <label for="">Motivo de la baja</label>
+                    <p>
+                        <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
+                        <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+                        <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
+                    </p>
+                    <input class="btn btn-dark"type="submit" value="Aceptar">
+                </form>
+            </div>
         </div>
-    </div>
-    <?php    
+        <?php    
         }
     ?>
     </div>

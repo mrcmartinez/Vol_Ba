@@ -160,5 +160,8 @@ form{
     pointer-events:auto;
   }
   .alinear{
-    display: contents;
+    /* float: right; */
+    /* width: 85%; */
+    display: flex;
+    margin-bottom: 5px;
   }
