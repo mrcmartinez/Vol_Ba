@@ -52,13 +52,13 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
-    public function getBusqueda($c,$f,$fInicio,$fTermino){
+    public function getBusqueda($c,$f,$fInicio,$fTermino,$orden){
         $items = [];
         try{
             $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora
             FROM asistencia as a 
             INNER JOIN personal as p
-            ON a.id_personal = p.id_personal WHERE (a.id_personal like '%".$c."%') AND a.estatus like '%".$f."%' AND fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY fecha DESC");
+            ON a.id_personal = p.id_personal WHERE (a.id_personal like '%".$c."%') AND a.estatus like '%".$f."%' AND fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden DESC");
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];

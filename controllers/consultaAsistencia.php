@@ -12,20 +12,23 @@ class ConsultaAsistencia extends Controller{
     function render(){
         $consulta  = "";
         $filtro="Asistencia";
+        $filtroOrden="fecha";
         $f_inicio=date('Y-m-01');
         $f_termino=date('Y-m-d');
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
+            $filtroOrden  = $_POST['radio_ordenar'];
         }if(isset($_POST['fecha_inicio'])){
             $f_inicio  = $_POST['fecha_inicio'];
             $f_termino  = $_POST['fecha_termino'];
         }
-        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino);
+        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden);
         $this->view->inicio = $f_inicio;
         $this->view->termino = $f_termino;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
+        $this->view->radioOrden = $filtroOrden;
         $this->view->asistencia = $asistencia;
         $this->view->render('asistencia/reporte');
     }
@@ -117,6 +120,7 @@ class ConsultaAsistencia extends Controller{
         $filtro  = $_POST['radio_busqueda'];
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
+        $filtroOrden  = $_POST['radio_ordenar'];
         $fecha=date('Y-m-d');
         $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
@@ -125,7 +129,7 @@ class ConsultaAsistencia extends Controller{
         $salida .= "<h1>Asistencias voluntariado</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>ESTATUS</th> </thead>";
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
+        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
             $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->fecha."</td> <td>".$r->estatus."</td></tr>";
         }
         $salida .= "</table>";
@@ -141,6 +145,7 @@ class ConsultaAsistencia extends Controller{
         $filtro  = $_POST['radio_busqueda'];
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
+        $filtroOrden  = $_POST['radio_ordenar'];
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->Image('assets/img/logo (3).png',10,8,33);
@@ -160,15 +165,15 @@ class ConsultaAsistencia extends Controller{
         $pdf->SetFont('Arial','B',14);
         $pdf->SetFillColor(250,150,100);
         $pdf->Cell(15,10,'ID',1,0,'c',1);
-        $pdf->Cell(80,10,'NOMBRE',1,0,'c',1);
-        $pdf->Cell(50,10,'FECHA',1,0,'c',1);
-        $pdf->Cell(50,10,'ESTATUS',1,1,'c',1);
+        $pdf->Cell(90,10,'NOMBRE',1,0,'c',1);
+        $pdf->Cell(45,10,'FECHA',1,0,'c',1);
+        $pdf->Cell(45,10,'ESTATUS',1,1,'c',1);
         $pdf->SetFont('Arial','',14);
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino) as $r){
+        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
-            $pdf->Cell(80,10,utf8_decode($r->nombre),1,0,'c',0);
-            $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
-            $pdf->Cell(50,10,$r->estatus,1,1,'c',0);
+            $pdf->Cell(90,10,utf8_decode($r->nombre),1,0,'c',0);
+            $pdf->Cell(45,10,$r->fecha,1,0,'c',0);
+            $pdf->Cell(45,10,$r->estatus,1,1,'c',0);
         }
         // $pdf->Output();
         $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");

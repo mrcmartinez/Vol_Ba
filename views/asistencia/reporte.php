@@ -26,7 +26,9 @@
             <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+                Filtrar por:
                 <?php switch($this->radio){
+                    
                     case "Asistencia":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked onchange="this.form.submit()">Asistencias
                         <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
@@ -43,6 +45,20 @@
                         <input type="radio" id="" name="radio_busqueda" value="" checked onchange="this.form.submit()">Todo';
                         break;
                 }?>
+                <p>
+                    Ordenar Por:
+                    <?php switch ($this->radioOrden) {
+                case "fecha":
+                    echo'<input type="radio" name="radio_ordenar" value="id_personal">Voluntariado
+                    <input type="radio" name="radio_ordenar" value="fecha"checked>Fecha';
+                    break;
+                case 'id_personal':
+                        echo'<input type="radio" name="radio_ordenar" value="id_personal"checked>Voluntariado
+                        <input type="radio" name="radio_ordenar" value="fecha">Fecha';
+                        break;
+                    break;
+            }?>
+                </p>
 
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
@@ -54,6 +70,7 @@
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReporte" method="POST">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                 <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOreden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
@@ -62,6 +79,7 @@
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                 <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
+                <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOrden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
