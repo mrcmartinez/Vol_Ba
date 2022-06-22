@@ -197,6 +197,33 @@ class Personal extends Controller{
         $this->view->mensaje = $mensaje;
         $this->listarPersonal();
     }
+    function verQR($param = null){
+    require 'libraries/phpqrcode/qrlib.php';
+    $id_personal = $param[0];
+    $file = "assets/img/QR/qr".$id_personal.".png";
+    //data to be stored in qr
+    $content = "$id_personal";
+    //file path
+    // $file = "images/qr1.png";
+    //other parameters
+    $ecc = 'H';
+    $pixel_size = 10;
+    $frame_size = 5;
+    $url=constant('URL');
+    // Generates QR Code and Save as PNG
+    QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
+    // echo $url;
+    // echo "<img src='hola.png'/>";
+    // Displaying the stored QR code if you want
+    $img=constant('URL').$file;
+    echo "<div><img src='".$img."'></div>";
+    // header ("Content-Disposition: attachment; filename=".$id_personal);
+    // header ("Content-Type: image/gif");
+    // header ("Content-Length: ".filesize($img));
+    // readfile($enlace);
+    // readfile($img);
+    // $this->listarPersonal();
+    }
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];

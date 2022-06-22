@@ -120,6 +120,7 @@
 
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                                        <a href="<?php echo constant('URL') . 'personal/verQR/' . $personal->id_personal; ?>">QR</a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
                                             src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>

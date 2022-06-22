@@ -34,6 +34,11 @@
                     method="POST">
                     <input type="submit" value="Teléfonos">
                 </form>
+                <form
+                    action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>"
+                    method="POST">
+                    <input type="submit" value="Qr">
+                </form>
             </div>
 
             <div class="center"><?php echo $this->mensaje; ?></div>
