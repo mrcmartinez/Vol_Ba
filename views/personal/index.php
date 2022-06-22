@@ -120,6 +120,7 @@
 
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
+                                        <a href="javascript:popup('70','70','<?php echo constant('URL'); ?>assets/img/QR/qr117.png')">Abrir</a> 
                                         <a href="<?php echo constant('URL') . 'personal/verQR/' . $personal->id_personal; ?>">QR</a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
@@ -194,6 +195,12 @@
         }
     ?>
     </div>
+    <script>
+function popup(w,h,url)
+{ 
+window.open(url,"popup","width="+w+",height="+h+",left=20,top=20"); 
+}
+</script> 
 </body>
 
 </html>
