@@ -14,7 +14,8 @@
     <?php require 'views/header.php'; ?>
 
     <div class="container-fluid">
-        <h1 class="center">Buscar Voluntariado</h1>
+        <div class="center-form">
+        <h1 class="center">Buscar Voluntariado para petición</h1>
         <div class="center"><?php echo $this->mensaje; ?></div>
 
         <div id="respuesta" class="center">
@@ -62,6 +63,7 @@
             </table>
             </div>
         </form>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>

@@ -79,7 +79,7 @@ class ConsultaAsistenciaModel extends Model{
             $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, p.actividad, a.id_personal, a.fecha,a.estatus,a.hora
             FROM asistencia as a 
             INNER JOIN personal as p
-            ON a.id_personal = p.id_personal WHERE fecha = '$fecha'");
+            ON a.id_personal = p.id_personal WHERE fecha = '$fecha' ORDER BY nombre");
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];

@@ -73,3 +73,4 @@ commit diseñoV1
 commit depuracionUno
 commit asistenciaApoyo
 commit generarQR
+commit correcciones
