@@ -6,7 +6,8 @@ class QrModel extends Model{
         parent::__construct();
     }
     public function insertQr($datos){
-        echo "entro a model";
+        echo "entro a modelQR";
+        print_r($datos);
         // $query = $this->db->connect()->prepare('INSERT INTO CODE (id_personal, identificador, fecha) VALUES(:id_personal, :identificador, :fecha)');
         // try{
         //     $query->execute([
@@ -18,6 +19,9 @@ class QrModel extends Model{
         // }catch(PDOException $e){
         //     return false;
         // }
+    }
+    public function pruebaModel(){
+        echo "entro a pruebaModel";
     }
 }
 ?>

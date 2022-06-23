@@ -30,24 +30,29 @@ public function generarQR($id){
     $id_personal = $id;
     $fecha=date("Y-m-d");
     $identificador=mt_rand(5, 15);
-    $file = "assets/img/QR/qr".$id_personal.".png";
-    //data to be stored in qr
-    $content = "$id_personal";
-    //file path
-    // $file = "images/qr1.png";
-    //other parameters
-    $ecc = 'H';
-    $pixel_size = 10;
-    $frame_size = 5;
-    $url=constant('URL');
-    // Generates QR Code and Save as PNG
-    QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
-    // echo $url;
+    // $file = "assets/img/QR/qr".$id_personal.".png";
+    // //data to be stored in qr
+    // $content = "$id_personal";
+    // //file path
+    // // $file = "images/qr1.png";
+    // //other parameters
+    // $ecc = 'H';
+    // $pixel_size = 10;
+    // $frame_size = 5;
+    // $url=constant('URL');
+    // // Generates QR Code and Save as PNG
+    // QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
+    // // echo $url;
     // echo "<img src='hola.png'/>";
     // Displaying the stored QR code if you want
     // $img=constant('URL').$file;
     // $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
     // 'fecha_modificacion' => $fecha]);
+    if($this->model->pruebaModel()){
+            echo "bien";
+        }else{
+            echo "error";
+        }
         // $this->view->mensaje = "Curso creado correctamente";
         // $this->view->code = "success";
         // $this->listar();
