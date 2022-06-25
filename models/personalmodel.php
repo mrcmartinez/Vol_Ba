@@ -148,6 +148,24 @@ class PersonalModel extends Model{
             return false;
         }    
     }
+    public function pruebaModel(){
+        echo "entro a pruebaModel";
+    }
+    public function insertQr($datos){
+        // echo "entro a modelQR";
+        // print_r($datos);
+        $query = $this->db->connect()->prepare('INSERT INTO CODE (id_personal, identificador, fecha_modificacion) VALUES(:id_personal, :identificador, :fecha_modificacion)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'identificador' => $datos['identificador'],
+                'fecha_modificacion' => $datos['fecha_modificacion']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 }
 
 ?>

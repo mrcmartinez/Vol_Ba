@@ -24,46 +24,9 @@ class Qr extends Controller
 function saludo(){
     echo "prueba QR";
 }
-public function generarQR($id){
-    // echo "id es: ".$id;
-    require 'libraries/phpqrcode/qrlib.php';
-    $id_personal = $id;
-    $fecha=date("Y-m-d");
-    $identificador=mt_rand(5, 15);
-    // $file = "assets/img/QR/qr".$id_personal.".png";
-    // //data to be stored in qr
-    // $content = "$id_personal";
-    // //file path
-    // // $file = "images/qr1.png";
-    // //other parameters
-    // $ecc = 'H';
-    // $pixel_size = 10;
-    // $frame_size = 5;
-    // $url=constant('URL');
-    // // Generates QR Code and Save as PNG
-    // QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
-    // // echo $url;
-    // echo "<img src='hola.png'/>";
-    // Displaying the stored QR code if you want
-    // $img=constant('URL').$file;
-    // $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
-    // 'fecha_modificacion' => $fecha]);
-    if($this->model->pruebaModel()){
-            echo "bien";
-        }else{
-            echo "error";
-        }
-        // $this->view->mensaje = "Curso creado correctamente";
-        // $this->view->code = "success";
-        // $this->listar();
- 
-        
-    // echo "<div><img src='".$img."'></div>";
-    // header ("Content-Disposition: attachment; filename=".$id_personal);
-    // header ("Content-Type: image/gif");
-    // header ("Content-Length: ".filesize($img));
-    // readfile($enlace);
-    // readfile($img);
-    // $this->listarPersonal();
+
+    function prueba(){
+        echo "controlador";
+        $this->model->pruebaModel();
     }
 }

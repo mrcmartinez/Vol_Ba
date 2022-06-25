@@ -40,13 +40,13 @@ class Personal extends Controller{
 
         if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";
-            include_once 'controllers/qr.php';
-            $codeQr = new Qr();
-            $codeQr->generarQR($consulta[1]);
-            // $this->view->mensaje = $mensaje;
-            // $this->view->ultimoId = $consulta[1];
-            // $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
-            // $this->view->render('telefono/nuevo');
+            $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
+            // include_once 'controllers/qr.php';
+            // $codeQr = new Qr();
+            $this->generarQR($consulta[1]);
+            $this->view->mensaje = $mensaje;
+            $this->view->ultimoId = $consulta[1];
+            $this->view->render('telefono/nuevo');
         }else{
             $mensaje = "Voluntario ya existe";
             $this->view->mensaje = $mensaje;
@@ -267,6 +267,46 @@ class Personal extends Controller{
     $pdf->Output("Voluntariado".time().".pdf", "D");
     // $archivo->Output("test.pdf", "D");
     }
+    public function generarQR($id){
+        // echo "id es: ".$id;
+        require 'libraries/phpqrcode/qrlib.php';
+        $id_personal = $id;
+        $fecha=date("Y-m-d");
+        $identificador=mt_rand(5, 15);
+        $nombre=$_SESSION['nombreVol'];
+        // //file path
+        $file = "assets/img/QR/qr".$id_personal.".png";
+        // //data to be stored in qr
+        $content = $id_personal.",".$nombre.",".$identificador;
+        // echo $content;
+        // //other parameters
+        $ecc = 'H';
+        $pixel_size = 10;
+        $frame_size = 5;
+        $url=constant('URL');
+        // // Generates QR Code and Save as PNG
+        QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
+        // // echo $url;
+        // echo "<img src='hola.png'/>";
+        // Displaying the stored QR code if you want
+        // $img=constant('URL').$file;
+        $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
+        'fecha_modificacion' => $fecha]);
+        // $this->prueba();
+        // $this->model->pruebaModel();
+            // $this->view->mensaje = "Curso creado correctamente";
+            // $this->view->code = "success";
+            // $this->listar();
+     
+            
+        // echo "<div><img src='".$img."'></div>";
+        // header ("Content-Disposition: attachment; filename=".$id_personal);
+        // header ("Content-Type: image/gif");
+        // header ("Content-Length: ".filesize($img));
+        // readfile($enlace);
+        // readfile($img);
+        // $this->listarPersonal();
+        }
 }
 
 ?>
