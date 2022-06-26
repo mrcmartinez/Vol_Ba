@@ -10,7 +10,9 @@
 </head>
 
 <body>
-    <?php require 'views/header.php'; ?>
+    <?php require 'views/header.php'; 
+    print_r($this->qr);
+    ?>
 
     <div id="main">
         <div class="center-form">
@@ -34,14 +36,26 @@
                     method="POST">
                     <input type="submit" value="Teléfonos">
                 </form>
-                <form
-                    action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>"
-                    method="POST">
+                <form action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>" method="POST">
                     <input class="btn-option" type="submit" value="Qr">
                 </form>
             </div>
             <div id="respuesta" class="center"></div>
-            <div><img src='<?php echo $this->img; ?>'></div>";
+            <!-- <div class="form-info"> -->
+                <div><img src='<?php echo $this->img; ?>'></div>
+            <!-- </div> -->
+            <!-- <div class="form-info"> -->
+                <p>
+                    <label for="fecha_modificacion">Ultima actualización</label><br>
+                    <input type="date" name="fecha_modificacion" value="<?php echo $this->qr->fecha_modificacion; ?>"
+                        disabled>
+                </p>
+                <!-- <input type="number" value="<?php echo $this->qr->id_personal; ?>"> -->
+                <form action="<?php echo constant('URL'); ?>qr/actualizar/<?php echo $this->id?>" method="POST">
+                <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
+                    <input class="btn-option" type="submit" value="Actualizar">
+                </form>
+            <!-- </div> -->
         </div>
     </div>
 
