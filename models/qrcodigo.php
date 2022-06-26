@@ -1,6 +1,6 @@
 <?php
 
-class Qrcode{
+class Qrcodigo{
 
     public $id_personal;
     public $identificador;

@@ -1,5 +1,5 @@
 <?php
-require 'models/qrcode.php';
+require 'models/qrcodigo.php';
 class QrModel extends Model{
 
     public function __construct(){
@@ -7,7 +7,7 @@ class QrModel extends Model{
     }
 
     public function getId($id){
-        $item = new Qrcode();
+        $item = new Qrcodigo();
         $query = $this->db->connect()->prepare("SELECT*FROM CODE WHERE id_personal = :id_personal");
         try{
             $query->execute(['id_personal' => $id]);
@@ -22,7 +22,6 @@ class QrModel extends Model{
         }
     }
     function updateQr($item){
-        print_r($item);
         $query = $this->db->connect()->prepare('UPDATE code SET identificador = :identificador, fecha_modificacion = :fecha_modificacion WHERE id_personal = :id_personal');
         try{
             $query->execute([

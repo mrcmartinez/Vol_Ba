@@ -11,7 +11,6 @@
 
 <body>
     <?php require 'views/header.php'; 
-    print_r($this->qr);
     ?>
 
     <div id="main">
@@ -19,7 +18,7 @@
             <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">QR</h1>
 
-            <div class="center"><?php echo $this->mensaje; ?></div>
+            <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
             <div class="section-form">
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input type="submit" value="Regresar">
