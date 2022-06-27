@@ -19,6 +19,7 @@ class Qr extends Controller
         // 
     }
     function listar($param){
+        clearstatcache();
         $idPersonal = $param;
         $this->view->id = $idPersonal;
         $file = "assets/img/QR/qr".$idPersonal.".png";

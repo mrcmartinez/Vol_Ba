@@ -42,17 +42,13 @@
                 }?>
                 
                 <div class="alinear">
-                    
-                        <!-- <div class="input-group mb-3"> -->
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
                                 value="<?php echo $this->consulta; ?>" autofocus>
                             <input class="btn btn-info" type="submit" value="🔍Buscar">
-            <!-- </div> -->
             </div>
             
                     </form>
                 </div>
-                <!-- <div class="center"></div> -->
                 <form action="<?php echo constant('URL'); ?>personal" method="POST">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
                 </form>
@@ -70,8 +66,6 @@
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png">
                 </form>
-
-                <!-- <div class="table-responsive"> -->
                 <table>
                     <thead>
                         <tr>
@@ -120,8 +114,8 @@
 
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                                        <a href="<?php echo constant('URL') . 'personal/generarQRManual/' . $personal->id_personal; ?>">Prueba</a>
-                                        <a href="javascript:popup('70','70','<?php echo constant('URL'); ?>assets/img/QR/qr<?php echo $personal->id_personal;?>.png')"><img
+                                        <!-- <a href="<?php echo constant('URL') . 'personal/generarQRManual/' . $personal->id_personal; ?>">Prueba</a> -->
+                                        <a href="javascript:popup('70','70','<?php clearstatcache(); echo constant('URL'); ?>assets/img/QR/qr<?php echo $personal->id_personal;?>.png')"><img
                                             src="<?php echo constant('URL'); ?>assets/img/qr-code.png" /></a> 
                                         <!-- <a href="<?php echo constant('URL') . 'personal/verQR/' . $personal->id_personal; ?>">QR</a> -->
                                     <a
