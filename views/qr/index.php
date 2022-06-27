@@ -51,8 +51,9 @@
                 </p>
                 <!-- <input type="number" value="<?php echo $this->qr->id_personal; ?>"> -->
                 <form action="<?php echo constant('URL'); ?>qr/actualizar/<?php echo $this->id?>" method="POST">
-                <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
-                    <input class="btn-option" type="submit" value="Actualizar">
+                    <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
+                    <input class="btn-option" type="submit" value="Actualizar"onclick="return confirmBaja()">
+                    
                 </form>
             <!-- </div> -->
         </div>
@@ -60,7 +61,7 @@
 
     <?php require 'views/footer.php'; ?>
 
-    <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
     <?php
         if (!empty($this->mensaje)) 
         {

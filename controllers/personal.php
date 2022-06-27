@@ -267,6 +267,13 @@ class Personal extends Controller{
     $pdf->Output("Voluntariado".time().".pdf", "D");
     // $archivo->Output("test.pdf", "D");
     }
+    function generarQRManual($param = null){
+        // echo "prueba manual";
+        $id_personal = $param[0];
+        echo $id_personal;
+        $this->generarQR($id_personal);
+        $this->listarPersonal();
+    }
     public function generarQR($id){
         // echo "id es: ".$id;
         require 'libraries/phpqrcode/qrlib.php';

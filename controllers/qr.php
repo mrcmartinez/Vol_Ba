@@ -69,8 +69,4 @@ function actualizar($param = null){
     $this->listar($id_personal);
 }
 
-    function prueba(){
-        echo "controlador";
-        $this->model->pruebaModel();
-    }
 }
