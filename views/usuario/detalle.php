@@ -32,7 +32,11 @@
             <p>
                 <label for="password">Password</label><br>
                 <input type="password" name="password" value="<?php echo $this->usuario->password; ?>"
-                    required>
+                    readonly>
+            </p>
+            <p>
+                <label for="password_new">Nuevo Password</label><br>
+                <input type="password_new" name="password_new">
             </p>
             <p>
                 <label for="rol">Rol</label><br>
