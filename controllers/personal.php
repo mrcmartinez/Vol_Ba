@@ -43,7 +43,7 @@ class Personal extends Controller{
             $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
             // include_once 'controllers/qr.php';
             // $codeQr = new Qr();
-            $this->generarQR($consulta[1]);
+            $this->registrarQr($consulta[1]);
             $this->view->mensaje = $mensaje;
             $this->view->ultimoId = $consulta[1];
             $this->view->render('telefono/nuevo');
@@ -287,6 +287,13 @@ class Personal extends Controller{
          QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
          $img=constant('URL').$file;
          echo "<div><img src='".$img."'></div>";
+    }
+    function registrarQr($id){
+        $id_personal = $id;
+        $fecha=date("Y-m-d");
+        $identificador=mt_rand(5, 15);
+        $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
+        'fecha_modificacion' => $fecha]);
     }
     public function generarQR($id){
         // echo "id es: ".$id;

@@ -121,6 +121,11 @@ form{
     padding-left: 15%;
     display: inline-table;
 }
+.form-info-adv{
+    border-style: solid;
+    border-color: red;
+    padding: 10px;
+}
 .error{
     /* color: #ac2323; */
 }

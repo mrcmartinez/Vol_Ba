@@ -33,40 +33,18 @@ class Qr extends Controller
         $this->view->render('qr/index');
     }
 function actualizar($param = null){
-    require 'libraries/phpqrcode/qrlib.php';
-    // echo "actualizar QR";
     $id_personal = $param[0];
-    $nombre=$_POST['nombreVol'];
     $fecha=date("Y-m-d");
     $identificador=mt_rand(5, 15);
-     // //file path
-    $file = "assets/img/QR/qr".$id_personal.".png";
-     // //data to be stored in qr
-    $content = $id_personal.",".$nombre.",".$identificador;
-     // //other parameters
-    $ecc = 'H';
-    $pixel_size = 10;
-    $frame_size = 5;
-    // $url=constant('URL');
-    // Generates QR Code and Save as PNG
-    
+ 
     if($this->model->updateQr(['id_personal' => $id_personal, 'identificador' => $identificador,
     'fecha_modificacion' => $fecha])){
-        if (unlink($file)) {
-            // echo "file was successfully deleted";
-            QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
-            $this->view->mensaje = "Nuevo Qr activado";
-            $this->view->code = "success";
-          } else {
-            // echo "there was a problem deleting the file"; 
-            $this->view->mensaje = "No se pudo actualizar el code";
-            $this->view->code = "error";
-          }
+        $this->view->mensaje = "Se activo nuevo Qr";
+        $this->view->code = "success";
     }else{
-        $this->view->mensaje = "No se pudo actualizar el code";
+        $this->view->mensaje = "No se pudo actualizar el Qr";
         $this->view->code = "error";
     }
-    // echo $idPersonal;
     $this->listar($id_personal);
 }
 

@@ -40,10 +40,17 @@
                 </form>
             </div>
             <div id="respuesta" class="center"></div>
-            <!-- <div class="form-info"> -->
-                <div><img src='<?php echo $this->img; ?>'></div>
-            <!-- </div> -->
-            <!-- <div class="form-info"> -->
+
+            <div class="form-info">
+                <div class="form-info-adv">
+                    <h1>Advertencia</h1>
+                    <p>Al actualizar el código Qr,</p>
+                    <p>el anterior dejara de funcionar</p>
+                    <p>y no sera valido</p>
+                    <!-- <div><img src='<?php echo $this->img; ?>'></div> -->
+                </div>
+            </div>
+            <div class="form-info">
                 <p>
                     <label for="fecha_modificacion">Ultima actualización</label><br>
                     <input type="date" name="fecha_modificacion" value="<?php echo $this->qr->fecha_modificacion; ?>"
@@ -52,10 +59,10 @@
                 <!-- <input type="number" value="<?php echo $this->qr->id_personal; ?>"> -->
                 <form action="<?php echo constant('URL'); ?>qr/actualizar/<?php echo $this->id?>" method="POST">
                     <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
-                    <input class="btn-option" type="submit" value="Actualizar"onclick="return confirmBaja()">
-                    
+                    <input class="btn-option" type="submit" value="Actualizar" onclick="return confirmBaja()">
+
                 </form>
-            <!-- </div> -->
+            </div>
         </div>
     </div>
 
