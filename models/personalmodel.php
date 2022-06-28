@@ -167,6 +167,7 @@ class PersonalModel extends Model{
         }
     }
     public function consultarIden($id){
+        $iden="";
         $query = $this->db->connect()->prepare("SELECT * FROM code WHERE id_personal = :id_personal");
         try{
             $query->execute(['id_personal' => $id]);

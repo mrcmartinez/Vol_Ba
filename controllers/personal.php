@@ -277,6 +277,12 @@ class Personal extends Controller{
     function code($params=null){
         require 'libraries/phpqrcode/qrlib.php';
         $id_personal=$params[0];
+        if (!empty($this->model->consultarIden($id_personal))) {
+            echo "tiene";
+        }else{
+            echo "no tiene";
+            $this->registrarQr($id_personal);
+        }
         $identificador=$this->model->consultarIden($id_personal);
         $nombre=$_SESSION['nombreVol'];
         $file = "qr".$id_personal.".png";
