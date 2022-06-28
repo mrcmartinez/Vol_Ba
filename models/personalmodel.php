@@ -1,7 +1,7 @@
 
 <?php
 include_once 'models/personalBanco.php';
-
+// include_once 'models/qrcodigo.php';
 class PersonalModel extends Model{
 
     public function __construct(){
@@ -164,6 +164,18 @@ class PersonalModel extends Model{
             return true;
         }catch(PDOException $e){
             return false;
+        }
+    }
+    public function consultarIden($id){
+        $query = $this->db->connect()->prepare("SELECT * FROM code WHERE id_personal = :id_personal");
+        try{
+            $query->execute(['id_personal' => $id]);
+            while($row = $query->fetch()){
+                $iden=$row['identificador'];
+            }
+            return $iden;
+        }catch(PDOException $e){
+            return null;
         }
     }
 }

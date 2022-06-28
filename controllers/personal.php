@@ -274,6 +274,20 @@ class Personal extends Controller{
         $this->generarQR($id_personal);
         $this->listarPersonal();
     }
+    function code($params=null){
+        require 'libraries/phpqrcode/qrlib.php';
+        $id_personal=$params[0];
+        $identificador=$this->model->consultarIden($id_personal);
+        $nombre=$_SESSION['nombreVol'];
+        $file = "qr".$id_personal.".png";
+        $content = $id_personal.",".$nombre.",".$identificador;
+        $ecc = 'H';
+        $pixel_size = 10;
+        $frame_size = 5;
+         QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
+         $img=constant('URL').$file;
+         echo "<div><img src='".$img."'></div>";
+    }
     public function generarQR($id){
         // echo "id es: ".$id;
         require 'libraries/phpqrcode/qrlib.php';

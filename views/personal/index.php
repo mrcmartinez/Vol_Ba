@@ -115,7 +115,7 @@
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                                         <!-- <a href="<?php echo constant('URL') . 'personal/generarQRManual/' . $personal->id_personal; ?>">Prueba</a> -->
-                                        <a href="javascript:popup('70','70','<?php clearstatcache(); echo constant('URL'); ?>assets/img/QR/qr<?php echo $personal->id_personal;?>.png')"><img
+                                        <a href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
                                             src="<?php echo constant('URL'); ?>assets/img/qr-code.png" /></a> 
                                         <!-- <a href="<?php echo constant('URL') . 'personal/verQR/' . $personal->id_personal; ?>">QR</a> -->
                                     <a
@@ -195,6 +195,7 @@
 function popup(w,h,url)
 { 
 window.open(url,"popup","width="+w+",height="+h+",left=20,top=20").print(); 
+
 // window.print();
 }
 </script> 
