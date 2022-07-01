@@ -19,16 +19,20 @@
             
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div class="section-form">
-                <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input type="submit" value="Regresar">
-                </form>
+                </form> -->
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->id?>"
                     method="POST">
                     <input type="submit" value="Asistencias">
                 </form>
                 <form action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->id?>"
                     method="POST">
-                    <input type="submit" value="Documentación">
+                    <input type="submit" value="Documentación Digital">
+                </form>
+                <form action="<?php echo constant('URL'); ?>documentoFisico/verdocumentoid/<?php echo $this->id?>"
+                    method="POST">
+                    <input type="submit" value="Documentacion Fisica">
                 </form>
                 <form action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->id?>"
                     method="POST">

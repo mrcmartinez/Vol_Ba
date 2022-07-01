@@ -22,9 +22,9 @@
             <h1 class="center">Información</h1>
             <div class="section-form">
 
-                <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input class="btn-option" type="submit" value="Regresar">
-                </form>
+                </form> -->
                 <form
                     action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
@@ -33,7 +33,12 @@
                 <form
                     action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Documentación">
+                    <input type="submit" value="Documentación Digital">
+                </form>
+                <form
+                    action="<?php echo constant('URL'); ?>documentoFisico/verdocumentoid/<?php echo $this->personal->id_personal ?>"
+                    method="POST">
+                    <input type="submit" value="Documentación Fisico">
                 </form>
                 <form
                     action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->personal->id_personal ?>"
