@@ -6,6 +6,13 @@
     function media(){
         return URL."/assets";
     }
+    function check($n){
+        $c="";
+        if($n=="1"){
+            $c="checked";
+        }
+        return $c;
+    }
     function dep($data){
         $format = print_r('<pre>');
         $format .= print_r($data);
