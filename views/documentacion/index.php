@@ -86,9 +86,10 @@
 
 
             </form>
-            <form  class="row g-3" action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+            <form  class="row g-3" action="<?php echo constant('URL'); ?>documentofisico" method="POST">
             <div class="col-md-4">
                 <input type="hidden" name="mensaje">
+                <input type="hidden" name="id_personal" value="<?php echo $idU?>">
                 <input class="form-control btn btn-dark"type="submit" value="Terminar">
             </div>
             <div class="col-md-8">

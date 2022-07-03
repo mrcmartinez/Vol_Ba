@@ -8,16 +8,6 @@ class DocumentoFisicoModel extends Model
         parent::__construct();
     }
 
-    public function insert($datos)
-    {
-        try {
-            $query = $this->db->connect()->prepare('INSERT INTO documentacion (id_personal, nombre, descripcion, estatus) VALUES(:id_personal, :nombre, :descripcion, :estatus)');
-            $query->execute(['id_personal' => $datos['id_personal'], 'nombre' => $datos['nombre'], 'descripcion' => $datos['descripcion'], 'estatus' => $datos['estatus']]);
-            return true;
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
     function prueba(){
         echo "modelprueba";
     }
@@ -63,6 +53,26 @@ class DocumentoFisicoModel extends Model
         }catch(PDOException $e){
             return false;
         }
+    }
+    public function insert($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO documentofisico (ID_PERSONAL, ACTA, CURP, CARTA, COMPROBANTE, DATOS,ESTUDIO,EXAMEN,INE,SOLICITUD) VALUES(:id_personal, :acta, :curp, :carta, :comprobante, :datos, :estudio, :examen, :ine, :solicitud)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'acta' => $datos['acta'],
+                'curp' => $datos['curp'],
+                'carta' => $datos['carta'],
+                'comprobante' => $datos['comprobante'],
+                'datos' => $datos['datos'],
+                'estudio' => $datos['estudio'],
+                'examen' => $datos['examen'],
+                'ine' => $datos['ine'],
+                'solicitud' => $datos['solicitud']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
     }
     public function getAll()
     {
