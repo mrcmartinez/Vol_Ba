@@ -67,7 +67,7 @@ class Telefono extends Controller{
         }
         $this->view->mensaje = $mensaje;
         $this->view->ultimoId = $id_personal;
-         $this->view->render('documentacion/index');
+         $this->view->render('documentoFisico/nuevo');
     }
     function vertelefonoid($param = null){
         $idPersonal = $param[0];

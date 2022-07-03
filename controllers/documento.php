@@ -83,7 +83,12 @@ class Documento extends Controller
                 $estatus = "Entregado";
                 $file_name = $_FILES['descripcion_' . $i]['name'];
                 $file_tmp = $_FILES['descripcion_' . $i]['tmp_name'];
-                $route = "assets/img/" . $file_name;
+                $micarpeta = "assets/img/documentacion/".$id_personal;
+                if (!file_exists($micarpeta)) {
+                    mkdir($micarpeta, 0777, true);
+                    }
+                $route = "assets/img/documentacion/".$id_personal."/" . $file_name;
+                // $route = "assets/img/" . $file_name;
                 $descripcion = $file_name;
                 move_uploaded_file($file_tmp, $route);
                 if ($this->model->insert(['id_personal' => $id_personal, 'nombre' => $nombre,

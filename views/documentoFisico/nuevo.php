@@ -1,3 +1,4 @@
+<?php require 'libraries/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
             <form action="<?php echo constant('URL'); ?>documentoFisico/registrar" method="POST">
                 <div class="form-info">
                     <p>
-                        <input type="hidden" name="id_personal" value="<?php echo $this->id; ?>">
+                        <input type="text" name="id_personal" value="<?php echo $this->ultimoId; ?>">
                     </p>
 
                     <p>
@@ -66,7 +67,7 @@
                     </p>
                 </div>
                 <p>
-                    <input type="submit" value="Actualizar">
+                    <input type="submit" value="Siguiente">
                 </p>
 
             </form>

@@ -77,7 +77,12 @@ class DocumentoFisico extends Controller{
             $this->view->mensaje = "No se pudo actualizar el papeleo";
             $this->view->code = "error";
         }
-        $this->render($id_personal);
+        $this->view->ultimoId = $id_personal;
+         $this->view->render('documentacion/index');
+        //  include_once 'controllers/personal.php';
+        //     $p = new Personal();
+        //     $p->listarPersonal($id_personal);
+        // $this->render($id_personal);
     }
 
 }
