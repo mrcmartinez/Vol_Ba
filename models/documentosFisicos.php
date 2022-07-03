@@ -3,6 +3,7 @@
 class DocumentosFisicos{
 
     public $id_personal;
+    public $nombre_personal;
     public $acta;
     public $curp;
     public $carta;

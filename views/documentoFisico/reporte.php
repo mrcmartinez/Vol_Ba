@@ -27,10 +27,10 @@
                 <input type="submit" value="Bajas">
             </form>
 
-            <h1 class="center"><small>Reportes</small>Documentación</h1>
+            <h1 class="center"><small>Reportes</small>Documentación Fisico</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div id="respuesta" class="center"></div>
-            <form action="<?php echo constant('URL'); ?>documento" method="POST">
+            <form action="<?php echo constant('URL'); ?>documentoFisico/reporte" method="POST">
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
                     <input type="submit" value="🔍Buscar">
@@ -50,23 +50,36 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Documento</th>
-                            <th>Tipo</th>
-                            <th>Estatus</th>
+                            <th>nombre</th>
+                            <th>Acta</th>
+                            <th>Curp</th>
+                            <th>Carta</th>
+                            <th>Comprobante</th>
+                            <th>Datos</th>
+                            <th>Estudio</th>
+                            <th>Examen</th>
+                            <th>INE</th>
+                            <th>Solicitud</th>
                         </tr>
                     </thead>
                     <tbody id="tbody-documento">
                         <?php
-                    include_once 'models/documentos.php';
-                    foreach($this->documento as $row){
-                        $documento = new Documentos();
-                        $documento = $row; 
+                    include_once 'models/documentosfisicos.php';
+                    foreach($this->documentoFisico as $row){
+                        $documentoFisico = new DocumentosFisicos();
+                        $documentoFisico = $row; 
                 ?>
-                        <tr id="fila-<?php echo $documento->id_personal; ?>">
-                            <td><?php echo $documento->id_personal; ?></td>
-                            <td><?php echo $documento->nombre_personal; ?></td>
-                            <td><?php echo $documento->nombre; ?></td>
-                            <td><?php echo $documento->estatus; ?></td>
+                        <tr id="fila-<?php echo $documentoFisico->id_personal; ?>">
+                            <td><?php echo $documentoFisico->id_personal; ?></td>
+                            <td><?php echo $documentoFisico->nombre_personal; ?></td>
+                            <td><?php echo $documentoFisico->acta; ?></td>
+                            <td><?php echo $documentoFisico->curp; ?></td>
+                            <td><?php echo $documentoFisico->comprobante; ?></td>
+                            <td><?php echo $documentoFisico->datos; ?></td>
+                            <td><?php echo $documentoFisico->estudio; ?></td>
+                            <td><?php echo $documentoFisico->examen; ?></td>
+                            <td><?php echo $documentoFisico->ine; ?></td>
+                            <td><?php echo $documentoFisico->solicitud; ?></td>
                             <!-- <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td> -->
 
                         </tr>

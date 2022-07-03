@@ -18,6 +18,18 @@ class DocumentoFisico extends Controller{
         $this->view->id = $id_personal;
         $this->view->render('documentoFisico/nuevo');
     }
+    public function reporte()
+    {
+        $consulta = "";
+        if (isset($_POST['caja_busqueda'])) {
+            $consulta = $_POST['caja_busqueda'];
+        }
+        $documentoFisico = $this->model->getBusqueda($consulta);
+        $this->view->documentoFisico = $documentoFisico;
+        // print_r($documentoFisico);
+        $this->view->consulta = $consulta;
+        $this->view->render('documentoFisico/reporte');
+    }
 
     public function verdocumentoid($param = null)
     {
