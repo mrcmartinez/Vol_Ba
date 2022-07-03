@@ -14,37 +14,39 @@ class DocumentoFisico extends Controller{
     public function verdocumentoid($param = null)
     {
         $idPersonal = $param[0];
+        $this->listar($idPersonal);
+        
+    }
+    function listar($idPersonal){
         $documentoFisico = $this->model->getById($idPersonal);
         $this->view->id = $idPersonal;
-        $this->view->prueba = "PruebaHola";
+        // $this->view->prueba = "PruebaHola";
         $this->view->documentoFisico = $documentoFisico;
-        print_r($documentoFisico);
+        // print_r($documentoFisico);
         $this->view->render('documentoFisico/consulta');
     }
     function actualizarDocumentoFisico(){
-        // echo $id = $_POST['id_personal'];
-        $acta=0;$curp=0;
-        if(isset($_POST['acta']))
-            $acta=$_POST['acta'];
-        if(isset($_POST['curp']))
-            $curp=$_POST['curp'];
-        echo $acta;
-        echo $curp;
-        // $carta  = $_POST['carta'];
-        // $domicilio  = $_POST['domicilio'];
-        // $datos  = $_POST['datos'];
-        // $estudio  = $_POST['estudio'];
-        // $examen  = $_POST['examen'];
-        // $ine  = $_POST['ine'];
-        // $solicitud  = $_POST['solicitud'];
-
-        // if($this->model->update(['id' => $id, 'nombre' => $nombre, 'descripcion' => $descripcion,
-        //                         'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
-        //     $this->view->mensaje = "Curso actualizado correctamente";
-        // }else{
-        //     $this->view->mensaje = "No se pudo actualizar al curso";
-        // }
-        // $this->listar();
+        $id_personal=$_POST['id_personal'];
+        $acta = isset($_POST['acta'])?'1':'0'; 
+        $curp = isset($_POST['curp'])?'1':'0'; 
+        $carta = isset($_POST['carta'])?'1':'0'; 
+        $comprobante = isset($_POST['comprobante'])?'1':'0'; 
+        $datos = isset($_POST['datos'])?'1':'0'; 
+        $estudio = isset($_POST['estudio'])?'1':'0'; 
+        $examen = isset($_POST['examen'])?'1':'0'; 
+        $ine = isset($_POST['ine'])?'1':'0';
+        $solicitud = isset($_POST['solicitud'])?'1':'0';  
+        
+        if($this->model->update(['id_personal' => $id_personal, 'acta' => $acta, 'curp' => $curp,
+                                'carta' => $carta, 'comprobante' => $comprobante, 'datos' => $datos, 'estudio' => $estudio,
+                                'examen' => $examen,'ine' => $ine,'solicitud' => $solicitud])){
+            $this->view->mensaje = "Papeleo actualizado correctamente";
+            $this->view->code = "success";
+        }else{
+            $this->view->mensaje = "No se pudo actualizar el papeleo";
+            $this->view->code = "error";
+        }
+        $this->listar($id_personal);
     }
 
 }

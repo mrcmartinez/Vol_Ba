@@ -44,6 +44,26 @@ class DocumentoFisicoModel extends Model
             return null;
         }
     }
+    public function update($item){
+        $query = $this->db->connect()->prepare('UPDATE documentoFisico SET acta = :acta, curp = :curp, carta = :carta, comprobante = :comprobante, datos = :datos, estudio = :estudio, examen = :examen, ine = :ine, solicitud = :solicitud WHERE id_personal = :id_personal');
+        try{
+            $query->execute([
+                'id_personal' => $item['id_personal'],
+                'acta' => $item['acta'],
+                'curp' => $item['curp'],
+                'carta' => $item['carta'],
+                'comprobante' => $item['comprobante'],
+                'datos' => $item['datos'],
+                'estudio' => $item['estudio'],
+                'examen' => $item['examen'],
+                'ine' => $item['ine'],
+                'solicitud' => $item['solicitud']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     public function getAll()
     {
         $items = [];
