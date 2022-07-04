@@ -14,11 +14,12 @@
 
     <div id="main">
 
-
+    <div class="container">
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
         <div class="center-form"><?php echo $this->mensaje; ?>
+        
             <h1 class="center">Agregar <small>Personal voluntariado</small></h1>
 
             <form class="row g-3" action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
@@ -131,7 +132,7 @@
 
             </form>
         </div>
-
+        </div>
     </div>
     <?php require 'views/footer.php'; ?>
 

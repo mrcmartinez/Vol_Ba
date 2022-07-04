@@ -236,8 +236,14 @@ nav a{
 		box-sizing: border-box;
 		/* background-color: #dedede79; */
 		background: linear-gradient(120deg, #db3030, #eeb955);
+		/* background-image: url('../img/voluntario.jpg');
+		background-size: cover;
+		background-size: 25rem;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
 		display:flex;
-		min-height:100vh ;
+		min-height:100vh ; */
 	}
 
 	.main-login form{
@@ -256,7 +262,6 @@ nav a{
 		color: #ffb940;
 	}
 
-
 	.main-login input{
 		display:block;
 		padding: 10px 0;
@@ -264,6 +269,7 @@ nav a{
 		margin: 30px 0;
 		font-size: 20px;
 	}
+
 	.main-login input[type=submit]{
 		background: linear-gradient(#ffda63,#ffb940);
 		border: 0;
@@ -322,6 +328,7 @@ nav a{
 		/* z-index: 1; */
 	}
 }
+
 
 /* .contenedor-table table{
 	display: contents;
