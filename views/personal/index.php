@@ -14,7 +14,7 @@
 <body>
     <?php require 'views/header.php'; ?>
     <div id="main-inicio">
-        <div class="container">
+        <div class="container-fluid">
             <div class="center-form-inicio">
                 <h1 class="center"><small>Personal</small>Voluntariado</h1>
                 <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
@@ -74,6 +74,7 @@
                             <th class="espaciado"></th>
                             <th>Turno</th>
                             <th>Actividad</th>
+                            <th>Ingreso</th>
                             <th>Estatus</th>
                             <th>Acciones</th>
                         </tr>
@@ -97,6 +98,7 @@
                                 </td>
                                 <td><?php echo $personal->turno; ?></td>
                                 <td><?php echo $personal->actividad; ?></td>
+                                <td><?php echo $personal->fecha_ingreso; ?></td>
                                 <?php switch($personal->estatus){
                     case "Activo":
                         echo '<td class="td-activo">';echo $personal->estatus;'</td>';

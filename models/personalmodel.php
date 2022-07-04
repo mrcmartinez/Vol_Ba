@@ -42,6 +42,7 @@ class PersonalModel extends Model{
                  $item->apellido_materno = $row['apellido_materno'];
                  $item->turno = $row['turno'];
                  $item->actividad = $row['actividad'];
+                 $item->fecha_ingreso = $row['fecha_ingreso'];
                  $item->estatus = $row['estatus'];
                  array_push($items, $item);         
              }
