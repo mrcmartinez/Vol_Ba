@@ -81,7 +81,7 @@ class DocumentoFisicoModel extends Model
             $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre_personal,p.estatus,d.*
             FROM documentoFisico as d 
             INNER JOIN personal as p
-            ON d.id_personal = p.id_personal WHERE p.estatus='Activo' AND (d.id_personal like '%" . $c . "%' OR p.nombre like '%" . $c . "%')");
+            ON d.id_personal = p.id_personal WHERE p.estatus='Activo' AND (d.id_personal like '%" . $c . "%' OR p.nombre like '%" . $c . "%') order by nombre_personal");
             while ($row = $query->fetch()) {
                 $item = new DocumentosFisicos();
                 $item->id_personal = $row['id_personal'];

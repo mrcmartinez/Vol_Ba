@@ -64,15 +64,15 @@
                         <tr id="fila-<?php echo $documentoFisico->id_personal; ?>">
                             <td><?php echo $documentoFisico->id_personal; ?></td>
                             <td><?php echo $documentoFisico->nombre_personal; ?></td>
-                            <td><?php echo $documentoFisico->acta; ?></td>
-                            <td><?php echo $documentoFisico->curp; ?></td>
-                            <td><?php echo $documentoFisico->carta; ?></td>
-                            <td><?php echo $documentoFisico->comprobante; ?></td>
-                            <td><?php echo $documentoFisico->datos; ?></td>
-                            <td><?php echo $documentoFisico->estudio; ?></td>
-                            <td><?php echo $documentoFisico->examen; ?></td>
-                            <td><?php echo $documentoFisico->ine; ?></td>
-                            <td><?php echo $documentoFisico->solicitud; ?></td>
+                            <td><?php echo marcado($documentoFisico->acta); ?></td>
+                            <td><?php echo marcado($documentoFisico->curp); ?></td>
+                            <td><?php echo marcado($documentoFisico->carta); ?></td>
+                            <td><?php echo marcado($documentoFisico->comprobante); ?></td>
+                            <td><?php echo marcado($documentoFisico->datos); ?></td>
+                            <td><?php echo marcado($documentoFisico->estudio); ?></td>
+                            <td><?php echo marcado($documentoFisico->examen); ?></td>
+                            <td><?php echo marcado($documentoFisico->ine); ?></td>
+                            <td><?php echo marcado($documentoFisico->solicitud); ?></td>
                             <!-- <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td> -->
 
                         </tr>
