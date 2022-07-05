@@ -14,7 +14,7 @@
 
     <div id="main">
 
-    <div class="container">
+    <!-- <div class="container"> -->
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
@@ -133,7 +133,7 @@
             </form>
         </div>
         </div>
-    </div>
+    <!-- </div> -->
     <?php require 'views/footer.php'; ?>
 
 </body>

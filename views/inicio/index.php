@@ -23,7 +23,7 @@
             <input type="submit" value="Ingresar">
         </form>
     </div>
-    <?php require 'views/footer.php'; ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
         if (!empty($this->mensaje)) 
         {
@@ -40,6 +40,6 @@
             <?php    
         }
     ?>
+   
 </body>
-
 </html>

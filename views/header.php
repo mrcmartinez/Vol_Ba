@@ -32,7 +32,6 @@
                     <!-- <a href="<?php echo constant('URL'); ?>peticion">Peticiones</a> -->
                     <a href="<?php echo constant('URL'); ?>peticion/listar">Peticiones</a>
                     <a href="<?php echo constant('URL'); ?>documento">Reportes</a>
-                    <a href="<?php echo constant('URL'); ?>documentoFisico/verdocumentoid">Fisico</a>
                 </ul>
             </nav>
         </div>
