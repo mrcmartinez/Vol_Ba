@@ -34,6 +34,7 @@
                 </select>
             </p>
             <p>
+            <input type="hidden" name="estatus" value="Activo">
                 <input type="submit" value="Registrar">
             </p>
 

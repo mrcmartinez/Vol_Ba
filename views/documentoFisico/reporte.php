@@ -74,6 +74,7 @@
                             <td><?php echo $documentoFisico->nombre_personal; ?></td>
                             <td><?php echo $documentoFisico->acta; ?></td>
                             <td><?php echo $documentoFisico->curp; ?></td>
+                            <td><?php echo $documentoFisico->carta; ?></td>
                             <td><?php echo $documentoFisico->comprobante; ?></td>
                             <td><?php echo $documentoFisico->datos; ?></td>
                             <td><?php echo $documentoFisico->estudio; ?></td>

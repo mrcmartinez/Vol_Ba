@@ -22,8 +22,9 @@ class Usuario extends Controller{
         $nombre_usuario = $_POST['nombre_usuario'];
         $password=md5($_POST['password']);
         $rol  = $_POST['rol'];
+        $estatus  = $_POST['estatus'];
         if($this->model->insert(['nombre_usuario' => $nombre_usuario, 'password' => $password,
-                                 'rol' => $rol])){
+                                 'rol' => $rol,'estatus' => $estatus])){
             $this->view->mensaje = "Usuario creado correctamente";
             $this->view->render('usuario/nuevo');
         }else{
@@ -41,6 +42,7 @@ class Usuario extends Controller{
     function actualizarUsuario($param = null){
         $id_usuario = $_POST['id_usuario'];
         $nombre_usuario    = $_POST['nombre_usuario'];
+        $estatus    = $_POST['estatus'];
         if (!empty($_POST['password_new'])) {
             //se digito nueva contraseña
             $password  = md5($_POST['password_new']);
@@ -50,7 +52,7 @@ class Usuario extends Controller{
         }
         $rol  = $_POST['rol'];
         if($this->model->update(['id_usuario' => $id_usuario,'nombre_usuario' => $nombre_usuario, 'password' => $password,
-                                'rol' => $rol])){
+                                'rol' => $rol,'estatus' => $estatus])){
             $this->view->mensaje = "usuario actualizado correctamente";
             $this->listar();
         }else{
@@ -63,9 +65,9 @@ class Usuario extends Controller{
         $id = $param[0];
         $estatus = $param[1];
         if($this->model->delete($id,$estatus)){
-            $mensaje ="Curso eliminado correctamente";
+            $mensaje ="Cambio de estatus correctamente";
         }else{
-            $mensaje = "No se pudo eliminar al curso";
+            $mensaje = "No se pudo cambiar el estatus";
         }
         $this->listar();
     }   

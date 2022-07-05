@@ -6,12 +6,13 @@ class UsuarioModel extends Model{
         parent::__construct();
     }
     public function insert($datos){
-        $query = $this->db->connect()->prepare('INSERT INTO USUARIO (NOMBRE_USUARIO, PASSWORD, ROL) VALUES(:nombre_usuario, :password, :rol)');
+        $query = $this->db->connect()->prepare('INSERT INTO USUARIO (NOMBRE_USUARIO, PASSWORD, ROL, ESTATUS) VALUES(:nombre_usuario, :password, :rol, :estatus)');
         try{
             $query->execute([
                 'nombre_usuario' => $datos['nombre_usuario'],
                 'password' => $datos['password'],
-                'rol' => $datos['rol']
+                'rol' => $datos['rol'],
+                'estatus' => $datos['estatus']
             ]);
             return true;
         }catch(PDOException $e){
@@ -28,6 +29,7 @@ class UsuarioModel extends Model{
                 $item->nombre_usuario    = $row['nombre_usuario'];
                 $item->password  = $row['password'];
                 $item->rol  = $row['rol'];
+                $item->estatus  = $row['estatus'];
                 array_push($items, $item);
             }
             return $items;
@@ -46,40 +48,23 @@ class UsuarioModel extends Model{
                 $item->nombre_usuario = $row['nombre_usuario'];
                 $item->password  = $row['password'];
                 $item->rol  = $row['rol'];
+                $item->estatus  = $row['estatus'];
             }
             return $item;
         }catch(PDOException $e){
             return null;
         }
     }
-    public function getBusqueda($c,$f,$d){
-        $items = [];
-        try{
-            $query = $this->db->connect()->query("SELECT * FROM curso WHERE nombre like '%".$c."%' AND fecha like '%".$d."%' AND estatus like '%".$f."%'");
-            while($row = $query->fetch()){
-                $item = new Cursos();
-                $item->id = $row['id']; 
-                $item->nombre = $row['nombre'];
-                $item->descripcion = $row['descripcion'];
-                $item->responsable = $row['responsable'];
-                $item->fecha = $row['fecha'];
-                $item->hora = $row['hora'];
-                $item->estatus = $row['estatus'];
-                array_push($items, $item);
-            }
-            return $items;
-        }catch(PDOException $e){
-            return [];
-        }
-    }
+
     public function update($item){
-        $query = $this->db->connect()->prepare('UPDATE USUARIO SET nombre_usuario = :nombre_usuario, password = :password, rol = :rol WHERE id_usuario = :id_usuario');
+        $query = $this->db->connect()->prepare('UPDATE USUARIO SET nombre_usuario = :nombre_usuario, password = :password, rol = :rol, estatus = :estatus WHERE id_usuario = :id_usuario');
         try{
             $query->execute([
                 'id_usuario' => $item['id_usuario'],
                 'nombre_usuario' => $item['nombre_usuario'],
                 'password' => $item['password'],
-                'rol' => $item['rol']
+                'rol' => $item['rol'],
+                'estatus' => $item['estatus']
             ]);
             return true;
         }catch(PDOException $e){
@@ -89,13 +74,13 @@ class UsuarioModel extends Model{
 
     public function delete($id,$estatus){
         if ($estatus=="Activo") {
-            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Terminado' WHERE id = :id");
+            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Inactivo' WHERE id_usuario = :id_usuario");
         }else{
-            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Activo' WHERE id = :id");
+            $query = $this->db->connect()->prepare("UPDATE usuario SET estatus = 'Activo' WHERE id_usuario = :id_usuario");
         }
         try{
             $query->execute([
-                'id' => $id
+                'id_usuario' => $id
             ]);
             return true;
         }catch(PDOException $e){

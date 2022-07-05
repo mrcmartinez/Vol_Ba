@@ -36,7 +36,7 @@
             </p>
             <p>
                 <label for="password_new">Nuevo Password</label><br>
-                <input type="password_new" name="password_new">
+                <input type="password" name="password_new">
             </p>
             <p>
                 <label for="rol">Rol</label><br>
@@ -46,7 +46,10 @@
                     <option value="Supervisor">Supervisor</option>
                 </select>
             </p>
-        
+            <p>
+                <label for="estatus">Estatus</label><br>
+                <input type="text" name="estatus" value="<?php echo $this->usuario->estatus; ?>" readonly>
+            </p>
             <p>
                 <input type="submit" value="Actualizar usuario">
             </p>

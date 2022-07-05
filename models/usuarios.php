@@ -6,6 +6,7 @@ class Usuarios{
     public $nombre_usuario;
     public $password;
     public $rol;
+    public $estatus;
 }
 
 ?>

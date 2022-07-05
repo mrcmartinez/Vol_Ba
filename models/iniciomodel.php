@@ -9,8 +9,8 @@ class inicioModel extends Model{
         $row=false;
         try{
             $conn=$this->db->connect();
-            $query = $conn->prepare('SELECT* FROM usuario WHERE nombre_usuario = :nombre_usuario AND password = :password');
-            $query->execute(['nombre_usuario' => $datos['nombre_usuario'], 'password' => $datos['password']]);
+            $query = $conn->prepare('SELECT* FROM usuario WHERE nombre_usuario = :nombre_usuario AND password = :password AND estatus=:estatus');
+            $query->execute(['nombre_usuario' => $datos['nombre_usuario'], 'password' => $datos['password'], 'estatus' => 'Activo']);
             $row = $query->fetch(PDO::FETCH_NUM);
             return $row;
         }catch(PDOException $e){
