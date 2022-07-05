@@ -238,7 +238,7 @@ class Personal extends Controller{
      // Título
     $pdf->SetTextColor(250,150,100);
     // $pdf->SetFillColor(200,220,255);
-    $pdf->Cell(30,10,'Personal Voluntariado',0,0,'C');
+    $pdf->Cell(30,10,'Voluntariado',0,0,'C');
     $pdf->SetTextColor(0);
     $pdf->Ln(30);
     $pdf->SetFont('Arial','B',11);
@@ -247,19 +247,35 @@ class Personal extends Controller{
     $pdf->Cell(75,10,'NOMBRE',1,0,'c',1);
     // $pdf->Cell(30,10,'PATERNO',1,0,'c',1);
     // $pdf->Cell(30,10,'MATERNO',1,0,'c',1);
-    $pdf->Cell(22,10,'TURNO',1,0,'c',1);
+    // $pdf->Cell(22,10,'TURNO',1,0,'c',1);
     $pdf->Cell(25,10,'ACTIVIDAD',1,0,'c',1);
-    $pdf->Cell(22,10,'ESTATUS',1,0,'c',1);
-    $pdf->Cell(30,10,'',1,1,'c',1);
+    // $pdf->Cell(22,10,'ESTATUS',1,0,'c',1);
+    $pdf->Cell(25,10,'Asistio',1,0,'c',1);
+    $pdf->Cell(25,10,'Costo',1,0,'c',1);
+    $pdf->Cell(30,10,'Mandil',1,1,'c',1);
     $pdf->SetFont('Arial','',11);
     foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
         $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
         $pdf->Cell(75,10,utf8_decode($r->apellido_paterno.' '.$r->apellido_materno.' '.$r->nombre),1,0,'c',0);
         // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
-        $pdf->Cell(22,10,$r->turno,1,0,'c',0);
+        // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
         $pdf->Cell(25,10,$r->actividad,1,0,'c',0);
-        $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
+        $pdf->Cell(25,10,"",1,0,'c',0);
+        $pdf->Cell(25,10,"",1,0,'c',0);
+        // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
+        $pdf->Cell(30,10,'',1,1,'c',0);
+    }
+    for ($i=0; $i < 8; $i++) { 
+        $pdf->Cell(10,10,'',1,0,'c',0);
+        // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
+        $pdf->Cell(75,10,' ',1,0,'c',0);
+        // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
+        // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
+        $pdf->Cell(25,10,'',1,0,'c',0);
+        $pdf->Cell(25,10,"",1,0,'c',0);
+        $pdf->Cell(25,10,"",1,0,'c',0);
+        // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
         $pdf->Cell(30,10,'',1,1,'c',0);
     }
     // $pdf->Output();

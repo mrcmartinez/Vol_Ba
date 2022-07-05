@@ -20,7 +20,7 @@
         </form>
         <div class="center-form">
 
-            <h1 class="center">Marcar Documentos</h1>
+            <h1 class="center">Marcar Documentos entregados</h1>
             <form action="<?php echo constant('URL'); ?>documentoFisico/registrar" method="POST">
                 <div class="form-info">
                     <p>

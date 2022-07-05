@@ -128,9 +128,9 @@ class ConsultaAsistencia extends Controller{
         $salida .= "<h1>Reporte</h1>";
         $salida .= "<h1>Asistencias voluntariado</h1>";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>ESTATUS</th> </thead>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>HORA</th> <th>ESTATUS</th> </thead>";
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->fecha."</td> <td>".$r->estatus."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->fecha."</td> <td>".$r->hora."</td> <td>".$r->estatus."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -162,18 +162,20 @@ class ConsultaAsistencia extends Controller{
         $pdf->Cell(50);
         $pdf->Cell(30,10,'De: '.$f_inicio.' a: '.$f_termino,0,1,'c');
         $pdf->Ln(20);
-        $pdf->SetFont('Arial','B',14);
+        $pdf->SetFont('Arial','B',11);
         $pdf->SetFillColor(250,150,100);
-        $pdf->Cell(15,10,'ID',1,0,'c',1);
+        $pdf->Cell(10,10,'ID',1,0,'c',1);
         $pdf->Cell(90,10,'NOMBRE',1,0,'c',1);
-        $pdf->Cell(45,10,'FECHA',1,0,'c',1);
-        $pdf->Cell(45,10,'ESTATUS',1,1,'c',1);
+        $pdf->Cell(28,10,'FECHA',1,0,'c',1);
+        $pdf->Cell(40,10,'ESTATUS',1,0,'c',1);
+        $pdf->Cell(25,10,'',1,1,'c',1);
         $pdf->SetFont('Arial','',14);
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
-            $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
+            $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
             $pdf->Cell(90,10,utf8_decode($r->nombre),1,0,'c',0);
-            $pdf->Cell(45,10,$r->fecha,1,0,'c',0);
-            $pdf->Cell(45,10,$r->estatus,1,1,'c',0);
+            $pdf->Cell(28,10,$r->fecha,1,0,'c',0);
+            $pdf->Cell(40,10,$r->estatus,1,0,'c',0);
+            $pdf->Cell(25,10,"",1,1,'c',0);
         }
         // $pdf->Output();
         $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");

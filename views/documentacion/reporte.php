@@ -27,7 +27,7 @@
                 <input type="submit" value="Bajas">
             </form>
 
-            <h1 class="center"><small>Reportes</small>Documentación</h1>
+            <h1 class="center"><small>Reportes</small>Documentación Digital</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>documento" method="POST">

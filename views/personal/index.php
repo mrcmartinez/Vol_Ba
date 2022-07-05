@@ -16,7 +16,7 @@
     <div id="main-inicio">
         <div class="container-fluid">
             <div class="center-form-inicio">
-                <h1 class="center"><small>Personal</small>Voluntariado</h1>
+                <h1 class="center">Voluntariado</h1>
                 <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
 
                 <div id="respuesta" class="center">
