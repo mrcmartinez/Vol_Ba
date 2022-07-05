@@ -36,15 +36,7 @@
                     <input type="submit" value="🔍Buscar">
                 </p>
             </form>
-            <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
-                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
-            </form>
-
-            <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
-                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
-            </form>
+           
             <div id="div2">
                 <table class = "t-tipo1">
                     <thead>
