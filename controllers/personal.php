@@ -290,7 +290,7 @@ class Personal extends Controller{
             $this->registrarQr($id_personal);
         }
         $identificador=$this->model->consultarIden($id_personal);
-        $nombre=$_SESSION['nombreVol'];
+        $nombre=$this->model->consultarId($id_personal);
         $file = "qr".$id_personal.".png";
         $content = $id_personal.",".$nombre.",".$identificador;
         $ecc = 'H';

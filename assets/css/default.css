@@ -176,6 +176,30 @@ form{
     display: flex;
     margin-bottom: 5px;
   }
+  .btn-options{
+    width: 15%;
+    background-color: #00000048;
+    color: white;
+    font-weight: bold;
+    padding: 14px 0;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-options-check{
+    width: 15%;
+    background-color: #189140;
+    color: white;
+    font-weight: bold;
+    padding: 14px 0;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   @media only screen and (max-width: 1300px){
       
     #div2 {

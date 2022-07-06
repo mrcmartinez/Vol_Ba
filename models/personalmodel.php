@@ -180,6 +180,19 @@ class PersonalModel extends Model{
             return null;
         }
     }
+    public function consultarId($id){
+        $nomb="";
+        $query = $this->db->connect()->prepare("SELECT nombreCompleto from vistapersonalv where id_personal=:id_personal");
+        try{
+            $query->execute(['id_personal' => $id]);
+            while($row = $query->fetch()){
+                $nomb=$row['nombreCompleto'];
+            }
+            return $nomb;
+        }catch(PDOException $e){
+            return null;
+        }
+    }
 }
 
 ?>

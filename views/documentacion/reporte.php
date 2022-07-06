@@ -15,16 +15,16 @@
     <div id="main">
         <div class="center-form">
             <form action="<?php echo constant('URL'); ?>documento" method="POST">
-                <input type="submit" value="Documentación Digital">
+                <input type="submit" class="btn-options-check" value="Documentación Digital">
             </form>
             <form action="<?php echo constant('URL'); ?>documentoFisico/reporte" method="POST">
-                <input type="submit" value="Documentación Fisica">
+                <input type="submit" class="btn-options" value="Documentación Fisica">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
-                <input type="submit" value="Asistencias">
+                <input type="submit" class="btn-options" value="Asistencias">
             </form>
             <form action="<?php echo constant('URL'); ?>baja" method="POST">
-                <input type="submit" value="Bajas">
+                <input type="submit" class="btn-options" value="Bajas">
             </form>
 
             <h1 class="center"><small>Reportes</small>Documentación Digital</h1>
