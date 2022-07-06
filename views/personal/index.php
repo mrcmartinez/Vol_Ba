@@ -175,6 +175,7 @@
                 <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
                     <label for="">Motivo de la baja</label>
                     <p>
+                        <h6><?php echo $this->nombre;?></h6>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
                         <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
                     </p>

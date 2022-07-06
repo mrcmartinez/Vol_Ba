@@ -161,7 +161,8 @@ class Personal extends Controller{
         $this->listarPersonal();
     }
     function llamarBaja($param = null){
-        $this->view->idBaja = $param[0];;
+        $this->view->nombre =$this->model->consultarId($param[0]);
+        $this->view->idBaja = $param[0];
         $this->listarPersonal();
     }
     
