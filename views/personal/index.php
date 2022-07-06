@@ -17,11 +17,7 @@
         <div class="container-fluid">
             <div class="center-form-inicio">
                 <h1 class="center">Voluntariado</h1>
-                <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
-
                 <div id="respuesta" class="center">
-                    <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
-
                     <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                         <?php switch($this->radio){
                     case "Activo":
@@ -40,13 +36,13 @@
                         <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
                         break;
                 }?>
-                
-                <div class="alinear">
+
+                        <div class="alinear">
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
                                 value="<?php echo $this->consulta; ?>" autofocus>
                             <input class="btn btn-info" type="submit" value="🔍Buscar">
-            </div>
-            
+                        </div>
+
                     </form>
                 </div>
                 <form action="<?php echo constant('URL'); ?>personal" method="POST">
@@ -116,9 +112,9 @@
 
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                                        <a href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png" /></a> 
-                                        <!-- <a href="<?php echo constant('URL') . 'personal/verQR/' . $personal->id_personal; ?>">QR</a> -->
+                                    <a
+                                        href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png" /></a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
                                             src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>
@@ -177,14 +173,12 @@
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">❌</a>
                 </p>
                 <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
-                    <!-- <h2>Baja de personal</h2> -->
                     <label for="">Motivo de la baja</label>
                     <p>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
-                        <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
                         <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
                     </p>
-                    <input class="btn btn-dark"type="submit" value="Aceptar">
+                    <input class="btn btn-dark" type="submit" value="Aceptar">
                 </form>
             </div>
         </div>
@@ -193,13 +187,11 @@
     ?>
     </div>
     <script>
-function popup(w,h,url)
-{ 
-window.open(url,"popup","width="+w+",height="+h+",left=20,top=20").print(); 
-
-// window.print();
-}
-</script> 
+    function popup(w, h, url) {
+        window.open(url, "popup", "width=" + w + ",height=" + h + ",left=20,top=20").print();
+        // window.print();
+    }
+    </script>
 </body>
 
 </html>

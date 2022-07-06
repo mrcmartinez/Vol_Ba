@@ -14,9 +14,9 @@
 
     <div id="main">
         <div class="center-form">
-        <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
+            <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">Telefonos</h1>
-            
+
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div class="section-form">
                 <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
@@ -36,11 +36,9 @@
                 </form>
                 <form action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->id?>"
                     method="POST">
-                    <input class="btn-option"type="submit" value="Teléfonos">
+                    <input class="btn-option" type="submit" value="Teléfonos">
                 </form>
-                <form
-                    action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>"
-                    method="POST">
+                <form action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>" method="POST">
                     <input type="submit" value="Qr">
                 </form>
             </div>
@@ -73,22 +71,19 @@
                         <td><?php echo $telefono->descripcion; ?></td>
 
                         <td><a
-                                href="<?php echo constant('URL') . 'telefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img src="<?php echo constant('URL'); ?>assets/img/editar.png"/></a>
+                                href="<?php echo constant('URL') . 'telefono/vertelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img
+                                    src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>
                         </td>
                         <td><a
-                                href="<?php echo constant('URL') . 'telefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></a>
+                                href="<?php echo constant('URL') . 'telefono/eliminartelefono/' . $telefono->id_personal.'/'. $telefono->lada.'/'. $telefono->numero; ?>"><img
+                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a>
                         </td>
-                        <!-- <td><button class="bEliminar"
-                            data-matricula="<?php echo $telefono->id_personal; ?>">Eliminar</button></td> -->
                     </tr>
 
                     <?php } ?>
                 </tbody>
             </table>
             <a href="<?php echo constant('URL') . 'telefono/nuevoTelefono/' . $this->id; ?>">Nuevo</a>
-            <!-- <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
-            <input type="submit" value="Regresar">
-        </form> -->
         </div>
     </div>
 

@@ -75,3 +75,4 @@ commit asistenciaApoyo
 commit generarQR
 commit correcciones
 commit generarQrAutomatico
+commit deleteComentario

@@ -12,7 +12,6 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <!-- <h1 class="center">Detalle de <?php echo $this->usuario->id_usuario; ?> </h1> -->
 
         <div class="center"><?php echo $this->mensaje; ?></div>
 
@@ -27,12 +26,10 @@
                 <label for="nombre_usuario">Usuario</label><br>
                 <input type="text" name="nombre_usuario" value="<?php echo $this->usuario->nombre_usuario; ?>" required>
             </p>
-            <!--  -->
 
             <p>
                 <label for="password">Password</label><br>
-                <input type="password" name="password" value="<?php echo $this->usuario->password; ?>"
-                    readonly>
+                <input type="password" name="password" value="<?php echo $this->usuario->password; ?>" readonly>
             </p>
             <p>
                 <label for="password_new">Nuevo Password</label><br>
@@ -53,7 +50,6 @@
             <p>
                 <input type="submit" value="Actualizar usuario">
             </p>
-
         </form>
     </div>
 

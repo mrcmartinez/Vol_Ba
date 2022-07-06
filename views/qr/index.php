@@ -18,7 +18,6 @@
             <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">QR</h1>
 
-            <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
             <div class="section-form">
                 <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input type="submit" value="Regresar">
@@ -51,7 +50,6 @@
                     <p>Al actualizar el código Qr,</p>
                     <p>el anterior dejara de funcionar</p>
                     <p>y no sera valido</p>
-                    <!-- <div><img src='<?php echo $this->img; ?>'></div> -->
                 </div>
             </div>
             <div class="form-info">
@@ -60,11 +58,9 @@
                     <input type="date" name="fecha_modificacion" value="<?php echo $this->qr->fecha_modificacion; ?>"
                         disabled>
                 </p>
-                <!-- <input type="number" value="<?php echo $this->qr->id_personal; ?>"> -->
                 <form action="<?php echo constant('URL'); ?>qr/actualizar/<?php echo $this->id?>" method="POST">
                     <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
                     <input class="btn-option" type="submit" value="Actualizar" onclick="return confirmBaja()">
-
                 </form>
             </div>
         </div>

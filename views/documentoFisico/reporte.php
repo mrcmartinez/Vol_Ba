@@ -36,9 +36,9 @@
                     <input type="submit" value="🔍Buscar">
                 </p>
             </form>
-           
+
             <div id="div2">
-                <table class = "t-tipo1">
+                <table class="t-tipo1">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -73,10 +73,7 @@
                             <td><?php echo marcado($documentoFisico->examen); ?></td>
                             <td><?php echo marcado($documentoFisico->ine); ?></td>
                             <td><?php echo marcado($documentoFisico->solicitud); ?></td>
-                            <!-- <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td> -->
-
                         </tr>
-
                         <?php } ?>
                     </tbody>
                 </table>

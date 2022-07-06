@@ -29,7 +29,6 @@
                 </p>
                 <p>
                     <label for="nombre">Documento</label><br>
-                    <!-- <input type="text" name="nombre"> -->
                     <select id="nombre" name="nombre">
                         <option value="Solicitud">Solicitud</option>
                         <option value="Carta compromiso">Carta compromiso</option>
@@ -40,8 +39,6 @@
                         <option value="Estudio socioeconomico">Estudio socioeconomico</option>
                         <option value="Examen medico">Examen medico</option>
                     </select>
-
-                    <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
                     <input type="file" name="descripcion" accept="application/pdf" required>
                 </p></br>
                 <p>

@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <?php require 'views/header.php'; ?>
     <div id="main">
         <div class="center-form">
@@ -87,7 +85,6 @@
 
                         }           
                     ?>
-
                         </tr>
                         <?php } ?>
                     </tbody>

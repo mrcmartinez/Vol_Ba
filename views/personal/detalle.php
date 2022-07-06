@@ -11,9 +11,7 @@
 
 <body>
     <?php require 'views/header.php'; ?>
-
     <div id="main">
-
         <h1 class="center">Actualizar Datos de
             <?php echo $this->personal->apellido_paterno.' '.$this->personal->apellido_materno.' '.$this->personal->nombre; ?>
         </h1>
@@ -35,7 +33,6 @@
                     <input class="form-control" type="text" name="nombre" value="<?php echo $this->personal->nombre; ?>"
                         required>
                 </div>
-                <!--  -->
 
                 <div class="col-md-3">
                     <label for="apellido_paterno">Apellido Paterno</label>

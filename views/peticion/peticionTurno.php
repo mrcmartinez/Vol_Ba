@@ -14,19 +14,16 @@
     <?php require 'views/header.php'; ?>
 
     <div class="display">
-    <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
             <input type="submit" value="❌">
         </form>
         <div class="container">
-
             <h1 class="center">Petición cambio de turno</h1>
-
             <form action="<?php echo constant('URL') . 'personal/seleccionarPersonal/'?>" method="post">
                 <input type="hidden" name="peticion" value="turno">
                 <input type="submit" value="🔍Buscar">
             </form>
             <div><?php echo $this->mensaje; ?></div>
-            <!-- <form action="<?php echo constant('URL'); ?>personal/seleccionar" method="post"></form> -->
             <form action="<?php echo constant('URL'); ?>peticion/crear" method="POST" enctype="multipart/form-data">
 
                 <div class="wrapper">
@@ -36,11 +33,6 @@
                         <label for="">Tipo</label>
                         <input type="text" readonly name="tipo" value="Cambio turno">
                         <input type="hidden" name="fecha_solicitada" id="">
-
-                        <!-- <label for="">Dia solicitado</label>
-                        <input type="text" name="dia_solicitado" id=""> -->
-                        <!--  -->
-                        
                         <label for="turno">Turno</label>
                         
                         <select class="select" id="dia_solicitado" name="dia_solicitado">
@@ -51,10 +43,9 @@
                             <option value="Viernes">Viernes</option>
                             <option value="Sabado">Sabado</option>
                         </select>
-                        
-                        <!--  -->
+
                         <label for="">Descripcion</label>
-                        <input type="text" name="descripcion" id=""required>
+                        <input type="text" name="descripcion" id="" required>
                         <input type="file" name="archivo" accept="application/pdf">
                     </div>
                 </div>

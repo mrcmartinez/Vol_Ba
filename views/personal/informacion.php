@@ -14,9 +14,6 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-
-
-
         <div class="center-form"><?php echo $this->mensaje; ?>
             <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">Información</h1>
@@ -45,8 +42,7 @@
                     method="POST">
                     <input type="submit" value="Teléfonos">
                 </form>
-                <form
-                    action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->personal->id_personal ?>"
+                <form action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->personal->id_personal ?>"
                     method="POST">
                     <input type="submit" value="Qr">
                 </form>
@@ -61,7 +57,6 @@
                     <label for="nombre">Nombre</label><br>
                     <input type="text" name="nombre" value="<?php echo $this->personal->nombre; ?>" disabled>
                 </p>
-                <!--  -->
 
                 <p>
                     <label for="apellido_paterno">Apellido Paterno</label><br>
@@ -102,7 +97,6 @@
                 <label for="estado_civil">Estado Civil</label><br>
                 <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>" disabled>
 
-
                 <p>
                     <label for="numero_hijos">Número de hijos</label><br>
                     <input type="number" name="numero_hijos" value="<?php echo $this->personal->numero_hijos; ?>"
@@ -117,7 +111,6 @@
                     <label for="escolaridad">Escolaridad</label><br>
                     <input type="text" name="escolaridad" value="<?php echo $this->personal->escolaridad; ?>" disabled>
                 </p>
-                <!--  -->
                 <p>
                     <label for="turno">Turno</label><br>
                     <input type="text" name="turno" value="<?php echo $this->personal->turno; ?>" disabled>
@@ -136,11 +129,9 @@
                     <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" disabled>
                 </p>
             </div>
-
         </div>
     </div>
     </div>
-
 
     <?php require 'views/footer.php'; ?>
 </body>

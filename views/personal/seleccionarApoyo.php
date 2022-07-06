@@ -24,14 +24,11 @@
                     <p>
                         <input type="search" name="caja_busqueda" id="caja_busqueda"
                             value="<?php echo $this->consulta; ?>" autofocus>
-                        <!-- <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>"> -->
                         <input type="submit" value="🔍Buscar">
                     </p>
                 </form>
             </div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/agregarApoyo" method="POST">
-                <!-- <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>"> -->
-                <!-- <form method="POST"> -->
                 <div id="div2">
                     <table class="table">
                         <thead>
@@ -69,11 +66,8 @@
             </form>
         </div>
     </div>
-
     <?php require 'views/footer.php'; ?>
-
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
-
 </body>
 
 </html>

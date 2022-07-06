@@ -13,10 +13,10 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        
+
         <div class="center-form"><?php echo $this->mensaje; ?>
-        <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
-        <h1 class="center">Documentación</h1>
+            <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
+            <h1 class="center">Documentación</h1>
             <div class="section-form">
                 <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input type="submit" value="Regresar">
@@ -37,9 +37,7 @@
                     method="POST">
                     <input type="submit" value="Telefonos">
                 </form>
-                <form
-                    action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>"
-                    method="POST">
+                <form action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->id?>" method="POST">
                     <input type="submit" value="Qr">
                 </form>
             </div>
@@ -67,20 +65,16 @@
                         <td><?php echo $documento->nombre; ?></td>
                         <td><?php echo $documento->estatus; ?></td>
                         <td><a
-                                href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>"><img src="<?php echo constant('URL'); ?>assets/img/eliminar2.png"/></a>
-                        
-                        <a href="<?php echo constant('URL') . 'documento/verDocumento/' . $documento->id_personal.'/'. $documento->descripcion; ?>"
-                                target="_blank"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png"/></a></td>
-
+                                href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>"><img
+                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a>
+                            <a href="<?php echo constant('URL') . 'documento/verDocumento/' . $documento->id_personal.'/'. $documento->descripcion; ?>"
+                                target="_blank"><img src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>
+                        </td>
                     </tr>
-
                     <?php } ?>
                 </tbody>
             </table>
             <a href="<?php echo constant('URL') . 'documento/nuevoDocumento/' . $this->id; ?>">Nuevo</a>
-            <!-- <form action="<?php echo constant('URL'); ?>personal/listar" method="POST">
-            <input type="submit" value="Regresar">
-        </form> -->
         </div>
     </div>
     <?php require 'views/footer.php'; ?>

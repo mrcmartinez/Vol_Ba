@@ -43,10 +43,8 @@
                     <input class="form-control" type="text" name="tipo_1" value="Telefono celular" readonly>
                 </div>
                 <div class="col-md-5">
-                    <!-- <label for="descripcion_1">Descripción</label><br> -->
                     <input class="form-control" type="hidden" name="descripcion_1" id="" value="">
                 </div>
-                <!--  -->
                 <div class="col-md-1">
                     <label for="lada_2">Lada</label><br>
                     <input class="form-control" type="tel" name="lada_2" id="" pattern="[0-9]{3}">
@@ -60,11 +58,9 @@
                     <input class="form-control" type="text" name="tipo_2" value="Telefono casa" readonly>
                 </div>
                 <div class="col-md-5">
-                    <!-- <label for="descripcion_2">Descripción</label><br> -->
                     <input class="form-control" type="hidden" name="descripcion_2" id="" value="">
                 </div>
-                <!--casa  -->
-                <!-- emergencia -->
+
                 <div class="col-md-1">
                     <label for="lada_3">Lada</label><br>
                     <input class="form-control" type="tel" name="lada_3" id="" pattern="[0-9]{3}">

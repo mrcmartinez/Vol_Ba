@@ -73,13 +73,11 @@
                 </div>
                 <div class="form-info">
                     <p>
-                        <input type="checkbox" name="estudio"
-                            <?php echo check($this->documentoFisico->estudio);?>>
+                        <input type="checkbox" name="estudio" <?php echo check($this->documentoFisico->estudio);?>>
                         <label for="estudio">Estudio</label>
                     </p>
                     <p>
-                        <input type="checkbox" name="examen"
-                            <?php echo check($this->documentoFisico->examen);?> >
+                        <input type="checkbox" name="examen" <?php echo check($this->documentoFisico->examen);?>>
                         <label for="examen">Examen medico</label>
                     </p>
                     <p>
@@ -87,20 +85,16 @@
                         <label for="ine">INE</label>
                     </p>
                     <p>
-                        <input type="checkbox" name="solicitud"
-                            <?php echo check($this->documentoFisico->solicitud);?>>
+                        <input type="checkbox" name="solicitud" <?php echo check($this->documentoFisico->solicitud);?>>
                         <label for="solicitud">Solicitud</label>
                     </p>
                 </div>
                 <p>
                     <input type="submit" value="Actualizar">
                 </p>
-
             </form>
             <?php
             ?>
-
-
         </div>
     </div>
     <?php require 'views/footer.php'; ?>
@@ -110,16 +104,16 @@
         if (!empty($this->mensaje)) 
         {
             ?>
-            <script>
-                Swal.fire({
-                // position: 'top-end',
-                icon: "<?php echo $this->code; ?>",
-                title: '<?php echo $this->mensaje; ?>',
-                showConfirmButton: false,
-                timer: 1500
-      })
-            </script>
-            <?php    
+    <script>
+    Swal.fire({
+        // position: 'top-end',
+        icon: "<?php echo $this->code; ?>",
+        title: '<?php echo $this->mensaje; ?>',
+        showConfirmButton: false,
+        timer: 1500
+    })
+    </script>
+    <?php    
         }
     ?>
 </body>

@@ -39,9 +39,6 @@
             </p>
 
         </form>
-        <!-- <form action="<?php echo constant('URL'); ?>usuario/listar" method="POST">
-            <input type="submit" value="Cancelar">
-        </form> -->
     </div>
 
     <?php require 'views/footer.php'; ?>

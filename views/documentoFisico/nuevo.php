@@ -69,9 +69,7 @@
                 <p>
                     <input type="submit" value="Siguiente">
                 </p>
-
             </form>
-
         </div>
     </div>
 

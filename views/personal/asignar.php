@@ -12,18 +12,14 @@
 
 <body>
     <?php require 'views/header.php'; ?>
-
     <div class="container-fluid">
         <div class="center-form">
             <h1 class="center">Asignar Voluntariado</h1>
             <h1 class="center"><?php echo $_SESSION['nombreCurso'];?></h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
-
             <div id="respuesta" class="center">
-                <!-- <h4>Bienvenido<?php echo $_SESSION['rol']?></h4> -->
                 <form action="<?php echo constant('URL'); ?>personal/listarPersonal/ <?php echo $this->idCurso ?>"
                     method="POST">
-
                     <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked onchange="this.form.submit()">Activo
@@ -42,7 +38,6 @@
                 </form>
             </div>
             <form action="<?php echo constant('URL'); ?>capacitaciones/asignarCapacitacion" method="POST">
-                <!-- <form method="POST"> -->
                 <div id="div2">
                     <table class="table">
                         <thead>
@@ -81,9 +76,6 @@
         </div>
     </div>
     <?php require 'views/footer.php'; ?>
-
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
-
 </body>
-
 </html>

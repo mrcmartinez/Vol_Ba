@@ -11,10 +11,7 @@
 
 <body>
     <?php require 'views/header.php'; ?>
-
     <div id="main">
-
-    <!-- <div class="container"> -->
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
@@ -70,7 +67,6 @@
 
                 <div class="col-md-2">
                     <label for="seguro_medico">Seguro Médico</label>
-                    <!-- <input class="form-control" type="text" name="seguro_medico" id="seguro_medico" required> -->
                     <input class="form-control" list="seguro" name="seguro_medico" id="seguro_medico" required>
                     <datalist id="seguro">
                         <option value="IMSS">
@@ -128,12 +124,9 @@
                 <div class="col-md-8">
                     <progress class="form-control" id="file" value="1" max="100"> 32% </progress>
                 </div>
-
-
             </form>
         </div>
         </div>
-    <!-- </div> -->
     <?php require 'views/footer.php'; ?>
 
 </body>

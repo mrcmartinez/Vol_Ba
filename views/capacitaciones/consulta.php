@@ -25,7 +25,6 @@
                     <table width="100%" id="tabla">
                         <thead>
                             <tr>
-                                <!-- <th>ID_curso</th> -->
                                 <th>ID_personal</th>
                                 <th>Nombre</th>
                                 <th>estatus</th>
@@ -43,24 +42,19 @@
                 $capacitacion = $row;
         ?>
                             <tr id="fila-<?php echo $capacitacion->id_curso; ?>">
-                                <!-- <td><?php echo $capacitacion->id_curso; ?></td> -->
                                 <td><?php echo $capacitacion->id_personal; ?></td>
                                 <td><?php echo $capacitacion->nombre; ?></td>
                                 <td><?php echo $capacitacion->estatus; ?></td>
 
                                 <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
-
                                 <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>"
                                         name="personal[]" onclick=""></td>
-
                                 <?php }else{
                              ?>
                                 <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name=""
                                         checked disabled onclick=""></td>
                                 <?php
                         } ?>
-
-                                <!-- <td><button class="bEliminar" data-matricula="<?php echo $capacitacion->id; ?>">Eliminar</button></td>  -->
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -68,7 +62,6 @@
                 </div>
                 <?php
             if (isset($this->idCurso)) {
-                // echo $this->idCurso;
                 ?><input type="hidden" name="id" value="<?php echo $this->idCurso; ?>"><?php
             }else{
                 ?><input type="hidden" name="id" value="<?php echo $capacitacion->id_curso; ?>"><?php

@@ -26,7 +26,6 @@
                 <input type="submit" class="btn-options" value="Bajas">
             </form>
             <h1 class="center"><small>Reportes</small>Asistencia</h1>
-            <!-- <div class="center"><?php echo $this->mensaje; ?></div> -->
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
                 Filtrar por:
@@ -87,9 +86,6 @@
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
             </form>
-            <!-- <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="post">
-        <input type="submit" value="enviar">
-        </form> -->
             <div id="div2">
                 <table class="t-tipo3">
                     <thead>
@@ -114,19 +110,12 @@
                             <td><?php echo $asistencia->fecha; ?></td>
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>
-
-                            <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/verasistencia/' . $asistencia->id_personal.'/'. $asistencia->lada.'/'. $asistencia->numero; ?>">Editar</a>  </td> -->
-                            <!-- <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminarasistencia/' . $asistencia->id_personal; ?>">Eliminar</a> </td>-->
-                            <!-- <td><button class="bEliminar" data-matricula="<?php echo $asistencia->id_personal; ?>">Eliminar</button></td> -->
                         </tr>
 
                         <?php } ?>
                     </tbody>
                 </table>
             </div>
-            <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-            <input type="submit" value="Regresar">
-        </form> -->
         </div>
     </div>
 

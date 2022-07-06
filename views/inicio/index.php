@@ -7,15 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VolBaL</title>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
-    <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
 </head>
 <body>
-
     <div class="main-login">
-        
         <form action="<?php echo constant('URL'); ?>inicio/iniciarSesion" method="POST">
-        
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/logo1.png">
             <h2>Bienvenido Sistema VolBaL</h2>
             <input type="text" name="nombre_usuario" placeholder="👤Usuario">
@@ -40,6 +36,5 @@
             <?php    
         }
     ?>
-   
 </body>
 </html>

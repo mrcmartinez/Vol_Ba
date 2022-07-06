@@ -67,7 +67,6 @@
                             <td><?php echo $documento->nombre_personal; ?></td>
                             <td><?php echo $documento->nombre; ?></td>
                             <td><?php echo $documento->estatus; ?></td>
-                            <!-- <td><a href="<?php echo constant('URL') . 'documento/eliminardocumento/' . $documento->id_personal.'/'. $documento->nombre; ?>">Eliminar</a> </td> -->
 
                         </tr>
 

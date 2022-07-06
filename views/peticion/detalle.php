@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/form.css">
-    <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css"> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
     <?php require 'views/header.php'; ?>
     <div class="display">
-    <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
             <input type="submit" value="❌">
         </form>
         <div class="container-details">
             <h1 class="center">Detalle Folio <?php echo $this->peticion->folio; ?></h1>
-
 
             <div class="center"><?php echo $this->mensaje; ?></div>
             <form action="<?php echo constant('URL'); ?>peticion/listar" method="POST">
@@ -41,8 +39,7 @@
                                 value="<?php echo $this->peticion->id_personal; ?>">
 
                             <label for="nombre">Nombre</label><br>
-                            <input type="text" name="nombre" readonly
-                                value="<?php echo $this->peticion->nombre; ?>">
+                            <input type="text" name="nombre" readonly value="<?php echo $this->peticion->nombre; ?>">
 
                             <label for="fecha_apertura">fecha apertura</label><br>
                             <input type="date" name="fecha_apertura" readonly
@@ -79,9 +76,7 @@
                 </form>
         </div>
     </div>
-
     </div>
-
     <?php require 'views/footer.php'; ?>
 </body>
 

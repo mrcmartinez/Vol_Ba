@@ -14,13 +14,13 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-    <h3 class="center"><?php echo $_SESSION['nombreVol'];?></h3>
+        <h3 class="center"><?php echo $_SESSION['nombreVol'];?></h3>
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
             <input type="submit" value="❌">
         </form>
         <div class="center-form">
-        
-        <h1 class="center">Agregar Documentos</h1>
+
+            <h1 class="center">Agregar Documentos</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <?php $idU=intval($this->ultimoId);?>
             <form class="row g-3" action="<?php echo constant('URL'); ?>documento/registrarDocumento" method="POST"
@@ -33,7 +33,6 @@
                 <div class="col-md-6">
 
                     <input type="text" name="nombre_1" value="INE" readonly>
-                    <!-- <input type="text" name="estatus" value="Entregado" readonly> -->
                     <input type="file" name="descripcion_1">
                 </div>
                 <div class="col-md-6">
@@ -66,38 +65,27 @@
                     <input type="text" name="nombre_8" value="Acta Nacimiento" readonly>
                     <input type="file" name="descripcion_8">
                 </div>
-
                 <div class="col-md-4">
                     <input class="form-control btn btn-success" type="submit" value="Subir">
                 </div>
-                
                 <div class="col-md-2">
                 </div>
-                
                 <div class="col-md-6">
                     <input type="text" name="nombre_9">
                     <input type="file" name="descripcion_9">
                 </div>
-
-                <!-- <p> -->
-                <!-- <label for="file">Downloading progress:</label> -->
-                <!-- <progress id="file" value="66" max="100"></progress> -->
-                <!-- </p> -->
-
-
             </form>
-            <form  class="row g-3" action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-            <div class="col-md-4">
-                <input type="hidden" name="mensaje">
-                <input class="form-control btn btn-dark"type="submit" value="Terminar">
-            </div>
-            <div class="col-md-8">
-                <progress class="form-control" id="file" value="70" max="100"></progress>
-            </div>
+            <form class="row g-3" action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                <div class="col-md-4">
+                    <input type="hidden" name="mensaje">
+                    <input class="form-control btn btn-dark" type="submit" value="Terminar">
+                </div>
+                <div class="col-md-8">
+                    <progress class="form-control" id="file" value="70" max="100"></progress>
+                </div>
             </form>
         </div>
     </div>
-
     <?php require 'views/footer.php'; ?>
 </body>
 

@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VolBaL</title>
-    <!-- <link rel="icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico"> -->
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" /> -->
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="logo.ico" /> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/default.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
@@ -29,7 +26,6 @@
                 <ul>
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
-                    <!-- <a href="<?php echo constant('URL'); ?>peticion">Peticiones</a> -->
                     <a href="<?php echo constant('URL'); ?>peticion/listar">Peticiones</a>
                     <a href="<?php echo constant('URL'); ?>documentoFisico/reporte">Reportes</a>
                 </ul>
@@ -40,7 +36,6 @@
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <!-- <a href="<?php echo constant('URL'); ?>usuario/nuevo">Usuarios</a> -->
                 <a href="<?php echo constant('URL'); ?>usuario/listar">Usuarios</a>
                 <a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">Cerrar sesion</a>
             </nav>
