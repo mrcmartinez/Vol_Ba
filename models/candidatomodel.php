@@ -9,14 +9,12 @@ class CandidatoModel extends Model{
     }
 
     public function insert($datos){
-        $query = $this->db->connect()->prepare('INSERT INTO CANDIDATO (NOMBRE, APELLIDO_PATERNO,
-        APELLIDO_MATERNO,FECHA_NACIMIENTO,
+        $query = $this->db->connect()->prepare('INSERT INTO CANDIDATO (NOMBRE,FECHA_NACIMIENTO,
         FECHA_SOLICITUD,TELEFONO,ESTATUS) VALUES(:nombre,
-         :apellido_paterno,:apellido_materno,:fecha_nacimiento,:fecha_solicitud,
+         :fecha_nacimiento,:fecha_solicitud,
          :telefono,:estatus)');
         try{
-            $query->execute(['nombre' => $datos['nombre'], 'apellido_paterno' => $datos['apellido_paterno'],
-            'apellido_materno' => $datos['apellido_materno'],'fecha_nacimiento' => $datos['fecha_nacimiento'],
+            $query->execute(['nombre' => $datos['nombre'],'fecha_nacimiento' => $datos['fecha_nacimiento'],
             'fecha_solicitud' => $datos['fecha_solicitud'],'telefono' => $datos['telefono'],
             'estatus' => $datos['estatus']]);
             return true;
@@ -33,8 +31,6 @@ class CandidatoModel extends Model{
                  $item = new Candidatos();
                  $item->id_candidato = $row['id_candidato'];
                  $item->nombre = $row['nombre'];
-                 $item->apellido_paterno = $row['apellido_paterno'];
-                 $item->apellido_materno = $row['apellido_materno'];
                  $item->fecha_nacimiento = $row['fecha_nacimiento'];
                  $item->fecha_solicitud = $row['fecha_solicitud'];
                  $item->telefono = $row['telefono'];
@@ -105,14 +101,11 @@ class CandidatoModel extends Model{
     }
 
     public function delete($id,$estatus){
-        if ($estatus=="Activo") {
-            $query = $this->db->connect()->prepare("UPDATE personal SET estatus = 'Baja' WHERE id_personal = :id_personal");
-        }else {
-            $query = $this->db->connect()->prepare("UPDATE personal SET estatus = 'Activo' WHERE id_personal = :id_personal");
-        }
+            $query = $this->db->connect()->prepare("UPDATE candidato SET estatus = :estatus WHERE id_candidato = :id_candidato");
         try{
             $query->execute([
-                'id_personal'=> $id
+                'id_candidato'=> $id,
+                'estatus'=> $estatus
             ]);
             return true;
         }catch(PDOException $e){

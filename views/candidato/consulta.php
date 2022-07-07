@@ -31,8 +31,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Apellido paterno</th>
-                    <th>Apellido materno</th>
                     <th>Edad</th>
                     <th>Fecha solicitud</th>
                     <th>Telefono</th>
@@ -52,14 +50,13 @@
                 <tr id="fila-<?php echo $candidato->id_candidato; ?>">
                     <td><?php echo $candidato->id_candidato; ?></td>
                     <td><?php echo $candidato->nombre; ?></td>
-                    <td><?php echo $candidato->apellido_paterno; ?></td>
-                    <td><?php echo $candidato->apellido_materno; ?></td>
                     <td><?php echo edad($candidato->fecha_nacimiento); ?></td>
                     <td><?php echo $candidato->fecha_solicitud; ?></td>
                     <td><?php echo $candidato->telefono; ?></td>
                     <td><a
-                                href=""><img
-                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a></td>
+                                href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><img
+                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a>
+                        </td>
                 </tr>
                 <?php } ?>
             </tbody>

@@ -31,15 +31,12 @@ class Candidato extends Controller{
 
     function registrar(){
         $nombre    = $_POST['nombre'];
-        $apellido_paterno  = $_POST['apellido_paterno'];
-        $apellido_materno  = $_POST['apellido_materno'];
         $fecha_solicitud  =  date("Y-m-d");;
         $fecha_nacimiento  = $_POST['fecha_nacimiento'];
         $telefono  = $_POST['telefono'];
         $estatus  = $_POST['estatus'];
 
-        if($this->model->insert(['nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
-        'apellido_materno' => $apellido_materno, 'fecha_nacimiento' => $fecha_nacimiento,
+        if($this->model->insert(['nombre' => $nombre    , 'fecha_nacimiento' => $fecha_nacimiento,
                                  'fecha_solicitud' => $fecha_solicitud, 'telefono' => $telefono, 'estatus' => $estatus])){
             $this->view->mensaje = "Candidato registrado";
             $this->view->code = "success";
@@ -75,13 +72,13 @@ class Candidato extends Controller{
         $this->listar();
     }
 
-    function eliminarCurso($param = null){
+    function eliminar($param = null){
         $id = $param[0];
-        $estatus = $param[1];
+        $estatus="Baja";
         if($this->model->delete($id,$estatus)){
-            $mensaje ="Curso eliminado correctamente";
+            $mensaje ="Candidato eliminado correctamente";
         }else{
-            $mensaje = "No se pudo eliminar al curso";
+            $mensaje = "No se pudo eliminar al candidato";
         }
         $this->listar();
     }

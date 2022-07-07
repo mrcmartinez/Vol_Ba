@@ -24,27 +24,18 @@
                     <label for="nombre">Nombre</label>
                     <input class="form-control" type="text" name="nombre" id="" required autofocus>
                 </div>
-                <div class="col-md-3">
-                    <label for="apellido_paterno">Apellido Paterno</label>
-                    <input class="form-control" type="text" name="apellido_paterno" id="" required>
-                </div>
-                <div class="col-md-3">
-                    <label for="apellido_materno">Apellido Materno</label>
-                    <input class="form-control" type="text" name="apellido_materno" id="" required>
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
                     <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>"
                         name="fecha_nacimiento" id="" required>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="telefono">Telefono</label>
                     <input class="form-control" type="tel"
                         name="telefono" id="" required>
                 </div>
                 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <input type="hidden" name="estatus" value="Activo">
                     <br><input class="form-control btn btn-dark" type="submit" value="Registrar">
                 </div>
