@@ -57,9 +57,9 @@
                     <td><?php echo edad($candidato->fecha_nacimiento); ?></td>
                     <td><?php echo $candidato->fecha_solicitud; ?></td>
                     <td><?php echo $candidato->telefono; ?></td>
-                    <!-- <td><a
-                                href="<?php echo constant('URL') . 'candidato/eliminar/' . $candidato->id_candidato;?>"><img
-                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a></td> -->
+                    <td><a
+                                href=""><img
+                                    src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a></td>
                 </tr>
                 <?php } ?>
             </tbody>
