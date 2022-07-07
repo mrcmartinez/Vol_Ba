@@ -19,12 +19,13 @@
                     <h2>☰</h2>
                 </label>
             </div>
-            <img src="<?php echo constant('URL'); ?>assets/img/logoNuevo4.0.png" alt="Logo Bamex">
+            <img src="<?php echo constant('URL'); ?>assets/img/logoBlanco.png" alt="Logo Bamex">
         </div>
         <div class="cont-lateral">
             <nav>
                 <ul>
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
+                    <a href="<?php echo constant('URL'); ?>candidato/listar">Candidato</a>
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
                     <a href="<?php echo constant('URL'); ?>peticion/listar">Peticiones</a>
                     <a href="<?php echo constant('URL'); ?>documentoFisico/reporte">Reportes</a>

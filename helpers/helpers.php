@@ -26,5 +26,10 @@
         $format .= print_r('</pre>');
         return $format;
     }
+    function edad($fecha_nacimiento){
+        $edad_diff = date_diff(date_create($fecha_nacimiento), date_create(date("Y-m-d")));
+        $edadCalculada = $edad_diff->format('%y');
+        return $edadCalculada;
+    }
 
 ?>
