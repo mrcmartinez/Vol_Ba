@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <input type="hidden" name="candidato">
+                    <input type="hidden" name="id_candidato" value="<?php echo $this->id_candidato; ?>">
                     <input class="form-control btn btn-dark" type="submit" value="Registrar">
                 </div>
                 <div class="col-md-8">

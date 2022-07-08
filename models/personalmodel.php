@@ -193,6 +193,18 @@ class PersonalModel extends Model{
             return null;
         }
     }
+    public function deleteCandidato($id,$estatus){
+        $query = $this->db->connect()->prepare("UPDATE candidato SET estatus = :estatus WHERE id_candidato = :id_candidato");
+    try{
+        $query->execute([
+            'id_candidato'=> $id,
+            'estatus'=> $estatus
+        ]);
+        return true;
+    }catch(PDOException $e){
+        return false;
+    }
+}
 }
 
 ?>

@@ -40,6 +40,9 @@ class Personal extends Controller{
 
         if($consulta[0]){
             $mensaje = "Nuevo voluntariado creado";
+            if (isset($_POST['id_candidato'])) {
+                $this->eliminarCandidato($_POST['id_candidato']);
+            }
             $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
             // include_once 'controllers/qr.php';
             // $codeQr = new Qr();
@@ -47,10 +50,12 @@ class Personal extends Controller{
             $this->view->mensaje = $mensaje;
             $this->view->ultimoId = $consulta[1];
             $this->view->render('telefono/nuevo');
+            // return true;
         }else{
             $mensaje = "Voluntario ya existe";
             $this->view->mensaje = $mensaje;
             $this->render();
+            // return false;
         }
     }
     function listarPersonal($param = null){
@@ -307,6 +312,10 @@ class Personal extends Controller{
         $identificador=mt_rand(5, 15);
         $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
         'fecha_modificacion' => $fecha]);
+    }
+    function eliminarCandidato($id){
+        $estatus="Aceptado";
+        $this->model->deleteCandidato($id,$estatus);
     }
 }
 

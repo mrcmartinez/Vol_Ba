@@ -51,6 +51,7 @@ class Candidato extends Controller{
         // echo $nombre=$_POST['nombre'];
         // echo $fecha_nacimiento=$_POST['fecha_nacimiento'];
         $this->view->nombre = $_POST['nombre'];
+        $this->view->id_candidato = $_POST['id_candidato'];
         $this->view->fecha_nacimiento = $_POST['fecha_nacimiento'];
         // $this->render();
         $this->view->render('candidato/alta');
