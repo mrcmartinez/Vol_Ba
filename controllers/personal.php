@@ -308,7 +308,6 @@ class Personal extends Controller{
         $this->model->insertQr(['id_personal' => $id_personal, 'identificador' => $identificador,
         'fecha_modificacion' => $fecha]);
     }
-
 }
 
 ?>

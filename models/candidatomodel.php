@@ -25,7 +25,7 @@ class CandidatoModel extends Model{
     public function getBusqueda($c,$f){
          $items = [];
          try{
-             $query = $this->db->connect()->query("SELECT * FROM candidato WHERE (nombre like '%".$c."%') AND estatus like '%".$f."%' ORDER BY nombre");
+             $query = $this->db->connect()->query("SELECT * FROM candidato WHERE (nombre like '%".$c."%') AND estatus like '%".$f."%' ORDER BY fecha_solicitud");
  
              while($row = $query->fetch()){
                  $item = new Candidatos();

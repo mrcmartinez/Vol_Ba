@@ -47,6 +47,14 @@ class Candidato extends Controller{
             $this->view->render('candidato/nuevo');
         }
     }
+    function alta(){
+        // echo $nombre=$_POST['nombre'];
+        // echo $fecha_nacimiento=$_POST['fecha_nacimiento'];
+        $this->view->nombre = $_POST['nombre'];
+        $this->view->fecha_nacimiento = $_POST['fecha_nacimiento'];
+        // $this->render();
+        $this->view->render('candidato/alta');
+    }
     function verCurso($param = null){
         $idCurso = $param[0];
         $curso = $this->model->getById($idCurso);
