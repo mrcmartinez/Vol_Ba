@@ -15,7 +15,7 @@
 
     <div id="main">
         <div class="center-form">
-        <h1 class="center">Cursos</h1>
+        <h1 class="center">Cursos candidatos</h1>
         <div class="center">
             <form  action="<?php echo constant('URL'); ?>curso/listar" method="post">
             <input type="submit" value="Voluntariado">
@@ -24,7 +24,7 @@
                 <input type="submit" value="Candidatos">
             </form>
         </div>
-        <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">
+        <form action="<?php echo constant('URL'); ?>taller/listar" method="POST">
             <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="radio" id="" name="radio_busqueda" value="Activo"checked onchange="this.form.submit()">Activo
@@ -41,7 +41,7 @@
                 <input type="submit" value="🔍Buscar">
             </p>
         </form>
-        <form action="<?php echo constant('URL'); ?>curso" method="POST">
+        <form action="<?php echo constant('URL'); ?>taller" method="POST">
             <input type="submit" value="Nuevo">
         </form>
         <div id="div2">
@@ -63,9 +63,9 @@
             <tbody id="tbody-alumnos">
 
                 <?php
-            include_once 'models/cursos.php';
+            include_once 'models/talleres.php';
             foreach ($this->cursos as $row) {
-                $curso = new Cursos();
+                $curso = new Talleres();
                 $curso = $row;
         ?>
                 <tr id="fila-<?php echo $curso->id; ?>">
@@ -76,17 +76,17 @@
                     <td><?php echo $curso->fecha; ?></td>
                     
                     <td><?php echo $curso->estatus; ?></td>
-                    <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
+                    <td><a href="<?php echo constant('URL') . 'participaciones/verCapacitacionId/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
 
                         <?php if (( $_SESSION['rol']!="Supervisor" )&&($this->radio=="Activo")) { ?>
-                    <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
+                    <a href="<?php echo constant('URL') . 'candidato/listar/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a>
-                    <a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
+                    <a href="<?php echo constant('URL') . 'taller/verCurso/' . $curso->id; ?>"><img
                                 src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>
                     
                     <?php } ?>
-                    <a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
+                    <a href="<?php echo constant('URL') . 'taller/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button
                                 onclick="return confirmBaja()"><?php if ($this->radio=="Activo") { 
                             ?>Cerrar</button><?php
                             }else{

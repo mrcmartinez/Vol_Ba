@@ -77,3 +77,4 @@ commit correcciones
 commit generarQrAutomatico
 commit deleteComentario
 commit altaCandidato
+commit participaciones

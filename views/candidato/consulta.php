@@ -56,12 +56,16 @@
                                     href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><img
                                         src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a>
                             </td>
-                            <td><form action="<?php echo constant('URL'); ?>candidato/alta" method="POST">
-                                <input type="hidden" name="nombre" value="<?php echo $candidato->nombre; ?>" >
-                                <input type="hidden" name="id_candidato" value="<?php echo $candidato->id_candidato; ?>" >
-                                <input type="hidden" name="fecha_nacimiento" value="<?php echo $candidato->fecha_nacimiento; ?>" >
-                                <input type="image" src="<?php echo constant('URL'); ?>assets/img/alta.png"  value="Nuevo">
-                            </form>
+                            <td>
+                                <form action="<?php echo constant('URL'); ?>candidato/alta" method="POST">
+                                    <input type="hidden" name="nombre" value="<?php echo $candidato->nombre; ?>">
+                                    <input type="hidden" name="id_candidato"
+                                        value="<?php echo $candidato->id_candidato; ?>">
+                                    <input type="hidden" name="fecha_nacimiento"
+                                        value="<?php echo $candidato->fecha_nacimiento; ?>">
+                                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/alta.png"
+                                        value="Nuevo">
+                                </form>
                             </td>
                         </tr>
                         <?php } ?>

@@ -1,72 +1,61 @@
 <?php
 require 'libraries/session.php';
 
-class Candidato extends Controller{
+class Taller extends Controller{
     function __construct(){
         parent::__construct();
-        $this->view->candidato = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
     }
 
     function render(){
-        $this->view->render('candidato/nuevo');
+        $this->view->render('taller/nuevo');
     }
     function listar($param = null){
         $consulta  = "";
         $filtro="Activo";
+        $fecha="";
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
+            $filtro  = $_POST['radio_busqueda'];
+            $fecha  = $_POST['caja_fecha'];
         }
-        $candidato = $this->view->candidato = $this->model->getBusqueda($consulta,$filtro);
-        $this->view->candidato = $candidato;
+        $cursos = $this->view->datos = $this->model->getBusqueda($consulta,$filtro,$fecha);
+        $this->view->cursos = $cursos;
         $this->view->consulta = "Usted busco:". $consulta;
+        $this->view->radio = $filtro;
         if (isset($param[0])) {
-            // $this->view->idCurso = $param[0];
-            // $this->view->render('candidato/consulta');
             $this->view->idCurso = $param[0];
-            if (isset($param[2])) {
-                $_SESSION['nombreCurso']=$param[2];
-            }
-            $this->view->estado = "Activo";
-            $this->view->render('candidato/asignar');
+            $this->view->render('tallero/consulta');
         }else{
-            $this->view->render('candidato/consulta');
+            $this->view->render('taller/consulta');
         }
     }
 
-    function registrar(){
+    function crear(){
         $nombre    = $_POST['nombre'];
-        $fecha_solicitud  =  date("Y-m-d");;
-        $fecha_nacimiento  = $_POST['fecha_nacimiento'];
-        $telefono  = $_POST['telefono'];
+        $descripcion  = $_POST['descripcion'];
+        $responsable  = $_POST['responsable'];
+        $fecha  = $_POST['fecha'];
+        $hora  = $_POST['hora'];
         $estatus  = $_POST['estatus'];
 
-        if($this->model->insert(['nombre' => $nombre    , 'fecha_nacimiento' => $fecha_nacimiento,
-                                 'fecha_solicitud' => $fecha_solicitud, 'telefono' => $telefono, 'estatus' => $estatus])){
-            $this->view->mensaje = "Candidato registrado";
+        if($this->model->insert(['nombre' => $nombre, 'descripcion' => $descripcion,
+                                 'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
+            $this->view->mensaje = "Curso creado correctamente";
             $this->view->code = "success";
             $this->listar();
         }else{
             $this->view->mensaje = "No se pudo registrar";
             $this->view->code = "error";
-            $this->view->render('candidato/nuevo');
+            $this->view->render('taller/nuevo');
         }
-    }
-    function alta(){
-        // echo $nombre=$_POST['nombre'];
-        // echo $fecha_nacimiento=$_POST['fecha_nacimiento'];
-        $this->view->nombre = $_POST['nombre'];
-        $this->view->id_candidato = $_POST['id_candidato'];
-        $this->view->fecha_nacimiento = $_POST['fecha_nacimiento'];
-        // $this->render();
-        $this->view->render('candidato/alta');
     }
     function verCurso($param = null){
         $idCurso = $param[0];
         $curso = $this->model->getById($idCurso);
         $this->view->curso = $curso;
-        $this->view->render('curso/detalle');
+        $this->view->render('taller/detalle');
     }
 
     function actualizarCurso($param = null){
@@ -87,13 +76,13 @@ class Candidato extends Controller{
         $this->listar();
     }
 
-    function eliminar($param = null){
+    function eliminarCurso($param = null){
         $id = $param[0];
-        $estatus="Baja";
+        $estatus = $param[1];
         if($this->model->delete($id,$estatus)){
-            $mensaje ="Candidato eliminado correctamente";
+            $mensaje ="Curso eliminado correctamente";
         }else{
-            $mensaje = "No se pudo eliminar al candidato";
+            $mensaje = "No se pudo eliminar al curso";
         }
         $this->listar();
     }
