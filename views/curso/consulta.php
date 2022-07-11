@@ -38,11 +38,11 @@
             <p>
                 <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
                 <input type="date" name="caja_fecha" id="caja_fecha" autofocus>
-                <input type="submit" value="🔍Buscar">
+                <input type="submit" class="btn-options-info" value="🔍Buscar">
             </p>
         </form>
         <form action="<?php echo constant('URL'); ?>curso" method="POST">
-            <input type="submit" value="Nuevo">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/plus.png" value="Nuevo">
         </form>
         <div id="div2">
         <table id="tabla">

@@ -42,7 +42,7 @@
             </p>
         </form>
         <form action="<?php echo constant('URL'); ?>taller" method="POST">
-            <input type="submit" value="Nuevo">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/plus.png" value="Nuevo">
         </form>
         <div id="div2">
         <table id="tabla">

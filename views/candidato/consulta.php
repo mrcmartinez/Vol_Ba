@@ -18,11 +18,11 @@
             <form action="<?php echo constant('URL'); ?>candidato/listar" method="POST">
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" value="🔍Buscar">
+                    <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
             <form action="<?php echo constant('URL'); ?>candidato" method="POST">
-                <input type="submit" value="Nuevo">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" value="Nuevo">
             </form>
             <div id="div2">
                 <table id="tabla">
