@@ -15,13 +15,13 @@
 
     <div id="main">
         <div class="center-form">
-        <h1 class="center">Cursos</h1>
+        <h1 class="center">Curso/Taller</h1>
         <div class="center">
             <form  action="<?php echo constant('URL'); ?>curso/listar" method="post">
-            <input type="submit" value="Voluntariado">
+            <input type="submit" class="btn-options-check" value="Voluntariado">
             </form>
             <form action="<?php echo constant('URL'); ?>taller/listar" method="post">
-                <input type="submit" value="Candidatos">
+                <input type="submit" class="btn-options" value="Candidatos">
             </form>
         </div>
         <form action="<?php echo constant('URL'); ?>curso/listar" method="POST">

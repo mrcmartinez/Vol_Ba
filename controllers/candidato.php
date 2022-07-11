@@ -20,7 +20,7 @@ class Candidato extends Controller{
         }
         $candidato = $this->view->candidato = $this->model->getBusqueda($consulta,$filtro);
         $this->view->candidato = $candidato;
-        $this->view->consulta = "Usted busco:". $consulta;
+        $this->view->consulta = $consulta;
         if (isset($param[0])) {
             // $this->view->idCurso = $param[0];
             // $this->view->render('candidato/consulta');

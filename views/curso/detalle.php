@@ -12,6 +12,7 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
+        <div class="center-form">
         <h1 class="center">Actualizar curso<?php echo $this->curso->id; ?></h1>
 
         <form action="<?php echo constant('URL'); ?>curso/actualizarCurso/" method="POST">
@@ -31,6 +32,7 @@
             <input type="text" name="estatus" value="<?php echo $this->curso->estatus; ?>"><br>
             <input type="submit" value="actualizar curso">
         </form>
+        </div>
     </div>
 
     <?php require 'views/footer.php'; ?>

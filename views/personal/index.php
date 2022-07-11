@@ -21,20 +21,18 @@
                     <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                         <?php switch($this->radio){
                     case "Activo":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()" checked>Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato" onchange="this.form.submit()">Candidato';
+                        echo '<input type="submit" class="btn-options-check" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
+                        <input type="submit" class="btn-options" name="radio_busqueda" value="Baja" onchange="this.form.submit()">';
                         break;
                     case "Baja":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja"checked onchange="this.form.submit()">Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato" onchange="this.form.submit()">Candidato';
+                        echo '<input type="submit" class="btn-options" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
+                        <input type="submit" class="btn-options-check-Red" name="radio_busqueda" value="Baja" onchange="this.form.submit()">';
                         break;
-                    case "Candidato":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
-                        <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
-                        <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
-                        break;
+                    // case "Candidato":
+                    //     echo '<input type="radio" id="" name="radio_busqueda" value="Activo" onchange="this.form.submit()">Activo
+                    //     <input type="radio" id="" name="radio_busqueda" value="Baja" onchange="this.form.submit()">Baja
+                    //     <input type="radio" id="" name="radio_busqueda" value="Candidato"checked onchange="this.form.submit()">Candidato';
+                    //     break;
                 }?>
 
                         <div class="alinear">

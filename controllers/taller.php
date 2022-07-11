@@ -22,7 +22,7 @@ class Taller extends Controller{
         }
         $cursos = $this->view->datos = $this->model->getBusqueda($consulta,$filtro,$fecha);
         $this->view->cursos = $cursos;
-        $this->view->consulta = "Usted busco:". $consulta;
+        $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];

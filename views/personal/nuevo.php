@@ -114,7 +114,7 @@
                     <label for="estatus">Estatus</label>
                     <select class="form-select" id="estatus" name="estatus">
                         <option value="Activo">Activo</option>
-                        <option value="Candidato">Candidato</option>
+                        <!-- <option value="Candidato">Candidato</option> -->
                     </select>
                 </div>
 
