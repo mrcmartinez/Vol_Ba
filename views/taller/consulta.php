@@ -53,8 +53,8 @@
                     <th>Descripción</th>
                     <th>Responsable</th>
                     <th>Fecha</th>
-                    
                     <th>Estatus</th>
+                    <th></th>
                     <th></th>
                     
                 </tr>
@@ -74,6 +74,7 @@
                     <td><?php echo $curso->descripcion; ?></td>
                     <td><?php echo $curso->responsable; ?></td>
                     <td><?php echo $curso->fecha; ?></td>
+                    <td><?php echo $curso->hora; ?></td>
                     
                     <td><?php echo $curso->estatus; ?></td>
                     <td><a href="<?php echo constant('URL') . 'participaciones/verCapacitacionId/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img

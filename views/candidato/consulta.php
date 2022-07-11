@@ -34,7 +34,7 @@
                             <th>Fecha solicitud</th>
                             <th>Telefono</th>
                             <th></th>
-
+                            <th></th>
                         </tr>
                     </thead>
 

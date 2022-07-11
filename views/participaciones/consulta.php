@@ -25,7 +25,7 @@
                     <table width="100%" id="tabla">
                         <thead>
                             <tr>
-                                <th>ID_personal</th>
+                                <th>ID_candidato</th>
                                 <th>Nombre</th>
                                 <th>estatus</th>
                                 <th></th>
@@ -42,16 +42,16 @@
                 $capacitacion = $row;
         ?>
                             <tr id="fila-<?php echo $capacitacion->id_curso; ?>">
-                                <td><?php echo $capacitacion->id_personal; ?></td>
+                                <td><?php echo $capacitacion->id_candidato; ?></td>
                                 <td><?php echo $capacitacion->nombre; ?></td>
                                 <td><?php echo $capacitacion->estatus; ?></td>
 
                                 <?php if ($capacitacion->estatus=="Pendiente" ) { ?>
-                                <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>"
+                                <td><input type="checkbox" value="<?php echo $capacitacion->id_candidato; ?>"
                                         name="personal[]" onclick=""></td>
                                 <?php }else{
                              ?>
-                                <td><input type="checkbox" value="<?php echo $capacitacion->id_personal; ?>" name=""
+                                <td><input type="checkbox" value="<?php echo $capacitacion->id_candidato; ?>" name=""
                                         checked disabled onclick=""></td>
                                 <?php
                         } ?>

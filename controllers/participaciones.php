@@ -10,13 +10,13 @@ class Participaciones extends Controller{
         $estatus="Completo";
         $_SESSION['nombreCurso']=$_POST['nombreCurso'];
         if (empty($_POST['personal'])) {
-            $this->view->mensaje = "no se ha seleccionadao nada";
+            $this->view->mensaje = "no se ha seleccionado nada";
             $this->view->code = "error";
         }else{
-        foreach ($_POST['personal'] as $id_personal) {
-            $this->model->update(['id_curso' => $id_curso, 'id_personal' => $id_personal,'estatus' => $estatus]);
+        foreach ($_POST['personal'] as $id_candidato) {
+            $this->model->update(['id_curso' => $id_curso, 'id_candidato' => $id_candidato,'estatus' => $estatus]);
           }
-        $this->view->mensaje = "Capacitacion registrada";
+        $this->view->mensaje = "Participacion registrada";
         $this->view->code = "success";
         }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
@@ -31,16 +31,16 @@ class Participaciones extends Controller{
         $nombreCurso=$_POST['nombreCurso'];
         
         if (empty($_POST['personal'])) {
-            $this->view->mensaje = "No se ha seleccionado personal";
+            $this->view->mensaje = "No se ha ningun candidato";
             $this->view->code = "error";
 
         }else{
-        foreach ($_POST['personal'] as $id_personal) {
-            $this->model->insert(['id_curso' => $id_curso, 'id_personal' => $id_personal,
+        foreach ($_POST['personal'] as $id_candidato) {
+            $this->model->insert(['id_curso' => $id_curso, 'id_candidato' => $id_candidato,
                                   'estatus' => $estatus]);
         
           }
-            $this->view->mensaje = "Personal asignado";
+            $this->view->mensaje = "Candidato asignado";
             $this->view->code = "success";
         }
         $capacitacion = $this->view->datos = $this->model->getById($id_curso);
