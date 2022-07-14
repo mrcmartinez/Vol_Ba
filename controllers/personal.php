@@ -297,11 +297,11 @@ class Personal extends Controller{
         }
         $identificador=$this->model->consultarIden($id_personal);
         $nombre=$this->model->consultarId($id_personal);
-        $file = "qr".$id_personal.".png";
+        $file = "QR/qr".$id_personal.".png";
         $content = $id_personal.",".$nombre.",".$identificador;
         $ecc = 'H';
-        $pixel_size = 1.5;
-        $frame_size = 1.5;
+        $pixel_size = 3;
+        $frame_size = 3;
          QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
          $img=constant('URL').$file;
          echo "<div><img src='".$img."'></div>";

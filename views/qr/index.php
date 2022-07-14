@@ -58,6 +58,10 @@
                     <input type="date" name="fecha_modificacion" value="<?php echo $this->qr->fecha_modificacion; ?>"
                         disabled>
                 </p>
+                <p>
+                <input type="text" value="<?php echo $this->qr->identificador; ?>"
+                        disabled>
+                </p>
                 <form action="<?php echo constant('URL'); ?>qr/actualizar/<?php echo $this->id?>" method="POST">
                     <input type="hidden" name="nombreVol" value="<?php echo $_SESSION['nombreVol'];?>">
                     <input class="btn-option" type="submit" value="Actualizar" onclick="return confirmBaja()">
