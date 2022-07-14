@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
@@ -15,19 +16,19 @@
         <div class="center-form">
             <h1 class="center">Lista Asistencia <?php echo $this->fecha; ?></h1>
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-                <input type="submit" value="Regresar">
+                <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generar" method="POST">
-                <input type="submit" value="Actualizar">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/refresh.png">
             </form>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
                 <input type="hidden" name="listaApoyo">
-                <input type="submit" value="Agregar">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
             </form>
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
                 <div id="div2">
-                    <table width="100%">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>

@@ -55,7 +55,7 @@
                     <th>Fecha</th>
                     <th>Hora</th>
                     <th>Estatus</th>
-                    <th></th>
+                    <th>Acciones</th>
                     <th></th>
                     
                 </tr>

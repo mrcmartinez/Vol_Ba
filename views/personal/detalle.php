@@ -102,17 +102,16 @@
 
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
-                    <select class="form-select" id="actividad" name="actividad">
-                        <option value="<?php echo $this->personal->actividad; ?>">
-                            ✔<?php echo $this->personal->actividad; ?></option>
-                        <option value="Panaderia">Panaderia</option>
-                        <option value="Comedor">Comedor</option>
-                        <option value="Aseo">Aseo</option>
-                        <option value="Administrativo">Administrativo</option>
-                        <option value="Armado">Armado</option>
-                        <option value="Extra">Extra</option>
-                        <option value="Barrio">f.s Barrio</option>
-                    </select>
+                    <input class="form-control" list="act" name="actividad" id="actividad"
+                        value="<?php echo $this->personal->actividad; ?>" required>
+                    <datalist id="act">
+                        <option value="Panaderia">
+                        <option value="Comedor">
+                        <option value="Aseo">
+                        <option value="Armado">
+                        <option value="Act. varias">
+                        <option value="F.s Barrio">
+                    </datalist>
                 </div>
 
                 <div class="col-md-3">

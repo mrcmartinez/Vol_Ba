@@ -38,7 +38,7 @@
             <p>
                 <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
                 <input type="date" name="caja_fecha" id="caja_fecha" autofocus>
-                <input type="submit" value="🔍Buscar">
+                <input type="submit" class="btn-options-info" value="🔍Buscar">
             </p>
         </form>
         <form action="<?php echo constant('URL'); ?>taller" method="POST">
@@ -53,8 +53,9 @@
                     <th>Descripción</th>
                     <th>Responsable</th>
                     <th>Fecha</th>
+                    <th>Hora</th>
                     <th>Estatus</th>
-                    <th></th>
+                    <th>Acciones</th>
                     <th></th>
                     
                 </tr>
