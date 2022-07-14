@@ -19,7 +19,7 @@
                 <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generar" method="POST">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/refresh.png">
+                <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png">
             </form>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
                 <input type="hidden" name="listaApoyo">
@@ -31,13 +31,12 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Actividad</th>
                                 <th>hora</th>
                                 <th></th>
-
-
                             </tr>
                         </thead>
                         <tbody id="tbody-asistencia">
@@ -48,6 +47,9 @@
                         $asistencia = $row; 
                 ?>
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
+                            <td><a
+                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal; ?>" onclick="return confirmBaja()">❌</a>
+                        </td>
                                 <td><?php echo $asistencia->id_personal; ?></td>
                                 <td><?php echo $asistencia->nombre; ?></td>
 
@@ -74,14 +76,14 @@
                     </table>
                 </div>
                 <input type="hidden" name="estatus" value="Asistencia">
-                <input type="submit" name="seleccion" value="Validar" />
+                <input type="submit" name="seleccion" class="btn btn-dark" value="Validar" />
             </form>
         </div>
     </div>
 
     <?php require 'views/footer.php'; ?>
 
-    <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
     <?php
         if (!empty($this->mensaje)) 
         {

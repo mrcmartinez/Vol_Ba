@@ -181,6 +181,20 @@ class ConsultaAsistencia extends Controller{
         $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
+        function eliminar($param = null){
+            $id_personal = $param[0];
+            $fecha=date('Y-m-d');
+    
+            if($this->model->delete($id_personal,$fecha)){
+                $mensaje = "voluntariado eliminado en lista";
+                $this->view->code = "success";
+            }else{
+                $mensaje = "No se pudo eliminar voluntariado de lista";
+                $this->view->code = "error";
+            }
+            $this->view->mensaje = $mensaje;
+            $this->paseLista();
+        }
 }
 
 ?>

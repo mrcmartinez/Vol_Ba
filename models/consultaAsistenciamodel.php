@@ -135,5 +135,17 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }    
     }
+    public function delete($id,$fecha){
+        $query = $this->db->connect()->prepare("DELETE FROM asistencia WHERE id_personal = :id_personal AND fecha = :fecha");
+        try{
+            $query->execute([
+                'id_personal'=> $id,
+                'fecha'=> $fecha
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 }
 ?>
