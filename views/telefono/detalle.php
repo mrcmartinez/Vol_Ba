@@ -28,12 +28,12 @@
 
             <p>
                 <label for="lada">lada</label><br>
-                <input type="tel" name="lada" value="<?php echo $this->telefono->lada; ?>" pattern="[0-9]{3}" required>
+                <input type="tel" name="lada" value="<?php echo $this->telefono->lada; ?>" pattern="[0-9]{3}" title="3 digitos" required>
                 
             </p>
             <p>
                 <label for="numero">número</label><br>
-                <input type="tel" name="numero" value="<?php echo $this->telefono->numero; ?>" pattern="[0-9]{7}" required>
+                <input type="tel" name="numero" value="<?php echo $this->telefono->numero; ?>" pattern="[0-9]{7}" title="7 digitos" required>
             </p>
 
             <p>

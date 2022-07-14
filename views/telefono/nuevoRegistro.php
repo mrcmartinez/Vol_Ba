@@ -28,11 +28,11 @@
 
                 <p>
                     <label for="lada">Lada</label><br>
-                    <input type="tel" name="lada" id="" pattern="[0-9]{3}" required>
+                    <input type="tel" name="lada" id="" pattern="[0-9]{3}" title="3 digitos" required>
                 </p>
                 <p>
                     <label for="numero">Número</label><br>
-                    <input type="tel" name="numero" id="" pattern="[0-9]{7}" required>
+                    <input type="tel" name="numero" id="" pattern="[0-9]{7}" title="7 digitos" required>
                 </p>
                 <p>
                     <label for="tipo">Tipo</label><br>

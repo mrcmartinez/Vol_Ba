@@ -32,11 +32,11 @@
 
                 <div class="col-md-1">
                     <label for="lada_1">Lada</label><br>
-                    <input class="form-control" type="tel" name="lada_1" id="" pattern="[0-9]{3}">
+                    <input class="form-control" type="tel" name="lada_1" id="" pattern="[0-9]{3}" title="3 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="numero_1">Número</label><br>
-                    <input class="form-control" type="tel" name="numero_1" id="" pattern="[0-9]{7}">
+                    <input class="form-control" type="tel" name="numero_1" id="" pattern="[0-9]{7}" title="7 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_1">Tipo</label><br>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="col-md-1">
                     <label for="lada_2">Lada</label><br>
-                    <input class="form-control" type="tel" name="lada_2" id="" pattern="[0-9]{3}">
+                    <input class="form-control" type="tel" name="lada_2" id="" pattern="[0-9]{3}" title="3 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="numero_2">Número</label><br>
-                    <input class="form-control" type="tel" name="numero_2" id="" pattern="[0-9]{7}">
+                    <input class="form-control" type="tel" name="numero_2" id="" pattern="[0-9]{7}" title="7 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_2">Tipo</label><br>
@@ -63,11 +63,11 @@
 
                 <div class="col-md-1">
                     <label for="lada_3">Lada</label><br>
-                    <input class="form-control" type="tel" name="lada_3" id="" pattern="[0-9]{3}">
+                    <input class="form-control" type="tel" name="lada_3" id="" pattern="[0-9]{3}" title="3 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="numero_3">Número</label><br>
-                    <input class="form-control" type="tel" name="numero_3" id="" pattern="[0-9]{7}">
+                    <input class="form-control" type="tel" name="numero_3" id="" pattern="[0-9]{7}" title="7 digitos">
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_3">Tipo</label><br>

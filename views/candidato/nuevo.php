@@ -32,7 +32,7 @@
                 <div class="col-md-6">
                     <label for="telefono">Telefono</label>
                     <input class="form-control" type="tel"
-                        name="telefono" id="" required>
+                        name="telefono" id="" pattern="[0-9]{10}" title="10 digitos" required>
                 </div>
                 
                 <div class="col-md-6">

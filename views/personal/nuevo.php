@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="numero_exterior">Número exterior</label>
-                    <input class="form-control" type="text" name="numero_exterior" id="">
+                    <input class="form-control" type="tel" name="numero_exterior" id="" pattern="[0-9]+[a-z]{0,1}" title="ej. 103 0 103a">
                 </div>
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
@@ -79,10 +79,15 @@
                 <div class="col-md-4">
                     <label for="escolaridad">Escolaridad</label>
                     <select class="form-select" id="escolaridad" name="escolaridad">
-                        <option value="casada">Primaria</option>
-                        <option value="soltera">Secundaria</option>
-                        <option value="viuda">Preparatoria</option>
-                        <option value="concubinato">Licenciatura</option>
+                        <option value="Primaria">Primaria</option>
+                        <option value="Primaria-trunca">Primaria-trunca</option>
+                        <option value="Secundaria">Secundaria</option>
+                        <option value="Secundaria-trunca">Secundaria-trunca</option>
+                        <option value="Preparatoria">Preparatoria</option>
+                        <option value="Preparatoria-trunca">Preparatoria-trunca</option>
+                        <option value="Licenciatura">Licenciatura</option>
+                        <option value="Licenciatura-trunca">Licenciatura-trunca</option>
+                        <option value="Ninguna">Ninguna</option>
                     </select>
                 </div>
 
@@ -100,15 +105,15 @@
 
                 <div class="col-md-3">
                     <label for="actividad">Actividad</label>
-                    <select class="form-select" id="actividad" name="actividad">
-                        <option value="Panaderia">Panaderia</option>
-                        <option value="Comedor">Comedor</option>
-                        <option value="Aseo">Aseo</option>
-                        <option value="Administrativo">Administrativo</option>
-                        <option value="Armado">Armado</option>
-                        <option value="Extra">Extra</option>
-                        <option value="Barrio">f.s Barrio</option>
-                    </select>
+                    <input class="form-control" list="act" name="actividad" id="actividad" required>
+                    <datalist id="act">
+                        <option value="Panaderia">
+                        <option value="Comedor">
+                        <option value="Aseo">
+                        <option value="Armado">
+                        <option value="Act. varias">
+                        <option value="F.s Barrio">
+                    </datalist>
                 </div>
                 <div class="col-md-2">
                     <label for="estatus">Estatus</label>
