@@ -43,7 +43,7 @@ class Personal extends Controller{
             if (isset($_POST['id_candidato'])) {
                 $this->eliminarCandidato($_POST['id_candidato']);
             }
-            $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_paterno.' '.$nombre;
+            $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_materno.' '.$nombre;
             // include_once 'controllers/qr.php';
             // $codeQr = new Qr();
             $this->registrarQr($consulta[1]);
@@ -61,10 +61,10 @@ class Personal extends Controller{
     function listarPersonal($param = null){
         $consulta  = "";
         $filtro="Activo";
-        if (isset($_POST['caja_busqueda'])) {
+        if (isset($_POST['caja_busqueda']))
             $consulta  = $_POST['caja_busqueda'];
-            $filtro  = $_POST['radio_busqueda'];
-        }
+        if (isset($_POST['radio_busqueda']))
+            "radio busueda: ".$filtro  = $_POST['radio_busqueda'];   
         $personal = $this->model->getBusqueda($consulta,$filtro);
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
