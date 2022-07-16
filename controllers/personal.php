@@ -235,7 +235,7 @@ class Personal extends Controller{
     $filtro  = $_POST['radio_busqueda'];
     $pdf = new FPDF();
     $pdf->AddPage();
-    $pdf->SetFont('Arial','B',12);
+    $pdf->SetFont('Arial','B',11);
     $pdf->Cell(0,10,date('Y-m-d'),0,1,'R');
     $pdf->Image('assets/img/logo (3).png',10,8,33);
     $pdf->SetFont('Arial','B',24);
@@ -246,7 +246,7 @@ class Personal extends Controller{
     // $pdf->SetFillColor(200,220,255);
     $pdf->Cell(30,10,'Voluntariado',0,0,'C');
     $pdf->SetTextColor(0);
-    $pdf->Ln(30);
+    $pdf->Ln(15);
     $pdf->SetFont('Arial','B',11);
     $pdf->SetFillColor(250,150,100);
     $pdf->Cell(10,10,'ID',1,0,'c',1);
@@ -256,33 +256,33 @@ class Personal extends Controller{
     // $pdf->Cell(22,10,'TURNO',1,0,'c',1);
     $pdf->Cell(25,10,'ACTIVIDAD',1,0,'c',1);
     // $pdf->Cell(22,10,'ESTATUS',1,0,'c',1);
-    $pdf->Cell(25,10,'Asistio',1,0,'c',1);
-    $pdf->Cell(25,10,'Costo',1,0,'c',1);
-    $pdf->Cell(30,10,'Mandil',1,1,'c',1);
+    $pdf->Cell(15,10,'Asistio',1,0,'c',1);
+    $pdf->Cell(15,10,'Mandil',1,0,'c',1);
+    $pdf->Cell(50,10,'Costo',1,1,'c',1);
     $pdf->SetFont('Arial','',11);
     foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
-        $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
+        $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
-        $pdf->Cell(75,10,utf8_decode($r->apellido_paterno.' '.$r->apellido_materno.' '.$r->nombre),1,0,'c',0);
+        $pdf->Cell(75,7,utf8_decode($r->apellido_paterno.' '.$r->apellido_materno.' '.$r->nombre),1,0,'c',0);
         // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
         // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
-        $pdf->Cell(25,10,$r->actividad,1,0,'c',0);
-        $pdf->Cell(25,10,"",1,0,'c',0);
-        $pdf->Cell(25,10,"",1,0,'c',0);
+        $pdf->Cell(25,7,$r->actividad,1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
         // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
-        $pdf->Cell(30,10,'',1,1,'c',0);
+        $pdf->Cell(50,7,'',1,1,'c',0);
     }
     for ($i=0; $i < 8; $i++) { 
-        $pdf->Cell(10,10,'',1,0,'c',0);
+        $pdf->Cell(10,7,'',1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
-        $pdf->Cell(75,10,' ',1,0,'c',0);
+        $pdf->Cell(75,7,' ',1,0,'c',0);
         // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
         // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
-        $pdf->Cell(25,10,'',1,0,'c',0);
-        $pdf->Cell(25,10,"",1,0,'c',0);
-        $pdf->Cell(25,10,"",1,0,'c',0);
+        $pdf->Cell(25,7,'',1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
         // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
-        $pdf->Cell(30,10,'',1,1,'c',0);
+        $pdf->Cell(50,7,'',1,1,'c',0);
     }
     // $pdf->Output();
     $pdf->Output("Voluntariado".time().".pdf", "D");
@@ -304,7 +304,7 @@ class Personal extends Controller{
         $frame_size = 3;
          QRcode::png($content, $file, $ecc, $pixel_size, $frame_size);
          $img=constant('URL').$file;
-         echo "<div><img src='".$img."'></div>";
+         echo "<h2>VolBaL<h2><div><img src='".$img."'></div><h6><small>$id_personal-$nombre</small><h6>";
     }
     function registrarQr($id){
         $id_personal = $id;
