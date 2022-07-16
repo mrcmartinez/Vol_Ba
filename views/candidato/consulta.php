@@ -28,6 +28,7 @@
                 <table id="tabla">
                     <thead>
                         <tr>
+                            <th>N°</th>
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Edad</th>
@@ -40,13 +41,14 @@
 
                     <tbody id="tbody-alumnos">
 
-                        <?php
+                        <?php $i=1;
             include_once 'models/candidatos.php';
             foreach ($this->candidato as $row) {
                 $candidato = new Candidatos();
                 $candidato = $row;
         ?>
                         <tr id="fila-<?php echo $candidato->id_candidato; ?>">
+                        <td><?php echo $i; $i++;?></td>
                             <td><?php echo $candidato->id_candidato; ?></td>
                             <td><?php echo $candidato->nombre; ?></td>
                             <td><?php echo edad($candidato->fecha_nacimiento); ?></td>

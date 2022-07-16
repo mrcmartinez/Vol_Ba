@@ -32,6 +32,7 @@
                         <thead>
                             <tr>
                                 <th></th>
+                                <th></th>
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Actividad</th>
@@ -40,13 +41,14 @@
                             </tr>
                         </thead>
                         <tbody id="tbody-asistencia">
-                            <?php
+                            <?php $i=1;
                     include_once 'models/asistencia.php';
                     foreach($this->asistencia as $row){
                         $asistencia = new Asistencia();
                         $asistencia = $row; 
                 ?>
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
+                            <td><?php echo $i; $i++;?></td>
                             <td><a
                                 href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal; ?>" onclick="return confirmBaja()">❌</a>
                         </td>

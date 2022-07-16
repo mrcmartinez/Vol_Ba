@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="apellido_materno">Apellido Materno</label>
-                    <input class="form-control" type="text" name="apellido_materno" id="" required>
+                    <input class="form-control" type="text" name="apellido_materno" id="">
                 </div>
 
                 <div class="col-md-6">
@@ -53,11 +53,13 @@
                 <div class="col-md-4">
                     <label for="estado_civil">Estado Civil</label>
                     <select class="form-select" id="estado_civil" name="estado_civil">
-                        <option value="casada">Casada</option>
-                        <option value="soltera">Soltera</option>
-                        <option value="viuda">Viuda</option>
-                        <option value="concubinato">Concubinato</option>
-                        <option value="union libre">Union Libre</option>
+                        <option value="Casada">Casada</option>
+                        <option value="Soltera">Soltera</option>
+                        <option value="Divorciada">Divorciada</option>
+                        <option value="Separada">Separada</option>
+                        <option value="Viuda">Viuda</option>
+                        <option value="Concubinato">Concubinato</option>
+                        <option value="Union libre">Union Libre</option>
                     </select>
                 </div>
                 <div class="col-md-2">
@@ -116,11 +118,12 @@
                     </datalist>
                 </div>
                 <div class="col-md-2">
-                    <label for="estatus">Estatus</label>
-                    <select class="form-select" id="estatus" name="estatus">
-                        <option value="Activo">Activo</option>
+                    <!-- <label for="estatus">Estatus</label> -->
+                    <input type="hidden" name="estatus" valiue="Activo">
+                    <!-- <select class="form-select" id="estatus" name="estatus"> -->
+                        <!-- <option value="Activo">Activo</option> -->
                         <!-- <option value="Candidato">Candidato</option> -->
-                    </select>
+                    <!-- </select> -->
                 </div>
 
                 <div class="col-md-4">

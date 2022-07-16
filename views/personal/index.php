@@ -63,6 +63,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Nª</th>
                             <th>ID</th>
                             <th>Nombre</th>
                             <th class="espaciado"></th>
@@ -79,14 +80,15 @@
                     <table class="table">
 
                         <tbody id="tbody-personal">
-                            <?php
+                            <?php $i=1;
                     include_once 'models/personalBanco.php';
                     foreach($this->personal as $row){
+                        
                         $personal = new PersonalBanco();
                         $personal = $row; 
                 ?>
                             <tr id="fila-<?php echo $personal->id_personal; ?>">
-
+                                <td><?php echo $i; $i++;?></td>
                                 <td><?php echo $personal->id_personal; ?></td>
                                 <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>
                                 </td>

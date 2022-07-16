@@ -71,6 +71,8 @@
                             ✔<?php echo $this->personal->estado_civil; ?></option>
                         <option value="Casada">Casada</option>
                         <option value="Soltera">Soltera</option>
+                        <option value="Divorciada">Divorciada</option>
+                        <option value="Separada">Separada</option>
                         <option value="Viuda">Viuda</option>
                         <option value="Concubinato">Concubinato</option>
                         <option value="Union libre">Union Libre</option>
@@ -98,7 +100,7 @@
                     <input class="form-control" type="text" name="escolaridad"
                         value="<?php echo $this->personal->escolaridad; ?>" required>
                 </div>
-                <input class="form-control" type="hidden" name="turno" value="<?php echo $this->personal->turno; ?>">
+                
 
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
@@ -114,8 +116,18 @@
                     </datalist>
                 </div>
 
-                <div class="col-md-3">
-
+                <div class="col-md-4">
+                <label for="turno">Dia</label>
+                <select class="form-select" id="turno" name="turno">
+                        <option value="<?php echo $this->personal->turno; ?>">
+                            ✔<?php echo $this->personal->turno; ?></option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                    </select>
                     <input class="form-control" type="hidden" name="estatus"
                         value="<?php echo $this->personal->estatus; ?>">
                 </div>
