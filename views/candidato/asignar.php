@@ -53,7 +53,7 @@
                             <tr id="fila-<?php echo $candidato->id_candidato; ?>">
                                 <td><?php echo $candidato->id_candidato; ?></td>
                                 <td><?php echo $candidato->nombre; ?></td>
-                                <td><?php echo edad($candidato->fecha_nacimiento); ?></td>
+                                <td><?php echo $candidato->edad; ?></td>
                                 <td><?php echo $candidato->fecha_solicitud; ?></td>
                                 <td><?php echo $candidato->telefono; ?></td>
                                 <td><input type="checkbox" value="<?php echo $candidato->id_candidato; ?>"

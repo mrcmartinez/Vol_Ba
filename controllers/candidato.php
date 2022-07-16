@@ -38,11 +38,11 @@ class Candidato extends Controller{
     function registrar(){
         $nombre    = $_POST['nombre'];
         $fecha_solicitud  =  date("Y-m-d");;
-        $fecha_nacimiento  = $_POST['fecha_nacimiento'];
+        $edad  = $_POST['edad'];
         $telefono  = $_POST['telefono'];
         $estatus  = $_POST['estatus'];
 
-        if($this->model->insert(['nombre' => $nombre    , 'fecha_nacimiento' => $fecha_nacimiento,
+        if($this->model->insert(['nombre' => $nombre    , 'edad' => $edad,
                                  'fecha_solicitud' => $fecha_solicitud, 'telefono' => $telefono, 'estatus' => $estatus])){
             $this->view->mensaje = "Candidato registrado";
             $this->view->code = "success";
@@ -58,33 +58,9 @@ class Candidato extends Controller{
         // echo $fecha_nacimiento=$_POST['fecha_nacimiento'];
         $this->view->nombre = $_POST['nombre'];
         $this->view->id_candidato = $_POST['id_candidato'];
-        $this->view->fecha_nacimiento = $_POST['fecha_nacimiento'];
+        // $this->view->fecha_nacimiento = $_POST['fecha_nacimiento'];
         // $this->render();
         $this->view->render('candidato/alta');
-    }
-    function verCurso($param = null){
-        $idCurso = $param[0];
-        $curso = $this->model->getById($idCurso);
-        $this->view->curso = $curso;
-        $this->view->render('curso/detalle');
-    }
-
-    function actualizarCurso($param = null){
-        $id = $_POST['id'];
-        $nombre    = $_POST['nombre'];
-        $descripcion  = $_POST['descripcion'];
-        $responsable  = $_POST['responsable'];
-        $fecha  = $_POST['fecha'];
-        $hora  = $_POST['hora'];
-        $estatus  = $_POST['estatus'];
-
-        if($this->model->update(['id' => $id, 'nombre' => $nombre, 'descripcion' => $descripcion,
-                                'responsable' => $responsable, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
-            $this->view->mensaje = "Curso actualizado correctamente";
-        }else{
-            $this->view->mensaje = "No se pudo actualizar al curso";
-        }
-        $this->listar();
     }
 
     function eliminar($param = null){

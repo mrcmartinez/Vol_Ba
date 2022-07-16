@@ -25,14 +25,14 @@
                     <input class="form-control" type="text" name="nombre" id="" required autofocus>
                 </div>
                 <div class="col-md-6">
-                    <label for="fecha_nacimiento">Fecha Nacimiento</label>
-                    <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>"
-                        name="fecha_nacimiento" id="" required>
+                    <label for="edad">Edad</label>
+                    <input class="form-control" type="number" min="18" max="55"
+                        name="edad" id="" required>
                 </div>
                 <div class="col-md-6">
                     <label for="telefono">Telefono</label>
                     <input class="form-control" type="tel"
-                        name="telefono" id="" pattern="[0-9]{10}" title="10 digitos" required>
+                        name="telefono" id="" pattern="[0-9]{10}" title="10 digitos sin espacio ni guion" required>
                 </div>
                 
                 <div class="col-md-6">

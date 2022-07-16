@@ -37,14 +37,15 @@
                     <label for="calle">Calle</label>
                     <input class="form-control" type="text" name="calle" id="" required>
                 </div>
-                <div class="col-md-4">
-                    <label for="colonia">Colonia</label>
-                    <input class="form-control" type="text" name="colonia" id="" required>
-                </div>
                 <div class="col-md-2">
                     <label for="numero_exterior">Número exterior</label>
                     <input class="form-control" type="tel" name="numero_exterior" id="" pattern="[0-9]+[a-z]{0,1}" title="ej. 103 0 103a">
                 </div>
+                <div class="col-md-4">
+                    <label for="colonia">Colonia</label>
+                    <input class="form-control" type="text" name="colonia" id="" required>
+                </div>
+
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
                     <input class="form-control" type="date" min="1900-01-01" max="<?php echo date("Y-m-d");?>"

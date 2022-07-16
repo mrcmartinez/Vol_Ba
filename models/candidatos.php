@@ -4,7 +4,7 @@ class Candidatos{
 
     public $id_candidato;
     public $nombre;
-    public $fecha_nacimiento;
+    public $edad;
     public $telefono;
     public $fecha_solicitud;
     public $estatus;

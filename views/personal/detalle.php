@@ -42,7 +42,7 @@
                 <div class="col-md-3">
                     <label for="apellido_materno">Apellido Materno</label>
                     <input class="form-control" type="text" name="apellido_materno"
-                        value="<?php echo $this->personal->apellido_materno; ?>" required>
+                        value="<?php echo $this->personal->apellido_materno; ?>">
                 </div>
                 <div class="col-md-6">
                     <label for="calle">Calle</label>
@@ -56,8 +56,9 @@
                 </div>
                 <div class="col-md-2">
                     <label for="numero_exterior">Número exterior</label>
-                    <input class="form-control" type="number" name="numero_exterior"
-                        value="<?php echo $this->personal->numero_exterior; ?>" required>
+                    <input class="form-control" type="tel" name="numero_exterior"
+                        value="<?php echo $this->personal->numero_exterior; ?>" pattern="[0-9]+[a-z]{0,1}"
+                        title="ej. 103 0 103a" required>
                 </div>
                 <div class="col-md-4">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label>
@@ -100,7 +101,7 @@
                     <input class="form-control" type="text" name="escolaridad"
                         value="<?php echo $this->personal->escolaridad; ?>" required>
                 </div>
-                
+
 
                 <div class="col-md-4">
                     <label for="actividad">Actividad</label>
@@ -117,8 +118,8 @@
                 </div>
 
                 <div class="col-md-4">
-                <label for="turno">Dia</label>
-                <select class="form-select" id="turno" name="turno">
+                    <label for="turno">Dia</label>
+                    <select class="form-select" id="turno" name="turno">
                         <option value="<?php echo $this->personal->turno; ?>">
                             ✔<?php echo $this->personal->turno; ?></option>
                         <option value="Lunes">Lunes</option>
