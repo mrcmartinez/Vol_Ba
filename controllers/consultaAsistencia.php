@@ -33,7 +33,13 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/reporte');
     }
     function paseLista(){
-        $fecha=date('Y-m-d');
+        echo $fecha=date('Y-m-d');
+        if (isset($_POST['fecha'])) {
+        echo $fecha=$_POST['fecha'];
+        }
+        $this->buscarLista($fecha);
+    }
+    function buscarLista($fecha){
         $asistencia = $this->model->getList($fecha);
         $this->view->asistencia = $asistencia;
         $this->view->fecha = $fecha;
@@ -68,7 +74,7 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/index');
     }
     function generar($param = null){
-     $fecha= date('Y-m-d');
+     $fecha= $_POST['fecha'];
     $dia = "";
     switch (date("l")) {
         case "Saturday":
@@ -90,18 +96,18 @@ class ConsultaAsistencia extends Controller{
           $dia = "Viernes";
         break;
     }
-        if($this->model->insertManual(['turno' => $dia, 'estatus' => 'Activo'])){
+        if($this->model->insertManual(['fecha' => $fecha,'turno' => $dia, 'estatus' => 'Activo'])){
             $this->view->mensaje = "Lista Actualizada";
             $this->view->code = "success";
         }else{
             $this->view->mensaje = "No se pudo activar Modo manual";
             $this->view->code = "error";
         }
-        $this->paseLista();
+        $this->buscarLista($fecha);
     }
     function agregarApoyo(){
             $id_personal=$_POST['personal'];
-            $fecha= date('Y-m-d');
+            $fecha= $_POST['fecha'];
             $hora=date("H:i:s");
             $estatus="Asistencia-Apoyo";
             if($this->model->insertApoyo(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
@@ -113,7 +119,8 @@ class ConsultaAsistencia extends Controller{
             }
             // $this->view->id = $id_personal;
             // $this->view->render('asistencia/lista');
-            $this->paseLista();
+            $this->buscarLista($fecha);
+            // $this->paseLista();
     }
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];

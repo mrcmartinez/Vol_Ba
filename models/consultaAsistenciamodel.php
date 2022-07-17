@@ -114,6 +114,7 @@ class ConsultaAsistenciaModel extends Model{
         try{
             $query->execute([
                 'turno' => $datos['turno'],
+                'fecha' => $datos['fecha'],
                 'estatus' => $datos['estatus']
             ]);
             return true;

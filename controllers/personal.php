@@ -97,6 +97,7 @@ class Personal extends Controller{
         $this->view->radio = $filtro;
         if (isset($_POST['listaApoyo'])) {
             //llamar vista para seleccionar apoyo
+            $this->view->fecha= $_POST['fecha'];
             $this->view->render('personal/seleccionarApoyo');
         }else{
             //llamar vista para seleccionar peticion

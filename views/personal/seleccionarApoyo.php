@@ -64,6 +64,7 @@
                         </tbody>
                     </table>
                 </div>
+                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>">
             </form>
         </div>
     </div>
