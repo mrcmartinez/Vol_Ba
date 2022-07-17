@@ -14,7 +14,7 @@
 
     <div id="main">
         <div class="center-form">
-            <h1 class="center">Lista Asistencia <?php echo $this->fecha; ?></h1>
+            <h1 class="center">Lista Asistencia <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); ?></h1>
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                 <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png">
             </form>
@@ -28,7 +28,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="POST">
-                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" onchange="this.form.submit()">
+                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()">
                 <!-- <input type="submit"> -->
             </form>
             <div id="respuesta" class="center"></div>
@@ -57,7 +57,7 @@
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                             <td><?php echo $i; $i++;?></td>
                             <td><a
-                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal; ?>" onclick="return confirmBaja()">❌</a>
+                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()">❌</a>
                         </td>
                                 <td><?php echo $asistencia->id_personal; ?></td>
                                 <td><?php echo $asistencia->nombre; ?></td>
@@ -85,6 +85,7 @@
                     </table>
                 </div>
                 <input type="hidden" name="estatus" value="Asistencia">
+                <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="submit" name="seleccion" class="btn btn-dark" value="Validar" />
             </form>
         </div>

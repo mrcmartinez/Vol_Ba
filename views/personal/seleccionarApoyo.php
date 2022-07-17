@@ -25,6 +25,7 @@
                         <input type="search" name="caja_busqueda" id="caja_busqueda"
                             value="<?php echo $this->consulta; ?>" autofocus>
                             <input type="hidden" name="listaApoyo">
+                            <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                         <input type="submit" value="🔍Buscar">
                     </p>
                 </form>
@@ -64,7 +65,7 @@
                         </tbody>
                     </table>
                 </div>
-                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
             </form>
         </div>
     </div>

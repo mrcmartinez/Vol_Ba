@@ -46,7 +46,7 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/lista');
     }
     function saludo(){
-            $fecha=date('Y-m-d');
+            $fecha=$_POST['fecha'];
             $hora=date("H:i:s");
             $estatus=$_POST['estatus'];
             if (empty($_POST['personal'])) {
@@ -118,7 +118,7 @@ class ConsultaAsistencia extends Controller{
                 $this->view->mensaje = "Lista Actualizada";
                 $this->view->code = "success";
             }else{
-                $this->view->mensaje = "No se pudo activar Modo manual";
+                $this->view->mensaje = "Lista ya esta actualizada";
                 $this->view->code = "error";
             }
             // echo $r['id_personal'];
@@ -212,7 +212,7 @@ class ConsultaAsistencia extends Controller{
         }
         function eliminar($param = null){
             $id_personal = $param[0];
-            $fecha=date('Y-m-d');
+            $fecha=$param[1];
     
             if($this->model->delete($id_personal,$fecha)){
                 $mensaje = "voluntariado eliminado en lista";
@@ -222,7 +222,7 @@ class ConsultaAsistencia extends Controller{
                 $this->view->code = "error";
             }
             $this->view->mensaje = $mensaje;
-            $this->paseLista();
+            $this->buscarLista($fecha);
         }
 }
 
