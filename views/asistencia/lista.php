@@ -18,7 +18,7 @@
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                 <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png">
             </form>
-            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generar" method="POST">
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/buscar" method="POST">
             <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png">
             </form>

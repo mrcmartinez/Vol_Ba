@@ -31,5 +31,28 @@
         $edadCalculada = $edad_diff->format('%y');
         return $edadCalculada;
     }
+    function diaSemana($fecha){
+        switch (date("l")) {
+            case "Saturday":
+               $dia = "Sabado";
+            break;
+            case "Monday":
+               $dia = "Lunes";
+            break;
+            case "Tuesday":
+              $dia = "Martes";
+            break;
+            case "Wednesday":
+              $dia = "Miercoles";
+            break;
+            case "Thursday":
+              $dia = "Jueves";
+            break;
+            case "Friday":
+              $dia = "Viernes";
+            break;
+        return $dia;
+        }
+    }
 
 ?>

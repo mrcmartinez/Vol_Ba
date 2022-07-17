@@ -105,6 +105,28 @@ class ConsultaAsistencia extends Controller{
         }
         $this->buscarLista($fecha);
     }
+    function buscar(){
+        $estatus="Activo";
+        $fecha= $_POST['fecha'];
+        // $dia = "";
+        $dias = array('Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
+        $dia = $dias[(date('N', strtotime($fecha))) - 1];
+        $asistencia=$this->model->buscar(['turno' => $dia,'estatus' => $estatus]);
+        // print_r($asistencia);
+        foreach ($asistencia as $r) {
+            if($this->model->buscarManual(['id_personal' => $r['id_personal'],'fecha' => $fecha])){
+                $this->view->mensaje = "Lista Actualizada";
+                $this->view->code = "success";
+            }else{
+                $this->view->mensaje = "No se pudo activar Modo manual";
+                $this->view->code = "error";
+            }
+            // echo $r['id_personal'];
+            // echo "</br>";
+            // $this->model->prueba($r['id_personal']);
+          }
+          $this->buscarLista($fecha);
+    }
     function agregarApoyo(){
             $id_personal=$_POST['personal'];
             $fecha= $_POST['fecha'];

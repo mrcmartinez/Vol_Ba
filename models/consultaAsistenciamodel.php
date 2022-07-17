@@ -109,6 +109,33 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }
     }
+    public function buscar($datos){
+        $items = [];
+            $query = $this->db->connect()->prepare("SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno");
+            try{
+            $query->execute([
+                'turno' => $datos['turno'],
+                'estatus' => $datos['estatus']
+                ]);
+            while($row = $query->fetch()){
+                // $item = new Asistencia();
+                $row['id_personal'];
+                // $item->nombre = $row['nombre'];
+                // $item->fecha = $row['fecha'];
+                // $item->hora = $row['hora'];
+                // $item->estatus = $row['estatus'];
+                array_push($items, $row);      
+            }
+            return $items;
+        }catch(PDOException $e){
+            return [];
+        }
+    }
+    function prueba($datos){
+        // print_r($datos);
+        echo $datos; 
+        echo "</br>";
+    }
     public function insertManual($datos){
         $query = $this->db->connect()->prepare('INSERT ignore into asistencia(id_personal) SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno');
         try{
@@ -116,6 +143,18 @@ class ConsultaAsistenciaModel extends Model{
                 'turno' => $datos['turno'],
                 'fecha' => $datos['fecha'],
                 'estatus' => $datos['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
+    public function buscarManual($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO ASISTENCIA (id_personal, fecha) VALUES(:id_personal, :fecha)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha' => $datos['fecha']
             ]);
             return true;
         }catch(PDOException $e){
