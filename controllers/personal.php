@@ -20,6 +20,10 @@ class Personal extends Controller{
     }
 
     function registrarPersonal(){
+        $id_personal=null;
+        if (!empty($_POST['id_personal'])) {
+            $id_personal=$_POST['id_personal'];
+        }
         $fecha_ingreso  = date("Y-m-d");
         $nombre    = $_POST['nombre'];
         $apellido_paterno  = $_POST['apellido_paterno'];
@@ -36,14 +40,23 @@ class Personal extends Controller{
         $actividad  = $_POST['actividad'];
         $estatus  = $_POST['estatus'];
         $mensaje = "";
-        $consulta = $this->model->insert(['nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
+        $consulta = $this->model->insert(['id_personal' => $id_personal,'nombre' => $nombre, 'apellido_paterno' => $apellido_paterno,
         'apellido_materno' => $apellido_materno,'calle' => $calle,
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
         'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
         'seguro_medico' => $seguro_medico,'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
+        
 
         if($consulta[0]){
+            if (!empty($_POST['id_personal'])) {
+                $mensaje = "Nuevo voluntariado creado";
+                $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_materno.' '.$nombre;
+                $this->registrarQr($id_personal);
+                $this->view->mensaje = $mensaje;
+                $this->view->ultimoId = $id_personal;
+                $this->view->render('telefono/nuevo');
+            }
             $mensaje = "Nuevo voluntariado creado";
             if (isset($_POST['id_candidato'])) {
                 $this->eliminarCandidato($_POST['id_candidato']);

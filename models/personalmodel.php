@@ -11,13 +11,13 @@ class PersonalModel extends Model{
     public function insert($datos){
         try{
             $conn=$this->db->connect();
-            $query = $conn->prepare('INSERT INTO PERSONAL (NOMBRE, APELLIDO_PATERNO,
+            $query = $conn->prepare('INSERT INTO PERSONAL (ID_PERSONAL,NOMBRE, APELLIDO_PATERNO,
                                                      APELLIDO_MATERNO,CALLE,COLONIA,NUMERO_EXTERIOR,
-                                                     FECHA_NACIMIENTO,ESTADO_CIVIL,NUMERO_HIJOS,SEGURO_MEDICO,ESCOLARIDAD,TURNO,ACTIVIDAD,FECHA_INGRESO,ESTATUS) VALUES(:nombre,
+                                                     FECHA_NACIMIENTO,ESTADO_CIVIL,NUMERO_HIJOS,SEGURO_MEDICO,ESCOLARIDAD,TURNO,ACTIVIDAD,FECHA_INGRESO,ESTATUS) VALUES(:id_personal,:nombre,
                                                       :apellido_paterno,:apellido_materno,:calle,:colonia,
                                                       :numero_exterior,:fecha_nacimiento,:estado_civil,
                                                       :numero_hijos,:seguro_medico,:escolaridad,:turno,:actividad,:fecha_ingreso,:estatus)');
-            $query->execute(['nombre' => $datos['nombre'], 'apellido_paterno' => $datos['apellido_paterno'],
+            $query->execute(['id_personal' => $datos['id_personal'],'nombre' => $datos['nombre'], 'apellido_paterno' => $datos['apellido_paterno'],
                             'apellido_materno' => $datos['apellido_materno'],'calle' => $datos['calle'],
                             'colonia' => $datos['colonia'],'numero_exterior' => $datos['numero_exterior'],
                             'fecha_nacimiento' => $datos['fecha_nacimiento'],

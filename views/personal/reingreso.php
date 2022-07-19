@@ -28,7 +28,7 @@
             
                 <div class="col-md-1">
                     <label for="ID">ID</label>
-                    <input class="form-control" type="number" name="ID" id="" required autofocus>
+                    <input class="form-control" type="number" name="id_personal" id="" required autofocus>
                 </div>
                 <div class="col-md-5">
                     <label for="nombre">Nombre</label>
