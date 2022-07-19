@@ -121,9 +121,6 @@ class ConsultaAsistencia extends Controller{
                 $this->view->mensaje = "Lista ya esta actualizada";
                 $this->view->code = "error";
             }
-            // echo $r['id_personal'];
-            // echo "</br>";
-            // $this->model->prueba($r['id_personal']);
           }
           $this->buscarLista($fecha);
     }
@@ -219,6 +216,21 @@ class ConsultaAsistencia extends Controller{
                 $this->view->code = "success";
             }else{
                 $mensaje = "No se pudo eliminar voluntariado de lista";
+                $this->view->code = "error";
+            }
+            $this->view->mensaje = $mensaje;
+            $this->buscarLista($fecha);
+        }
+        function reset($param = null){
+            $id_personal = $param[0];
+            $fecha=$param[1];
+            $estatus="Falta";
+            $hora=date("0:0:0");
+            if($this->model->update(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
+                $mensaje = "Se desmarco la asistencia";
+                $this->view->code = "success";
+            }else{
+                $mensaje = "No se pudo desmarcar asistencia";
                 $this->view->code = "error";
             }
             $this->view->mensaje = $mensaje;

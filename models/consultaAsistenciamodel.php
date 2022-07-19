@@ -109,6 +109,7 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }
     }
+
     public function buscar($datos){
         $items = [];
             $query = $this->db->connect()->prepare("SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno");
@@ -118,12 +119,7 @@ class ConsultaAsistenciaModel extends Model{
                 'estatus' => $datos['estatus']
                 ]);
             while($row = $query->fetch()){
-                // $item = new Asistencia();
                 $row['id_personal'];
-                // $item->nombre = $row['nombre'];
-                // $item->fecha = $row['fecha'];
-                // $item->hora = $row['hora'];
-                // $item->estatus = $row['estatus'];
                 array_push($items, $row);      
             }
             return $items;
@@ -132,7 +128,6 @@ class ConsultaAsistenciaModel extends Model{
         }
     }
     function prueba($datos){
-        // print_r($datos);
         echo $datos; 
         echo "</br>";
     }

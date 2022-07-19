@@ -57,7 +57,11 @@
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                             <td><?php echo $i; $i++;?></td>
                             <td><a
-                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()">❌</a>
+                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" /></a>
+                                <a
+                                href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/undo.png" /></a>
                         </td>
                                 <td><?php echo $asistencia->id_personal; ?></td>
                                 <td><?php echo $asistencia->nombre; ?></td>
