@@ -160,5 +160,37 @@ class PeticionModel extends Model{
             return false;
         }
     }
+    public function consulta($consulta){
+        try{
+        $query = $this->db->connect()->query($consulta);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
+    public function consultaBD($consulta){
+        // echo "hola modelo";
+        // echo $consulta;
+        $items = [];
+        try{
+            $query = $this->db->connect()->query($consulta);
+            // echo "entro";
+            while($row = $query->fetch()){
+                $row['0'];
+                // $item = new Peticiones();
+                // $item->folio = $row['folio'];
+                // $item->id_personal = $row['id_personal'];
+                // $item->fecha_apertura = $row['fecha_apertura'];
+                // $item->tipo = $row['tipo'];
+                // $item->archivo = $row['archivo'];
+                // $item->estatus  = $row['estatus'];
+                array_push($items, $row);
+            }
+            print_r($items);
+            return $items;
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }
 ?>

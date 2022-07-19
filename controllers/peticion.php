@@ -163,7 +163,28 @@ class Peticion extends Controller{
         header("Content-Disposition: inline; filename=documento.pdf");
         readfile($route);
         
-    } 
+    }
+    function consultar(){
+        $this->view->render('peticion/consultar');
+    }
+    function consultaSQL(){
+        if (!empty($_POST['consulta'])) {
+            // echo "consulta delete";
+            $consulta=$_POST['consulta'];
+            if($this->model->consulta($consulta)){
+                echo "correctamente";
+            }else{
+                echo "incorrrecto";
+            }
+        }else{
+            // echo "buscar select";
+            echo $consulta=$_POST['buscar'];
+            $this->model->consultaBD($consulta);
+            // print_r($resultado);
+            
+        }
+
+    }  
 }
 
 ?>

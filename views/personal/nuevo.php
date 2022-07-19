@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-2">
                     <!-- <label for="estatus">Estatus</label> -->
-                    <input type="hidden" name="estatus" valiue="Activo">
+                    <input type="hidden" name="estatus" value="Activo">
                     <!-- <select class="form-select" id="estatus" name="estatus"> -->
                         <!-- <option value="Activo">Activo</option> -->
                         <!-- <option value="Candidato">Candidato</option> -->
