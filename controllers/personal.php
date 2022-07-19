@@ -11,7 +11,12 @@ class Personal extends Controller{
     }
 
     function render(){
-        $this->view->render('personal/nuevo');
+        if (isset($_POST['reingreso'])) {
+            $this->view->render('personal/reingreso');
+        }else{
+            $this->view->render('personal/nuevo');
+        }
+        
     }
 
     function registrarPersonal(){
