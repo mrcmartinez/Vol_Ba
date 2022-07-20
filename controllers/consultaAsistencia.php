@@ -33,9 +33,9 @@ class ConsultaAsistencia extends Controller{
         $this->view->render('asistencia/reporte');
     }
     function paseLista(){
-        echo $fecha=date('Y-m-d');
+        $fecha=date('Y-m-d');
         if (isset($_POST['fecha'])) {
-        echo $fecha=$_POST['fecha'];
+        $fecha=$_POST['fecha'];
         }
         $this->buscarLista($fecha);
     }
