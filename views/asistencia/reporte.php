@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
@@ -87,7 +88,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
             </form>
             <div id="div2">
-                <table class="t-tipo3">
+                <table class="table table-striped table-hover t-tipo3">
                     <thead>
                         <tr>
                             <th>Id Personal</th>
@@ -95,6 +96,11 @@
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Estatus</th>
+                            
+                            <?php if ($this->radio=="Falta") {
+                                echo '<th>Motivo</th>';
+                            }?>
+                           <th></th>
                         </tr>
                     </thead>
                     <tbody id="tbody-asistencia">
@@ -110,6 +116,15 @@
                             <td><?php echo $asistencia->fecha; ?></td>
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>
+                            <?php if ($this->radio=="Falta") {
+                                ?> <td><?php echo $asistencia->descripcion; ?></td>
+                                    <td><a
+                                href=""><img
+                                    src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a></td><?php
+                            }?>
+                            
+                            
+                            
                         </tr>
 
                         <?php } ?>

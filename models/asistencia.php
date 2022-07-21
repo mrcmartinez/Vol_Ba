@@ -8,6 +8,7 @@ class Asistencia{
     public $fecha;
     public $hora;
     public $estatus;
+    public $descripcion;
 }
 
 ?>

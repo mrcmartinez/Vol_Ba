@@ -236,6 +236,11 @@ class ConsultaAsistencia extends Controller{
             $this->view->mensaje = $mensaje;
             $this->buscarLista($fecha);
         }
+        function llamarModal(){
+            // $this->view->nombre =$this->model->consultarId($param[0]);
+            // $this->view->idMotivo = "1";
+            // $this->listarPersonal();
+        }
 }
 
 ?>
