@@ -20,12 +20,19 @@
             <input type="hidden" name="reingreso">
             <input type="submit" value="Reingreso">
         </form>
-        <div class="center-form"><?php echo $this->mensaje; ?>
         
+        <div class="center-form">
+            <?php if (!empty($this->mensaje)) {
+                        ?><div class="alert alert-danger" role="alert">
+                            <?php echo $this->mensaje; ?>
+                
+            </div><?php
+            }?>
+
             <h1 class="center">Agregar <small>voluntariado reingreso</small></h1>
 
             <form class="row g-3" action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
-            
+
                 <div class="col-md-1">
                     <label for="ID">ID</label>
                     <input class="form-control" type="number" name="id_personal" id="" required autofocus>
@@ -49,7 +56,8 @@
                 </div>
                 <div class="col-md-2">
                     <label for="numero_exterior">Número exterior</label>
-                    <input class="form-control" type="tel" name="numero_exterior" id="" pattern="[0-9]+[a-z]{0,1}" title="ej. 103 0 103a">
+                    <input class="form-control" type="tel" name="numero_exterior" id="" pattern="[0-9]+[a-z]{0,1}"
+                        title="ej. 103 0 103a">
                 </div>
                 <div class="col-md-4">
                     <label for="colonia">Colonia</label>
@@ -132,8 +140,8 @@
                     <!-- <label for="estatus">Estatus</label> -->
                     <input type="hidden" name="estatus" value="Activo">
                     <!-- <select class="form-select" id="estatus" name="estatus"> -->
-                        <!-- <option value="Activo">Activo</option> -->
-                        <!-- <option value="Candidato">Candidato</option> -->
+                    <!-- <option value="Activo">Activo</option> -->
+                    <!-- <option value="Candidato">Candidato</option> -->
                     <!-- </select> -->
                 </div>
 
@@ -145,7 +153,7 @@
                 </div>
             </form>
         </div>
-        </div>
+    </div>
     <?php require 'views/footer.php'; ?>
 
 </body>
