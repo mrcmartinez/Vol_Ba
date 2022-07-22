@@ -236,10 +236,30 @@ class ConsultaAsistencia extends Controller{
             $this->view->mensaje = $mensaje;
             $this->buscarLista($fecha);
         }
+        public function consultarTel($id){
+            $tel="";
+            $query = $this->db->connect()->prepare("SELECT idnombreCompleto from vistapersonalv where id_personal=:id_personal");
+            try{
+                $query->execute(['id_personal' => $id]);
+                while($row = $query->fetch()){
+                    $tel=$row['nombreCompleto'];
+                }
+                return $nomb;
+            }catch(PDOException $e){
+                return null;
+            }
+        }
         function llamarModal(){
-            // $this->view->nombre =$this->model->consultarId($param[0]);
-            // $this->view->idMotivo = "1";
-            // $this->listarPersonal();
+            $id_personal=$_POST['id_personal'];
+            // $this->view->agenda =$this->model->consultarAgenda($id_personal);
+            $this->view->idMotivo = $id_personal;
+            $consulta=$this->model->consultarAgenda($id_personal);
+            $this->view->telefonos = $consulta[0];
+            $this->view->nombre = $consulta[1];
+            // echo $consulta;
+            // echo $consulta[0];
+            // echo $consulta[1];
+            $this->render();
         }
 }
 

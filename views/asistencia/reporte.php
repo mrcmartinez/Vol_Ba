@@ -118,9 +118,11 @@
                             <td><?php echo $asistencia->estatus; ?></td>
                             <?php if ($this->radio=="Falta") {
                                 ?> <td><?php echo $asistencia->descripcion; ?></td>
-                                    <td><a
-                                href=""><img
-                                    src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a></td><?php
+                                    <td><form action="<?php echo constant('URL'); ?>consultaAsistencia/llamarModal" method="post">
+                                            <input type="hidden" name="id_personal" value="<?php echo $asistencia->id_personal; ?>">
+                                            <input type="image" src="<?php echo constant('URL'); ?>assets/img/edit.png">
+                                        </form>
+                                    </td><?php
                             }?>
                             
                             
@@ -137,7 +139,32 @@
     <?php require 'views/footer.php'; ?>
 
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <?php
+        if (!empty($this->idMotivo)) 
+        {
+            ?>
+        <a href="#miModalBaja">Abrir Modal</a>
+        <div id="miModalBaja" class="modalBaja">
 
+            <div class="modalBaja-contenido">
+                <p>
+                    <a href="<?php echo constant('URL'); ?>consultaAsistencia">❌</a>
+                </p>
+                <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
+                    <label for="">Motivo de la Falta</label>
+                    <p>
+                        <h6><?php echo $this->nombre;?></h6>
+                        <h6><?php echo $this->telefonos;?></h6>
+                        <input type="hidden" name="id_personal" value="<?php echo $this->idMotivo?>">
+                        <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
+                    </p>
+                    <input class="btn btn-dark" type="submit" value="Aceptar">
+                </form>
+            </div>
+        </div>
+        <?php    
+        }
+    ?>
 </body>
 
 </html>

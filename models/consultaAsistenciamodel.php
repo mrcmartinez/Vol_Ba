@@ -186,5 +186,19 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }
     }
+    public function consultarAgenda($id){
+        $nomb="";
+        $query = $this->db->connect()->prepare("SELECT p.id_personal, CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, va.telefonos from vista_agenda as va INNER JOIN personal as p ON p.id_personal = va.id_personal where va.id_personal=:id_personal;");
+        try{
+            $query->execute(['id_personal' => $id]);
+            while($row = $query->fetch()){
+                $nomb=$row['nombre'];
+                $tel=$row['telefonos'];
+            }
+            return array($nomb,$tel);
+        }catch(PDOException $e){
+            return array(null,null);
+        }
+    }
 }
 ?>
