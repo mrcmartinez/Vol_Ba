@@ -55,8 +55,9 @@
                             <td><?php echo $candidato->fecha_solicitud; ?></td>
                             <td><?php echo $candidato->telefono; ?></td>
                             <td><a
-                                    href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></a>
+                                    href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><button
+                                            onclick="return confirmBaja()"><img
+                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></button></a>
                             
                                 <form action="<?php echo constant('URL'); ?>candidato/alta" method="POST">
                                     <input type="hidden" name="nombre" value="<?php echo $candidato->nombre; ?>">

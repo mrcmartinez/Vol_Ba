@@ -67,7 +67,7 @@
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
                     De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                     a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
-                    <input type="submit" value="🔍Buscar">
+                    <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReporte" method="POST">
