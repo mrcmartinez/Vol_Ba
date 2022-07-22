@@ -120,6 +120,7 @@
                                 ?> <td><?php echo $asistencia->descripcion; ?></td>
                                     <td><form action="<?php echo constant('URL'); ?>consultaAsistencia/llamarModal" method="post">
                                             <input type="hidden" name="id_personal" value="<?php echo $asistencia->id_personal; ?>">
+                                            <input type="hidden" name="fecha" value="<?php echo $asistencia->fecha; ?>">
                                             <input type="image" src="<?php echo constant('URL'); ?>assets/img/edit.png">
                                         </form>
                                     </td><?php
@@ -150,13 +151,15 @@
                 <p>
                     <a href="<?php echo constant('URL'); ?>consultaAsistencia">❌</a>
                 </p>
-                <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
+                <form action="<?php echo constant('URL'); ?>consultaAsistencia/registrarMotivo" method="post" method="post">
                     <label for="">Motivo de la Falta</label>
                     <p>
-                        <h6><?php echo $this->nombre;?></h6>
+                        <h6><?php echo $this->fecha;?></h6>
                         <h6><?php echo $this->telefonos;?></h6>
+                        <h6><?php echo $this->nombre;?></h6>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idMotivo?>">
-                        <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
+                        <input type="hidden" name="fecha" value="<?php echo $this->fecha?>">
+                        <textarea name="descripcion" required rows="2" cols="55" maxlength="60"></textarea>
                     </p>
                     <input class="btn btn-dark" type="submit" value="Aceptar">
                 </form>

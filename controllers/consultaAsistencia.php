@@ -251,8 +251,10 @@ class ConsultaAsistencia extends Controller{
         }
         function llamarModal(){
             $id_personal=$_POST['id_personal'];
+            $fecha=$_POST['fecha'];
             // $this->view->agenda =$this->model->consultarAgenda($id_personal);
             $this->view->idMotivo = $id_personal;
+            $this->view->fecha = $fecha;
             $consulta=$this->model->consultarAgenda($id_personal);
             $this->view->telefonos = $consulta[0];
             $this->view->nombre = $consulta[1];
@@ -260,6 +262,20 @@ class ConsultaAsistencia extends Controller{
             // echo $consulta[0];
             // echo $consulta[1];
             $this->render();
+        }
+
+        function registrarMotivo(){
+            $id_personal=$_POST['id_personal'];
+            $fecha=$_POST['fecha'];
+            $descripcion=$_POST['descripcion'];
+
+            if($this->model->insertMotivo(['id_personal' => $id_personal, 'fecha' => $fecha, 'descripcion' => $descripcion])){
+                $this->view->mensaje = "Motivo registrado correctamente";
+                $this->render();
+            }else{
+                $this->view->mensaje = "Motivo no pudo ser resgistrado";
+                $this->render();
+            }
         }
 }
 

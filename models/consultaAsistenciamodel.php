@@ -200,5 +200,18 @@ class ConsultaAsistenciaModel extends Model{
             return array(null,null);
         }
     }
+    public function insertMotivo($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO motivo (ID_PERSONAL, FECHA, DESCRIPCION) VALUES(:id_personal, :fecha, :descripcion)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha' => $datos['fecha'],
+                'descripcion' => $datos['descripcion']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
 }
 ?>
