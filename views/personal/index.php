@@ -77,7 +77,7 @@
                 </table>
 
                 <div id="div2">
-                    <table class="table">
+                    <table class="table table-striped table-hover">
 
                         <tbody id="tbody-personal">
                             <?php $i=1;
@@ -145,6 +145,7 @@
         </div>
         <?php require 'views/footer.php'; ?>
         <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
+        <script src="<?php echo constant('URL'); ?>assets/js/salto.js"></script>
         <?php
         if (!empty($this->mensaje)) 
         {
@@ -177,7 +178,7 @@
                     <p>
                         <h6><?php echo $this->nombre;?></h6>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
-                        <textarea name="motivo" required rows="2" cols="55" maxlength="60"></textarea>
+                        <textarea name="motivo" id="nota"required rows="2" cols="55" maxlength="200" onkeyup="check(event);"></textarea>
                     </p>
                     <input class="btn btn-dark" type="submit" value="Aceptar">
                 </form>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
@@ -55,27 +56,29 @@
             </form>
 
             <div id="div2">
-                <table class="t-tipo2">
+                <table class="table table-striped table-hover t-tipo2">
                     <thead>
                         <tr>
-                            <th>Id personal</th>
+                            <th>N°</th>
+                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Fecha Baja</th>
                             <th>Motivo</th>
                         </tr>
                     </thead>
                     <tbody id="tbody-baja">
-                        <?php
+                        <?php $i=1;
                     include_once 'models/bajas.php';
                     foreach($this->baja as $row){
                         $baja = new Bajas();
                         $baja = $row; 
                 ?>
                         <tr id="fila-<?php echo $baja->id_personal; ?>">
+                            <td><?php echo $i; $i++;?></td>
                             <td><?php echo $baja->id_personal; ?></td>
                             <td><?php echo $baja->nombre; ?></td>
                             <td><?php echo $baja->fecha; ?></td>
-                            <td><?php echo $baja->motivo; ?></td>
+                            <td><?php echo nl2br($baja->motivo); ?></td>
 
                         </tr>
 

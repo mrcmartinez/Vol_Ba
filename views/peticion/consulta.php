@@ -51,7 +51,7 @@
                     <thead>
                         <tr>
                             <th>Folio</th>
-                            <th>ID personal</th>
+                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Fecha apertura</th>
                             <th>Tipo</th>

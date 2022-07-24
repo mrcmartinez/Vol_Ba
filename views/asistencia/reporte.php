@@ -92,7 +92,7 @@
                     <thead>
                         <tr>
                             <th>N</th>
-                            <th>Id Personal</th>
+                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Fecha</th>
                             <th>Hora</th>
@@ -119,11 +119,11 @@
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>
                             <?php if ($this->radio=="Falta") {
-                                ?> <td><?php echo $asistencia->descripcion; ?></td>
+                                ?> <td><?php echo nl2br($asistencia->descripcion); ?></td>
                                     <td><form action="<?php echo constant('URL'); ?>consultaAsistencia/llamarModal" method="post">
                                             <input type="hidden" name="id_personal" value="<?php echo $asistencia->id_personal; ?>">
                                             <input type="hidden" name="fecha" value="<?php echo $asistencia->fecha; ?>">
-                                            <input type="image" src="<?php echo constant('URL'); ?>assets/img/edit.png">
+                                            <input type="image" src="<?php echo constant('URL'); ?>assets/img/editar2.png">
                                         </form>
                                     </td><?php
                             }?>
@@ -142,6 +142,7 @@
     <?php require 'views/footer.php'; ?>
 
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/salto.js"></script>
     <?php
         if (!empty($this->mensaje)) 
         {
@@ -177,7 +178,7 @@
                         <h6><?php echo $this->nombre;?></h6>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idMotivo?>">
                         <input type="hidden" name="fecha" value="<?php echo $this->fecha?>">
-                        <textarea name="descripcion" required rows="2" cols="55" maxlength="60"></textarea>
+                        <textarea name="descripcion" id="nota" required rows="2" cols="55" maxlength="200" onkeyup="check(event);"></textarea>
                     </p>
                     <input class="btn btn-dark" type="submit" value="Aceptar">
                 </form>
