@@ -11,7 +11,7 @@ class ConsultaAsistencia extends Controller{
 
     function render(){
         $consulta  = "";
-        $filtro="Asistencia";
+        $filtro="Falta";
         $filtroOrden="fecha";
         $f_inicio=date('Y-m-01');
         $f_termino=date('Y-m-d');

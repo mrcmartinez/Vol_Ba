@@ -10,10 +10,14 @@ class ConsultaAsistenciaModel extends Model{
 
     public function get($id){
         $items = [];
-            $query = $this->db->connect()->prepare("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora
+            $query = $this->db->connect()->prepare("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora, m.descripcion
             FROM asistencia as a 
             INNER JOIN personal as p
-            ON a.id_personal = p.id_personal where a.id_personal=:id_personal");
+            ON a.id_personal = p.id_personal
+            LEFT JOIN motivo as m
+            ON m.fecha = a.fecha 
+            AND m.id_personal = a.id_personal 
+            where a.id_personal=:id_personal ");
             try{
             $query->execute(['id_personal' => $id]);
             while($row = $query->fetch()){
@@ -23,6 +27,7 @@ class ConsultaAsistenciaModel extends Model{
                 $item->fecha = $row['fecha'];
                 $item->hora = $row['hora'];
                 $item->estatus = $row['estatus'];
+                $item->descripcion = $row['descripcion'];
                 array_push($items, $item);      
             }
             return $items;
@@ -60,7 +65,8 @@ class ConsultaAsistenciaModel extends Model{
             INNER JOIN personal as p
             ON a.id_personal = p.id_personal
             LEFT JOIN motivo as m
-            ON m.id_personal = p.id_personal 
+            ON m.fecha = a.fecha 
+            AND m.id_personal = a.id_personal 
             WHERE (a.id_personal like '%".$c."%') AND a.estatus like '%".$f."%' AND a.fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden DESC");
             while($row = $query->fetch()){
                 $item = new Asistencia();

@@ -52,9 +52,10 @@
                 <thead>
                     <tr>
                         <th>Id Personal</th>
-                        <th>fecha</th>
-                        <th>hora</th>
-                        <th>estatus</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estatus</th>
+                        <th>Motivo</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-asistencia">
@@ -69,6 +70,7 @@
                         <td><?php echo $asistencia->fecha; ?></td>
                         <td><?php echo $asistencia->hora; ?></td>
                         <td><?php echo $asistencia->estatus; ?></td>
+                        <td><?php echo $asistencia->descripcion; ?></td>
                     </tr>
                     <?php } ?>
                 </tbody>
