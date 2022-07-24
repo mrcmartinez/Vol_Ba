@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_1">Tipo</label><br>
-                    <input class="form-control" type="text" name="tipo_1" value="Telefono celular" readonly>
+                    <input class="form-control" type="text" name="tipo_1" value="Celular" readonly>
                 </div>
                 <div class="col-md-5">
                     <input class="form-control" type="hidden" name="descripcion_1" id="" value="">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="tipo_2">Tipo</label><br>
-                    <input class="form-control" type="text" name="tipo_2" value="Telefono casa" readonly>
+                    <input class="form-control" type="text" name="tipo_2" value="Casa" readonly>
                 </div>
                 <div class="col-md-5">
                     <input class="form-control" type="hidden" name="descripcion_2" id="" value="">

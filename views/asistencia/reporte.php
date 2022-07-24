@@ -141,6 +141,22 @@
 
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
     <?php
+        if (!empty($this->mensaje)) 
+        {
+            ?>
+        <script>
+        Swal.fire({
+            // position: 'top-end',
+            icon: "<?php echo $this->code; ?>",
+            title: '<?php echo $this->mensaje; ?>',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        </script>
+        <?php    
+        }
+    ?>
+    <?php
         if (!empty($this->idMotivo)) 
         {
             ?>
@@ -152,9 +168,9 @@
                     <a href="<?php echo constant('URL'); ?>consultaAsistencia">❌</a>
                 </p>
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/registrarMotivo" method="post" method="post">
-                    <label for="">Motivo de la Falta</label>
+                    <label for="">Motivo de la Falta dia <?php echo diaSemana($this->fecha)?><?php echo date('d-m-Y', strtotime($this->fecha));?></label>
                     <p>
-                        <h6><?php echo $this->fecha;?></h6>
+                        
                         <h6><?php echo $this->telefonos;?></h6>
                         <h6><?php echo $this->nombre;?></h6>
                         <input type="hidden" name="id_personal" value="<?php echo $this->idMotivo?>">

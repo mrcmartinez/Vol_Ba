@@ -32,6 +32,7 @@ class ConsultaAsistencia extends Controller{
         $this->view->asistencia = $asistencia;
         $this->view->render('asistencia/reporte');
     }
+
     function paseLista(){
         $fecha=date('Y-m-d');
         if (isset($_POST['fecha'])) {
@@ -252,6 +253,7 @@ class ConsultaAsistencia extends Controller{
         function llamarModal(){
             $id_personal=$_POST['id_personal'];
             $fecha=$_POST['fecha'];
+            //$_SESSION['BanderaFalta'];
             // $this->view->agenda =$this->model->consultarAgenda($id_personal);
             $this->view->idMotivo = $id_personal;
             $this->view->fecha = $fecha;
@@ -271,9 +273,12 @@ class ConsultaAsistencia extends Controller{
 
             if($this->model->insertMotivo(['id_personal' => $id_personal, 'fecha' => $fecha, 'descripcion' => $descripcion])){
                 $this->view->mensaje = "Motivo registrado correctamente";
+                $this->view->code = "success";
+                $this->view->radio="Falta";
                 $this->render();
             }else{
-                $this->view->mensaje = "Motivo no pudo ser resgistrado";
+                $this->view->mensaje = "Ya existe motivo registrado";
+                $this->view->code = "error";
                 $this->render();
             }
         }
