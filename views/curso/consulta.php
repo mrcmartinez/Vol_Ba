@@ -42,7 +42,7 @@
             </p>
         </form>
         <form action="<?php echo constant('URL'); ?>curso" method="POST">
-            <input type="image" src="<?php echo constant('URL'); ?>assets/img/plus.png" value="Nuevo">
+            <input type="image" src="<?php echo constant('URL'); ?>assets/img/plus.png" value="Nuevo" title="Nuevo Curso">
         </form>
         <div id="div2">
         <table id="tabla">
@@ -79,13 +79,13 @@
                     
                     <td><?php echo $curso->estatus; ?></td>
                     <td><a href="<?php echo constant('URL') . 'capacitaciones/verCapacitacionId/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
-                                src="<?php echo constant('URL'); ?>assets/img/lista.png" /></a>
+                                src="<?php echo constant('URL'); ?>assets/img/lista.png" title="lista agregados"/></a>
 
                         <?php if (( $_SESSION['rol']!="Supervisor" )&&($this->radio=="Activo")) { ?>
                     <a href="<?php echo constant('URL') . 'personal/listarPersonal/'. $curso->id.'/'.$curso->estatus.'/'.$curso->nombre;?>"><img
-                                src="<?php echo constant('URL'); ?>assets/img/grupo.png" /></a>
+                                src="<?php echo constant('URL'); ?>assets/img/grupo.png" title="Añadir Voluntariado"/></a>
                     <a href="<?php echo constant('URL') . 'curso/verCurso/' . $curso->id; ?>"><img
-                                src="<?php echo constant('URL'); ?>assets/img/editar.png" /></a>
+                                src="<?php echo constant('URL'); ?>assets/img/editar.png" title="Editar"/></a>
                     
                     <?php } ?>
                     <a href="<?php echo constant('URL') . 'curso/eliminarCurso/' . $curso->id.'/'.$this->radio; ?>"><button

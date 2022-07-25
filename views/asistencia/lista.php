@@ -16,19 +16,19 @@
         <div class="center-form">
             <h1 class="center">Lista Asistencia <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); ?></h1>
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-                <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png">
+                <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png" title="Salir">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/buscar" method="POST">
             <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
-                <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png">
+                <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png" title="Activar modo manual">
             </form>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
             <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaApoyo">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Agregar asistencia-apoyo">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="POST">
-                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()">
+                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">
                 <!-- <input type="submit"> -->
             </form>
             <div id="respuesta" class="center"></div>
@@ -58,10 +58,10 @@
                             <td><?php echo $i; $i++;?></td>
                             <td><a
                                 href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" /></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" title="Quitar de Lista"/></a>
                                 <a
                                 href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/undo.png" /></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/undo.png" title="Desmarcar"/></a>
                         </td>
                                 <td><?php echo $asistencia->id_personal; ?></td>
                                 <td><?php echo $asistencia->nombre; ?></td>

@@ -22,7 +22,7 @@
                 </p>
             </form>
             <form action="<?php echo constant('URL'); ?>candidato" method="POST">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" value="Nuevo">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" value="Nuevo" title="Nuevo candidato">
             </form>
             <div id="div2">
                 <table id="tabla">
@@ -57,7 +57,7 @@
                             <td><a
                                     href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><button
                                             onclick="return confirmBaja()"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" /></button></a>
+                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" title="Eliminar"/></button></a>
                             
                                 <form action="<?php echo constant('URL'); ?>candidato/alta" method="POST">
                                     <input type="hidden" name="nombre" value="<?php echo $candidato->nombre; ?>">
@@ -66,7 +66,7 @@
                                     <input type="hidden" name="fecha_nacimiento"
                                         value="<?php echo $candidato->fecha_nacimiento; ?>">
                                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/alta.png"
-                                        value="Nuevo">
+                                        value="Nuevo" title="Alta">
                                 </form>
                             </td>
                         </tr>

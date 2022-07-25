@@ -65,8 +65,8 @@
 
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
-                    De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
-                    a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                    De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>" title="Fecha filtro inicio">
+                    a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>" title="Fecha filtro fin">
                     <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
@@ -76,7 +76,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOrden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
             </form>
 
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
@@ -85,7 +85,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOrden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>
             <div id="div2">
                 <table class="table table-striped table-hover t-tipo3">

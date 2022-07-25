@@ -37,28 +37,28 @@
 
                         <div class="alinear">
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
-                                value="<?php echo $this->consulta; ?>" autofocus>
+                                value="<?php echo $this->consulta; ?>" autofocus title="Buscar ID, Nombre, Dia, Actividad">
                             <input class="btn btn-info" type="submit" value="🔍Buscar">
                         </div>
 
                     </form>
                 </div>
                 <form action="<?php echo constant('URL'); ?>personal" method="POST">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Nuevo Voluntariado">
                 </form>
                 <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
                 </form>
 
                 <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
                 </form>
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png" title="Lista asistencia">
                 </form>
                 <table>
                     <thead>
@@ -114,23 +114,23 @@
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                                     <a
                                         href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png" /></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png" title="Imprimir QR"/></a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/lupa.png" /></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/lupa.png" title="Detalles"/></a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/edit.png" /></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/edit.png" title="Editar"/></a>
 
                                     <?php if ($this->radio!="Activo") {
                                 ?><a
                                         href="<?php echo constant('URL') . 'personal/altaPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                             onclick="return confirmBaja()"><img
-                                                src="<?php echo constant('URL'); ?>assets/img/alta.png" /></a><?php
+                                                src="<?php echo constant('URL'); ?>assets/img/alta.png" title="alta"/></a><?php
                             }else{
                                 ?><a
                                         href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" /></a><?php
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" title="Baja"/></a><?php
                             }?>
 
 
