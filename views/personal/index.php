@@ -60,7 +60,7 @@
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png" title="Lista asistencia">
                 </form>
-                <table>
+                <!-- <table>
                     <thead>
                         <tr>
                             <th>Nª</th>
@@ -74,12 +74,24 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                </table>
+                </table> -->
 
                 <div id="div2">
                     <table class="table table-striped table-hover">
-
+                    <thead>
+                        <tr>
+                            <th class="header" scope="col">Nª</th>
+                            <th class="header" scope="col">ID</th>
+                            <th class="header" scope="col">Nombre</th>
+                            <th class="header" scope="col">Turno</th>
+                            <th class="header" scope="col">Actividad</th>
+                            <th class="header" scope="col">Ingreso</th>
+                            <th class="header" scope="col">Estatus</th>
+                            <th class="header" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
                         <tbody id="tbody-personal">
+
                             <?php $i=1;
                     include_once 'models/personalBanco.php';
                     foreach($this->personal as $row){

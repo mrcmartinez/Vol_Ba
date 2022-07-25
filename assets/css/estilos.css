@@ -292,6 +292,23 @@ nav a{
 	.table-hover tbody tr:hover td {
 		background: aqua!important;
 	}
+	/* thead tr th { 
+		position: sticky !important;
+		top: 0 !important;
+		z-index: 10 !important;
+		background-color: #680f0f !important;
+	} */
+	thead tr th { 
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background-color: #ffffff;
+	}
+
+	.table-responsive { 
+		height:200px;
+		overflow:scroll;
+	}
 @media (max-width:700px){
     header{
         flex-direction: column;

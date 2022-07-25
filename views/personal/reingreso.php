@@ -14,11 +14,11 @@
     <div id="main">
 
         <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-            <input type="submit" value="❌">
+            <input type="submit" value="❌" class="btn btn-light">
         </form>
         <form action="<?php echo constant('URL'); ?>personal" method="POST">
             <input type="hidden" name="reingreso">
-            <input type="submit" value="Reingreso">
+            <input type="submit" value="Reingreso" class="btn btn-light">
         </form>
         
         <div class="center-form">
