@@ -182,27 +182,31 @@ class ConsultaAsistencia extends Controller{
          // Título
         $pdf->SetTextColor(250,150,100);
         // $pdf->SetFillColor(200,220,255);
-        $pdf->Cell(30,10,'Asistencia personal voluntariado',0,0,'C');
+        $pdf->Cell(30,10,'Asistencia Voluntariado',0,0,'C');
         $pdf->SetTextColor(0);
         $pdf->SetFont('Arial','B',12);
         $pdf->Ln(10);
         $pdf->Cell(50);
-        $pdf->Cell(30,10,'De: '.$f_inicio.' a: '.$f_termino,0,1,'c');
-        $pdf->Ln(20);
+        $pdf->Cell(30,10,'Del: '.$f_inicio.' al: '.$f_termino,0,1,'c');
+        $pdf->Ln(15);
         $pdf->SetFont('Arial','B',11);
         $pdf->SetFillColor(250,150,100);
+        $pdf->Cell(6,5,'',0,0,'c',0);
         $pdf->Cell(10,10,'ID',1,0,'c',1);
-        $pdf->Cell(90,10,'NOMBRE',1,0,'c',1);
-        $pdf->Cell(28,10,'FECHA',1,0,'c',1);
-        $pdf->Cell(40,10,'ESTATUS',1,0,'c',1);
-        $pdf->Cell(25,10,'',1,1,'c',1);
-        $pdf->SetFont('Arial','',14);
+        $pdf->Cell(85,10,'NOMBRE',1,0,'c',1);
+        $pdf->Cell(23,10,'FECHA',1,0,'c',1);
+        $pdf->Cell(33,10,'ESTATUS',1,0,'c',1);
+        $pdf->Cell(34,10,'',1,1,'c',1);
+        $pdf->SetFont('Arial','',11);
+        $i=1;
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
+            $pdf->Cell(6,5,$i,0,0,'c',0);
             $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
-            $pdf->Cell(90,10,utf8_decode($r->nombre),1,0,'c',0);
-            $pdf->Cell(28,10,$r->fecha,1,0,'c',0);
-            $pdf->Cell(40,10,$r->estatus,1,0,'c',0);
-            $pdf->Cell(25,10,"",1,1,'c',0);
+            $pdf->Cell(85,10,utf8_decode($r->nombre),1,0,'c',0);
+            $pdf->Cell(23,10,$r->fecha,1,0,'c',0);
+            $pdf->Cell(33,10,$r->estatus,1,0,'c',0);
+            $pdf->Cell(34,10,"",1,1,'c',0);
+            $i++;
         }
         // $pdf->Output();
         $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");

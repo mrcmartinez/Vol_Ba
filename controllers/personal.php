@@ -255,7 +255,7 @@ class Personal extends Controller{
     $pdf = new FPDF();
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',11);
-    $pdf->Cell(0,10,date('Y-m-d'),0,1,'R');
+    $pdf->Cell(0,10,"impreso".date('Y-m-d'),0,1,'R');
     $pdf->Image('assets/img/logo (3).png',10,8,33);
     $pdf->SetFont('Arial','B',24);
      // Movernos a la derecha
@@ -268,6 +268,7 @@ class Personal extends Controller{
     $pdf->Ln(15);
     $pdf->SetFont('Arial','B',11);
     $pdf->SetFillColor(250,150,100);
+    $pdf->Cell(6,5,'',0,0,'c',0);
     $pdf->Cell(10,10,'ID',1,0,'c',1);
     $pdf->Cell(75,10,'NOMBRE',1,0,'c',1);
     // $pdf->Cell(30,10,'PATERNO',1,0,'c',1);
@@ -277,9 +278,11 @@ class Personal extends Controller{
     // $pdf->Cell(22,10,'ESTATUS',1,0,'c',1);
     $pdf->Cell(15,10,'Asistio',1,0,'c',1);
     $pdf->Cell(15,10,'Mandil',1,0,'c',1);
-    $pdf->Cell(50,10,'Costo',1,1,'c',1);
+    $pdf->Cell(45,10,'Costo',1,1,'c',1);
     $pdf->SetFont('Arial','',11);
+    $i=1;
     foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
+        $pdf->Cell(6,5,$i,0,0,'c',0);
         $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
         $pdf->Cell(75,7,utf8_decode($r->apellido_paterno.' '.$r->apellido_materno.' '.$r->nombre),1,0,'c',0);
@@ -289,9 +292,11 @@ class Personal extends Controller{
         $pdf->Cell(15,7,"",1,0,'c',0);
         $pdf->Cell(15,7,"",1,0,'c',0);
         // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
-        $pdf->Cell(50,7,'',1,1,'c',0);
+        $pdf->Cell(45,7,'',1,1,'c',0);
+        $i++;
     }
     for ($i=0; $i < 8; $i++) { 
+        $pdf->Cell(6,7,'',0,0,'c',0);
         $pdf->Cell(10,7,'',1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
         $pdf->Cell(75,7,' ',1,0,'c',0);
@@ -301,7 +306,7 @@ class Personal extends Controller{
         $pdf->Cell(15,7,"",1,0,'c',0);
         $pdf->Cell(15,7,"",1,0,'c',0);
         // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
-        $pdf->Cell(50,7,'',1,1,'c',0);
+        $pdf->Cell(45,7,'',1,1,'c',0);
     }
     // $pdf->Output();
     $pdf->Output("Voluntariado".time().".pdf", "D");
