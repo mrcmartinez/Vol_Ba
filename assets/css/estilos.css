@@ -301,7 +301,7 @@ nav a{
 	thead tr th { 
 		position: sticky;
 		top: 0;
-		z-index: 10;
+		z-index: 0;
 		background-color: #ffffff;
 	}
 

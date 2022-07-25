@@ -79,3 +79,4 @@ commit deleteComentario
 commit altaCandidato
 commit participaciones
 commit hoverTable
+commit addasistencia

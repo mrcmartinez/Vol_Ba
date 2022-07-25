@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
         <div class="center-form">
-            <h1 class="center">Buscar Voluntariado Asistencia Apoyo</h1>
+            <h1 class="center">Buscar Voluntariado para <?php echo $this->tipo; ?></h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
 
             <div id="respuesta" class="center">
@@ -26,13 +26,14 @@
                             value="<?php echo $this->consulta; ?>" autofocus>
                             <input type="hidden" name="listaApoyo">
                             <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                            <input type="hidden" name="tipo" value="<?php echo $this->tipo; ?>">
                         <input type="submit" value="🔍Buscar">
                     </p>
                 </form>
             </div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/agregarApoyo" method="POST">
                 <div id="div2">
-                    <table class="table">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -66,6 +67,7 @@
                     </table>
                 </div>
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="tipo" value="<?php echo $this->tipo; ?>">
             </form>
         </div>
     </div>

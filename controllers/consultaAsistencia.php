@@ -129,12 +129,12 @@ class ConsultaAsistencia extends Controller{
             $id_personal=$_POST['personal'];
             $fecha= $_POST['fecha'];
             $hora=date("H:i:s");
-            $estatus="Asistencia-Apoyo";
+            $estatus=$_POST['tipo'];
             if($this->model->insertApoyo(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
-                $this->view->mensaje = "Personal apoyo agregado";
+                $this->view->mensaje = "Voluntariado agregado como ".$estatus;
                 $this->view->code = "success";
             }else{
-                $this->view->mensaje = "No se pudo agregar";
+                $this->view->mensaje = "No se pudo agregar".$estatus;
                 $this->view->code = "error";
             }
             // $this->view->id = $id_personal;

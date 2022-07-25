@@ -51,7 +51,7 @@
             <table width="100%">
                 <thead>
                     <tr>
-                        <th>Id Personal</th>
+                        <th>ID</th>
                         <th>Fecha</th>
                         <th>Hora</th>
                         <th>Estatus</th>

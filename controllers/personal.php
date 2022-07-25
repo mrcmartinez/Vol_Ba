@@ -105,6 +105,7 @@ class Personal extends Controller{
     function seleccionarPersonal(){
         $consulta  = "";
         $filtro="Activo";
+        $tipo=$_POST['tipo'];
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
@@ -113,8 +114,14 @@ class Personal extends Controller{
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
-        if (isset($_POST['listaApoyo'])) {
+        if ((isset($_POST['listaApoyo']))OR(isset($_POST['listaAsistencia']))) {
             //llamar vista para seleccionar apoyo
+            // if (isset($_POST['listaApoyo'])) {
+            //     $this->view->tipo= "Apoyo";
+            // }else{
+            //     $this->view->tipo= "Asistencia";
+            // }
+            $this->view->tipo= $tipo;
             $this->view->fecha= $_POST['fecha'];
             $this->view->render('personal/seleccionarApoyo');
         }else{

@@ -32,7 +32,7 @@
             <form action="<?php echo constant('URL'); ?>peticion/imprimir" method="POST">
                 <input type="hidden" name="peticion" value="<?php echo $this->tipo; ?>">
                 <div id="div2">
-                    <table class="table">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>

@@ -23,10 +23,19 @@
                 <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png" title="Activar modo manual">
             </form>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
-            <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="listaAsistencia">
+                <input type="hidden" name="tipo" value="Asistencia">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/add-user.png" title="Agregar asistencia">
+            </form>
+            
+            <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
+                <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaApoyo">
+                <input type="hidden" name="tipo" value="Apoyo">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Agregar asistencia-apoyo">
             </form>
+            
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="POST">
                 <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">
                 <!-- <input type="submit"> -->
