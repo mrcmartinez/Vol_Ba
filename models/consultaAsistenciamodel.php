@@ -67,7 +67,7 @@ class ConsultaAsistenciaModel extends Model{
             LEFT JOIN motivo as m
             ON m.fecha = a.fecha 
             AND m.id_personal = a.id_personal 
-            WHERE (a.id_personal like '%".$c."%') AND a.estatus like '%".$f."%' AND a.fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden DESC");
+            WHERE (a.id_personal like '%".$c."%') AND a.estatus like '%".$f."%' AND a.fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden");
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];

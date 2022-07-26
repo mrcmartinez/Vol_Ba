@@ -32,7 +32,7 @@
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaApoyo">
-                <input type="hidden" name="tipo" value="Apoyo">
+                <input type="hidden" name="tipo" value="Asistencia-Apoyo">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Agregar asistencia-apoyo">
             </form>
             
