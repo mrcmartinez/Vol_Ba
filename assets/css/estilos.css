@@ -234,25 +234,29 @@ nav a{
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		background-color: #ffdd90;
+		/* background-image: url('http://localhost/VolBa/assets/img/voluntario.jpg')!important; */
 		/* background-color: #dedede79; */
-		background: linear-gradient(120deg, #db3030, #eeb955);
-		display:flex;
-		min-height:100vh ;
-		/* background-image: url('../img/voluntario.jpg');
+		/* background: linear-gradient(120deg, #db3030, #eeb955); */
+		/* display:flex;
+		min-height:100vh ; */
+		/* background-image: url('../img/voluntario.jpg'); */
+		background-image: url('../img/voluntario.jpg');
 		background-size: cover;
-		background-size: 25rem;
+		background-size: 100%;
 		background-repeat: no-repeat;
-		background-position: center center;
+		/* background-position: center center; */
 		background-attachment: fixed;
 		display:flex;
-		min-height:100vh ; */
+		min-height:100vh ;
 	}
 
 	.main-login form{
 		margin: auto;
 		width: 50%;
 		max-width: 500px;/* ancho maximo */
-		background: #fff;
+		/* background: #fff; */
+		background: rgba(170, 169, 169, 0.45);
 		padding: 30px;
 		border: 1px solid rgba(0, 0, 0, 0.2);
 		border-radius: 15px;
@@ -309,6 +313,13 @@ nav a{
 		height:200px;
 		overflow:scroll;
 	}
+
+	body-login {
+		background-color: #ffdd90;
+		background-image: url('http://localhost/VolBa/assets/img/voluntario.jpg')!important;
+		/* background-image: url('../img/voluntario.jpg'); */
+	  }
+	  
 @media (max-width:700px){
     header{
         flex-direction: column;
