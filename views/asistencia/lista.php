@@ -35,6 +35,14 @@
                 <input type="hidden" name="tipo" value="Asistencia-Apoyo">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Agregar asistencia-apoyo">
             </form>
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
+                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="">
+                <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="">
+                <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="nombre">
+                <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->fecha; ?>">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
+            </form>
             
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="POST">
                 <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">

@@ -201,11 +201,11 @@ class ConsultaAsistencia extends Controller{
         $i=1;
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
             $pdf->Cell(6,5,$i,0,0,'c',0);
-            $pdf->Cell(10,10,$r->id_personal,1,0,'c',0);
-            $pdf->Cell(85,10,utf8_decode($r->nombre),1,0,'c',0);
-            $pdf->Cell(23,10,$r->fecha,1,0,'c',0);
-            $pdf->Cell(33,10,$r->estatus,1,0,'c',0);
-            $pdf->Cell(34,10,"",1,1,'c',0);
+            $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
+            $pdf->Cell(85,7,utf8_decode($r->nombre),1,0,'c',0);
+            $pdf->Cell(23,7,$r->fecha,1,0,'c',0);
+            $pdf->Cell(33,7,$r->estatus,1,0,'c',0);
+            $pdf->Cell(34,7,"",1,1,'c',0);
             $i++;
         }
         // $pdf->Output();

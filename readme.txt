@@ -80,3 +80,4 @@ commit altaCandidato
 commit participaciones
 commit hoverTable
 commit addasistencia
+commit reporteListaAsistencia
