@@ -348,6 +348,19 @@ class Personal extends Controller{
         $estatus="Aceptado";
         $this->model->deleteCandidato($id,$estatus);
     }
+    function eliminarVoluntariado($param = null){
+        $id_personal = $param[0];
+
+        if($this->model->deleteVoluntariado($id_personal)){
+            $mensaje = "Voluntariado eliminado correctamente";
+            $this->view->code = "success";
+        }else{
+            $mensaje = "No se pudo eliminar el voluntariado";
+            $this->view->code = "error";
+        }
+        $this->view->mensaje = $mensaje;
+        $this->listarPersonal();
+    }
 }
 
 ?>
