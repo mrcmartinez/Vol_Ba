@@ -57,6 +57,9 @@ table{
     text-align: center;
     font-family:serif ;
 }
+.right-icon{
+    float: right;
+}
 .center small{
     color: #c7c7c7;
 }

@@ -361,6 +361,34 @@ class Personal extends Controller{
         $this->view->mensaje = $mensaje;
         $this->listarPersonal();
     }
+    //mostrarSiguientesCat
+    function listarSiguiente($param = null){
+        $consulta  = "";
+        $filtro="Activo";
+        if (isset($_POST['caja_busqueda']))
+            $consulta  = $_POST['caja_busqueda'];
+        if (isset($_POST['radio_busqueda']))
+            "radio busueda: ".$filtro  = $_POST['radio_busqueda'];   
+        $personal = $this->model->getBusquedaSig($consulta,$filtro);
+        $this->view->personal = $personal;
+        $this->view->consulta = $consulta;
+        $this->view->radio = $filtro;
+        // if (isset($param[0])) {
+            //$this->view->idCurso = $param[0];
+            // if (isset($param[2])) {
+            //     $_SESSION['nombreCurso']=$param[2];
+            // }
+            // $this->view->estado = "Activo";
+            // $this->view->render('personal/asignar');
+        // }else{
+            // if (isset($_POST['mensaje'])) {
+            //     $this->view->mensaje = "Añadido correctamente";
+            //     $this->view->code = "success";
+            // }
+            // $this->view->render('personal/index');
+        // }
+        $this->view->render('personal/siguienteCat');
+    }
 }
 
 ?>

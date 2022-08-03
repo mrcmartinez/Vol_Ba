@@ -16,9 +16,9 @@
     <div id="main-inicio">
         <div class="container-fluid">
             <div class="center-form-inicio">
-                <h1 class="center">Voluntariado</h1>
+                <h1 class="center">Voluntariado +</h1>
                 <div id="respuesta" class="center">
-                    <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
+                    <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="POST">
                         <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="submit" class="btn-options-check" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
@@ -88,9 +88,11 @@
                             <th class="header" scope="col">Nª</th>
                             <th class="header" scope="col">ID</th>
                             <th class="header" scope="col">Nombre</th>
-                            <th class="header" scope="col">Turno</th>
-                            <th class="header" scope="col">Actividad</th>
-                            <th class="header" scope="col">Ingreso</th>
+                            <th class="header" scope="col">Escolaridad</th>
+                            <th class="header" scope="col">E. Civil</th>
+                            <th class="header" scope="col">Hijos</th>
+                            <th class="header" scope="col">F.nacimiento</th>
+                            <th class="header" scope="col">Edad</th>
                             <th class="header" scope="col">Estatus</th>
                             <th class="header" scope="col">Acciones</th>
                         </tr>
@@ -109,9 +111,11 @@
                                 <td><?php echo $personal->id_personal; ?></td>
                                 <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>
                                 </td>
-                                <td><?php echo $personal->turno; ?></td>
-                                <td><?php echo $personal->actividad; ?></td>
-                                <td><?php echo $personal->fecha_ingreso; ?></td>
+                                <td><?php echo $personal->escolaridad; ?></td>
+                                <td><?php echo $personal->estado_civil; ?></td>
+                                <td><?php echo $personal->numero_hijos; ?></td>
+                                <td><?php echo $personal->fecha_nacimiento; ?></td>
+                                <td><?php echo edad($personal->fecha_nacimiento); ?></td>
                                 <?php switch($personal->estatus){
                     case "Activo":
                         echo '<td class="td-activo">';echo $personal->estatus;'</td>';
@@ -191,7 +195,7 @@
 
             <div class="modalBaja-contenido">
                 <p>
-                    <a href="<?php echo constant('URL'); ?>personal/listarPersonal">❌</a>
+                    <a href="<?php echo constant('URL'); ?>personal/listarSiguiente">❌</a>
                 </p>
                 <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
                     <label for="">Motivo de la baja</label>
