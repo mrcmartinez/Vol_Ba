@@ -81,4 +81,4 @@ commit participaciones
 commit hoverTable
 commit addasistencia
 commit reporteListaAsistencia
-commit filtrosSig
+commit filtrosSig SET GLOBAL lc_time_names = 'es_ES';
