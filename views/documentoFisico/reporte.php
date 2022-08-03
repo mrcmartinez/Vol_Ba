@@ -33,7 +33,7 @@
             <form action="<?php echo constant('URL'); ?>documentoFisico/reporte" method="POST">
                 <p>
                     <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" value="🔍Buscar">
+                    <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
 

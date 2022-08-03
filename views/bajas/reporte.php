@@ -36,7 +36,7 @@
                 <p>
                     De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>" title="Fecha filtro inicio">
                     a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>" title="Fecha filtro fin">
-                    <input type="submit" value="🔍Buscar">
+                    <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
 

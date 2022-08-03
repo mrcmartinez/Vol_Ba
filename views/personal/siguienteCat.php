@@ -16,7 +16,7 @@
     <div id="main-inicio">
         <div class="container-fluid">
             <div class="center-form-inicio">
-                <h1 class="center">Voluntariado +</h1>
+                <h1 class="center">Voluntariado Pag.2</h1>
                 <div id="respuesta" class="center">
                     <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="POST">
                         <?php switch($this->radio){
@@ -37,7 +37,7 @@
 
                         <div class="alinear">
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
-                                value="<?php echo $this->consulta; ?>" autofocus title="Buscar ID, Nombre, Dia, Actividad">
+                                value="<?php echo $this->consulta; ?>" autofocus title="Buscar ID, Nombre, Escolaridad, Civil, Mes nacimiento(Enero,Feb...)">
                             <input class="btn btn-info" type="submit" value="🔍Buscar">
                         </div>
 
@@ -61,10 +61,11 @@
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png" title="Lista asistencia">
                 </form>
                 <div class="right-icon">
-                <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="post">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/next.png" title="+ filtros">
+                <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="post">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/previous.png" title="+ filtros">
                 </form>
                 </div>
+
                 <!-- <table>
                     <thead>
                         <tr>
@@ -134,7 +135,7 @@
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                                     <a
-                                        href="<?php echo constant('URL') . 'personal/eliminarVoluntariado/' . $personal->id_personal; ?>"onclick="return confirmBaja()">❌</a>
+                                        href="<?php echo constant('URL') . 'personal/eliminarVoluntariado/' . $personal->id_personal; ?>"onclick="return confirmBaja()" title="Eliminar permanentemente">❌</a>
                         
                                     <a
                                         href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img

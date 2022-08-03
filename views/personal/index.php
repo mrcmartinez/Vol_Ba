@@ -129,8 +129,8 @@
 
                                 <td>
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
-                                    <a
-                                        href="<?php echo constant('URL') . 'personal/eliminarVoluntariado/' . $personal->id_personal; ?>"onclick="return confirmBaja()">❌</a>
+                                    <!-- <a
+                                        href="<?php echo constant('URL') . 'personal/eliminarVoluntariado/' . $personal->id_personal; ?>"onclick="return confirmBaja()">❌</a> -->
                         
                                     <a
                                         href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
