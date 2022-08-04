@@ -242,11 +242,11 @@ class Personal extends Controller{
         $salida = "";
         $salida .= "<h6>$fecha</h6><img src='$absoluta'>";
         $salida .= "<h1>Reporte</h1>";
-        $salida .= "<h1>Personal voluntariado</h1>";
+        $salida .= "<h1>Voluntariado</h1>";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th></thead>";
-        foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td></tr>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th> <th>INGRESO</th> <th>ESCOLARIDAD</th> <th>CIVIL</th> <th>HIJOS</th> <th>F.NACIMIENTO</th> <th>EDAD</th></thead>";
+        foreach($personal=$this->model->getBusquedaAll($consulta,$filtro) as $r){
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td> <td>".$r->fecha_ingreso."</td> <td>".$r->escolaridad."</td> <td>".$r->estado_civil."</td> <td>".$r->numero_hijos."</td> <td>".$r->fecha_nacimiento."</td> <td>".edad($r->fecha_nacimiento)."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
@@ -255,6 +255,7 @@ class Personal extends Controller{
         header("Expires: 0");
         echo $salida;
     }
+
     function generarReportePDF(){
     require 'libraries/fpdf/fpdf.php';
     $consulta  = $_POST['caja_busqueda'];

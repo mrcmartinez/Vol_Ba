@@ -62,7 +62,7 @@ class Baja extends Controller
          // Título
         $pdf->SetTextColor(250,150,100);
         // $pdf->SetFillColor(200,220,255);
-        $pdf->Cell(30,10,'Bajas personal voluntariado',0,1,'C');
+        $pdf->Cell(30,10,'Bajas Voluntariado',0,1,'C');
         $pdf->SetTextColor(0);
         $pdf->SetFont('Arial','B',12);
         $pdf->Cell(70);

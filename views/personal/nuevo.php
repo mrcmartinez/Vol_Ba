@@ -29,7 +29,7 @@
             </div><?php
             }?>
 
-            <h1 class="center">Agregar <small>Personal voluntariado</small></h1>
+            <h1 class="center">Agregar <small>Voluntariado</small></h1>
 
             <form class="row g-3" action="<?php echo constant('URL'); ?>personal/registrarPersonal" method="POST">
                 <div class="col-md-6">

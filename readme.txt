@@ -82,3 +82,4 @@ commit hoverTable
 commit addasistencia
 commit reporteListaAsistencia
 commit filtrosSig SET GLOBAL lc_time_names = 'es_ES';
+commit busuedaAll
