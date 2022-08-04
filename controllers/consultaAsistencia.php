@@ -187,7 +187,12 @@ class ConsultaAsistencia extends Controller{
         $pdf->SetFont('Arial','B',12);
         $pdf->Ln(10);
         $pdf->Cell(50);
-        $pdf->Cell(30,10,'Del: '.$f_inicio.' al: '.$f_termino,0,1,'c');
+        if (isset($_POST['listaAsistencia'])) {
+            $pdf->Cell(30,10,diaSemana($f_termino)." ".date('d-m-Y', strtotime($f_termino)),0,1,'c');
+        }else{
+            $pdf->Cell(30,10,'Del: '.$f_inicio.' al: '.$f_termino,0,1,'c');
+        }
+
         $pdf->Ln(15);
         $pdf->SetFont('Arial','B',11);
         $pdf->SetFillColor(250,150,100);
@@ -199,6 +204,9 @@ class ConsultaAsistencia extends Controller{
         $pdf->Cell(34,10,'',1,1,'c',1);
         $pdf->SetFont('Arial','',11);
         $i=1;
+        $totalAsistencias=0;
+        $totalApoyo=0;
+        $totalFaltas=0;
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
             $pdf->Cell(6,5,$i,0,0,'c',0);
             $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
@@ -207,7 +215,26 @@ class ConsultaAsistencia extends Controller{
             $pdf->Cell(33,7,$r->estatus,1,0,'c',0);
             $pdf->Cell(34,7,"",1,1,'c',0);
             $i++;
+            switch ($r->estatus) {
+                case 'Asistencia':
+                    $totalAsistencias++;
+                    break;
+                case 'Falta':
+                    $totalFaltas++;
+                    break;
+                case 'Asistencia-Apoyo':
+                    $totalApoyo++;
+                    break;
+                default:
+                    break;
+            }
         }
+        $pdf->Cell(6,20,"",0,1,'c',0);
+        $pdf->Cell(6,20,"",0,0,'c',0);
+        $pdf->Cell(80,7,"Total Asistencias + Apoyo: ".$totalAsistencias+$totalApoyo,1,0,'c',0);
+        $pdf->Cell(30,7,"Asistencias: ".$totalAsistencias,1,0,'c',0);
+        $pdf->Cell(30,7,"Apoyo: ".$totalApoyo,1,0,'c',0);
+        $pdf->Cell(30,7,"Faltas: ".$totalFaltas,1,0,'c',0);
         // $pdf->Output();
         $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
