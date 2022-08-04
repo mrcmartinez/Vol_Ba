@@ -20,7 +20,13 @@
         </form>
         <div class="center-form">
         <h1 class="center">Agregar Teléfono</h1>
-            <?php echo $this->mensaje; ?>
+
+        <?php if (!empty($this->mensaje)) {
+                        ?><div class="alert alert-success" role="alert">
+                <?php echo $this->mensaje; ?>
+
+            </div><?php
+            }?>
 
             <?php $idU=intval($this->ultimoId);?>
             <form form class="row g-3" action="<?php echo constant('URL'); ?>telefono/registrarTelefono" method="POST">

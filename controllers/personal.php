@@ -50,14 +50,14 @@ class Personal extends Controller{
 
         if($consulta[0]){
             if (!empty($_POST['id_personal'])) {
-                $mensaje = "Nuevo voluntariado creado";
+                $mensaje = "Voluntariado creado con ID ".$id_personal." llene la informacion adicional";
                 $_SESSION['nombreVol']=$apellido_paterno.' '.$apellido_materno.' '.$nombre;
                 $this->registrarQr($id_personal);
                 $this->view->mensaje = $mensaje;
                 $this->view->ultimoId = $id_personal;
-                $this->view->render('telefono/nuevo');
+                // $this->view->render('telefono/nuevo');
             }
-            $mensaje = "Nuevo voluntariado creado";
+            $mensaje = "Voluntariado creado con ID ".$consulta[1]." llene la informacion adicional";
             if (isset($_POST['id_candidato'])) {
                 $this->eliminarCandidato($_POST['id_candidato']);
             }
@@ -70,7 +70,7 @@ class Personal extends Controller{
             $this->view->render('telefono/nuevo');
             // return true;
         }else{
-            $mensaje = "Voluntario ya existe";
+            $mensaje = "ID Voluntario ya existe";
             $this->view->mensaje = $mensaje;
             $this->render();
             // return false;
