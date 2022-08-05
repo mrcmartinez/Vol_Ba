@@ -313,6 +313,31 @@ class ConsultaAsistencia extends Controller{
                 $this->render();
             }
         }
+        function marcarjustificado($param=null){
+            $id_personal=$param[0];
+            $fecha=$param[1];
+            $estatus="Falta-Justificada";
+            $hora='0000-00-00';
+
+            if($this->model->update(['id_personal' => $id_personal, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
+                $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
+                $this->view->mensaje = "Marcado como Justificada";
+                $this->view->code = "success";
+            }else{
+                $this->view->mensaje = "No se pudo justificar";
+                $this->view->code = "error";
+            }
+            if (isset($param[2])) {
+                $this->render();
+            }else{
+                $asistencia = $this->model->get($id_personal);
+                $this->view->asistencia = $asistencia;
+                $this->view->id = $id_personal;
+            // $this->view->mensaje = $mensaje;
+                $this->view->render('asistencia/index');
+            }
+            
+        }
 }
 
 ?>

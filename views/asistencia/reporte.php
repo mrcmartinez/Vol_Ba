@@ -100,6 +100,7 @@
                             
                             <?php if ($this->radio=="Falta") {
                                 echo '<th>Motivo</th>';
+                                echo '<th></th>';
                             }?>
                            <th></th>
                         </tr>
@@ -120,10 +121,12 @@
                             <td><?php echo $asistencia->estatus; ?></td>
                             <?php if ($this->radio=="Falta") {
                                 ?> <td><?php echo nl2br($asistencia->descripcion); ?></td>
+                                <td><a href="<?php echo constant('URL') . 'consultaAsistencia/marcarjustificado/'. $asistencia->id_personal.'/'.$asistencia->fecha.'/reporte'; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/refresh2.png" title="Marcar como justificada"/></a></td>
                                     <td><form action="<?php echo constant('URL'); ?>consultaAsistencia/llamarModal" method="post">
                                             <input type="hidden" name="id_personal" value="<?php echo $asistencia->id_personal; ?>">
                                             <input type="hidden" name="fecha" value="<?php echo $asistencia->fecha; ?>">
-                                            <input type="image" src="<?php echo constant('URL'); ?>assets/img/editar2.png">
+                                            <input type="image" src="<?php echo constant('URL'); ?>assets/img/editar2.png" title="indicar motivo de la falta">
                                         </form>
                                     </td><?php
                             }?>

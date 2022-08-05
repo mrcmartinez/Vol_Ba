@@ -13,7 +13,7 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
-        <div class="center-form"><?php echo $this->mensaje; ?>
+        <div class="center-form">
         
        
             <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
@@ -45,7 +45,6 @@
                 </form>
             </div>
 
-            <div class="center"><?php echo $this->mensaje; ?></div>
             <div id="respuesta" class="center"></div>
 
             <table width="100%">
@@ -56,6 +55,7 @@
                         <th>Hora</th>
                         <th>Estatus</th>
                         <th>Motivo</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="tbody-asistencia">
@@ -71,6 +71,12 @@
                         <td><?php echo $asistencia->hora; ?></td>
                         <td><?php echo $asistencia->estatus; ?></td>
                         <td><?php echo $asistencia->descripcion; ?></td>
+                        <?php if ($asistencia->estatus=="Falta") {
+                            ?>
+                            <td><a href="<?php echo constant('URL') . 'consultaAsistencia/marcarjustificado/'. $asistencia->id_personal.'/'.$asistencia->fecha; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/refresh2.png" title="Marcar como justificada"/></a></td>
+                            <?php
+                        }?>
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -81,6 +87,22 @@
     <?php require 'views/footer.php'; ?>
 
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <?php
+        if (!empty($this->mensaje)) 
+        {
+            ?>
+        <script>
+        Swal.fire({
+            // position: 'top-end',
+            icon: "<?php echo $this->code; ?>",
+            title: '<?php echo $this->mensaje; ?>',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        </script>
+        <?php    
+        }
+    ?>
 
 </body>
 
