@@ -250,8 +250,16 @@ class ConsultaAsistencia extends Controller{
                 $mensaje = "No se pudo eliminar voluntariado de lista";
                 $this->view->code = "error";
             }
-            $this->view->mensaje = $mensaje;
-            $this->buscarLista($fecha);
+            if (isset($param[2])) {
+                $asistencia = $this->model->get($id_personal);
+                $this->view->asistencia = $asistencia;
+                $this->view->id = $id_personal;
+                $this->view->render('asistencia/index');
+            }else{
+                $this->view->mensaje = $mensaje;
+                $this->buscarLista($fecha);
+            }
+            
         }
         function reset($param = null){
             $id_personal = $param[0];

@@ -50,6 +50,7 @@
             <table width="100%">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>ID</th>
                         <th>Fecha</th>
                         <th>Hora</th>
@@ -66,14 +67,17 @@
                         $asistencia = $row; 
                 ?>
                     <tr id="fila-<?php echo $asistencia->id_personal; ?>">
+                    <td><a
+                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha.'/ID'; ?>" onclick="return confirmBaja()"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" title="Quitar de Lista"/></a></td>
                         <td><?php echo $asistencia->id_personal; ?></td>
-                        <td><?php echo $asistencia->fecha; ?></td>
+                        <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha)); ?></td>
                         <td><?php echo $asistencia->hora; ?></td>
                         <td><?php echo $asistencia->estatus; ?></td>
                         <td><?php echo $asistencia->descripcion; ?></td>
                         <?php if ($asistencia->estatus=="Falta") {
                             ?>
-                            <td><a href="<?php echo constant('URL') . 'consultaAsistencia/marcarjustificado/'. $asistencia->id_personal.'/'.$asistencia->fecha; ?>"><img
+                            <td><a href="<?php echo constant('URL') . 'consultaAsistencia/marcarjustificado/'. $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
                                             src="<?php echo constant('URL'); ?>assets/img/refresh2.png" title="Marcar como justificada"/></a></td>
                             <?php
                         }?>
@@ -87,6 +91,7 @@
     <?php require 'views/footer.php'; ?>
 
     <script src="<?php echo constant('URL'); ?>assets/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
     <?php
         if (!empty($this->mensaje)) 
         {

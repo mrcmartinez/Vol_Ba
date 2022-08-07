@@ -116,7 +116,7 @@
                         <td><?php echo $i; $i++;?></td>
                             <td><?php echo $asistencia->id_personal; ?></td>
                             <td><?php echo $asistencia->nombre; ?></td>
-                            <td><?php echo $asistencia->fecha; ?></td>
+                            <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha));?></td>
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>
                             <?php if ($this->radio=="Falta") {
