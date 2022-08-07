@@ -390,6 +390,18 @@ class Personal extends Controller{
         // }
         $this->view->render('personal/siguienteCat');
     }
+    function actualizarEstado(){
+        if($this->model->updateEstado()&&$this->model->updateEstadoFalta()){
+            // $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
+            $this->view->mensaje = "estado actualizado";
+            $this->view->code = "success";
+        }else{
+            $this->view->mensaje = "No se pudo actualizar estado";
+            $this->view->code = "error";
+        }
+        $this->listarPersonal();
+        // $this->model->updateEstatus();
+    }
 }
 
 ?>

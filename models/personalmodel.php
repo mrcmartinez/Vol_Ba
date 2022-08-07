@@ -273,6 +273,24 @@ public function deleteVoluntariado($id){
         return false;
     }
 }
+public function updateEstado(){
+    $query=$this->db->connect()->prepare("UPDATE personal set estatus = 'Activo-Pendiente' WHERE id_personal IN ( SELECT v.id_personal from vistafaltas as v INNER JOIN personal as p ON v.id_personal = p.id_personal WHERE p.estatus='Activo')");
+    try{
+        $query->execute();
+        return true;
+    }catch(PDOException $e){
+        return false;
+    }
+}
+public function updateEstadoFalta(){
+    $query=$this->db->connect()->prepare("UPDATE personal set estatus = 'Activo' WHERE id_personal IN ( SELECT v.id_personal from vistafalta as v INNER JOIN personal as p ON v.id_personal = p.id_personal WHERE p.estatus='Activo-Pendiente')");
+    try{
+        $query->execute();
+        return true;
+    }catch(PDOException $e){
+        return false;
+    }
+}
 }
 
 ?>

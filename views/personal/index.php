@@ -61,6 +61,9 @@
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png" title="Lista asistencia">
                 </form>
                 <div class="right-icon">
+                <form action="<?php echo constant('URL'); ?>personal/actualizarestado" method="post">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/refresh.png" title="actualizar estatus faltas">
+                </form>
                 <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="post">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/next.png" title="+ filtros">
                 </form>
