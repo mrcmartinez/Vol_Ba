@@ -231,5 +231,21 @@ class ConsultaAsistenciaModel extends Model{
             return false;
         }
     }
+    public function insertjustificar($datos){
+        $query = $this->db->connect()->prepare('INSERT INTO PETICION (ID_PERSONAL, FECHA_APERTURA, TIPO, FECHA_SOLICITADA,ESTATUS,AUTORIZO) VALUES(:id_personal, :fecha_apertura, :tipo, :fecha_solicitada, :estatus, :autorizo)');
+        try{
+            $query->execute([
+                'id_personal' => $datos['id_personal'],
+                'fecha_apertura' => $datos['fecha_apertura'],
+                'tipo' => $datos['tipo'],
+                'fecha_solicitada' => $datos['fecha_solicitada'],
+                'autorizo' => $datos['autorizo'],
+                'estatus' => $datos['estatus']
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }    
+    }
 }
 ?>

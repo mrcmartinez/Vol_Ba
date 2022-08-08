@@ -53,8 +53,10 @@
                             <th>Folio</th>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Fecha apertura</th>
+                            <th>Folio apertura</th>
                             <th>Tipo</th>
+                            <th>Dia solicitado</th>
+                            <th>Fecha solicitada</th>
                             <th>Estatus</th>
                             <th></th>
                         </tr>
@@ -74,6 +76,8 @@
                             <td><?php echo $peticion->nombre; ?></td>
                             <td><?php echo $peticion->fecha_apertura; ?></td>
                             <td><?php echo $peticion->tipo; ?></td>
+                            <td><?php echo $peticion->dia_solicitado; ?></td>
+                            <td><?php echo $peticion->fecha_solicitada; ?></td>
                             <td><?php echo $peticion->estatus; ?></td>
                             <?php
                         if ($_SESSION['rol']!="Supervisor" && $peticion->estatus=="Pendiente") {?>

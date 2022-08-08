@@ -1,0 +1,2 @@
+delete from peticion
+ALTER TABLE `peticion` CHANGE `autorizo` `autorizo` INT(3) NULL DEFAULT NULL;

@@ -31,7 +31,7 @@ class Peticion extends Controller{
         $folio  = $_POST['folio'];
         $id_personal=$_POST['id_personal'];
         $fecha_solicitada  = $_POST['fecha_solicitada'];
-        $autorizo=$_SESSION['user'];
+        $autorizo=$_SESSION['idUser'];
         if($this->model->updateDate(['id_personal' => $id_personal, 'fecha_solicitada' => $fecha_solicitada])){
             $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
@@ -47,7 +47,7 @@ class Peticion extends Controller{
         $folio  = $_POST['folio'];
         $id_personal=$_POST['id_personal'];
         $dia_solicitado  = $_POST['dia_solicitado'];
-        $autorizo=$_SESSION['user'];
+        $autorizo=$_SESSION['idUser'];
         if($this->model->updateDay(['id_personal' => $id_personal, 'dia_solicitado' => $dia_solicitado])){
         $this->model->update(['folio' => $folio,'estatus' => "Autorizado",'autorizo' => $autorizo]);
         $this->view->mensaje = "Se autorizo correctamente";
@@ -59,7 +59,7 @@ class Peticion extends Controller{
         $this->listar();
     }
     function rechazarPeticion(){
-        $autorizo=$_SESSION['user'];
+        $autorizo=$_SESSION['idUser'];
         $folio  = $_POST['folio'];
         $this->model->update(['folio' => $folio,'estatus' => "Rechazada",'autorizo' => $autorizo]);
         $this->view->mensaje = "folio peticion rechazada";

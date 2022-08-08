@@ -45,6 +45,8 @@ class Inicio extends Controller{
                 // echo "el usuario y contraseña son correctos";
                 $rol=$row[3];
                 $usuario=$row[1];
+                $idUser=$row[0];
+                $_SESSION['idUser']=$idUser;
                 $_SESSION['rol']=$rol;
                 $_SESSION['user']=$usuario;
                 switch($_SESSION['rol']){

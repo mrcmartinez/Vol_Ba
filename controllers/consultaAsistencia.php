@@ -1,7 +1,7 @@
 <?php
-
+require_once 'libraries/session.php';
 class ConsultaAsistencia extends Controller{
-
+    
     function __construct(){
         parent::__construct();
         $this->view->asistencia = [];
@@ -302,7 +302,16 @@ class ConsultaAsistencia extends Controller{
             // echo $consulta;
             // echo $consulta[0];
             // echo $consulta[1];
-            $this->render();
+            if (isset($_POST['consultaID'])) {
+                echo "existe";
+                $asistencia = $this->model->get($id_personal);
+                $this->view->asistencia = $asistencia;
+                $this->view->id = $id_personal;
+                $this->view->render('asistencia/index');
+            }else{
+                $this->render();
+            }
+            
         }
 
         function registrarMotivo(){
@@ -314,7 +323,15 @@ class ConsultaAsistencia extends Controller{
                 $this->view->mensaje = "Motivo registrado correctamente";
                 $this->view->code = "success";
                 $this->view->radio="Falta";
-                $this->render();
+                if (isset($_POST['consultaID'])) {
+                    $asistencia = $this->model->get($id_personal);
+                    $this->view->asistencia = $asistencia;
+                    $this->view->id = $id_personal;
+                    $this->view->render('asistencia/index');
+                }else{
+                    $this->render();
+                }
+                
             }else{
                 $this->view->mensaje = "Ya existe motivo registrado";
                 $this->view->code = "error";
@@ -322,13 +339,25 @@ class ConsultaAsistencia extends Controller{
             }
         }
         function marcarjustificado($param=null){
+            // include_once 'libraries/session.php';
+            // echo $autorizo=$_SESSION['idUser'];
             $id_personal=$param[0];
             $fecha=$param[1];
             $estatus="Falta-Justificada";
             $hora='0000-00-00';
+            $estatusEstado  = "Autorizado";
+            $fecha_apertura  = date("Y-m-d");
+            $tipo  = "Justificante";
+            $fecha_solicitada  = $fecha;
+            $autorizo=$_SESSION['idUser'];
 
             if($this->model->update(['id_personal' => $id_personal, 'fecha' => $fecha, 'hora' => $hora, 'estatus' => $estatus])){
                 $this->model->updateEstatus(['id_personal' => $id_personal,'estatus' => "Activo"]);
+
+                $this->model->insertJustificar(['id_personal' => $id_personal,
+                                         'fecha_apertura' => $fecha_apertura, 'tipo' => $tipo, 'fecha_solicitada' => $fecha_solicitada,
+                                          'estatus' => $estatusEstado,'autorizo' => $autorizo]);
+
                 $this->view->mensaje = "Marcado como Justificada";
                 $this->view->code = "success";
             }else{
@@ -341,7 +370,6 @@ class ConsultaAsistencia extends Controller{
                 $asistencia = $this->model->get($id_personal);
                 $this->view->asistencia = $asistencia;
                 $this->view->id = $id_personal;
-            // $this->view->mensaje = $mensaje;
                 $this->view->render('asistencia/index');
             }
             
