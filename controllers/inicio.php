@@ -51,10 +51,16 @@ class Inicio extends Controller{
                 $_SESSION['user']=$usuario;
                 switch($_SESSION['rol']){
                     case "Administrador":
-                        header('location:'. base_url().'personal');
+                        // $archivoController = 'controllers/personal.php';
+                        // require_once $archivoController;
+                        // $controller = new Personal();
+                        // $controller->listarPersonal();
+                        header('location:'. base_url().'personal/listarPersonal');
+                        // $this->view->render('personal');
                         break;
                     case "Supervisor":
-                        header('location:'. base_url().'documento');
+                        header('location:'. base_url().'personal/listarPersonal');
+                        // header('location:'. base_url().'documento');
                         break;
                         default;
                 }

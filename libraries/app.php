@@ -12,10 +12,10 @@ class App{
 
         // cuando se ingresa sin definir controlador
         if(empty($url[0])){
-            $archivoController = 'controllers/inicio.php';
+            $archivoController = 'controllers/personal.php';
             require_once $archivoController;
-            $controller = new Inicio();
-            $controller->loadModel('inicio');
+            $controller = new Personal();
+            $controller->loadModel('personal');
             $controller->render();
             return false;
         }
