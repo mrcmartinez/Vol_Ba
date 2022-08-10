@@ -57,22 +57,23 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
-    public function getBusqueda($c,$f,$fInicio,$fTermino,$orden){
+    public function getBusqueda($c,$f,$fInicio,$fTermino,$orden,$h){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora,m.descripcion,p.apellido_paterno,p.turno
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, a.id_personal, a.fecha,a.estatus,a.hora,m.descripcion,p.apellido_paterno,p.turno,p.horario
             FROM asistencia as a
             INNER JOIN personal as p
             ON a.id_personal = p.id_personal
             LEFT JOIN motivo as m
             ON m.fecha = a.fecha 
             AND m.id_personal = a.id_personal 
-            WHERE (a.id_personal ='$c' OR CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) like '%".$c."%' OR p.turno ='$c') AND a.estatus like '%".$f."%' AND a.fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden");
+            WHERE (a.id_personal ='$c' OR CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) like '%".$c."%' OR p.turno ='$c') AND p.horario like '%".$h."%' AND a.estatus like '%".$f."%' AND a.fecha BETWEEN '$fInicio' AND '$fTermino' ORDER BY $orden");
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];
                 $item->nombre = $row['nombre'];
                 $item->turno = $row['turno'];
+                $item->horario = $row['horario'];
                 $item->fecha = $row['fecha'];
                 $item->hora = $row['hora'];
                 $item->estatus = $row['estatus'];

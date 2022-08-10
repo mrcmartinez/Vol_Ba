@@ -29,6 +29,30 @@
             <h1 class="center"><small>Reportes</small>Asistencia</h1>
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia" method="POST">
+                
+            <!-- filtro de horario -->
+            Horario por:
+                <?php switch($this->filtroHorario){
+                    
+                    case "":
+                        echo '<input type="radio" id="" name="filtroHorario" value="" checked onchange="this.form.submit()">Todo
+                        <input type="radio" id="" name="filtroHorario" value="Matutino" onchange="this.form.submit()">Matutino
+                        <input type="radio" id="" name="filtroHorario" value="Vespertino" onchange="this.form.submit()">Vespertino';
+                        break;
+                    case "Matutino":
+                        echo '<input type="radio" id="" name="filtroHorario" value="" onchange="this.form.submit()">Todo
+                        <input type="radio" id="" name="filtroHorario" value="Matutino" checked onchange="this.form.submit()">Matutino
+                        <input type="radio" id="" name="filtroHorario" value="Vespertino" onchange="this.form.submit()">Vespertino';
+                        break;
+                    case "Vespertino":
+                        echo '<input type="radio" id="" name="filtroHorario" value="" onchange="this.form.submit()">Todo
+                        <input type="radio" id="" name="filtroHorario" value="Matutino" onchange="this.form.submit()">Matutino
+                        <input type="radio" id="" name="filtroHorario" value="Vespertino"checked onchange="this.form.submit()">Vespertino';
+                        break;
+                }?>
+                </br>
+            <!-- filtro de horario -->
+            
                 Filtrar por:
                 <?php switch($this->radio){
                     
@@ -57,6 +81,7 @@
                         <input type="radio" id="" name="radio_busqueda" value="" checked onchange="this.form.submit()">Todo';
                         break;
                 }?>
+                
                 <p>
                     Ordenar Por:
                     <?php switch ($this->radioOrden) {
@@ -85,6 +110,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOrden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
             </form>
 
@@ -94,6 +120,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="<?php echo $this->radioOrden; ?>">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
+                <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>
             <div id="div2">
@@ -104,6 +131,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>TurnoActual</th>
+                            <th>Horario</th>
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Estatus</th>
@@ -127,6 +155,7 @@
                             <td><?php echo $asistencia->id_personal; ?></td>
                             <td><?php echo $asistencia->nombre; ?></td>
                             <td><?php echo $asistencia->turno; ?></td>
+                            <td><?php echo $asistencia->horario; ?></td>
                             <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha));?></td>
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>

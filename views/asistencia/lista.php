@@ -41,6 +41,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="nombre">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="filtroHorario" id="filtroHorario" value="">
                 <input type="hidden" name="listaAsistencia">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>

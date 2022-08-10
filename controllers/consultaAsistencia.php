@@ -7,27 +7,31 @@ class ConsultaAsistencia extends Controller{
         $this->view->asistencia = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
+        $this->view->filtroHorario= "";
     }
 
     function render(){
         $consulta  = "";
         $filtro="Falta";
+        $filtroHorario="";
         $filtroOrden="fecha";
         $f_inicio=date('Y-m-01');
         $f_termino=date('Y-m-d');
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
+            $filtroHorario  = $_POST['filtroHorario'];
             $filtroOrden  = $_POST['radio_ordenar'];
         }if(isset($_POST['fecha_inicio'])){
             $f_inicio  = $_POST['fecha_inicio'];
             $f_termino  = $_POST['fecha_termino'];
         }
-        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden);
+        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario);
         $this->view->inicio = $f_inicio;
         $this->view->termino = $f_termino;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
+        $this->view->filtroHorario = $filtroHorario;
         $this->view->radioOrden = $filtroOrden;
         $this->view->asistencia = $asistencia;
         $this->view->render('asistencia/reporte');
@@ -145,6 +149,7 @@ class ConsultaAsistencia extends Controller{
     function generarReporte(){
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];
+        $filtroHorario  = $_POST['filtroHorario'];
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
         $filtroOrden  = $_POST['radio_ordenar'];
@@ -159,7 +164,7 @@ class ConsultaAsistencia extends Controller{
         $totalAsistencias=0;
         $totalApoyo=0;
         $totalFaltas=0;
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
+        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario) as $r){
             $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->turno."</td> <td>".diaSemana($r->fecha).date('d-m-Y', strtotime($r->fecha))."</td> <td>".$r->hora."</td> <td>".$r->estatus."</td></tr>";
             switch ($r->estatus) {
                 case 'Asistencia':
@@ -191,6 +196,7 @@ class ConsultaAsistencia extends Controller{
         require 'libraries/fpdf/fpdf.php';
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];
+        $filtroHorario  = $_POST['filtroHorario'];
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
         $filtroOrden  = $_POST['radio_ordenar'];
@@ -228,7 +234,7 @@ class ConsultaAsistencia extends Controller{
         $totalAsistencias=0;
         $totalApoyo=0;
         $totalFaltas=0;
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
+        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario) as $r){
             $pdf->Cell(6,5,$i,0,0,'c',0);
             $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
             $pdf->Cell(85,7,utf8_decode($r->nombre),1,0,'c',0);
