@@ -112,11 +112,12 @@ class Personal extends Controller{
         $consulta  = "";
         $filtro="Activo";
         $tipo=$_POST['tipo'];
+        $filtroHorario="";
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
         }
-        $personal = $this->model->getBusqueda($consulta,$filtro);
+        $personal = $this->model->getBusqueda($consulta,$filtro,$filtroHorario);
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
@@ -243,8 +244,9 @@ class Personal extends Controller{
     }
 
     function generarReporte(){
-        $consulta  = $_POST['caja_busqueda'];
-        $filtro  = $_POST['radio_busqueda'];
+        $filtroHorario = $_POST['filtroHorario'];
+        $consulta = $_POST['caja_busqueda'];
+        $filtro = $_POST['radio_busqueda'];
         $fecha=date('Y-m-d');
         $absoluta= constant('URL')."assets/img/logoXLS.png";
         $salida = "";
@@ -253,7 +255,7 @@ class Personal extends Controller{
         $salida .= "<h1>Voluntariado</h1>";
         $salida .= "<table>";
         $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th> <th>INGRESO</th> <th>ESCOLARIDAD</th> <th>CIVIL</th> <th>HIJOS</th> <th>F.NACIMIENTO</th> <th>EDAD</th></thead>";
-        foreach($personal=$this->model->getBusquedaAll($consulta,$filtro) as $r){
+        foreach($personal=$this->model->getBusquedaAll($consulta,$filtro,$filtroHorario) as $r){
             $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td> <td>".$r->fecha_ingreso."</td> <td>".$r->escolaridad."</td> <td>".$r->estado_civil."</td> <td>".$r->numero_hijos."</td> <td>".$r->fecha_nacimiento."</td> <td>".edad($r->fecha_nacimiento)."</td></tr>";
         }
         $salida .= "</table>";
@@ -266,8 +268,9 @@ class Personal extends Controller{
 
     function generarReportePDF(){
     require 'libraries/fpdf/fpdf.php';
-    $consulta  = $_POST['caja_busqueda'];
-    $filtro  = $_POST['radio_busqueda'];
+    $consulta = $_POST['caja_busqueda'];
+    $filtro = $_POST['radio_busqueda'];
+    $filtroHorario = $_POST['filtroHorario'];
     $pdf = new FPDF();
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',11);
@@ -297,7 +300,7 @@ class Personal extends Controller{
     $pdf->Cell(45,10,'Costo',1,1,'c',1);
     $pdf->SetFont('Arial','',11);
     $i=1;
-    foreach($personal=$this->model->getBusqueda($consulta,$filtro) as $r){
+    foreach($personal=$this->model->getBusqueda($consulta,$filtro,$filtroHorario) as $r){
         $pdf->Cell(6,5,$i,0,0,'c',0);
         $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
         // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
@@ -374,14 +377,18 @@ class Personal extends Controller{
     function listarSiguiente($param = null){
         $consulta  = "";
         $filtro="Activo";
+        $filtroHorario="";
         if (isset($_POST['caja_busqueda']))
             $consulta  = $_POST['caja_busqueda'];
+        if (isset($_POST['filtroHorario']))
+            $filtroHorario  = $_POST['filtroHorario'];
         if (isset($_POST['radio_busqueda']))
             "radio busueda: ".$filtro  = $_POST['radio_busqueda'];   
-        $personal = $this->model->getBusquedaSig($consulta,$filtro);
+        $personal = $this->model->getBusquedaSig($consulta,$filtro,$filtroHorario);
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
+        $this->view->filtroHorario = $filtroHorario;
         // if (isset($param[0])) {
             //$this->view->idCurso = $param[0];
             // if (isset($param[2])) {

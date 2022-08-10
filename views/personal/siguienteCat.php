@@ -36,6 +36,14 @@
                 }?>
 
                         <div class="alinear">
+                        <div class="col-md-2">
+                            <select class="form-select" id="horario" name="filtroHorario">
+                                <option value="<?php echo $this->filtroHorario; ?>">✔<?php echo filtroHorario($this->filtroHorario); ?></option>
+                                <option value="">Todo</option>
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
+                            </select>
+                            </div>
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
                                 value="<?php echo $this->consulta; ?>" autofocus title="Buscar ID, Nombre, Escolaridad, Civil, Mes nacimiento(Enero,Feb...)">
                             <input class="btn btn-info" type="submit" value="🔍Buscar">

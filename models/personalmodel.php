@@ -52,14 +52,14 @@ class PersonalModel extends Model{
              return [];
          }
      }
-     public function getBusquedaSig($c,$f){
+     public function getBusquedaSig($c,$f,$h){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT v.*, p.escolaridad,p.numero_hijos,p.fecha_nacimiento,p.estado_civil
+            $query = $this->db->connect()->query("SELECT v.*, p.escolaridad,p.numero_hijos,p.fecha_nacimiento,p.estado_civil,p.horario
                                                 FROM vistapersonalv as v
                                                 INNER JOIN personal as p
                                                 ON v.id_personal = p.id_personal
-                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c') AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
+                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c') AND p.horario like '%".$h."%' AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
 
             while($row = $query->fetch()){
                 $item = new PersonalBanco();
@@ -79,14 +79,14 @@ class PersonalModel extends Model{
             return [];
         }
     }
-    public function getBusquedaAll($c,$f){
+    public function getBusquedaAll($c,$f,$h){
         $items = [];
         try{
             $query = $this->db->connect()->query("SELECT v.*, p.escolaridad,p.numero_hijos,p.fecha_nacimiento,p.estado_civil
                                                 FROM vistapersonalv as v
                                                 INNER JOIN personal as p
                                                 ON v.id_personal = p.id_personal
-                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c'  OR v.turno like '%".$c."%' OR v.actividad like '%".$c."%') AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
+                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c' OR v.turno like '%".$c."%' OR v.actividad like '%".$c."%') AND v.horario like '%".$h."%' AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
 
             while($row = $query->fetch()){
                 $item = new PersonalBanco();
