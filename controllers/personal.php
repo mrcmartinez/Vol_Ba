@@ -37,6 +37,7 @@ class Personal extends Controller{
         $seguro_medico  = $_POST['seguro_medico'];
         $escolaridad  = $_POST['escolaridad'];
         $turno  = $_POST['turno'];
+        $horario  = $_POST['horario'];
         $actividad  = $_POST['actividad'];
         $estatus  = $_POST['estatus'];
         $mensaje = "";
@@ -45,7 +46,7 @@ class Personal extends Controller{
         'colonia' => $colonia,'numero_exterior' => $numero_exterior,
         'fecha_nacimiento' => $fecha_nacimiento,
         'estado_civil' => $estado_civil,'numero_hijos' => $numero_hijos,
-        'seguro_medico' => $seguro_medico,'escolaridad' => $escolaridad,'turno' => $turno,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
+        'seguro_medico' => $seguro_medico,'escolaridad' => $escolaridad,'turno' => $turno,'horario' => $horario,'actividad' => $actividad,'fecha_ingreso' => $fecha_ingreso,'estatus' => $estatus]);
         
 
         if($consulta[0]){

@@ -14,6 +14,7 @@ class PersonalBanco{
     public $escolaridad;
     public $turno;
     public $actividad;
+    public $horario;
     public $fecha_ingreso;
     public $estatus;
 }

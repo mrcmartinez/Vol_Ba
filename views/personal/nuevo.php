@@ -119,6 +119,14 @@
                     </select>
                 </div>
 
+                <div class="col-md-2">
+                    <label for="horario">Horario</label>
+                    <select class="form-select" id="horario" name="horario">
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                    </select>
+                </div>
+
                 <div class="col-md-3">
                     <label for="actividad">Actividad</label>
                     <input class="form-control" list="act" name="actividad" id="actividad" required>
@@ -131,14 +139,14 @@
                         <option value="F.s Barrio">
                     </datalist>
                 </div>
-                <div class="col-md-2">
+                <!-- <div class="col-md-2"> -->
                     <!-- <label for="estatus">Estatus</label> -->
                     <input type="hidden" name="estatus" value="Activo">
                     <!-- <select class="form-select" id="estatus" name="estatus"> -->
                     <!-- <option value="Activo">Activo</option> -->
                     <!-- <option value="Candidato">Candidato</option> -->
                     <!-- </select> -->
-                </div>
+                <!-- </div> -->
 
                 <div class="col-md-4">
                     <input class="form-control btn btn-dark" type="submit" value="Registrar">
