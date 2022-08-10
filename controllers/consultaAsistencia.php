@@ -155,10 +155,31 @@ class ConsultaAsistencia extends Controller{
         $salida .= "<h1>Reporte</h1>";
         $salida .= "<h1>Asistencias voluntariado</h1>";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>FECHA</th> <th>HORA</th> <th>ESTATUS</th> </thead>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>TURNOACTUAL</th> <th>FECHA</th> <th>HORA</th> <th>ESTATUS</th> </thead>";
+        $totalAsistencias=0;
+        $totalApoyo=0;
+        $totalFaltas=0;
         foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->fecha."</td> <td>".$r->hora."</td> <td>".$r->estatus."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->turno."</td> <td>".diaSemana($r->fecha).date('d-m-Y', strtotime($r->fecha))."</td> <td>".$r->hora."</td> <td>".$r->estatus."</td></tr>";
+            switch ($r->estatus) {
+                case 'Asistencia':
+                    $totalAsistencias++;
+                    break;
+                case 'Falta':
+                    $totalFaltas++;
+                    break;
+                case 'Asistencia-Apoyo':
+                    $totalApoyo++;
+                    break;
+                default:
+                    break;
+            }
         }
+        $totalFinal=$totalAsistencias+$totalApoyo;
+        $salida .= "<h6>Total Asistencias+Apoyo:".$totalFinal."</h6>";
+        $salida .= "<h6>Total Asistencias:".$totalAsistencias."</h6>";
+        $salida .= "<h6>Total Apoyo:".$totalApoyo."</h6>";
+        $salida .= "<h6>Total Faltas:".$totalFaltas."</h6>";
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=asistencia_".time().".xls");
@@ -229,9 +250,10 @@ class ConsultaAsistencia extends Controller{
                     break;
             }
         }
+        $totalFinal=$totalAsistencias+$totalApoyo;
         $pdf->Cell(6,20,"",0,1,'c',0);
         $pdf->Cell(6,20,"",0,0,'c',0);
-        $pdf->Cell(80,7,"Total Asistencias + Apoyo: ".$totalAsistencias+$totalApoyo,1,0,'c',0);
+        $pdf->Cell(80,7,"Total Asistencias + Apoyo: ".$totalFinal,1,0,'c',0);
         $pdf->Cell(30,7,"Asistencias: ".$totalAsistencias,1,0,'c',0);
         $pdf->Cell(30,7,"Apoyo: ".$totalApoyo,1,0,'c',0);
         $pdf->Cell(30,7,"Faltas: ".$totalFaltas,1,0,'c',0);

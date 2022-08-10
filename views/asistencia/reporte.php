@@ -33,17 +33,26 @@
                 <?php switch($this->radio){
                     
                     case "Asistencia":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked onchange="this.form.submit()">Asistencias
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia"checked onchange="this.form.submit()">Asistencias+Apoyo
+                        <input type="radio" id="" name="radio_busqueda" value="Asistencia-Apoyo" onchange="this.form.submit()">Apoyo
+                        <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
+                        <input type="radio" id="" name="radio_busqueda" value="" onchange="this.form.submit()">Todo';
+                        break;
+                    case "Asistencia-Apoyo":
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias+Apoyo
+                        <input type="radio" id="" name="radio_busqueda" value="Asistencia-Apoyo" checked onchange="this.form.submit()">Apoyo
                         <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
                         <input type="radio" id="" name="radio_busqueda" value="" onchange="this.form.submit()">Todo';
                         break;
                     case "Falta":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias+Apoyo
+                        <input type="radio" id="" name="radio_busqueda" value="Asistencia-Apoyo" onchange="this.form.submit()">Apoyo
                         <input type="radio" id="" name="radio_busqueda" value="Falta"checked onchange="this.form.submit()">Faltas
                         <input type="radio" id="" name="radio_busqueda" value="" onchange="this.form.submit()">Todo';
                         break;
                     case "":
-                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias
+                        echo '<input type="radio" id="" name="radio_busqueda" value="Asistencia" onchange="this.form.submit()">Asistencias+Apoyo
+                        <input type="radio" id="" name="radio_busqueda" value="Asistencia-Apoyo" onchange="this.form.submit()">Apoyo
                         <input type="radio" id="" name="radio_busqueda" value="Falta" onchange="this.form.submit()">Faltas
                         <input type="radio" id="" name="radio_busqueda" value="" checked onchange="this.form.submit()">Todo';
                         break;
@@ -52,21 +61,21 @@
                     Ordenar Por:
                     <?php switch ($this->radioOrden) {
                 case "fecha":
-                    echo'<input type="radio" name="radio_ordenar" value="nombre">Voluntariado
-                    <input type="radio" name="radio_ordenar" value="fecha"checked>Fecha';
+                    echo'<input type="radio" name="radio_ordenar" value="nombre" onchange="this.form.submit()">Nombre
+                    <input type="radio" name="radio_ordenar" value="fecha"checked onchange="this.form.submit()">Fecha';
                     break;
                 case 'nombre':
-                        echo'<input type="radio" name="radio_ordenar" value="nombre"checked>Voluntariado
-                        <input type="radio" name="radio_ordenar" value="fecha">Fecha';
+                        echo'<input type="radio" name="radio_ordenar" value="nombre"checked onchange="this.form.submit()">Nombre
+                        <input type="radio" name="radio_ordenar" value="fecha" onchange="this.form.submit()">Fecha';
                         break;
                     break;
             }?>
                 </p>
 
                 <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre">
-                    De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>" title="Fecha filtro inicio">
-                    a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>" title="Fecha filtro fin">
+                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus placeholder="ID,Nombre,Turno" value="<?php echo $this->consulta; ?>">
+                    De:<input type="Date" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>" title="Fecha filtro inicio" onchange="this.form.submit()">
+                    a:<input type="Date" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>" title="Fecha filtro fin" onchange="this.form.submit()">
                     <input type="submit" class="btn-options-info" value="🔍Buscar">
                 </p>
             </form>
@@ -94,6 +103,7 @@
                             <th>N</th>
                             <th>ID</th>
                             <th>Nombre</th>
+                            <th>TurnoActual</th>
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Estatus</th>
@@ -116,6 +126,7 @@
                         <td><?php echo $i; $i++;?></td>
                             <td><?php echo $asistencia->id_personal; ?></td>
                             <td><?php echo $asistencia->nombre; ?></td>
+                            <td><?php echo $asistencia->turno; ?></td>
                             <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha));?></td>
                             <td><?php echo $asistencia->hora; ?></td>
                             <td><?php echo $asistencia->estatus; ?></td>
