@@ -2,3 +2,5 @@ delete from peticion
 ALTER TABLE `peticion` CHANGE `autorizo` `autorizo` INT(3) NULL DEFAULT NULL;
 
 ALTER TABLE `personal` ADD `horario` VARCHAR(15) NOT NULL DEFAULT 'matutino' AFTER `turno`;
+
+ALTER ALGORITHM = UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vistapersonalv` AS select `volba`.`personal`.`id_personal` AS `id_personal`,concat(`volba`.`personal`.`apellido_paterno`,' ',`volba`.`personal`.`apellido_materno`,' ',`volba`.`personal`.`nombre`) AS `nombreCompleto`,concat(`volba`.`personal`.`nombre`,' ',`volba`.`personal`.`apellido_paterno`,' ',`volba`.`personal`.`apellido_materno`) AS `nombreCompletoR`,`volba`.`personal`.`apellido_paterno` AS `apellido_paterno`,`volba`.`personal`.`apellido_materno` AS `apellido_materno`,`volba`.`personal`.`nombre` AS `nombre`,`volba`.`personal`.`turno` AS `turno`,`volba`.`personal`.`horario` AS `horario`,`volba`.`personal`.`actividad` AS `actividad`,`volba`.`personal`.`fecha_ingreso` AS `fecha_ingreso`,`volba`.`personal`.`estatus` AS `estatus` from `volba`.`personal`

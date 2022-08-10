@@ -42,6 +42,7 @@ class PersonalModel extends Model{
                  $item->apellido_materno = $row['apellido_materno'];
                  $item->turno = $row['turno'];
                  $item->actividad = $row['actividad'];
+                 $item->horario = $row['horario'];
                  $item->fecha_ingreso = $row['fecha_ingreso'];
                  $item->estatus = $row['estatus'];
                  array_push($items, $item);         
@@ -95,6 +96,7 @@ class PersonalModel extends Model{
                 $item->apellido_materno = $row['apellido_materno'];
                 $item->acividad = $row['escolaridad'];
                 $item->turno = $row['turno'];
+                $item->horario = $row['horario'];
                 $item->fecha_ingreso = $row['fecha_ingreso'];
                 $item->escolaridad = $row['escolaridad'];
                 $item->numero_hijos = $row['numero_hijos'];
@@ -127,6 +129,7 @@ class PersonalModel extends Model{
                 $item->numero_hijos = $row['numero_hijos'];
                 $item->seguro_medico = $row['seguro_medico'];
                 $item->turno = $row['turno'];
+                $item->horario = $row['horario'];
                 $item->actividad = $row['actividad'];
                 $item->escolaridad = $row['escolaridad'];
                 $item->fecha_ingreso = $row['fecha_ingreso'];
@@ -141,7 +144,7 @@ class PersonalModel extends Model{
         $query = $this->db->connect()->prepare("UPDATE personal SET nombre = :nombre, estatus = :estatus, 
         apellido_paterno = :apellido_paterno,apellido_materno = :apellido_materno, calle = :calle, colonia = :colonia,
         numero_exterior = :numero_exterior, fecha_nacimiento = :fecha_nacimiento, estado_civil = :estado_civil,
-        numero_hijos = :numero_hijos,seguro_medico = :seguro_medico, escolaridad = :escolaridad, turno = :turno, actividad = :actividad WHERE id_personal = :id_personal");
+        numero_hijos = :numero_hijos,seguro_medico = :seguro_medico, escolaridad = :escolaridad, turno = :turno, horario = :horario, actividad = :actividad WHERE id_personal = :id_personal");
         try{
             $query->execute([
                 'id_personal'=> $item['id_personal'],
@@ -158,6 +161,7 @@ class PersonalModel extends Model{
                 'seguro_medico'=> $item['seguro_medico'],
                 'escolaridad'=> $item['escolaridad'],
                 'turno'=> $item['turno'],
+                'horario'=> $item['horario'],
                 'actividad'=> $item['actividad']
             ]);
             return true;

@@ -169,6 +169,7 @@ class Personal extends Controller{
         $seguro_medico = $_POST['seguro_medico'];
         $escolaridad = $_POST['escolaridad'];
         $turno = $_POST['turno'];
+        $horario  = $_POST['horario'];
         $actividad = $_POST['actividad'];
         
         if($this->model->update(['id_personal' => $id_personal, 'nombre' => $nombre, 'estatus' => $estatus,
@@ -183,6 +184,7 @@ class Personal extends Controller{
          'seguro_medico' => $seguro_medico,
          'escolaridad' => $escolaridad,
          'turno' => $turno,
+         'horario' => $horario,
          'actividad' => $actividad] )){
             $this->view->mensaje = "Personal actualizado correctamente";
             $this->view->code = "success";

@@ -116,11 +116,15 @@
                     <input type="text" name="turno" value="<?php echo $this->personal->turno; ?>" disabled>
                 </p>
                 <p>
-                    <label for="actividad">Actividad</label><br>
-                    <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>" disabled>
+                    <label for="horario">Horario</label><br>
+                    <input type="text" name="horario" value="<?php echo $this->personal->horario; ?>" disabled>
                 </p>
                 <p>
-                    <label for="fecha_ingreso">Fecha Ingreso</label><br>
+                    <label for="actividad">Actividad</label><br>
+                    <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>" disabled>
+                    </p>
+                    <p>
+                        <label for="fecha_ingreso">Fecha Ingreso</label><br>
                     <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>"
                         disabled>
                 </p>

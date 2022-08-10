@@ -92,6 +92,7 @@
                             <th class="header" scope="col">ID</th>
                             <th class="header" scope="col">Nombre</th>
                             <th class="header" scope="col">Turno</th>
+                            <th class="header" scope="col">Horario</th>
                             <th class="header" scope="col">Actividad</th>
                             <th class="header" scope="col">Ingreso</th>
                             <th class="header" scope="col">Estatus</th>
@@ -113,6 +114,7 @@
                                 <td><?php echo $personal->apellido_paterno.' '.$personal->apellido_materno.' '.$personal->nombre; ?>
                                 </td>
                                 <td><?php echo $personal->turno; ?></td>
+                                <td><?php echo $personal->horario; ?></td>
                                 <td><?php echo $personal->actividad; ?></td>
                                 <td><?php echo $personal->fecha_ingreso; ?></td>
                                 <?php switch($personal->estatus){

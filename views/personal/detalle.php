@@ -65,7 +65,7 @@
                     <input class="form-control" type="date" name="fecha_nacimiento"
                         value="<?php echo $this->personal->fecha_nacimiento; ?>" required>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="estado_civil">Estado Civil</label>
                     <select class="form-select" id="estado_civil" name="estado_civil">
                         <option value="<?php echo $this->personal->estado_civil; ?>">
@@ -84,7 +84,7 @@
                     <input class="form-control" type="number" name="numero_hijos"
                         value="<?php echo $this->personal->numero_hijos; ?>" required>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label for="seguro_medico">Seguro Médico</label>
                     <input class="form-control" list="seguro" name="seguro_medico" id="seguro_medico"
                         value="<?php echo $this->personal->seguro_medico; ?>" required>
@@ -103,7 +103,7 @@
                 </div>
 
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="actividad">Actividad</label>
                     <input class="form-control" list="act" name="actividad" id="actividad"
                         value="<?php echo $this->personal->actividad; ?>" required>
@@ -117,7 +117,7 @@
                     </datalist>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label for="turno">Dia</label>
                     <select class="form-select" id="turno" name="turno">
                         <option value="<?php echo $this->personal->turno; ?>">
@@ -128,6 +128,17 @@
                         <option value="Jueves">Jueves</option>
                         <option value="Viernes">Viernes</option>
                         <option value="Sabado">Sabado</option>
+                    </select>
+                    <input class="form-control" type="hidden" name="estatus"
+                        value="<?php echo $this->personal->estatus; ?>">
+                </div>
+                <div class="col-md-3">
+                    <label for="turno">HORARIO</label>
+                    <select class="form-select" id="horario" name="horario">
+                        <option value="<?php echo $this->personal->horario; ?>">
+                            ✔<?php echo $this->personal->horario; ?></option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
                     </select>
                     <input class="form-control" type="hidden" name="estatus"
                         value="<?php echo $this->personal->estatus; ?>">

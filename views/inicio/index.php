@@ -13,7 +13,7 @@
     <div class="main-login">
         <form action="<?php echo constant('URL'); ?>inicio/iniciarSesion" method="POST">
             <input type="image" src="<?php echo constant('URL'); ?>assets/img/logo1.png">
-            <h2>Bienvenido Sistema VolBaL</h2>
+            <h2>Bienvenido Sistema VolBaL V1.1</h2>
             <input type="text" name="nombre_usuario" placeholder="👤Usuario">
             <input type="password" name="password" placeholder="🔐Contraseña">
             <input type="submit" value="Ingresar">
