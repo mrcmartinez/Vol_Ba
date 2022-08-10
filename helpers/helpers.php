@@ -36,5 +36,13 @@
         $dia = $dias[(date('N', strtotime($fecha))) - 1];
         return $dia;
     }
+    function filtroHorario($filtro){
+        if (empty($filtro)) {
+            $c="Todo";
+        }else{
+            $c=$filtro;
+        }
+        return $c;
+    }
 
 ?>

@@ -36,15 +36,25 @@
                 }?>
 
                         <div class="alinear">
+                            <div class="col-md-2">
+                            <select class="form-select" id="horario" name="filtroHorario">
+                                <option value="<?php echo $this->filtroHorario; ?>">✔<?php echo filtroHorario($this->filtroHorario); ?></option>
+                                <option value="">Todo</option>
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
+                            </select>
+                            </div>
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
-                                value="<?php echo $this->consulta; ?>" autofocus title="Buscar ID, Nombre, Dia, Actividad">
+                                value="<?php echo $this->consulta; ?>" autofocus
+                                title="Buscar ID, Nombre, Dia, Actividad">
                             <input class="btn btn-info" type="submit" value="🔍Buscar">
                         </div>
 
                     </form>
                 </div>
                 <form action="<?php echo constant('URL'); ?>personal" method="POST">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Nuevo Voluntariado">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png"
+                        title="Nuevo Voluntariado">
                 </form>
                 <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
@@ -58,15 +68,17 @@
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
                 </form>
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png" title="Lista asistencia">
+                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/listaVinetas.png"
+                        title="Lista asistencia">
                 </form>
                 <div class="right-icon">
-                <form action="<?php echo constant('URL'); ?>personal/actualizarestado" method="post">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/refresh.png" title="actualizar estatus faltas">
-                </form>
-                <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="post">
-                    <input type="image" src="<?php echo constant('URL'); ?>assets/img/next.png" title="+ filtros">
-                </form>
+                    <form action="<?php echo constant('URL'); ?>personal/actualizarestado" method="post">
+                        <input type="image" src="<?php echo constant('URL'); ?>assets/img/refresh.png"
+                            title="actualizar estatus faltas">
+                    </form>
+                    <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="post">
+                        <input type="image" src="<?php echo constant('URL'); ?>assets/img/next.png" title="+ filtros">
+                    </form>
                 </div>
                 <!-- <table>
                     <thead>
@@ -86,19 +98,19 @@
 
                 <div id="div2">
                     <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th class="header" scope="col">Nª</th>
-                            <th class="header" scope="col">ID</th>
-                            <th class="header" scope="col">Nombre</th>
-                            <th class="header" scope="col">Turno</th>
-                            <th class="header" scope="col">Horario</th>
-                            <th class="header" scope="col">Actividad</th>
-                            <th class="header" scope="col">Ingreso</th>
-                            <th class="header" scope="col">Estatus</th>
-                            <th class="header" scope="col">Acciones</th>
-                        </tr>
-                    </thead>
+                        <thead>
+                            <tr>
+                                <th class="header" scope="col">Nª</th>
+                                <th class="header" scope="col">ID</th>
+                                <th class="header" scope="col">Nombre</th>
+                                <th class="header" scope="col">Turno</th>
+                                <th class="header" scope="col">Horario</th>
+                                <th class="header" scope="col">Actividad</th>
+                                <th class="header" scope="col">Ingreso</th>
+                                <th class="header" scope="col">Estatus</th>
+                                <th class="header" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
                         <tbody id="tbody-personal">
 
                             <?php $i=1;
@@ -136,26 +148,31 @@
                                     <?php if ( $_SESSION['rol']!="Supervisor" ) { ?>
                                     <!-- <a
                                         href="<?php echo constant('URL') . 'personal/eliminarVoluntariado/' . $personal->id_personal; ?>"onclick="return confirmBaja()">❌</a> -->
-                        
+
                                     <a
                                         href="javascript:popup('70','70','<?php echo constant('URL') . 'personal/code/' . $personal->id_personal; ?>')"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png" title="Imprimir QR"/></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/qr-code.png"
+                                            title="Imprimir QR" /></a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verInformacion/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/lupa.png" title="Detalles"/></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/lupa.png"
+                                            title="Detalles" /></a>
                                     <a
                                         href="<?php echo constant('URL') . 'personal/verPersonal/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/edit.png" title="Editar"/></a>
+                                            src="<?php echo constant('URL'); ?>assets/img/edit.png"
+                                            title="Editar" /></a>
 
                                     <?php if ($this->radio!="Activo") {
                                 ?><a
                                         href="<?php echo constant('URL') . 'personal/altaPersonal/' . $personal->id_personal.'/'.$this->radio; ?>"><button
                                             onclick="return confirmBaja()"><img
-                                                src="<?php echo constant('URL'); ?>assets/img/alta.png" title="alta"/></a><?php
+                                                src="<?php echo constant('URL'); ?>assets/img/alta.png"
+                                                title="alta" /></a><?php
                             }else{
                                 ?><a
                                         href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" title="Baja"/></a><?php
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
+                                            title="Baja" /></a><?php
                             }?>
 
 
@@ -201,9 +218,10 @@
                 <form action="<?php echo constant('URL'); ?>personal/eliminarPersonal" method="post" method="post">
                     <label for="">Motivo de la baja</label>
                     <p>
-                        <h6><?php echo $this->nombre;?></h6>
-                        <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
-                        <textarea name="motivo" id="nota"required rows="2" cols="55" maxlength="200" onkeyup="check(event);"></textarea>
+                    <h6><?php echo $this->nombre;?></h6>
+                    <input type="hidden" name="id_personal" value="<?php echo $this->idBaja?>">
+                    <textarea name="motivo" id="nota" required rows="2" cols="55" maxlength="200"
+                        onkeyup="check(event);"></textarea>
                     </p>
                     <input class="btn btn-dark" type="submit" value="Aceptar">
                 </form>

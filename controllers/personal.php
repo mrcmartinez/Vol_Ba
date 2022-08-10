@@ -8,6 +8,7 @@ class Personal extends Controller{
         $this->view->personal = [];
         $this->view->mensaje = "";
         $this->view->consulta= "";
+        $filtroHorario="";
     }
 
     function render(){
@@ -80,14 +81,18 @@ class Personal extends Controller{
     function listarPersonal($param = null){
         $consulta  = "";
         $filtro="Activo";
+        $filtroHorario="";
         if (isset($_POST['caja_busqueda']))
             $consulta  = $_POST['caja_busqueda'];
+            if (isset($_POST['filtroHorario']))
+            $filtroHorario  = $_POST['filtroHorario'];
         if (isset($_POST['radio_busqueda']))
             "radio busueda: ".$filtro  = $_POST['radio_busqueda'];   
-        $personal = $this->model->getBusqueda($consulta,$filtro);
+        $personal = $this->model->getBusqueda($consulta,$filtro,$filtroHorario);
         $this->view->personal = $personal;
         $this->view->consulta = $consulta;
         $this->view->radio = $filtro;
+        $this->view->filtroHorario = $filtroHorario;
         if (isset($param[0])) {
             $this->view->idCurso = $param[0];
             if (isset($param[2])) {
