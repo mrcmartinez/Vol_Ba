@@ -14,26 +14,30 @@
 
     <div id="main">
         <div class="center-form">
-            <h1 class="center">Lista Asistencia <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); ?></h1>
+            <h1 class="center">Lista Asistencia
+                <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); echo $this->filtroHorario;?></h1>
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
-                <input  type="image" src="<?php echo constant('URL'); ?>assets/img/back.png" title="Salir">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/back.png" title="Salir">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/buscar" method="POST">
-            <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
-                <input type="image" onclick="return confirmBaja()" src="<?php echo constant('URL'); ?>assets/img/mode.png" title="Activar modo manual">
+                <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="image" onclick="return confirmBaja()"
+                    src="<?php echo constant('URL'); ?>assets/img/mode.png" title="Activar modo manual">
             </form>
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaAsistencia">
                 <input type="hidden" name="tipo" value="Asistencia">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/add-user.png" title="Agregar asistencia">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/add-user.png"
+                    title="Agregar asistencia">
             </form>
-            
+
             <form action="<?php echo constant('URL'); ?>personal/seleccionarPersonal" method="POST">
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaApoyo">
                 <input type="hidden" name="tipo" value="Asistencia-Apoyo">
-                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" title="Agregar asistencia-apoyo">
+                <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png"
+                    title="Agregar asistencia-apoyo">
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="">
@@ -45,14 +49,22 @@
                 <input type="hidden" name="listaAsistencia">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>
-            
+
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="POST">
-                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01" max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">
+                <input type="date" name="fecha" value="<?php echo $this->fecha; ?>" min="2022-07-01"
+                    max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">
+                <!-- <input type="text" name="filtroHorario" value="<?php echo $this->filtroHorario;?>"> -->
                 <!-- <input type="submit"> -->
+                <select id="filtroHorario" name="filtroHorario"onchange="this.form.submit()">
+                    <option value="<?php echo $this->filtroHorario; ?>">
+                        ✔<?php echo $this->filtroHorario; ?></option>
+                    <option value="Matutino">Matutino</option>
+                    <option value="Vespertino">Vespertino</option>
+                </select>
             </form>
             <div id="respuesta" class="center"></div>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
-            
+
                 <div id="div2">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -74,14 +86,16 @@
                         $asistencia = $row; 
                 ?>
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
-                            <td><?php echo $i; $i++;?></td>
-                            <td><a
-                                href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png" title="Quitar de Lista"/></a>
-                                <a
-                                href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>" onclick="return confirmBaja()"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/undo.png" title="Desmarcar"/></a>
-                        </td>
+                                <td><?php echo $i; $i++;?></td>
+                                <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>"
+                                        onclick="return confirmBaja()"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
+                                            title="Quitar de Lista" /></a>
+                                    <a href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>"
+                                        onclick="return confirmBaja()"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/undo.png"
+                                            title="Desmarcar" /></a>
+                                </td>
                                 <td><?php echo $asistencia->id_personal; ?></td>
                                 <td><?php echo $asistencia->nombre; ?></td>
 
@@ -98,7 +112,8 @@
                                 <td>
                                     <div class="check-color"><input type="checkbox"
                                             value="<?php echo $asistencia->id_personal; ?>" name="personal[]" checked
-                                            disabled onclick="" id="check1"><label for="check1"><?php echo $asistencia->estatus; ?></label></div>
+                                            disabled onclick="" id="check1"><label
+                                            for="check1"><?php echo $asistencia->estatus; ?></label></div>
                                 </td>
                                 <?php
 } ?>

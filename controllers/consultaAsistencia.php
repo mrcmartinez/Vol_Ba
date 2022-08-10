@@ -38,10 +38,15 @@ class ConsultaAsistencia extends Controller{
     }
 
     function paseLista(){
+        $filtroHorario="Matutino";
         $fecha=date('Y-m-d');
         if (isset($_POST['fecha'])) {
         $fecha=$_POST['fecha'];
         }
+        if (isset($_POST['filtroHorario'])) {
+            $filtroHorario=$_POST['filtroHorario'];
+            }
+        $this->view->filtroHorario = $filtroHorario;
         $this->buscarLista($fecha);
     }
     function buscarLista($fecha){
