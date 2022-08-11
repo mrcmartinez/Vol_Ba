@@ -147,9 +147,9 @@ class ConsultaAsistencia extends Controller{
     function agregarApoyo(){
             $id_personal=$_POST['personal'];
             $fecha= $_POST['fecha'];
-            $hora=date("H:i:s");
             $estatus=$_POST['tipo'];
             $filtroHorario=$_POST['filtroHorario'];
+            $hora=consultarEntrada($filtroHorario);
             if($this->model->insertApoyo(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
                 $this->view->mensaje = "Voluntariado agregado como ".$estatus;
                 $this->view->code = "success";

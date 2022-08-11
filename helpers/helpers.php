@@ -53,5 +53,12 @@
         }
         return array($h_inicio,$h_fin);
     }
+    function consultarEntrada($filtroHorario){
+        $h='09:00:00';
+        if ($filtroHorario=="Vespertino") {
+        $h='11:00:00';
+        }
+        return $h;
+    }
 
 ?>
