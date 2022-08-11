@@ -21,6 +21,7 @@
             </form>
             <form action="<?php echo constant('URL'); ?>consultaAsistencia/buscar" method="POST">
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" onclick="return confirmBaja()"
                     src="<?php echo constant('URL'); ?>assets/img/mode.png" title="Activar modo manual">
             </form>

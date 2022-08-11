@@ -85,13 +85,13 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
-    public function getList($fecha){
+    public function getList($fecha,$hora){
         $items = [];
         try{
             $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, p.actividad, a.id_personal, a.fecha,a.estatus,a.hora
             FROM asistencia as a 
             INNER JOIN personal as p
-            ON a.id_personal = p.id_personal WHERE fecha = '$fecha' ORDER BY nombre");
+            ON a.id_personal = p.id_personal WHERE fecha = '$fecha' and a.hora BETWEEN '$hora[0]' AND '$hora[1]' ORDER BY nombre");
             while($row = $query->fetch()){
                 $item = new Asistencia();
                 $item->id_personal = $row['id_personal'];
@@ -136,10 +136,11 @@ class ConsultaAsistenciaModel extends Model{
 
     public function buscar($datos){
         $items = [];
-            $query = $this->db->connect()->prepare("SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno");
+            $query = $this->db->connect()->prepare("SELECT id_personal from personal WHERE estatus=:estatus AND turno=:turno AND horario=:horario");
             try{
             $query->execute([
                 'turno' => $datos['turno'],
+                'horario' => $datos['horario'],
                 'estatus' => $datos['estatus']
                 ]);
             while($row = $query->fetch()){

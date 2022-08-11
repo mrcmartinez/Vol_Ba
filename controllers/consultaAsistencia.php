@@ -47,10 +47,14 @@ class ConsultaAsistencia extends Controller{
             $filtroHorario=$_POST['filtroHorario'];
             }
         $this->view->filtroHorario = $filtroHorario;
-        $this->buscarLista($fecha);
+        $this->buscarLista($fecha,$filtroHorario);
     }
-    function buscarLista($fecha){
-        $asistencia = $this->model->getList($fecha);
+    function buscarLista($fecha,$filtroHorario){
+        $consulta=consultarHoras($filtroHorario);
+        // $h_inicio=$consulta[0];
+        // $h_fin=$consulta[1];
+
+        $asistencia = $this->model->getList($fecha,$consulta);
         $this->view->asistencia = $asistencia;
         $this->view->fecha = $fecha;
         $this->view->render('asistencia/lista');
@@ -113,15 +117,18 @@ class ConsultaAsistencia extends Controller{
             $this->view->mensaje = "No se pudo activar Modo manual";
             $this->view->code = "error";
         }
-        $this->buscarLista($fecha);
+        //pendiente actualizar filtroHorario
+        $filtroHorario="Matutino";
+        $this->buscarLista($fecha,$filtroHorario);
     }
     function buscar(){
         $estatus="Activo";
         $fecha= $_POST['fecha'];
+        $filtroHorario=$_POST['filtroHorario'];
         // $dia = "";
         $dias = array('Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
         $dia = $dias[(date('N', strtotime($fecha))) - 1];
-        $asistencia=$this->model->buscar(['turno' => $dia,'estatus' => $estatus]);
+        $asistencia=$this->model->buscar(['turno' => $dia,'estatus' => $estatus,'horario' => $filtroHorario]);
         // print_r($asistencia);
         foreach ($asistencia as $r) {
             if($this->model->buscarManual(['id_personal' => $r['id_personal'],'fecha' => $fecha])){
@@ -132,7 +139,9 @@ class ConsultaAsistencia extends Controller{
                 $this->view->code = "error";
             }
           }
-          $this->buscarLista($fecha);
+           //pendiente actualizar filtroHorario
+          $filtroHorario="Matutino";
+          $this->buscarLista($fecha,$filtroHorario);
     }
     function agregarApoyo(){
             $id_personal=$_POST['personal'];
@@ -148,7 +157,9 @@ class ConsultaAsistencia extends Controller{
             }
             // $this->view->id = $id_personal;
             // $this->view->render('asistencia/lista');
-            $this->buscarLista($fecha);
+             //pendiente actualizar filtroHorario
+            $filtroHorario="Matutino";
+            $this->buscarLista($fecha,$filtroHorario);
             // $this->paseLista();
     }
     function generarReporte(){
@@ -290,7 +301,9 @@ class ConsultaAsistencia extends Controller{
                 $this->view->render('asistencia/index');
             }else{
                 $this->view->mensaje = $mensaje;
-                $this->buscarLista($fecha);
+                 //pendiente actualizar filtroHorario
+                $filtroHorario="Matutino";
+                $this->buscarLista($fecha,$filtroHorario);
             }
             
         }
@@ -307,7 +320,9 @@ class ConsultaAsistencia extends Controller{
                 $this->view->code = "error";
             }
             $this->view->mensaje = $mensaje;
-            $this->buscarLista($fecha);
+              //pendiente actualizar filtroHorario
+              $filtroHorario="Matutino";
+            $this->buscarLista($fecha,$filtroHorario);
         }
         public function consultarTel($id){
             $tel="";
