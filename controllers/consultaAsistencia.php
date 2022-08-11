@@ -140,7 +140,8 @@ class ConsultaAsistencia extends Controller{
             }
           }
            //pendiente actualizar filtroHorario
-          $filtroHorario="Matutino";
+        //   $filtroHorario="Matutino";
+          $this->view->filtroHorario = $filtroHorario;
           $this->buscarLista($fecha,$filtroHorario);
     }
     function agregarApoyo(){
@@ -148,6 +149,7 @@ class ConsultaAsistencia extends Controller{
             $fecha= $_POST['fecha'];
             $hora=date("H:i:s");
             $estatus=$_POST['tipo'];
+            $filtroHorario=$_POST['filtroHorario'];
             if($this->model->insertApoyo(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
                 $this->view->mensaje = "Voluntariado agregado como ".$estatus;
                 $this->view->code = "success";
@@ -158,7 +160,8 @@ class ConsultaAsistencia extends Controller{
             // $this->view->id = $id_personal;
             // $this->view->render('asistencia/lista');
              //pendiente actualizar filtroHorario
-            $filtroHorario="Matutino";
+            // $filtroHorario="Matutino";
+            $this->view->filtroHorario = $filtroHorario;
             $this->buscarLista($fecha,$filtroHorario);
             // $this->paseLista();
     }

@@ -112,6 +112,7 @@ class Personal extends Controller{
         $consulta  = "";
         $filtro="Activo";
         $tipo=$_POST['tipo'];
+        //filtroHorario para buscar todo(matutino y vespertino)
         $filtroHorario="";
         if (isset($_POST['caja_busqueda'])) {
             $consulta  = $_POST['caja_busqueda'];
@@ -128,6 +129,7 @@ class Personal extends Controller{
             // }else{
             //     $this->view->tipo= "Asistencia";
             // }
+            $this->view->filtroHorario=$_POST['filtroHorario'];
             $this->view->tipo= $tipo;
             $this->view->fecha= $_POST['fecha'];
             $this->view->render('personal/seleccionarApoyo');

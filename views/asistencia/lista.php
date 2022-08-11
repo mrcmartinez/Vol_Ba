@@ -29,6 +29,7 @@
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaAsistencia">
                 <input type="hidden" name="tipo" value="Asistencia">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/add-user.png"
                     title="Agregar asistencia">
             </form>
@@ -37,6 +38,7 @@
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="listaApoyo">
                 <input type="hidden" name="tipo" value="Asistencia-Apoyo">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png"
                     title="Agregar asistencia-apoyo">
             </form>
