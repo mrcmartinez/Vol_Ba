@@ -90,7 +90,7 @@
                 ?>
                             <tr id="fila-<?php echo $asistencia->id_personal; ?>">
                                 <td><?php echo $i; $i++;?></td>
-                                <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>"
+                                <td><a href="<?php echo constant('URL') . 'consultaAsistencia/eliminar/' . $asistencia->id_personal.'/'.$asistencia->fecha.'/'.$this->filtroHorario; ?>"
                                         onclick="return confirmBaja()"><img
                                             src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
                                             title="Quitar de Lista" /></a>

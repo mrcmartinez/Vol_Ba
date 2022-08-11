@@ -118,7 +118,7 @@ class ConsultaAsistencia extends Controller{
             $this->view->code = "error";
         }
         //pendiente actualizar filtroHorario
-        $filtroHorario="Matutino";
+        // $filtroHorario="Matutino";
         $this->buscarLista($fecha,$filtroHorario);
     }
     function buscar(){
@@ -289,6 +289,7 @@ class ConsultaAsistencia extends Controller{
         function eliminar($param = null){
             $id_personal = $param[0];
             $fecha=$param[1];
+            $filtroHorario=$param[2];
     
             if($this->model->delete($id_personal,$fecha)){
                 $mensaje = "voluntariado eliminado en lista";
@@ -297,15 +298,16 @@ class ConsultaAsistencia extends Controller{
                 $mensaje = "No se pudo eliminar voluntariado de lista";
                 $this->view->code = "error";
             }
-            if (isset($param[2])) {
+            if (isset($param[2])&&(($param[2]!="Matutino")OR($param[2]!="Matutino"))) {
                 $asistencia = $this->model->get($id_personal);
                 $this->view->asistencia = $asistencia;
                 $this->view->id = $id_personal;
                 $this->view->render('asistencia/index');
             }else{
                 $this->view->mensaje = $mensaje;
+                $this->view->filtroHorario = $filtroHorario;
                  //pendiente actualizar filtroHorario
-                $filtroHorario="Matutino";
+                // $filtroHorario="Matutino";
                 $this->buscarLista($fecha,$filtroHorario);
             }
             
