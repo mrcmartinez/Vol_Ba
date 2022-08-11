@@ -37,7 +37,7 @@
 
                         <div class="alinear">
                             <div class="col-md-2">
-                            <select class="form-select" id="horario" name="filtroHorario">
+                            <select class="form-select" id="horario" name="filtroHorario" onchange="this.form.submit()">
                                 <option value="<?php echo $this->filtroHorario; ?>">✔<?php echo filtroHorario($this->filtroHorario); ?></option>
                                 <option value="">Todo</option>
                                 <option value="Matutino">Matutino</option>

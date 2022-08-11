@@ -298,7 +298,7 @@ class ConsultaAsistencia extends Controller{
                 $mensaje = "No se pudo eliminar voluntariado de lista";
                 $this->view->code = "error";
             }
-            if (isset($param[2])&&(($param[2]!="Matutino")OR($param[2]!="Matutino"))) {
+            if (isset($param[2])&&($param[2]=="ID")) {
                 $asistencia = $this->model->get($id_personal);
                 $this->view->asistencia = $asistencia;
                 $this->view->id = $id_personal;

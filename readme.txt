@@ -85,3 +85,4 @@ commit filtrosSig SET GLOBAL lc_time_names = 'es_ES';
 commit busuedaAll
 commit cloneAll
 commit indexbajas
+commit filtroHorarioBancoJueves

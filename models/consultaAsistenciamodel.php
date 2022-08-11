@@ -57,6 +57,7 @@ class ConsultaAsistenciaModel extends Model{
             return [];
         }
     }
+    //este metodo lo utiliza lista.php y reporte.php
     public function getBusqueda($c,$f,$fInicio,$fTermino,$orden,$h){
         $items = [];
         try{
