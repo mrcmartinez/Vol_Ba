@@ -94,7 +94,7 @@ class PersonalModel extends Model{
                 $item->nombre = $row['nombre'];
                 $item->apellido_paterno = $row['apellido_paterno'];
                 $item->apellido_materno = $row['apellido_materno'];
-                $item->acividad = $row['escolaridad'];
+                $item->actividad = $row['actividad'];
                 $item->turno = $row['turno'];
                 $item->horario = $row['horario'];
                 $item->fecha_ingreso = $row['fecha_ingreso'];

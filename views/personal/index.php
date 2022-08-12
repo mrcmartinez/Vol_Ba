@@ -37,12 +37,14 @@
 
                         <div class="alinear">
                             <div class="col-md-2">
-                            <select class="form-select" id="horario" name="filtroHorario" onchange="this.form.submit()">
-                                <option value="<?php echo $this->filtroHorario; ?>">✔<?php echo filtroHorario($this->filtroHorario); ?></option>
-                                <option value="">Todo</option>
-                                <option value="Matutino">Matutino</option>
-                                <option value="Vespertino">Vespertino</option>
-                            </select>
+                                <select class="form-select" id="horario" name="filtroHorario"
+                                    onchange="this.form.submit()">
+                                    <option value="<?php echo $this->filtroHorario; ?>">
+                                        ✔<?php echo filtroHorario($this->filtroHorario); ?></option>
+                                    <option value="">Todo</option>
+                                    <option value="Matutino">Matutino</option>
+                                    <option value="Vespertino">Vespertino</option>
+                                </select>
                             </div>
                             <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
                                 value="<?php echo $this->consulta; ?>" autofocus
@@ -59,14 +61,16 @@
                 <form action="<?php echo constant('URL'); ?>personal/generarReporte" method="POST">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                    <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
+                    <input type="hidden" name="filtroHorario" id="filtroHorario"
+                        value="<?php echo $this->filtroHorario; ?>">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
                 </form>
 
                 <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
-                    <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
+                    <input type="hidden" name="filtroHorario" id="filtroHorario"
+                        value="<?php echo $this->filtroHorario; ?>">
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
                 </form>
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/paseLista" method="post">
@@ -79,6 +83,10 @@
                             title="actualizar estatus faltas">
                     </form>
                     <form action="<?php echo constant('URL'); ?>personal/listarSiguiente" method="post">
+                        <input type="hidden" name="filtroHorario" id="filtroHorario"
+                            value="<?php echo $this->filtroHorario; ?>">
+                        <input type="hidden" name="radio_busqueda" id="radio_busqueda"
+                            value="<?php echo $this->radio; ?>">
                         <input type="image" src="<?php echo constant('URL'); ?>assets/img/next.png" title="+ filtros">
                     </form>
                 </div>

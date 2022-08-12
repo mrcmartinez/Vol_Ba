@@ -51,6 +51,10 @@
             $h_inicio='10:00:00';
             $h_fin='16:00:00';
         }
+        if (empty($filtroHorario)) {
+            $h_inicio='00:00:00';
+            $h_fin='16:00:00';
+        }
         return array($h_inicio,$h_fin);
     }
     function consultarEntrada($filtroHorario){

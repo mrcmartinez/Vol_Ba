@@ -15,7 +15,8 @@
     <div id="main">
         <div class="center-form">
             <h1 class="center">Lista Asistencia
-                <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); echo $this->filtroHorario;?></h1>
+                <?php echo diaSemana($this->fecha); echo date('d-m-Y', strtotime($this->fecha)); echo $this->filtroHorario;?>
+            </h1>
             <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/back.png" title="Salir">
             </form>
@@ -48,7 +49,8 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="nombre">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->fecha; ?>">
-                <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
+                <input type="hidden" name="filtroHorario" id="filtroHorario"
+                    value="<?php echo $this->filtroHorario; ?>">
                 <input type="hidden" name="listaAsistencia">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>
@@ -58,7 +60,7 @@
                     max="<?php echo date("Y-m-d");?>" onchange="this.form.submit()" title="Fecha de la lista">
                 <!-- <input type="text" name="filtroHorario" value="<?php echo $this->filtroHorario;?>"> -->
                 <!-- <input type="submit"> -->
-                <select id="filtroHorario" name="filtroHorario"onchange="this.form.submit()">
+                <select id="filtroHorario" name="filtroHorario" onchange="this.form.submit()">
                     <option value="<?php echo $this->filtroHorario; ?>">
                         ✔<?php echo $this->filtroHorario; ?></option>
                     <option value="Matutino">Matutino</option>
@@ -94,7 +96,7 @@
                                         onclick="return confirmBaja()"><img
                                             src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
                                             title="Quitar de Lista" /></a>
-                                    <a href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha; ?>"
+                                    <a href="<?php echo constant('URL') . 'consultaAsistencia/reset/' . $asistencia->id_personal.'/'.$asistencia->fecha.'/'.$this->filtroHorario; ?>"
                                         onclick="return confirmBaja()"><img
                                             src="<?php echo constant('URL'); ?>assets/img/undo.png"
                                             title="Desmarcar" /></a>

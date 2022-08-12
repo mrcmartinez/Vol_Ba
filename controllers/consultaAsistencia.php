@@ -14,6 +14,7 @@ class ConsultaAsistencia extends Controller{
         $consulta  = "";
         $filtro="Falta";
         $filtroHorario="";
+        $consultaHora=consultarHoras($filtroHorario);
         $filtroOrden="fecha";
         $f_inicio=date('Y-m-01');
         $f_termino=date('Y-m-d');
@@ -21,12 +22,13 @@ class ConsultaAsistencia extends Controller{
             $consulta  = $_POST['caja_busqueda'];
             $filtro  = $_POST['radio_busqueda'];
             $filtroHorario  = $_POST['filtroHorario'];
+            $consultaHora=consultarHoras($filtroHorario);
             $filtroOrden  = $_POST['radio_ordenar'];
         }if(isset($_POST['fecha_inicio'])){
             $f_inicio  = $_POST['fecha_inicio'];
             $f_termino  = $_POST['fecha_termino'];
         }
-        $asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario);
+        $asistencia = $this->model->getBusquedaReport($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$consultaHora);
         $this->view->inicio = $f_inicio;
         $this->view->termino = $f_termino;
         $this->view->consulta = $consulta;
@@ -175,6 +177,7 @@ class ConsultaAsistencia extends Controller{
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];
         $filtroHorario  = $_POST['filtroHorario'];
+        $hora=consultarHoras($filtroHorario);
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
         $filtroOrden  = $_POST['radio_ordenar'];
@@ -189,7 +192,7 @@ class ConsultaAsistencia extends Controller{
         $totalAsistencias=0;
         $totalApoyo=0;
         $totalFaltas=0;
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario) as $r){
+        foreach($asistencia = $this->model->getBusquedaReport($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$hora) as $r){
             $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".$r->turno."</td> <td>".diaSemana($r->fecha).date('d-m-Y', strtotime($r->fecha))."</td> <td>".$r->hora."</td> <td>".$r->estatus."</td></tr>";
             switch ($r->estatus) {
                 case 'Asistencia':
@@ -323,7 +326,8 @@ class ConsultaAsistencia extends Controller{
             $id_personal = $param[0];
             $fecha=$param[1];
             $estatus="Falta";
-            $hora=date("0:0:0");
+            $filtroHorario=$param[2];
+            $hora=consultarHoraLimite($filtroHorario);
             if($this->model->update(['id_personal' => $id_personal, 'fecha' => $fecha,'hora' => $hora,'estatus' => $estatus])){
                 $mensaje = "Se desmarco la asistencia";
                 $this->view->code = "success";
@@ -333,7 +337,8 @@ class ConsultaAsistencia extends Controller{
             }
             $this->view->mensaje = $mensaje;
               //pendiente actualizar filtroHorario
-              $filtroHorario="Matutino";
+            //   $filtroHorario="Matutino";
+            $this->view->filtroHorario = $filtroHorario;
             $this->buscarLista($fecha,$filtroHorario);
         }
         public function consultarTel($id){
