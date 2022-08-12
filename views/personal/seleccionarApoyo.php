@@ -27,6 +27,7 @@
                             <input type="hidden" name="listaApoyo">
                             <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
                             <input type="hidden" name="tipo" value="<?php echo $this->tipo; ?>">
+                            <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                         <input type="submit" value="🔍Buscar">
                     </p>
                 </form>

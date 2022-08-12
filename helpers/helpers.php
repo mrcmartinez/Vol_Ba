@@ -60,5 +60,12 @@
         }
         return $h;
     }
+    function consultarHoraLimite($filtroHorario){
+        $h='09:30:00';
+        if ($filtroHorario=="Vespertino") {
+        $h='11:30:00';
+        }
+        return $h;
+    }
 
 ?>

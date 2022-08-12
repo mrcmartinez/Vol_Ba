@@ -48,7 +48,7 @@
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="nombre">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->fecha; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->fecha; ?>">
-                <input type="hidden" name="filtroHorario" id="filtroHorario" value="">
+                <input type="hidden" name="filtroHorario" id="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="hidden" name="listaAsistencia">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">
             </form>
@@ -66,7 +66,7 @@
                 </select>
             </form>
             <div id="respuesta" class="center"></div>
-            <form action="<?php echo constant('URL'); ?>consultaAsistencia/saludo" method="POST">
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/marcarAsistencia" method="POST">
 
                 <div id="div2">
                     <table class="table table-striped table-hover">
@@ -127,6 +127,7 @@
                 </div>
                 <input type="hidden" name="estatus" value="Asistencia">
                 <input type="hidden" name="fecha" value="<?php echo $this->fecha; ?>">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="submit" name="seleccion" class="btn btn-dark" value="Validar" />
             </form>
         </div>

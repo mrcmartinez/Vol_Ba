@@ -59,9 +59,10 @@ class ConsultaAsistencia extends Controller{
         $this->view->fecha = $fecha;
         $this->view->render('asistencia/lista');
     }
-    function saludo(){
+    function marcarAsistencia(){
             $fecha=$_POST['fecha'];
-            $hora=date("H:i:s");
+            $filtroHorario=$_POST['filtroHorario'];
+            $hora=consultarEntrada($filtroHorario);
             $estatus=$_POST['estatus'];
             if (empty($_POST['personal'])) {
                 $this->view->mensaje = "No se ha seleccionado ningun";
@@ -73,10 +74,14 @@ class ConsultaAsistencia extends Controller{
             $this->view->mensaje = "Asistencia registrada";
             $this->view->code = "success";
             }
-            $asistencia = $this->model->getList($fecha);
-            $this->view->asistencia = $asistencia;
-            $this->view->fecha = $fecha;
-            $this->view->render('asistencia/lista'); 
+            $this->view->filtroHorario = $filtroHorario;
+            $this->buscarLista($fecha,$filtroHorario);
+            // aui estaba down
+            // $asistencia = $this->model->getList($fecha);
+            // $this->view->asistencia = $asistencia;
+            // $this->view->fecha = $fecha;
+            // $this->view->render('asistencia/lista'); 
+            // aui estaba up
         
     }
     function verasistenciaid($param = null){
@@ -129,9 +134,10 @@ class ConsultaAsistencia extends Controller{
         $dias = array('Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
         $dia = $dias[(date('N', strtotime($fecha))) - 1];
         $asistencia=$this->model->buscar(['turno' => $dia,'estatus' => $estatus,'horario' => $filtroHorario]);
+        $hora=consultarHoraLimite($filtroHorario);
         // print_r($asistencia);
         foreach ($asistencia as $r) {
-            if($this->model->buscarManual(['id_personal' => $r['id_personal'],'fecha' => $fecha])){
+            if($this->model->buscarManual(['id_personal' => $r['id_personal'],'fecha' => $fecha,'hora' => $hora])){
                 $this->view->mensaje = "Lista Actualizada";
                 $this->view->code = "success";
             }else{
@@ -216,6 +222,7 @@ class ConsultaAsistencia extends Controller{
         $consulta  = $_POST['caja_busqueda'];
         $filtro  = $_POST['radio_busqueda'];
         $filtroHorario  = $_POST['filtroHorario'];
+        $horario=consultarHoras($filtroHorario);
         $f_inicio  = $_POST['fecha_inicio'];
         $f_termino  = $_POST['fecha_termino'];
         $filtroOrden  = $_POST['radio_ordenar'];
@@ -253,7 +260,7 @@ class ConsultaAsistencia extends Controller{
         $totalAsistencias=0;
         $totalApoyo=0;
         $totalFaltas=0;
-        foreach($asistencia = $this->model->getBusqueda($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$filtroHorario) as $r){
+        foreach($asistencia = $this->model->getBusquedaReport($consulta,$filtro,$f_inicio,$f_termino,$filtroOrden,$horario) as $r){
             $pdf->Cell(6,5,$i,0,0,'c',0);
             $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
             $pdf->Cell(85,7,utf8_decode($r->nombre),1,0,'c',0);
