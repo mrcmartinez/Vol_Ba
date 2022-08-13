@@ -8,7 +8,7 @@ class ConsultaFaltasModel extends Model{
     public function get($c,$h){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT * FROM vista_faltas_totales where (turno like '%".$c."%' OR id_personal like '%".$c."%' OR nombre like '%".$c."%') AND horario like '%".$h."%'");
+            $query = $this->db->connect()->query("SELECT * FROM vista_faltas_totales where (turno like '%".$c."%' OR id_personal like '%".$c."%' OR nombre like '%".$c."%') AND horario like '%".$h."%' ORDER BY nombre");
             while($row = $query->fetch()){
                 $item = new Faltas();
                 $item->id_personal = $row['id_personal'];

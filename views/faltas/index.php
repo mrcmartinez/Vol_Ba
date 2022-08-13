@@ -56,15 +56,17 @@
                         </div>
                 </p>
             </form>
-            <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
-                <!-- <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>"> -->
+            <form action="<?php echo constant('URL'); ?>consultaFaltas/generarReporte" method="POST">
+                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
             </form>
 
-            <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
-                <!-- <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>"> -->
+            <!-- <form action="<?php echo constant('URL'); ?>consultaFaltas/generarReportePDF" method="post">
+                <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
+                <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
-            </form>
+            </form> -->
             <div id="div2">
                 <table class="table table-striped table-hover t-tipo4">
                     <thead>
@@ -91,7 +93,7 @@
                             <td><?php echo $faltas->turno; ?></td>
                             <td><?php echo $faltas->horario; ?></td>
                             <td><?php echo $faltas->fecha_ingreso; ?></td>
-                            <td><?php echo $faltas->total_faltas; ?></td>
+                            <td <?php echo colorTotalFalta($faltas->total_faltas);?>><?php echo $faltas->total_faltas; ?></td>
                             <td><?php echo $faltas->fecha_faltas; ?></td>
 
                         </tr>

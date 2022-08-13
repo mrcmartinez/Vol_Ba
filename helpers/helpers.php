@@ -71,5 +71,20 @@
         }
         return $h;
     }
+    function colorTotalFalta($n){
+        $c="";
+        switch ($n) {
+            case ($n===3):
+                $c='class="td-candidato"';
+                break;
+            case (($n<4)&&($n!=3)):
+                $c='class="td-activo"';
+                break;
+            case ($n>=4):
+                $c='class="td-baja"';
+                break;
+        }
+        return $c;
+    }
 
 ?>
