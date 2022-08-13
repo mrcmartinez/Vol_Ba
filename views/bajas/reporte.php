@@ -30,6 +30,10 @@
                 <input type="submit" class="btn-options-check" value="Bajas">
             </form>
 
+            <form action="<?php echo constant('URL'); ?>consultaFaltas" method="POST">
+                <input type="submit" class="btn-options" value="Total Faltas">
+            </form>
+
             <h1 class="center"><small>Reportes</small>Bajas</h1>
 
             <form action="<?php echo constant('URL'); ?>baja" method="POST">
