@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
 <body>
@@ -34,10 +36,24 @@
             <h1 class="center"><small>Total</small>Faltas</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div id="respuesta" class="center"></div>
-            <form action="<?php echo constant('URL'); ?>documento" method="POST">
+            <form action="<?php echo constant('URL'); ?>consultaFaltas" method="POST">
                 <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" class="btn-options-info" value="🔍Buscar">
+                <div class="alinear">
+                            <div class="col-md-2">
+                                <select class="form-select" id="horario" name="filtroHorario"
+                                    onchange="this.form.submit()">
+                                    <option value="<?php echo $this->filtroHorario; ?>">
+                                        ✔<?php echo filtroHorario($this->filtroHorario); ?></option>
+                                    <option value="">Todo</option>
+                                    <option value="Matutino">Matutino</option>
+                                    <option value="Vespertino">Vespertino</option>
+                                </select>
+                            </div>
+                            <input type="search" class="form-control" name="caja_busqueda" id="caja_busqueda"
+                                value="<?php echo $this->consulta; ?>" autofocus
+                                title="Buscar ID, Nombre, Dia">
+                            <input class="btn btn-info" type="submit" value="🔍Buscar">
+                        </div>
                 </p>
             </form>
             <form action="<?php echo constant('URL'); ?>documento/generarReporte" method="POST">
@@ -50,7 +66,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
             </form>
             <div id="div2">
-                <table class = "t-tipo1">
+                <table class="table table-striped table-hover t-tipo4">
                     <thead>
                         <tr>
                             <th>ID</th>

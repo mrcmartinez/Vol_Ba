@@ -184,6 +184,17 @@ nav a{
 		padding-left: 3px;
 		padding-right: 3px;
 	}
+	.t-tipo5 th{
+		text-align: left;
+		background-color: #5a02ccab!important;
+		/* background: linear-gradient(120deg, #db3030ce, #eeb855cc); */
+		/* background: #db3030ce!important; */
+		color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
 	.espaciado{
 		padding-left: 11vw;
 		}

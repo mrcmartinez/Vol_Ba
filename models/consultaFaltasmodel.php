@@ -5,10 +5,10 @@ class ConsultaFaltasModel extends Model{
     public function __construct(){
         parent::__construct();
     }
-    public function get(){
+    public function get($c,$h){
         $items = [];
         try{
-            $query = $this->db->connect()->query('SELECT * FROM vista_faltas_totales');
+            $query = $this->db->connect()->query("SELECT * FROM vista_faltas_totales where (turno like '%".$c."%' OR id_personal like '%".$c."%' OR nombre like '%".$c."%') AND horario like '%".$h."%'");
             while($row = $query->fetch()){
                 $item = new Faltas();
                 $item->id_personal = $row['id_personal'];
