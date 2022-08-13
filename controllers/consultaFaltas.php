@@ -51,5 +51,74 @@ function generarReporte(){
     header("Expires: 0");
     echo $salida;
 }
+function generarReportePDF(){
+    require 'libraries/fpdf/fpdf.php';
+    $consulta = $_POST['caja_busqueda'];
+    // $filtro = $_POST['radio_busqueda'];
+    $filtroHorario = $_POST['filtroHorario'];
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial','B',11);
+    $pdf->Cell(0,10,"impreso".date('Y-m-d'),0,1,'R');
+    $pdf->Image('assets/img/logo (3).png',10,8,33);
+    $pdf->SetFont('Arial','B',24);
+     // Movernos a la derecha
+    $pdf->Cell(80);
+     // Título
+    $pdf->SetTextColor(250,150,100);
+    // $pdf->SetFillColor(200,220,255);
+    $pdf->Cell(30,10,'Total Faltas',0,0,'C');
+    $pdf->SetTextColor(0);
+    $pdf->Ln(15);
+    $pdf->SetFont('Arial','B',10);
+    $pdf->SetFillColor(250,150,100);
+    $pdf->Cell(6,5,'',0,0,'c',0);
+    $pdf->Cell(10,10,'ID',1,0,'c',1);
+    $pdf->Cell(75,10,'NOMBRE',1,0,'c',1);
+    // $pdf->Cell(30,10,'PATERNO',1,0,'c',1);
+    // $pdf->Cell(30,10,'MATERNO',1,0,'c',1);
+    // $pdf->Cell(22,10,'TURNO',1,0,'c',1);
+    $pdf->Cell(25,10,'Turno',1,0,'c',1);
+    // $pdf->Cell(22,10,'ESTATUS',1,0,'c',1);
+    // $pdf->Cell(15,10,'Horario',1,0,'c',1);
+    $pdf->Cell(15,10,'fecha_ingreso',1,0,'c',1);
+    $pdf->Cell(15,10,'total',1,0,'c',1);
+    $pdf->Cell(25,10,'fechas',1,1,'c',1);
+    $pdf->SetFont('Arial','',10);
+    $i=1;
+    foreach($personal=$this->model->get($consulta,$filtroHorario) as $r){
+        $pdf->Cell(6,5,$i,0,0,'c',0);
+        $pdf->Cell(10,7,$r->id_personal,1,0,'c',0);
+        // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
+        $pdf->Cell(70,7,utf8_decode($r->nombre),1,0,'c',0);
+        // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
+        // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
+        $pdf->Cell(20,7,$r->turno,1,0,'c',0);
+        $pdf->Cell(20,7,$r->fecha_ingreso,1,0,'c',0);
+        $pdf->Cell(10,7,$r->total_faltas,1,0,'c',0);
+        $pdf->Cell(35,7,$r->fecha_faltas,1,1,'c',0);
+        // $pdf->Cell(15,7,"",1,0,'c',0);
+        // $pdf->Cell(15,7,"",1,0,'c',0);
+        // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
+        // $pdf->Cell(45,7,'',1,1,'c',0);
+        $i++;
+    }
+    for ($i=0; $i < 8; $i++) { 
+        $pdf->Cell(6,7,'',0,0,'c',0);
+        $pdf->Cell(10,7,'',1,0,'c',0);
+        // $pdf->Cell(40,10,utf8_decode($r->nombre),1,0,'c',0);
+        $pdf->Cell(75,7,' ',1,0,'c',0);
+        // $pdf->Cell(30,10,utf8_decode($r->apellido_materno),1,0,'c',0);
+        // $pdf->Cell(22,10,$r->turno,1,0,'c',0);
+        $pdf->Cell(25,7,'',1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
+        $pdf->Cell(15,7,"",1,0,'c',0);
+        // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
+        $pdf->Cell(45,7,'',1,1,'c',0);
+    }
+    // $pdf->Output();
+    $pdf->Output("Voluntariado".time().".pdf", "D");
+    // $archivo->Output("test.pdf", "D");
+    }
 
 }

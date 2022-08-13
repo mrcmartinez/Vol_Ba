@@ -62,11 +62,11 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
             </form>
 
-            <!-- <form action="<?php echo constant('URL'); ?>consultaFaltas/generarReportePDF" method="post">
+            <form action="<?php echo constant('URL'); ?>consultaFaltas/generarReportePDF" method="post">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                 <input type="hidden" name="filtroHorario" value="<?php echo $this->filtroHorario; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
-            </form> -->
+            </form>
             <div id="div2">
                 <table class="table table-striped table-hover t-tipo4">
                     <thead>
