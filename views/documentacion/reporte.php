@@ -26,7 +26,9 @@
             <form action="<?php echo constant('URL'); ?>baja" method="POST">
                 <input type="submit" class="btn-options" value="Bajas">
             </form>
-
+            <form action="<?php echo constant('URL'); ?>consultaFaltas" method="POST">
+                <input type="submit" class="btn-options" value="Total Faltas">
+            </form>
             <h1 class="center"><small>Reportes</small>Documentación Digital</h1>
             <div class="center"><?php echo $this->mensaje; ?></div>
             <div id="respuesta" class="center"></div>
