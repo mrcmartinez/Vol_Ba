@@ -1,4 +1,4 @@
-delete from peticion
+//delete from peticion
 ALTER TABLE `peticion` CHANGE `autorizo` `autorizo` INT(3) NULL DEFAULT NULL;
 
 ALTER TABLE `personal` ADD `horario` VARCHAR(15) NOT NULL DEFAULT 'Matutino' AFTER `turno`;
