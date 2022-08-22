@@ -34,6 +34,7 @@
                             <th>Edad</th>
                             <th>Fecha solicitud</th>
                             <th>Telefono</th>
+                            <th>Descripcion</th>
                             <th>Acciones</th>
                             <th></th>
                         </tr>
@@ -54,10 +55,13 @@
                             <td><?php echo $candidato->edad; ?></td>
                             <td><?php echo $candidato->fecha_solicitud; ?></td>
                             <td><?php echo $candidato->telefono; ?></td>
-                            <td><a
-                                    href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><button
-                                            onclick="return confirmBaja()"><img
-                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" title="Eliminar"/></button></a>
+                            <td><?php echo nl2br($candidato->descripcion); ?></td>
+                            <td>
+                            <a
+                                        href="<?php echo constant('URL') . 'candidato/llamarDetalle/' . $candidato->id_candidato; ?>"><img
+                                            src="<?php echo constant('URL'); ?>assets/img/edit.png"
+                                            title="Comentarios" /></a>    
+                            
                             
                                 <form action="<?php echo constant('URL'); ?>candidato/alta" method="POST">
                                     <input type="hidden" name="nombre" value="<?php echo $candidato->nombre; ?>">
@@ -68,7 +72,14 @@
                                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/alta.png"
                                         value="Nuevo" title="Alta">
                                 </form>
+
+                                <a
+                                    href="<?php echo constant('URL') . 'candidato/eliminar/'.$candidato->id_candidato; ?>"><button
+                                            onclick="return confirmBaja()"><img
+                                        src="<?php echo constant('URL'); ?>assets/img/eliminar2.png" title="Eliminar"/></button></a>
+
                             </td>
+
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -79,6 +90,7 @@
 
     <?php require 'views/footer.php'; ?>
     <script src="<?php echo constant('URL'); ?>assets/js/estatus.js"></script>
+    <script src="<?php echo constant('URL'); ?>assets/js/salto.js"></script>
     <?php
         if (!empty($this->mensaje)) 
         {
@@ -93,6 +105,36 @@
     })
     </script>
     <?php    
+        }
+    ?>
+
+<?php
+        if (!empty($this->idDetalle)) 
+        {
+            ?>
+        <a href="#miModalBaja">Abrir Modal</a>
+        <div id="miModalBaja" class="modalBaja">
+
+            <div class="modalBaja-contenido">
+                <p>
+                    <a href="<?php echo constant('URL'); ?>candidato/listar">❌</a>
+                </p>
+                <form action="<?php echo constant('URL'); ?>candidato/editarComentario" method="post" method="post">
+                    <label for="">comentarios</label>
+                    <p>
+                    <h6><?php echo $this->nombre;?></h6>
+                    <!-- <h6><?php echo $this->comentario;?></h6> -->
+                    <input type="hidden" name="id_candidato" value="<?php echo $this->idDetalle?>">
+                    <!-- <input type="text" name="" readonly value="<?php echo $this->comentario;?>"> -->
+
+                    <textarea name="comentario" id="nota" required rows="2" cols="55" maxlength="200"
+                        onkeyup="check(event);"><?php echo $this->comentario;?></textarea>
+                    </p>
+                    <input class="btn btn-dark" type="submit" value="Aceptar">
+                </form>
+            </div>
+        </div>
+        <?php    
         }
     ?>
 

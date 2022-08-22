@@ -73,6 +73,27 @@ class Candidato extends Controller{
         }
         $this->listar();
     }
+    function llamarDetalle($param = null){
+        // $consulta=$this->view->nombre =$this->model->consultarId($param[0]);
+        $consulta =$this->model->consultarId($param[0]);
+        $this->view->nombre =$consulta[0];
+        $this->view->comentario =$consulta[1];
+        $this->view->idDetalle = $param[0];
+        $this->listar();
+    }
+    function editarComentario(){
+        $id_candidato = $_POST['id_candidato'];
+        $comentario    = $_POST['comentario'];
+        
+        if($this->model->update(['id_candidato' => $id_candidato, 'comentario' => $comentario] )){
+            $this->view->mensaje = "Comentario actualizado correctamente";
+            $this->view->code = "success";
+        }else{
+            $this->view->mensaje = "No se pudo actualizar el Comentario";
+            $this->view->code = "error";
+        }
+        $this->listar();
+    }
 }
 
 ?>

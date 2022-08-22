@@ -106,6 +106,13 @@
                         <option value="Sabado">Sabado</option>
                     </select>
                 </div>
+                <div class="col-md-2">
+                    <label for="horario">Horario</label>
+                    <select class="form-select" id="horario" name="horario">
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                    </select>
+                </div>
 
                 <div class="col-md-3">
                     <label for="actividad">Actividad</label>
@@ -119,14 +126,14 @@
                         <option value="F.s Barrio">
                     </datalist>
                 </div>
-                <div class="col-md-2">
+                <!-- <div class="col-md-2"> -->
                     <input type="hidden" name="estatus" value="Activo">
                     <!-- <label for="estatus">Estatus</label> -->
                     <!-- <select class="form-select" id="estatus" name="estatus"> -->
                         <!-- <option value="Activo">Activo</option> -->
                         <!-- <option value="Candidato">Candidato</option> -->
                     <!-- </select> -->
-                </div>
+                <!-- </div> -->
 
                 <div class="col-md-4">
                     <input type="hidden" name="id_candidato" value="<?php echo $this->id_candidato; ?>">
@@ -139,6 +146,8 @@
         </div>
         </div>
     <?php require 'views/footer.php'; ?>
+
+    
 
 </body>
 

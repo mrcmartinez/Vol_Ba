@@ -35,6 +35,7 @@ class CandidatoModel extends Model{
                  $item->fecha_solicitud = $row['fecha_solicitud'];
                  $item->telefono = $row['telefono'];
                  $item->estatus = $row['estatus'];
+                 $item->descripcion = $row['descripcion'];
                  array_push($items, $item);         
              }
              return $items;
@@ -49,6 +50,33 @@ class CandidatoModel extends Model{
             $query->execute([
                 'id_candidato'=> $id,
                 'estatus'=> $estatus
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
+    public function consultarId($id){
+        $nomb="";
+        $comentario="";
+        $query = $this->db->connect()->prepare("SELECT nombre,descripcion from candidato where id_candidato=:id_candidato");
+        try{
+            $query->execute(['id_candidato' => $id]);
+            while($row = $query->fetch()){
+                $nomb=$row['nombre'];
+                $comentario=$row['descripcion'];
+            }
+            return array($nomb,$comentario);
+        }catch(PDOException $e){
+            return array($nomb,$comentario);
+        }
+    }
+    public function update($item){
+        $query = $this->db->connect()->prepare("UPDATE candidato SET descripcion = :descripcion WHERE id_candidato = :id_candidato");
+        try{
+            $query->execute([
+                'id_candidato'=> $item['id_candidato'],
+                'descripcion'=> $item['comentario']
             ]);
             return true;
         }catch(PDOException $e){
