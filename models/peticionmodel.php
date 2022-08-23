@@ -73,10 +73,13 @@ class PeticionModel extends Model{
     public function getBusqueda($f){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, pet.folio, pet.id_personal,pet.fecha_apertura, pet.tipo, pet.autorizo,pet.estatus,pet.fecha_solicitada,pet.dia_solicitado
+            $query = $this->db->connect()->query("SELECT CONCAT(p.apellido_paterno, ' ', p.apellido_materno, ' ', p.nombre ) As nombre, pet.folio, pet.id_personal,pet.fecha_apertura, pet.tipo, pet.autorizo,pet.estatus,pet.fecha_solicitada,pet.dia_solicitado,u.id_usuario,u.nombre_usuario,u.id_usuario,u.nombre_usuario
             FROM peticion as pet 
             INNER JOIN personal as p
-            ON pet.id_personal = p.id_personal WHERE pet.estatus like '%".$f."%'");
+            ON pet.id_personal = p.id_personal 
+            LEFT JOIN usuario as u
+            ON pet.autorizo = u.id_usuario
+            WHERE pet.estatus like '%".$f."%'");
             while($row = $query->fetch()){
                 $item = new Peticiones();
                 $item->folio = $row['folio'];
@@ -84,7 +87,7 @@ class PeticionModel extends Model{
                 $item->fecha_apertura  = $row['fecha_apertura'];
                 $item->tipo  = $row['tipo'];
                 $item->nombre  = $row['nombre'];
-                $item->autorizo  = $row['autorizo'];
+                $item->autorizo  = $row['nombre_usuario'];
                 // $item->descripcion  = $row['descripcion'];
                 $item->fecha_solicitada  = $row['fecha_solicitada'];
                 $item->dia_solicitado  = $row['dia_solicitado'];

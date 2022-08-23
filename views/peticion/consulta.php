@@ -58,7 +58,7 @@
                             <th>Dia solicitado</th>
                             <th>Fecha solicitada</th>
                             <th>Estatus</th>
-                            <th></th>
+                            <th>Autorizado</th>
                         </tr>
                     </thead>
 
