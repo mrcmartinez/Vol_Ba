@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
 </head>
 
@@ -16,16 +17,16 @@
         <div class="center-form">
             <h1 class="center">Candidatos</h1>
             <form action="<?php echo constant('URL'); ?>candidato/listar" method="POST">
-                <p>
-                    <input type="text" name="caja_busqueda" id="caja_busqueda" autofocus>
-                    <input type="submit" class="btn-options-info" value="🔍Buscar">
-                </p>
+                <div class="alinear">
+                    <input type="text" type="search" class="form-control" name="caja_busqueda" id="caja_busqueda" autofocus>
+                    <input type="submit" class="btn btn-info" value="🔍Buscar">
+                </div>
             </form>
             <form action="<?php echo constant('URL'); ?>candidato" method="POST">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png" value="Nuevo" title="Nuevo candidato">
             </form>
             <div id="div2">
-                <table id="tabla">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>N°</th>
@@ -36,7 +37,7 @@
                             <th>Telefono</th>
                             <th>Descripcion</th>
                             <th>Acciones</th>
-                            <th></th>
+                            
                         </tr>
                     </thead>
 
