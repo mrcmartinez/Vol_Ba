@@ -54,7 +54,7 @@ class Baja extends Controller
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(0,10,date('Y-m-d'),0,1,'R');
+        $pdf->Cell(0,10,"Impreso el ".date('Y-m-d'),0,1,'R');
         $pdf->Image('assets/img/logo (3).png',10,8,33);
         $pdf->SetFont('Arial','B',24);
          // Movernos a la derecha
@@ -67,19 +67,19 @@ class Baja extends Controller
         $pdf->SetFont('Arial','B',12);
         $pdf->Cell(70);
         $pdf->Cell(50,10,'De: '.$f_inicio.' a: '.$f_termino,0,1,'c');
-        $pdf->Ln(30);
-        $pdf->SetFont('Arial','B',14);
+        $pdf->Ln(20);
+        $pdf->SetFont('Arial','B',12);
         $pdf->SetFillColor(250,150,100);
         $pdf->Cell(15,10,'ID',1,0,'c',1);
         $pdf->Cell(80,10,'NOMBRE',1,0,'c',1);
-        $pdf->Cell(50,10,'FECHA',1,0,'c',1);
-        $pdf->Cell(50,10,'MOTIVO',1,1,'c',1);
-        $pdf->SetFont('Arial','',14);
+        $pdf->Cell(40,10,'FECHA DE BAJA',1,1,'c',1);
+        // $pdf->Cell(140,10,'MOTIVO',1,1,'c',1);
+        $pdf->SetFont('Arial','',11);
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
             $pdf->Cell(80,10,utf8_decode($r->nombre),1,0,'c',0);
-            $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
-            $pdf->Cell(50,10,$r->motivo,1,1,'c',0);
+            $pdf->Cell(40,10,$r->fecha,1,1,'c',0);
+        //    pdf->MultiCell(140,10,$r->motivo, 'LRT', 'L', 0);
         }
         $pdf->Output();
         // $pdf->Output("BajasVoluntariado".time().".pdf", "D");
