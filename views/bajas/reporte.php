@@ -53,7 +53,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar EXCEL">
             </form>
 
-            <form action="<?php echo constant('URL'); ?>baja/generarReportePDF" method="post">
+            <form action="<?php echo constant('URL'); ?>baja/generarReportePDF" method="post" target="_blank">
                 <input type="hidden" name="fecha_inicio" id="fecha_inicio" value="<?php echo $this->inicio; ?>">
                 <input type="hidden" name="fecha_termino" id="fecha_termino" value="<?php echo $this->termino; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png" title="Generar PDF">

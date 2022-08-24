@@ -292,8 +292,8 @@ class ConsultaAsistencia extends Controller{
         $pdf->Cell(30,7,"Asistencias: ".$totalAsistencias,1,0,'c',0);
         $pdf->Cell(30,7,"Apoyo: ".$totalApoyo,1,0,'c',0);
         $pdf->Cell(30,7,"Faltas: ".$totalFaltas,1,0,'c',0);
-        // $pdf->Output();
-        $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");
+        $pdf->Output();
+        // $pdf->Output("AsistenciasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
         function eliminar($param = null){

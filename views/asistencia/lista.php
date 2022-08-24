@@ -43,7 +43,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/nuevo.png"
                     title="Agregar asistencia-apoyo">
             </form>
-            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post">
+            <form action="<?php echo constant('URL'); ?>consultaAsistencia/generarReportePDF" method="post" target="_blank">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="">
                 <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="">
                 <input type="hidden" name="radio_ordenar" id="radio_ordenar" value="nombre">

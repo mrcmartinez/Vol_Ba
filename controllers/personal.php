@@ -329,8 +329,8 @@ class Personal extends Controller{
         // $pdf->Cell(22,10,$r->estatus,1,0,'c',0);
         $pdf->Cell(45,7,'',1,1,'c',0);
     }
-    // $pdf->Output();
-    $pdf->Output("Voluntariado".time().".pdf", "D");
+    $pdf->Output();
+    // $pdf->Output("Voluntariado".time().".pdf", "D");
     // $archivo->Output("test.pdf", "D");
     }
 

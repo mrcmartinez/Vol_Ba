@@ -81,8 +81,8 @@ class Baja extends Controller
             $pdf->Cell(50,10,$r->fecha,1,0,'c',0);
             $pdf->Cell(50,10,$r->motivo,1,1,'c',0);
         }
-        // $pdf->Output();
-        $pdf->Output("BajasVoluntariado".time().".pdf", "D");
+        $pdf->Output();
+        // $pdf->Output("BajasVoluntariado".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
         }
 }
