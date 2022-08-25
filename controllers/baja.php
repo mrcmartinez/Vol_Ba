@@ -70,15 +70,19 @@ class Baja extends Controller
         $pdf->Ln(20);
         $pdf->SetFont('Arial','B',12);
         $pdf->SetFillColor(250,150,100);
+        $pdf->Cell(6,5,'',0,0,'c',0);
         $pdf->Cell(15,10,'ID',1,0,'c',1);
         $pdf->Cell(80,10,'NOMBRE',1,0,'c',1);
         $pdf->Cell(40,10,'FECHA DE BAJA',1,1,'c',1);
         // $pdf->Cell(140,10,'MOTIVO',1,1,'c',1);
         $pdf->SetFont('Arial','',11);
+        $i=1;
         foreach($asistencia = $this->model->getBusqueda($f_inicio,$f_termino) as $r){
+            $pdf->Cell(6,5,$i,0,0,'c',0);
             $pdf->Cell(15,10,$r->id_personal,1,0,'c',0);
             $pdf->Cell(80,10,utf8_decode($r->nombre),1,0,'c',0);
             $pdf->Cell(40,10,$r->fecha,1,1,'c',0);
+            $i++;
         //    pdf->MultiCell(140,10,$r->motivo, 'LRT', 'L', 0);
         }
         $pdf->Output();

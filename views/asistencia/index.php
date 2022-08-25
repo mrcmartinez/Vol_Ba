@@ -69,7 +69,7 @@
                                     src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
                                     title="Quitar de Lista" /></a></td>
                         <td><?php echo $asistencia->id_personal; ?></td>
-                        <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha)); ?>
+                        <td><?php echo diaSemana($asistencia->fecha);echo date('d-m-Y', strtotime($asistencia->fecha));?>
                         </td>
                         <td><?php echo $asistencia->hora; ?></td>
                         <td><?php echo $asistencia->estatus; ?></td>

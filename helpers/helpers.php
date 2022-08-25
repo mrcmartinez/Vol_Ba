@@ -86,5 +86,11 @@
         }
         return $c;
     }
+    function formatearFecha($fecha){
+        $date=date_create($fecha);
+        $date->format('%d-%b-%y');
+        // $f=date_format($date, "%d-%b-%y");
+        return $date;
+    }
 
 ?>
