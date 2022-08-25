@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
@@ -16,6 +17,7 @@
         <div class="center-form">
 
             <h1 class="center">Peticiones</h1>
+            <div class="center">
 
             <form action="<?php echo constant('URL'); ?>peticion/listar" method="post">
                 <?php switch($this->radio){
@@ -38,16 +40,19 @@
 
             </form>
             <div><?php echo $this->mensaje; ?></div>
+            
+                <p>
             <form action="<?php echo constant('URL'); ?>peticion" method="POST">
-                <input type="submit" value="Justificante">
+                <input type="submit" class="btn btn-warning" value="+Justificante">
             </form>
 
             <form action="<?php echo constant('URL'); ?>peticion/nuevo" method="POST">
-                <input type="submit" value="Cambio turno">
+                <input type="submit" class="btn btn-dark" value="+Cambio turno">
             </form>
-
+            </p>
+            </div>
             <div id="div2">
-                <table class="t-tipo4">
+                <table class="table table-striped table-hover t-tipo4">
                     <thead>
                         <tr>
                             <th>Folio</th>
