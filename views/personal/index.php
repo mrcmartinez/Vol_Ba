@@ -22,10 +22,10 @@
                         <?php switch($this->radio){
                     case "Activo":
                         echo '<input type="submit" class="btn-options-check" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
-                        <input type="submit" class="btn-options" name="radio_busqueda" value="Baja" onchange="this.form.submit()">';
+                        <input type="submit" class="btn-options-baja" name="radio_busqueda" value="Baja" onchange="this.form.submit()">';
                         break;
                     case "Baja":
-                        echo '<input type="submit" class="btn-options" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
+                        echo '<input type="submit" class="btn-options-activo" name="radio_busqueda" value="Activo" onchange="this.form.submit()">
                         <input type="submit" class="btn-options-check-Red" name="radio_busqueda" value="Baja" onchange="this.form.submit()">';
                         break;
                     // case "Candidato":
@@ -66,7 +66,7 @@
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
                 </form>
 
-                <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post" target="_blank">
+                <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
                     <input type="hidden" name="filtroHorario" id="filtroHorario"

@@ -306,6 +306,7 @@ nav a{
 	}
 	.table-hover tbody tr:hover td {
 		background: aqua!important;
+		/* padding: 25px; */
 	}
 	/* thead tr th { 
 		position: sticky !important;

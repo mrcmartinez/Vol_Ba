@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css">
 </head>
 
@@ -40,7 +41,7 @@
             </form>
 
             <div id="div2">
-                <table class="t-tipo1">
+                <table class="table table-striped table-hover t-tipo1">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -48,10 +49,10 @@
                             <th>Acta</th>
                             <th>Curp</th>
                             <th>Carta</th>
-                            <th>Comprobante</th>
+                            <th>C. Domicilio</th>
                             <th>Datos</th>
                             <th>Estudio</th>
-                            <th>Examen</th>
+                            <th>Ex. Medico</th>
                             <th>INE</th>
                             <th>Solicitud</th>
                         </tr>

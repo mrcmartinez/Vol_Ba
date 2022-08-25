@@ -191,6 +191,40 @@ form{
     border-radius: 4px;
     cursor: pointer;
   }
+  .btn-options-baja{
+    width: 15%;
+    background-color: #00000048;
+    color: white;
+    font-weight: bold;
+    padding: 14px 0;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-options-baja:hover{
+    background-color: #ff0000; /* Green */
+    /* color: white; */
+    
+  }
+  .btn-options-activo{
+    width: 15%;
+    background-color: #00000048;
+    color: white;
+    font-weight: bold;
+    padding: 14px 0;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-options-activo:hover{
+    background-color: #00ff40; /* Green */
+    /* color: white; */
+    
+  }
   .btn-options-check{
     width: 15%;
     background-color: #189140;
@@ -202,6 +236,14 @@ form{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  
+  .btn-options-check:hover{
+    background-color: #2aff2a; /* Green */
+    /* color: white; */
+    
   }
   .btn-options-check-Red{
     width: 15%;
@@ -215,6 +257,9 @@ form{
     border-radius: 4px;
     cursor: pointer;
   }
+  .btn-options-check-Red:hover{
+    background-color: #fa0000; /* Green */
+  }
   .btn-options-info{
     width: 15%;
     background-color: #06adca;
@@ -227,6 +272,10 @@ form{
     border-radius: 4px;
     cursor: pointer;
   }
+  /* a:hover img{
+    background-color: rgb(237, 253, 6);
+    padding: 5px;
+} */
   @media only screen and (max-width: 1300px){
       
     #div2 {
