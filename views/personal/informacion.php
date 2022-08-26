@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo constant('URL'); ?>assets/img/logo.ico" />
     <!-- <link rel="stylesheet" href="<?php echo constant('URL'); ?>assets/css/estilos.css"> -->
 </head>
@@ -47,92 +47,104 @@
                     <input type="submit" value="Qr">
                 </form>
             </div>
-            <div class="form-info">
-                <p>
+            <div class="row g-3">
+                <div class="col-1">
                     <label for="id_personal">ID</label><br>
-                    <input type="number" name="id_personal" disabled
+                    <input type="number" class="form-control" name="id_personal" disabled
                         value="<?php echo $this->personal->id_personal; ?>">
-                </p>
-                <p>
+                </div>
+                <div class="col-5">
                     <label for="nombre">Nombre</label><br>
-                    <input type="text" name="nombre" value="<?php echo $this->personal->nombre; ?>" disabled>
-                </p>
+                    <input type="text" class="form-control" name="nombre" value="<?php echo $this->personal->nombre; ?>"
+                        disabled>
+                </div>
 
-                <p>
+                <div class="col-3">
                     <label for="apellido_paterno">Apellido Paterno</label><br>
-                    <input type="text" name="apellido_paterno" value="<?php echo $this->personal->apellido_paterno; ?>"
-                        disabled>
-                </p>
-                <p>
+                    <input type="text" class="form-control" name="apellido_paterno"
+                        value="<?php echo $this->personal->apellido_paterno; ?>" disabled>
+                </div>
+                <div class="col-3">
                     <label for="apellido_materno">Apellido Materno</label><br>
-                    <input type="text" name="apellido_materno" value="<?php echo $this->personal->apellido_materno; ?>"
-                        disabled>
-                </p>
-                <p>
+                    <input type="text" class="form-control" name="apellido_materno"
+                        value="<?php echo $this->personal->apellido_materno; ?>" disabled>
+                </div>
+                <div class="col-6">
                     <label for="calle">Calle</label><br>
-                    <input type="text" name="calle" value="<?php echo $this->personal->calle; ?>" disabled>
-                </p>
-                <p>
-                    <label for="colonia">Colonia</label><br>
-                    <input type="text" name="colonia" value="<?php echo $this->personal->colonia; ?>" disabled>
-                </p>
-                <p>
+                    <input type="text" class="form-control" name="calle" value="<?php echo $this->personal->calle; ?>"
+                        disabled>
+                </div>
+                <div class="col-2">
                     <label for="numero_exterior">Número exterior</label><br>
-                    <input type="number" name="numero_exterior" value="<?php echo $this->personal->numero_exterior; ?>"
-                        disabled>
-                </p>
+                    <input type="number" class="form-control" name="numero_exterior"
+                        value="<?php echo $this->personal->numero_exterior; ?>" disabled>
+                </div>
+                <div class="col-4">
+                    <label for="colonia">Colonia</label><br>
+                    <input type="text" class="form-control" name="colonia"
+                        value="<?php echo $this->personal->colonia; ?>" disabled>
+                </div>
 
-                <p>
+
+                <div class="col-3">
                     <label for="fecha_nacimiento">Fecha Nacimiento</label><br>
-                    <input type="date" name="fecha_nacimiento" value="<?php echo $this->personal->fecha_nacimiento; ?>"
+                    <input type="date" class="form-control" name="fecha_nacimiento"
+                        value="<?php echo $this->personal->fecha_nacimiento; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="edad">Edad</label>
+                    <input type="number" class="form-control" name="edad" value="<?php echo $this->edadCalculada; ?>"
                         disabled>
-                </p>
-                <p>
-                    <label for="edad">Edad</label><br>
-                    <input type="number" name="edad" value="<?php echo $this->edadCalculada; ?>" disabled>
-                </p>
-            </div>
-            <div class="form-info">
+                </div>
 
-                <label for="estado_civil">Estado Civil</label><br>
-                <input type="text" name="estado_civil" value="<?php echo $this->personal->estado_civil; ?>" disabled>
-
-                <p>
-                    <label for="numero_hijos">Número de hijos</label><br>
-                    <input type="number" name="numero_hijos" value="<?php echo $this->personal->numero_hijos; ?>"
+                <!-- <div class="form-info"> -->
+                <div class="col-3">
+                    <label for="estado_civil">Estado Civil</label>
+                    <input type="text" class="form-control" name="estado_civil"
+                        value="<?php echo $this->personal->estado_civil; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="numero_hijos">Número de hijos</label>
+                    <input type="number" class="form-control" name="numero_hijos"
+                        value="<?php echo $this->personal->numero_hijos; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="seguro_medico">Seguro Médico</label>
+                    <input type="text" class="form-control" name="seguro_medico"
+                        value="<?php echo $this->personal->seguro_medico; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="escolaridad">Escolaridad</label>
+                    <input type="text" class="form-control" name="escolaridad"
+                        value="<?php echo $this->personal->escolaridad; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="turno">Turno</label>
+                    <input type="text" class="form-control" name="turno" value="<?php echo $this->personal->turno; ?>"
                         disabled>
-                </p>
-                <p>
-                    <label for="seguro_medico">Seguro Médico</label><br>
-                    <input type="text" name="seguro_medico" value="<?php echo $this->personal->seguro_medico; ?>"
-                        disabled>
-                </p>
-                <p>
-                    <label for="escolaridad">Escolaridad</label><br>
-                    <input type="text" name="escolaridad" value="<?php echo $this->personal->escolaridad; ?>" disabled>
-                </p>
-                <p>
-                    <label for="turno">Turno</label><br>
-                    <input type="text" name="turno" value="<?php echo $this->personal->turno; ?>" disabled>
-                </p>
-                <p>
-                    <label for="horario">Horario</label><br>
-                    <input type="text" name="horario" value="<?php echo $this->personal->horario; ?>" disabled>
-                </p>
-                <p>
-                    <label for="actividad">Actividad</label><br>
-                    <input type="text" name="actividad" value="<?php echo $this->personal->actividad; ?>" disabled>
-                    </p>
-                    <p>
-                        <label for="fecha_ingreso">Fecha Ingreso</label><br>
-                    <input type="date" name="fecha_ingreso" value="<?php echo $this->personal->fecha_ingreso; ?>"
-                        disabled>
-                </p>
-                <p>
-                    <label for="estatus">Estatus</label><br>
-                    <input type="text" name="estatus" value="<?php echo $this->personal->estatus; ?>" disabled>
-                </p>
+                </div>
+                <div class="col-3">
+                    <label for="horario">Horario</label>
+                    <input type="text" class="form-control" name="horario"
+                        value="<?php echo $this->personal->horario; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="actividad">Actividad</label>
+                    <input type="text" class="form-control" name="actividad"
+                        value="<?php echo $this->personal->actividad; ?>" disabled>
+                </div>
+                <div class="col-3">
+                    <label for="fecha_ingreso">Fecha Ingreso</label>
+                    <input type="date" class="form-control" name="fecha_ingreso"
+                        value="<?php echo $this->personal->fecha_ingreso; ?>" disabled>
+                </div>
+                <div class="col-6">
+                    <label for="estatus">Estatus</label>
+                    <input type="text" class="form-control" name="estatus"
+                        value="<?php echo $this->personal->estatus; ?>" disabled>
+                </div>
             </div>
+            <!-- </div> -->
         </div>
     </div>
     </div>
