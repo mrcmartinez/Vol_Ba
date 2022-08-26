@@ -14,10 +14,11 @@
     <?php require 'views/header.php'; ?>
 
     <div id="main">
+        
         <div class="center-form"><?php echo $this->mensaje; ?>
             <h1 class="center"><?php echo $_SESSION['nombreVol'];?></h1>
             <h1 class="center">Información</h1>
-            <div class="section-form">
+            <div class="center">
 
                 <!-- <form action="<?php echo constant('URL'); ?>personal/listarPersonal" method="POST">
                     <input class="btn-option" type="submit" value="Regresar">
@@ -25,26 +26,26 @@
                 <form
                     action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Asistencias">
+                    <input type="submit" class="btn btn-info inf" value="Asistencias">
                 </form>
                 <form
                     action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Documentación Digital">
+                    <input type="submit" class="btn btn-info inf" value="Documentación Digital">
                 </form>
                 <form
                     action="<?php echo constant('URL'); ?>documentoFisico/verdocumentoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Documentación Fisico">
+                    <input type="submit" class="btn btn-info inf" value="Documentación Fisico">
                 </form>
                 <form
                     action="<?php echo constant('URL'); ?>telefono/vertelefonoid/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Teléfonos">
+                    <input type="submit" class="btn btn-info inf" value="Teléfonos">
                 </form>
                 <form action="<?php echo constant('URL'); ?>qr/consultar/<?php echo $this->personal->id_personal ?>"
                     method="POST">
-                    <input type="submit" value="Qr">
+                    <input type="submit" class="btn btn-info inf" value="Qr">
                 </form>
             </div>
             <div class="row g-3">
@@ -146,6 +147,7 @@
             </div>
             <!-- </div> -->
         </div>
+        
     </div>
     </div>
 
