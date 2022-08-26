@@ -102,6 +102,8 @@
                             <th class="header" scope="col">Hijos</th>
                             <th class="header" scope="col">F.nacimiento</th>
                             <th class="header" scope="col">Edad</th>
+                            <th class="header" scope="col">Colonia</th>
+                            <th class="header" scope="col">Calle</th>
                             <th class="header" scope="col">Estatus</th>
                             <th class="header" scope="col">Acciones</th>
                         </tr>
@@ -125,6 +127,8 @@
                                 <td><?php echo $personal->numero_hijos; ?></td>
                                 <td><?php echo $personal->fecha_nacimiento; ?></td>
                                 <td><?php echo edad($personal->fecha_nacimiento); ?></td>
+                                <td><?php echo $personal->colonia; ?></td>
+                                <td><?php echo $personal->calle.' #'.$personal->numero_exterior ?></td>
                                 <?php switch($personal->estatus){
                     case "Activo":
                         echo '<td class="td-activo">';echo $personal->estatus;'</td>';

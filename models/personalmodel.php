@@ -55,11 +55,11 @@ class PersonalModel extends Model{
      public function getBusquedaSig($c,$f,$h){
         $items = [];
         try{
-            $query = $this->db->connect()->query("SELECT v.*, p.escolaridad,p.numero_hijos,p.fecha_nacimiento,p.estado_civil,p.horario
+            $query = $this->db->connect()->query("SELECT v.*, p.*
                                                 FROM vistapersonalv as v
                                                 INNER JOIN personal as p
                                                 ON v.id_personal = p.id_personal
-                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c') AND p.horario like '%".$h."%' AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
+                                                WHERE (v.nombreCompleto like '%".$c."%' OR v.nombreCompletoR like '%".$c."%' OR p.escolaridad like '%".$c."%' OR p.estado_civil like '%".$c."%' OR v.id_personal ='$c' OR DATE_FORMAT(p.fecha_nacimiento,'%M') ='$c' OR p.colonia like '%".$c."%' OR p.calle like '%".$c."%') AND p.horario like '%".$h."%' AND v.estatus like '%".$f."%' ORDER BY v.nombreCompleto");
 
             while($row = $query->fetch()){
                 $item = new PersonalBanco();
@@ -67,6 +67,9 @@ class PersonalModel extends Model{
                 $item->nombre = $row['nombre'];
                 $item->apellido_paterno = $row['apellido_paterno'];
                 $item->apellido_materno = $row['apellido_materno'];
+                $item->calle = $row['calle'];
+                $item->colonia = $row['colonia'];
+                $item->numero_exterior = $row['numero_exterior'];
                 $item->escolaridad = $row['escolaridad'];
                 $item->numero_hijos = $row['numero_hijos'];
                 $item->estado_civil = $row['estado_civil'];
