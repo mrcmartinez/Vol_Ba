@@ -236,7 +236,8 @@ class Personal extends Controller{
         if($this->model->delete($id_personal,$estatus)){
             $mensaje = "Listado actualizado";
             $this->view->code = "success";
-            $this->model->updateIngreso(['id_personal' => $id_personal,'fecha_ingreso' => $fecha]);
+            $this->model->deleteBajaMotivo($id_personal);
+            // $this->model->updateIngreso(['id_personal' => $id_personal,'fecha_ingreso' => $fecha]);
         }else{
             $this->view->code = "error";
             $mensaje = "No se pudo modificar el personal";
@@ -256,9 +257,9 @@ class Personal extends Controller{
         $salida .= "<h1>Reporte</h1>";
         $salida .= "<h1>Voluntariado</h1>";
         $salida .= "<table>";
-        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th> <th>INGRESO</th> <th>ESCOLARIDAD</th> <th>CIVIL</th> <th>HIJOS</th> <th>F.NACIMIENTO</th> <th>EDAD</th></thead>";
+        $salida .= "<thead> <th>ID</th> <th>NOMBRE</th> <th>APELLIDO PATERNO</th> <th>APELLIDO MATERNO</th> <th>TURNO</th> <th>ACTIVIDAD</th> <th>ESTATUS</th> <th>INGRESO</th> <th>ESCOLARIDAD</th> <th>CIVIL</th> <th>HIJOS</th> <th>F.NACIMIENTO</th> <th>DIA</th> <th>MES</th> <th>AÑO</th> <th>EDAD</th></thead>";
         foreach($personal=$this->model->getBusquedaAll($consulta,$filtro,$filtroHorario) as $r){
-            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td> <td>".$r->fecha_ingreso."</td> <td>".$r->escolaridad."</td> <td>".$r->estado_civil."</td> <td>".$r->numero_hijos."</td> <td>".$r->fecha_nacimiento."</td> <td>".edad($r->fecha_nacimiento)."</td></tr>";
+            $salida .= "<tr> <td>".$r->id_personal."</td> <td>".utf8_decode($r->nombre)."</td> <td>".utf8_decode($r->apellido_paterno)."</td> <td>".utf8_decode($r->apellido_materno)."</td> <td>".$r->turno."</td><td>".$r->actividad."</td> <td>".$r->estatus."</td> <td>".$r->fecha_ingreso."</td> <td>".$r->escolaridad."</td> <td>".$r->estado_civil."</td> <td>".$r->numero_hijos."</td> <td>".$r->fecha_nacimiento."</td> <td>".formatDay($r->fecha_nacimiento)."</td> <td>".formatMonth($r->fecha_nacimiento)."</td> <td>".formatYear($r->fecha_nacimiento)."</td> <td>".edad($r->fecha_nacimiento)."</td></tr>";
         }
         $salida .= "</table>";
         header("Content-type: application/vnd.ms-excel");

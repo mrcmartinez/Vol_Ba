@@ -92,5 +92,19 @@
         // $f=date_format($date, "%d-%b-%y");
         return $date;
     }
-
+    function formatDay($fecha){
+        $d = strtotime($fecha);
+        $date = date("d", $d);
+        return $date;
+    }
+    function formatMonth($fecha){
+        $d = strtotime($fecha);
+        $date = date("m", $d);
+        return $date;
+    }
+    function formatYear($fecha){
+        $d = strtotime($fecha);
+        $date = date("Y", $d);
+        return $date;
+    }
 ?>

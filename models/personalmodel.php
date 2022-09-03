@@ -188,6 +188,17 @@ class PersonalModel extends Model{
             return false;
         }
     }
+    public function deleteBajaMotivo($id){
+            $query = $this->db->connect()->prepare("DELETE FROM bajas WHERE id_personal = :id_personal");
+        try{
+            $query->execute([
+                'id_personal'=> $id
+            ]);
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     public function insertBaja($datos){
         $query = $this->db->connect()->prepare('INSERT INTO bajas (ID_PERSONAL, FECHA, MOTIVO) VALUES(:id_personal, :fecha, :motivo)');
         try{
