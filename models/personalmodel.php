@@ -30,9 +30,10 @@ class PersonalModel extends Model{
         }   
     }
     public function getBusqueda($c,$f,$h){
+
          $items = [];
          try{
-             $query = $this->db->connect()->query("SELECT * FROM vistapersonalv WHERE (nombreCompleto like '%".$c."%' OR nombreCompletoR like '%".$c."%' OR turno like '%".$c."%' OR actividad like '%".$c."%' OR id_personal ='$c') AND horario like '%".$h."%' AND estatus like '%".$f."%' ORDER BY nombreCompleto");
+             $query = $this->db->connect()->query("SELECT * FROM vistapersonalv WHERE (nombreCompleto like '%".$c."%' OR nombreCompletoR like '%".$c."%' OR turno like '%".$c."%' OR actividad like '%".$c."%' OR id_personal ='$c' OR estatus like '%".$c."%') AND horario like '%".$h."%' AND estatus like '%".$f."%' ORDER BY nombreCompleto");
  
              while($row = $query->fetch()){
                  $item = new PersonalBanco();
