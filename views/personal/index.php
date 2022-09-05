@@ -66,7 +66,7 @@
                     <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png" title="Generar Excel">
                 </form>
 
-                <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post">
+                <form action="<?php echo constant('URL'); ?>personal/generarReportePDF" method="post" target="_blank">
                     <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                     <input type="hidden" name="radio_busqueda" id="radio_busqueda" value="<?php echo $this->radio; ?>">
                     <input type="hidden" name="filtroHorario" id="filtroHorario"

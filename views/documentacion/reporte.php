@@ -43,7 +43,7 @@
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/xls.png">
             </form>
 
-            <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post">
+            <form action="<?php echo constant('URL'); ?>documento/generarReportePDF" method="post" target="_blank">
                 <input type="hidden" name="caja_busqueda" id="caja_busqueda" value="<?php echo $this->consulta; ?>">
                 <input type="image" src="<?php echo constant('URL'); ?>assets/img/pdf.png">
             </form>

@@ -184,8 +184,8 @@ class Documento extends Controller
             $pdf->Cell(60, 10, $r->nombre, 1, 0, 'c', 0);
             $pdf->Cell(22, 10, $r->estatus, 1, 1, 'c', 0);
         }
-        // $pdf->Output();
-        $pdf->Output("Documnetacion".time().".pdf", "D");
+        $pdf->Output();
+        // $pdf->Output("Documnetacion".time().".pdf", "D");
         // $archivo->Output("test.pdf", "D");
     }
     function verDocumento($param = null){
