@@ -25,7 +25,7 @@
                 </form> -->
                 <form action="<?php echo constant('URL'); ?>consultaAsistencia/verasistenciaid/<?php echo $this->id?>"
                     method="POST">
-                    <input type="submit" class="btn btn-secondary inf"value="Asistencias">
+                    <input type="submit" class="btn btn-secondary inf "value="Asistencias">
                 </form>
                 <form action="<?php echo constant('URL'); ?>documento/verdocumentoid/<?php echo $this->id?>"
                     method="POST">

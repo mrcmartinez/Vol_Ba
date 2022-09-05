@@ -15,7 +15,7 @@
 
     <div id="main">
         <div class="center-form">
-            <h1 class="center">Candidatos</h1>
+            <h1 class="center">Candidatas</h1>
             <form action="<?php echo constant('URL'); ?>candidato/listar" method="POST">
                 <div class="alinear">
                     <input type="text" type="search" class="form-control" name="caja_busqueda" id="caja_busqueda" autofocus>

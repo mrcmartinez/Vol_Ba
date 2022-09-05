@@ -181,7 +181,7 @@
                             }else{
                                 ?><a
                                         href="<?php echo constant('URL') . 'personal/llamarBaja/' . $personal->id_personal; ?>"><img
-                                            src="<?php echo constant('URL'); ?>assets/img/eliminar.png"
+                                            src="<?php echo constant('URL'); ?>assets/img/down.png"
                                             title="Baja" /></a><?php
                             }?>
 

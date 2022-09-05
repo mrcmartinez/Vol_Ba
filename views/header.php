@@ -25,7 +25,7 @@
             <nav>
                 <ul>
                     <a href="<?php echo constant('URL'); ?>personal/listarPersonal">Voluntariado</a>
-                    <a href="<?php echo constant('URL'); ?>candidato/listar">Candidato</a>
+                    <a href="<?php echo constant('URL'); ?>candidato/listar">Candidata</a>
                     <a href="<?php echo constant('URL'); ?>curso/listar">Curso</a>
                     <a href="<?php echo constant('URL'); ?>peticion/listar">Peticiones</a>
                     <a href="<?php echo constant('URL'); ?>consultaFaltas">Reportes</a>
