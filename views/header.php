@@ -39,7 +39,7 @@
             <nav>
                 <a href="<?php echo constant('URL'); ?>usuario/listar">Usuarios</a>
                 <a href="<?php echo constant('URL'); ?>inicio/cerrar_sesion">Cerrar sesion</a>
-                <iframe src="<?php echo constant('URL'); ?>manualUsuario.pdf" style="width:700%; height:700px;" frameborder="0" ></iframe>
+                <iframe src="<?php echo constant('URL'); ?>manualUsuario.pdf" style="width:550%; height:700px;" frameborder="0" ></iframe>
             </nav>
             <label for="btn-menu">✖️</label>
         </div>

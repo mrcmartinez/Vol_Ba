@@ -291,11 +291,12 @@ form{
     background-color: rgb(237, 253, 6);
     padding: 5px;
 } */
-  @media only screen and (max-width: 1300px){
+/* meedia */
+  /* @media only screen and (max-width: 1300px){
       
     #div2 {
         width:  100%;
         height: 550px; 
         overflow-y: scroll; margin-bottom: 12px;
     }
-}
+} */
